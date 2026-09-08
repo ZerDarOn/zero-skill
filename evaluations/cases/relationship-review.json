@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "relationship-review",
-  "stage": "planned",
+  "stage": "active",
   "cases": [
     {
       "id": "reply-first",

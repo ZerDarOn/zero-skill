@@ -2,4 +2,6 @@
 
 范围：人物证据分析、自我复盘、思维视角与人物模拟。
 
-当前没有成品技能。新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。
+当前实验技能：`person-evidence-analysis`，用于基于用户提供的材料分析人物表达与行为证据。它尚未完成独立模型对照评测。
+
+新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类、状态及已收录技能以 [登记表](../../catalog/collection.json) 为准。

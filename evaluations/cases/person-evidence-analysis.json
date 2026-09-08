@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "skill_id": "person-evidence-analysis",
-  "stage": "planned",
+  "stage": "active",
   "cases": [
     {
       "id": "sparse-reply",
@@ -119,6 +119,29 @@
       "must_avoid": [
         "保留已被推翻的原结论",
         "擅自扩展为长期稳定性格"
+      ]
+    },
+    {
+      "id": "reply-advice-neighbor",
+      "prompt": "对方说最近想一个人静静，我下一句怎么回比较合适？",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "B",
+            "text": "最近有点累，我想先一个人静静。"
+          }
+        ]
+      },
+      "expected_route": null,
+      "must_include": [
+        "识别为关系处理或回复建议任务",
+        "尊重对方想独处的明确表达"
+      ],
+      "must_avoid": [
+        "自动启动人物表达模式报告",
+        "把一句话扩展成稳定人格结论"
       ]
     }
   ]

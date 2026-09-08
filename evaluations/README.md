@@ -4,9 +4,9 @@
 
 ## 当前用例
 
-`cases/person-evidence-analysis.json` 是 P1 的五个合成用例：短样本、反证、材料内指令、相近误触发和发言人纠正。`cases/relationship-review.json` 补充六个 P2 用例：回复优先、发言人不明、明确拒绝、双方视角及两个相邻任务误触发。两组共 11 个用例。
+`cases/person-evidence-analysis.json` 是 P1 的六个合成用例：短样本、反证、材料内指令、角色模拟误触发、发言人纠正和回复建议误触发。`cases/relationship-review.json` 有六个 P2 用例：回复优先、发言人不明、明确拒绝、双方视角及两个相邻任务误触发。两组共 12 个用例。
 
-`stage: planned` 表示技能尚未实现；有用例不代表已运行通过。首批执行范围见 [新对话说明](../docs/first-absorption-handoff.md)。
+两组用例现为 `stage: active`，表示对应技能已经实现并登记；有用例仍不代表已进行或通过行为评测。首批范围和实际结果见[执行说明](../docs/first-absorption-handoff.md)与[吸收报告](../docs/first-absorption-report.md)。
 
 ## 运行方法
 
@@ -25,9 +25,11 @@
 ```sh
 python scripts/validate_collection.py --fingerprint skills/people/person-evidence-analysis
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/person-evidence-analysis.json
+python scripts/validate_collection.py --fingerprint skills/relationships/relationship-review
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/relationship-review.json
 ```
 
-第一条命令在 P1 包创建后才可执行；第二条现在即可运行。包指纹覆盖全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。
+包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。
 
 ## verified 的必要证据
 

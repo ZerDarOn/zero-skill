@@ -2,4 +2,6 @@
 
 范围：恋爱、家庭、职场沟通、冲突复盘与对话练习。
 
-当前没有成品技能。新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。
+当前实验技能：`relationship-review`，用于复盘具体关系互动并给出表达或下一步建议。它尚未完成独立模型对照评测。
+
+新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类、状态及已收录技能以 [登记表](../../catalog/collection.json) 为准。

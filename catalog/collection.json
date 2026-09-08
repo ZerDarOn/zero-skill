@@ -44,5 +44,50 @@
     "workflow",
     "tool"
   ],
-  "skills": []
+  "skills": [
+    {
+      "id": "person-evidence-analysis",
+      "category": "people",
+      "form": "analysis",
+      "version": "0.1.0",
+      "path": "skills/people/person-evidence-analysis/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "evidence",
+        "people",
+        "correction"
+      ],
+      "upstream_ids": [
+        "nuwa",
+        "distilly",
+        "yourself",
+        "anthropic-skills",
+        "superpowers",
+        "scientific-agent-skills"
+      ],
+      "evaluation": "evaluations/cases/person-evidence-analysis.json",
+      "evidence": null
+    },
+    {
+      "id": "relationship-review",
+      "category": "relationships",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/relationships/relationship-review/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "communication",
+        "relationships",
+        "boundaries"
+      ],
+      "upstream_ids": [
+        "love-helper",
+        "anthropic-skills",
+        "superpowers",
+        "scientific-agent-skills"
+      ],
+      "evaluation": "evaluations/cases/relationship-review.json",
+      "evidence": null
+    }
+  ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "replace-with-skill-id",
+  "category": "people",
+  "form": "analysis",
+  "version": "0.1.0",
+  "path": "skills/people/replace-with-skill-id/SKILL.md",
+  "status": "draft",
+  "tags": ["evidence"],
+  "upstream_ids": [],
+  "evaluation": null,
+  "evidence": null
+}

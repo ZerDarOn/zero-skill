@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "categories": [
+    {
+      "id": "engineering",
+      "title": "开发与工程",
+      "description": "架构、开发、排障、测试、审查与部署"
+    },
+    {
+      "id": "research",
+      "title": "研究与分析",
+      "description": "资料研究、来源核验、行业与数据分析"
+    },
+    {
+      "id": "creation",
+      "title": "写作与创作",
+      "description": "写作、故事、脚本、设计与演示"
+    },
+    {
+      "id": "productivity",
+      "title": "办公与效率",
+      "description": "文档、表格、会议与知识管理"
+    },
+    {
+      "id": "people",
+      "title": "人物与思维",
+      "description": "人物证据分析、自我复盘、思维视角与人物模拟"
+    },
+    {
+      "id": "relationships",
+      "title": "关系与沟通",
+      "description": "恋爱、家庭、职场沟通、冲突复盘与对话练习"
+    },
+    {
+      "id": "life",
+      "title": "生活与娱乐",
+      "description": "兴趣学习、旅行规划、游戏与文化娱乐"
+    }
+  ],
+  "forms": [
+    "analysis",
+    "perspective",
+    "simulation",
+    "workflow",
+    "tool"
+  ],
+  "skills": []
+}

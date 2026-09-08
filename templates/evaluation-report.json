@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "skill_id": "replace-with-skill-id",
+  "skill_version": "0.1.0",
+  "package_sha256": "replace-with-64-character-sha256",
+  "cases_sha256": "replace-with-case-file-sha256",
+  "run_date": "2026-09-08",
+  "host": "填写宿主及版本",
+  "model": "填写模型及配置",
+  "reviewer": "填写复核人",
+  "comparison": "baseline-and-skill",
+  "results": [
+    {
+      "case_id": "basic",
+      "baseline_output": "无skill时的原始输出",
+      "skill_output": "启用skill时的原始输出",
+      "passed": false,
+      "rationale": "基于用例要求逐项说明",
+      "baseline_duration_seconds": null,
+      "skill_duration_seconds": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "skill_id": "replace-with-skill-id",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "basic",
+      "prompt": "替换为现实用户请求",
+      "input": {
+        "kind": "synthetic",
+        "text": "替换为合成输入"
+      },
+      "expected_route": "replace-with-skill-id",
+      "must_include": [
+        "可观察的必要行为"
+      ],
+      "must_avoid": [
+        "可观察的错误行为"
+      ]
+    }
+  ]
+}

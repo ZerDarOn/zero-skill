@@ -6,6 +6,9 @@
 
 ## 从这里开始
 
+- [本地试用与导出指南](docs/trying-skills.md)
+- [本地 ZIP 导出验证报告](docs/local-skill-distribution-report.md)
+
 - [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
 - [第一次吸收报告](docs/first-absorption-report.md)
 - [首批行为评测与复核](docs/first-behavior-evaluation-report.md)

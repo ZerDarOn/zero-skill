@@ -72,7 +72,7 @@
       "id": "relationship-review",
       "category": "relationships",
       "form": "workflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/relationships/relationship-review/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -87,6 +87,27 @@
         "scientific-agent-skills"
       ],
       "evaluation": "evaluations/cases/relationship-review.json",
+      "evidence": null
+    },
+    {
+      "id": "public-person-perspective",
+      "category": "people",
+      "form": "perspective",
+      "version": "0.1.1",
+      "path": "skills/people/public-person-perspective/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "evidence",
+        "public-sources",
+        "perspective"
+      ],
+      "upstream_ids": [
+        "nuwa",
+        "distilly",
+        "yourself",
+        "tong-jincheng"
+      ],
+      "evaluation": "evaluations/cases/public-person-perspective.json",
       "evidence": null
     }
   ]

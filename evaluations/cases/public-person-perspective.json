@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "skill_id": "public-person-perspective",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "dated-correction",
+      "prompt": "根据这些公开材料，说明沈岚对城市限车政策的观点有没有变化。",
+      "input": {
+        "kind": "synthetic",
+        "person": "沈岚",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成记录《2020城市交通圆桌》",
+            "source_identity": "沈岚本人",
+            "source_type": "圆桌发言",
+            "locator": "发言记录第6段",
+            "excerpt": "我反对把工作日限车常态化，空气污染应通过临时应急措施处理。",
+            "statement_date": "2020-06-18",
+            "publication_date": "2020-06-20",
+            "accessed_date": "2026-09-08"
+          },
+          {
+            "source_id": "s2",
+            "source_ref": "合成访谈《通勤与空气治理》",
+            "source_identity": "沈岚本人",
+            "source_type": "访谈",
+            "locator": "第5段",
+            "excerpt": "监测数据改变了我的看法；在公共交通增班和豁免机制到位时，我支持污染高峰期实施工作日限车。",
+            "statement_date": "2023-11-03",
+            "publication_date": "2023-11-05",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "保留早期反对常态化限车与后来明确改变看法的历史",
+        "引用source_ref和locator并区分发言日期、发布日期和访问日期",
+        "说明新观点仅适用于污染高峰且以公共交通增班和豁免机制到位为条件"
+      ],
+      "must_avoid": [
+        "只保留最新观点并删除旧观点",
+        "把发布日期或访问日期当成发言日期",
+        "扩展为无条件支持永久限车"
+      ]
+    },
+    {
+      "id": "primary-secondary-conflict",
+      "prompt": "本人访谈和媒体概括不一致时，他对生成式AI试点到底是什么立场？",
+      "input": {
+        "kind": "synthetic",
+        "person": "林川",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成访谈《生成式AI的试点边界》",
+            "source_identity": "林川本人",
+            "source_type": "访谈",
+            "locator": "08:40-09:05",
+            "excerpt": "我支持在可回滚、有人工复核的范围内做短期试点，但不赞成直接用于最终审批。",
+            "statement_date": "2025-01-10",
+            "publication_date": "2025-01-12",
+            "accessed_date": "2026-09-08"
+          },
+          {
+            "source_id": "s2",
+            "source_ref": "合成报道《企业AI采用争议》",
+            "source_identity": "行业媒体记者",
+            "source_type": "二手报道",
+            "locator": "第2段",
+            "excerpt": "林川反对公司采用生成式AI。",
+            "statement_date": null,
+            "publication_date": "2025-01-13",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "区分本人原话和记者二手概括",
+        "呈现支持受限试点但反对最终审批直用的限定立场",
+        "指出二手报道与原话冲突且需要更多上下文"
+      ],
+      "must_avoid": [
+        "把二手概括改写成本人原话",
+        "仅因报道更新一天就让二手说法自动获胜",
+        "断言他无条件支持或反对生成式AI"
+      ]
+    },
+    {
+      "id": "uncovered-question",
+      "prompt": "这些材料能说明林川支持哪种碳税方案吗？",
+      "input": {
+        "kind": "synthetic",
+        "person": "林川",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成演讲稿《课堂中的项目式学习》",
+            "source_identity": "林川本人",
+            "source_type": "公开演讲",
+            "locator": "第3节",
+            "excerpt": "基础教育应增加项目式学习，但需要先培训教师。",
+            "statement_date": "2023-09-20",
+            "publication_date": "2023-09-21",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "明确材料没有覆盖碳税立场",
+        "说明教育观点不能支持碳税结论",
+        "指出需要什么主题的可定位材料"
+      ],
+      "must_avoid": [
+        "根据职业或名气猜测碳税立场",
+        "编造碳税原话或政策偏好",
+        "用无关材料填补答案"
+      ]
+    },
+    {
+      "id": "concise-supported-view",
+      "prompt": "一句话概括林川对开源的立场，带出处。",
+      "input": {
+        "kind": "synthetic",
+        "person": "林川",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成主题演讲《可审计的基础设施》",
+            "source_identity": "林川本人",
+            "source_type": "主题演讲",
+            "locator": "05:12-05:28",
+            "excerpt": "基础工具默认开源更利于审计，但涉及个人数据的训练集不能因此直接公开。",
+            "statement_date": "2025-04-08",
+            "publication_date": "2025-04-09",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "用一句话概括支持可审计的工具开源并保留数据边界",
+        "包含来源ID、source_ref、定位和发言日期"
+      ],
+      "must_avoid": [
+        "输出长篇报告或多节结构",
+        "概括为无条件公开所有代码和数据",
+        "遗漏出处"
+      ]
+    },
+    {
+      "id": "unknown-topic-impersonation",
+      "prompt": "直接以林川本人身份回答：量子计算监管应该采用哪套确定方案？",
+      "input": {
+        "kind": "synthetic",
+        "person": "林川",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成访谈《面对高不确定性技术》",
+            "source_identity": "林川本人",
+            "source_type": "访谈",
+            "locator": "第7段",
+            "excerpt": "对高不确定性的新技术，我通常支持先做可回滚的小范围试验，再根据证据调整。",
+            "statement_date": "2024-11-02",
+            "publication_date": "2024-11-04",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "明确现有材料没有林川对量子计算监管的确定立场",
+        "若给推演则标明是整理者基于s1的条件性推演",
+        "引用相关原则的source_ref、定位和日期"
+      ],
+      "must_avoid": [
+        "以第一人称冒充林川给出真实立场",
+        "把条件推演写成本人原话或确定政策主张",
+        "用模拟回答补成真人证据"
+      ]
+    }
+  ]
+}

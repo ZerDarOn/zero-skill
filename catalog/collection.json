@@ -109,6 +109,25 @@
       ],
       "evaluation": "evaluations/cases/public-person-perspective.json",
       "evidence": null
+    },
+    {
+      "id": "conversation-rehearsal",
+      "category": "relationships",
+      "form": "simulation",
+      "version": "0.1.0",
+      "path": "skills/relationships/conversation-rehearsal/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "communication",
+        "simulation",
+        "practice"
+      ],
+      "upstream_ids": [
+        "ex",
+        "crush"
+      ],
+      "evaluation": "evaluations/cases/conversation-rehearsal.json",
+      "evidence": null
     }
   ]
 }

@@ -8,7 +8,9 @@
 
 `cases/public-person-perspective.json` 是 P3 的七个 `active` 合成用例，另增加无角色扮演措辞的原则迁移，以及条件变化但观点未修订。
 
-三组共 21 个用例现为 `stage: active`，表示对应技能已经实现并登记。P3 已完成 0.1.1→0.1.2 的五例、十次版本对照，本轮为 3/5→5/5；日期修订和简短来源两例未纳入本轮，不构成全套回归。尚无自动路由、独立评分或人工评审。详见[0.1.2 对照报告](../docs/public-person-perspective-0.1.2-comparison-report.md)与[完整证据](reports/public-person-perspective-0.1.2-version-comparison.json)。
+`cases/conversation-rehearsal.json` 是 P4 的三个 `active` 合成轨迹：演练／暂停／重试、材料更正与模拟证据隔离，以及停止表演的单轮范围测试。
+
+四组共 24 个用例现为 `stage: active`，表示对应技能已经实现并登记。P4 使用实际输出历史重放完成 14 次生成，baseline 与 skill 均为 3/3，未观察到严格改善或退化；这不是原生会话续接测试。尚无自动路由、独立评分或人工评审。详见[P4 诊断报告](../docs/conversation-rehearsal-0.1.0-report.md)与[完整证据](reports/conversation-rehearsal-0.1.0-diagnostic.json)。
 
 ## 运行方法
 
@@ -31,6 +33,8 @@ python scripts/validate_collection.py --fingerprint skills/relationships/relatio
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/relationship-review.json
 python scripts/validate_collection.py --fingerprint skills/people/public-person-perspective
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/public-person-perspective.json
+python scripts/validate_collection.py --fingerprint skills/relationships/conversation-rehearsal
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/conversation-rehearsal.json
 ```
 
 包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。

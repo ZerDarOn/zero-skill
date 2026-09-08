@@ -2,7 +2,7 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第一次吸收 v0.1**。已有三个可试用的 `experimental` 技能：`person-evidence-analysis` 0.1.0、`relationship-review` 0.1.1 和 `public-person-perspective` 0.1.2。P3 已完成 0.1.1→0.1.2 的五例、十次版本对照，本轮由 3/5 改善到 5/5、无观察到退化；仍是单次合成诊断，未达到 `verified`，也未完成自动发现路由或人工评审。上游项目是候选参考，不代表已引入代码。
+当前阶段：**第一次吸收 v0.1**。已有四个可试用的 `experimental` 技能：`person-evidence-analysis` 0.1.0、`relationship-review` 0.1.1、`public-person-perspective` 0.1.2 和 `conversation-rehearsal` 0.1.0。P4 三条轨迹的 baseline 与 skill 均为 3/3，未观察到严格改善或退化；仍是单次合成诊断，未达到 `verified`，也未完成自动发现路由或人工评审。上游项目是候选参考，不代表已引入代码。
 
 ## 从这里开始
 
@@ -14,6 +14,7 @@
 - [P3 0.1.0 运行与 0.1.1 复核修订](docs/public-person-perspective-implementation-report.md)
 - [P3 0.1.0 精确诊断证据](evaluations/reports/public-person-perspective-0.1.0-diagnostic.json)
 - [P3 0.1.2 版本对照报告](docs/public-person-perspective-0.1.2-comparison-report.md)
+- [P4 沟通演练 0.1.0 实施与诊断](docs/conversation-rehearsal-0.1.0-report.md)
 - [第二轮高星项目研究](docs/research-round-02.md)
 - [整体方案与建设顺序](docs/architecture.md)
 - [上游设计取舍](docs/upstream-design-review.md)

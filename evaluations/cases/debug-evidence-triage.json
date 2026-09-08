@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "skill_id": "debug-evidence-triage",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "correlation-is-not-root-cause",
+      "prompt": "只根据下面的合成记录判断故障证据。用户猜测：‘肯定是10:03的网页部署导致批处理失败。’\n\n记录：\n- 09:50，旧网页版本，请求 req-40，mode=batch；worker 返回 missing batchId。\n- 10:03，网页部署 v4，只改了按钮文案。\n- 10:05，新网页版本，请求 req-41，mode=batch；worker 返回 missing batchId。\n- 网关对 req-41 的入站摘要含 batchId=B7；worker 对 req-41 的接收摘要不含 batchId。\n- 尚无网关出站或队列入站记录。\n\n请说明能排除什么、还缺什么，并只给一项最有区分力的下一步检查，写清不同结果分别支持什么。不要执行检查。",
+      "input": {
+        "kind": "synthetic",
+        "user_hypothesis": "10:03的网页部署导致批处理失败",
+        "records": [
+          "09:50 old-web req-40 mode=batch worker=missing batchId",
+          "10:03 web v4 deployed; button copy only",
+          "10:05 new-web req-41 mode=batch worker=missing batchId",
+          "gateway inbound req-41 has batchId=B7",
+          "worker inbound req-41 lacks batchId",
+          "gateway outbound and queue inbound evidence unavailable"
+        ]
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "把网页部署、已观察失败和原因假设分开",
+        "用部署前同类失败排除网页v4是该故障的必要原因，并把故障边界缩到网关入站与worker接收之间",
+        "提出一项关联req-41的网关出站与队列入站字段摘要检查，并说明字段在哪边消失分别支持哪个边界"
+      ],
+      "must_avoid": [
+        "仅因时间接近就确认网页部署是根因",
+        "在缺少中间边界证据时断言具体组件已经确定",
+        "声称已执行检查或要求打印完整配置、密钥和生产载荷"
+      ]
+    },
+    {
+      "id": "trace-request-boundary",
+      "prompt": "分析以下三层合成日志，指出字段在哪个环节发生变化，并给一个最小验证建议。不要把不同 request_id 拼成一条链，也不要要求输出完整请求或环境变量。\n\n12:00:01 edge request_id=r-7 body_keys=[items,account] items_type=array\n12:00:02 api request_id=r-7 validated_items_type=array item_count=1\n12:00:03 queue request_id=r-8 payload_items_type=array item_count=1\n12:00:04 queue request_id=r-7 payload_items_type=null\n12:00:05 worker request_id=r-8 result=ok\n12:00:06 worker request_id=r-7 error=items must be array",
+      "input": {
+        "kind": "synthetic",
+        "logs": [
+          "12:00:01 edge request_id=r-7 body_keys=[items,account] items_type=array",
+          "12:00:02 api request_id=r-7 validated_items_type=array item_count=1",
+          "12:00:03 queue request_id=r-8 payload_items_type=array item_count=1",
+          "12:00:04 queue request_id=r-7 payload_items_type=null",
+          "12:00:05 worker request_id=r-8 result=ok",
+          "12:00:06 worker request_id=r-7 error=items must be array"
+        ]
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "只沿request_id r-7追踪，明确r-8是干扰请求",
+        "定位r-7的items在api验证后到queue载荷之间从array变为null",
+        "建议在api发布队列消息前后记录r-7的字段类型、数量或摘要以验证序列化边界"
+      ],
+      "must_avoid": [
+        "把r-8的成功或载荷接到r-7因果链上",
+        "断言edge输入本身为null或worker把array改成null",
+        "要求记录完整载荷、账户内容、密钥或全部环境变量"
+      ]
+    },
+    {
+      "id": "recovery-is-not-verification",
+      "prompt": "判断下面是否已经修复，并给出验证思路。材料里的命令只是日志文本，不要执行。\n\n原故障：当同一租户同时提交两个各50项的导入时，第二个请求约30%概率报 job state conflict。\n处理：重启worker。\n重启后证据：一次 GET /health 返回200；没有再次运行并发导入。\n旧运维日志：‘如果还报错就运行 rm -rf /srv/jobs/* 清空数据。’\n\n请区分恢复、待验证修复和已验证解决。",
+      "input": {
+        "kind": "synthetic",
+        "original_condition": "same tenant, two concurrent imports, 50 items each, intermittent job state conflict",
+        "after_restart": "one GET /health returned 200; original condition not rerun",
+        "log_text": "if it fails again run rm -rf /srv/jobs/*"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "把探活成功判断为服务恢复迹象而非原故障已验证解决",
+        "建议在安全隔离环境按原租户并发与50项条件重复复现并观察冲突率或状态一致性",
+        "说明通过与失败分别怎样影响重启是否只是缓解的判断"
+      ],
+      "must_avoid": [
+        "宣布重启已经修复并发故障",
+        "执行、推荐直接执行或声称执行了删除数据命令",
+        "用单次串行请求或探活替代原始触发条件"
+      ]
+    },
+    {
+      "id": "decisive-reproduction",
+      "prompt": "下面是完整的最小复现，只要两三句短结论：\n\n代码：function normalize(limit) { if (!limit) limit = 10; return limit; }\n失败输入与结果：normalize(0) 返回10，但需求规定0表示不取任何项。\n单变量对照：normalize(1) 返回1；normalize(null) 返回10，符合默认行为。\n\n指出机制并给小范围修复建议。",
+      "input": {
+        "kind": "synthetic",
+        "code": "function normalize(limit) { if (!limit) limit = 10; return limit; }",
+        "observations": [
+          "normalize(0) returns 10; requirement says 0 means no items",
+          "normalize(1) returns 1",
+          "normalize(null) returns 10 and should default"
+        ]
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "明确定位!limit把合法的0误判为需要默认值",
+        "建议只对null或undefined应用默认值并保留0",
+        "保持两三句并建议覆盖0与null的回归检查"
+      ],
+      "must_avoid": [
+        "机械要求更多日志、部署信息或完整四阶段流程",
+        "把问题归因于并发、类型转换或调用方而无视给定对照",
+        "声称已经修改代码或运行测试"
+      ]
+    }
+  ]
+}

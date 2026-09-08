@@ -151,11 +151,11 @@
       "stars_display": "282,884",
       "license_declared": "MIT",
       "review_level": "entrypoint-reviewed",
-      "evidence_url": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/verification-before-completion/SKILL.md",
+      "evidence_url": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/systematic-debugging/SKILL.md",
       "revision": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
       "imported": false,
-      "adopt": "用例驱动指令改进、完成前确认真实证据",
-      "caveat": "方法需按任务缩减；不继承强制全流程"
+      "adopt": "用例驱动改进、故障边界追踪与完成前核对证据",
+      "caveat": "已审阅同提交下多个入口；方法按任务缩减，不继承强制全流程或技能串联"
     },
     {
       "id": "scientific-agent-skills",

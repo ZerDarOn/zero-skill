@@ -164,6 +164,42 @@
       ],
       "evaluation": "evaluations/cases/obsidian-note-edit.json",
       "evidence": null
+    },
+    {
+      "id": "debug-evidence-triage",
+      "category": "engineering",
+      "form": "analysis",
+      "version": "0.1.0",
+      "path": "skills/engineering/debug-evidence-triage/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "debugging",
+        "evidence",
+        "triage"
+      ],
+      "upstream_ids": [
+        "superpowers"
+      ],
+      "evaluation": "evaluations/cases/debug-evidence-triage.json",
+      "evidence": null
+    },
+    {
+      "id": "claim-evidence-review",
+      "category": "research",
+      "form": "analysis",
+      "version": "0.1.0",
+      "path": "skills/research/claim-evidence-review/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "claims",
+        "evidence",
+        "sources"
+      ],
+      "upstream_ids": [
+        "scientific-agent-skills"
+      ],
+      "evaluation": "evaluations/cases/claim-evidence-review.json",
+      "evidence": null
     }
   ]
 }

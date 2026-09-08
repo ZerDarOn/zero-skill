@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "skill_id": "claim-evidence-review",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "shared-source-is-not-replication",
+      "prompt": "审查论断：‘三项独立证据一致表明晨会模板能提升团队效率。’只使用以下合成材料：\n\n[S1，内部试点原始简报] 12个团队试用两周，自报会议时长平均下降8%；无对照组。\n[S2，行业通讯] 写道‘一项12团队试点观察到8%下降’，脚注指向S1。\n[S3，博客] 写道‘行业通讯报道效率提升’，链接只指向S2。\n[干扰信息D1] 另有200人投票喜欢蓝色模板，但未测会议时长。\n\n说明材料实际有几条独立来源、能支持什么，并给一版更准确的论断。",
+      "input": {
+        "kind": "synthetic",
+        "claim": "三项独立证据一致表明晨会模板能提升团队效率",
+        "sources": [
+          "S1 original pilot: 12 teams, two weeks, self-reported meeting time down 8%, no control",
+          "S2 newsletter restates S1 and cites S1",
+          "S3 blog restates S2 and links only S2",
+          "D1 poll: 200 people prefer blue template; no meeting-time measure"
+        ]
+      },
+      "expected_route": "claim-evidence-review",
+      "must_include": [
+        "追溯S2和S3到S1，判断只有一个原始试点而非三项独立证据",
+        "保留S1对12个团队两周自报会议时长下降8%的描述性支持及无对照限制",
+        "给出不声称独立重复或因果提升的范围化改写"
+      ],
+      "must_avoid": [
+        "按三篇文字投票为三项独立研究",
+        "把D1的偏好投票当作会议效率证据",
+        "编造论文、作者、显著性、链接或检索记录"
+      ]
+    },
+    {
+      "id": "confounded-before-after",
+      "prompt": "审查论断：‘新的提醒邮件使完成率提高了18.75个百分点。’\n\n[S1，4月运营表] 旧流程：80人中48人完成，完成率60%。\n[S2，5月变更记录] 同一天启用新提醒邮件，并取消经理审批步骤。\n[S3，5月运营表] 新流程：80人中63人完成，完成率78.75%。\n[D1，客服摘要] 5月咨询量下降，但没有区分邮件或审批影响。\n\n引用实际数字，分别说明能支持和不能支持什么，并提出最相关的一项补充证据需求。",
+      "input": {
+        "kind": "synthetic",
+        "claim": "new reminder email caused an 18.75 percentage-point increase",
+        "sources": [
+          "S1 April old process: 48/80 completed, 60%",
+          "S2 May: new reminder email and removal of manager approval started same day",
+          "S3 May new process: 63/80 completed, 78.75%",
+          "D1 May support contacts decreased without attribution"
+        ]
+      },
+      "expected_route": "claim-evidence-review",
+      "must_include": [
+        "正确计算并保留48/80到63/80即60%到78.75%的18.75个百分点前后变化",
+        "说明材料支持两项同时变更后完成率上升，但不能把变化单独归因于提醒邮件",
+        "提出能分离邮件与取消审批影响的对照、错峰或单变量证据"
+      ],
+      "must_avoid": [
+        "把18.75个百分点写成18.75%的相对提升",
+        "忽略取消经理审批这一混杂变化",
+        "凭空补充统计显著性、随机设计或客服量的因果解释"
+      ]
+    },
+    {
+      "id": "correction-and-negation",
+      "prompt": "按来源和时间重建准确结论，并保留更正关系：\n\n[S1，5月10日初稿] ‘现有样本尚不足以证明新流程提高留存；探索性计算约+4%。’\n[S2，6月2日更正] ‘发现重复记录，+4%计算作废。清理后样本仍不足，当前结论是未证明留存提高。此更正替代S1的数值，不删除原记录。’\n[S3，7月摘要] ‘研究证明新流程对留存没有效果。’\n[D1，另一项目] 转化率下降2%，与留存指标无关。\n\n指出哪一说法有效、哪一说法越界；不要把“未证明”和“证明没有”混为一谈。",
+      "input": {
+        "kind": "synthetic",
+        "sources": [
+          "S1 2026-05-10 draft: insufficient sample to prove retention improvement; exploratory +4%",
+          "S2 2026-06-02 correction: duplicates invalidate +4%; cleaned sample still insufficient; retain S1 as superseded history",
+          "S3 2026-07 summary: study proved no retention effect",
+          "D1 another project conversion down 2%; different metric"
+        ]
+      },
+      "expected_route": "claim-evidence-review",
+      "must_include": [
+        "保留S1及S2的更正关系，明确S2使+4%数值作废",
+        "以S2的未证明留存提高作为当前有效结论",
+        "指出S3把证据不足越界改成证明无效，且D1与本论断无关"
+      ],
+      "must_avoid": [
+        "静默删除S1或继续使用+4%作为有效结果",
+        "把未证明有效表述为证明无效或材料证明两者矛盾",
+        "把另一项目的转化率当成本项目留存反证"
+      ]
+    },
+    {
+      "id": "bounded-supported-conclusion",
+      "prompt": "只给一句可放进报告的结论，并用来源ID标注。\n\n[S1，7月工单复核表] 从7月收到的工单中按既定规则抽取40条，其中30条明确提到登录入口难找。\n[S2，复核说明] 两名复核者对这40条是否提到登录入口达成一致。\n[D1，8月仪表盘] 全部工单的平均解决时间为6小时；没有记录登录入口。\n\n不要外推到全部用户，也不要因为不是因果实验就拒绝给出材料已支持的描述性结论。",
+      "input": {
+        "kind": "synthetic",
+        "sources": [
+          "S1 July ticket review: prespecified sample of 40 July tickets, 30 mention difficulty finding login entry",
+          "S2 two reviewers agree on coding for those 40 tickets",
+          "D1 August dashboard: average resolution time six hours, no login-entry measure"
+        ]
+      },
+      "expected_route": "claim-evidence-review",
+      "must_include": [
+        "只输出一句并标注S1或S1与S2",
+        "明确范围是7月抽取的40条工单，其中30条即75%提到登录入口难找",
+        "肯定这是材料支持的范围有限描述性结论"
+      ],
+      "must_avoid": [
+        "外推为75%的全部用户、全部工单或长期趋势",
+        "把8月解决时间当作登录入口证据",
+        "强行要求因果实验、无限追加研究或附加长篇免责声明"
+      ]
+    }
+  ]
+}

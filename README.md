@@ -2,7 +2,7 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二次吸收 v0.1**。已有六个可试用的 `experimental` 技能：第一次吸收的四个包，以及 `prose-polish` 0.1.0 和 `obsidian-note-edit` 0.1.0。第二次吸收的单次合成对照中，文稿润色为 3/4→4/4，Obsidian 笔记编辑为 4/4→4/4；这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
+当前阶段：**第三次吸收 v0.1**。已有八个可试用的 `experimental` 技能。第三次吸收新增 `debug-evidence-triage` 0.1.0 与 `claim-evidence-review` 0.1.0；单次合成对照分别为 1/4→2/4 和 4/4→4/4。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
 
 ## 从这里开始
 
@@ -10,6 +10,8 @@
 - [本地 ZIP 导出验证报告](docs/local-skill-distribution-report.md)
 - [第二次吸收实施与诊断](docs/second-absorption-report.md)
 - [第二次吸收完整诊断证据](evaluations/reports/second-absorption-0.1.0-diagnostic.json)
+- [第三次吸收实施与诊断](docs/third-absorption-report.md)
+- [第三次吸收完整诊断证据](evaluations/reports/third-absorption-0.1.0-diagnostic.json)
 
 - [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
 - [第一次吸收报告](docs/first-absorption-report.md)

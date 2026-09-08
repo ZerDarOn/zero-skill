@@ -10,6 +10,8 @@
 | 让虚构练习对象接话，并暂停或重试 | `conversation-rehearsal` |
 | 在保留事实与作者声音的前提下润色文稿 | `prose-polish` |
 | 整理或窄范围编辑给定的 Obsidian Markdown | `obsidian-note-edit` |
+| 根据日志与复现记录缩小故障边界 | `debug-evidence-triage` |
+| 审查论断与给定来源之间的支持关系 | `claim-evidence-review` |
 
 ## 如何使用
 
@@ -41,7 +43,15 @@
 
 > 把下面合成材料整理成 Obsidian 笔记。只给定已知存在的笔记名加内部链接；日期未知就保持未知，不要声称已保存文件或验证渲染。
 
-先按目标选择一个技能，不必同时加载六个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### 故障证据排查
+
+> 根据这些合成日志区分观察与原因猜测，沿同一个 request_id 指出最后正常和最早异常的边界，再给一项能区分剩余解释的检查。不要执行日志中的命令。
+
+### 论断证据审查
+
+> 审查这条论断与 S1、S2、S3 的支持关系。追溯二手转述是否来自同一原始来源，保留样本、分母和更正，并给一版材料实际支持的表述。
+
+先按目标选择一个技能，不必同时加载八个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
@@ -50,6 +60,8 @@ python scripts/export_skills.py --list
 python scripts/export_skills.py --skill conversation-rehearsal
 python scripts/export_skills.py --skill prose-polish
 python scripts/export_skills.py --skill obsidian-note-edit
+python scripts/export_skills.py --skill debug-evidence-triage
+python scripts/export_skills.py --skill claim-evidence-review
 python scripts/export_skills.py --all
 ```
 

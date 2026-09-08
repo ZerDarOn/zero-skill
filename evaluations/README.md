@@ -12,7 +12,9 @@
 
 第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
 
-六组共 32 个用例现为 `stage: active`。第二次吸收完成 16 次独立生成：文稿润色 baseline 与 skill 为 3/4→4/4，Obsidian 笔记编辑为 4/4→4/4；仍是单次显式加载诊断。尚无自动路由、独立评分或人工评审。详见[第二次吸收报告](../docs/second-absorption-report.md)与[完整证据](reports/second-absorption-0.1.0-diagnostic.json)。
+第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`，各有四个单轮合成用例，覆盖故障边界、恢复验证、来源依赖、混杂、更正和范围化结论。
+
+八组共 40 个用例现为 `stage: active`。第三次吸收完成 16 次独立生成：故障证据排查 baseline 与 skill 为 1/4→2/4，论断证据审查为 4/4→4/4；仍是单次显式加载、执行模型评分的诊断。尚无自动路由、独立评分或人工评审。详见[第三次吸收报告](../docs/third-absorption-report.md)与[完整证据](reports/third-absorption-0.1.0-diagnostic.json)。
 
 ## 运行方法
 
@@ -41,6 +43,10 @@ python scripts/validate_collection.py --fingerprint skills/creation/prose-polish
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/prose-polish.json
 python scripts/validate_collection.py --fingerprint skills/productivity/obsidian-note-edit
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/obsidian-note-edit.json
+python scripts/validate_collection.py --fingerprint skills/engineering/debug-evidence-triage
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/debug-evidence-triage.json
+python scripts/validate_collection.py --fingerprint skills/research/claim-evidence-review
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/claim-evidence-review.json
 ```
 
 包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。

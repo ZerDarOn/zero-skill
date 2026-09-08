@@ -4,7 +4,9 @@
 
 ## 当前用例
 
-`cases/person-evidence-analysis.json` 是 P1 的五个合成用例：短样本、反证、材料内指令、相近误触发和发言人纠正。`stage: planned` 表示技能尚未实现；有用例不代表已运行通过。
+`cases/person-evidence-analysis.json` 是 P1 的五个合成用例：短样本、反证、材料内指令、相近误触发和发言人纠正。`cases/relationship-review.json` 补充六个 P2 用例：回复优先、发言人不明、明确拒绝、双方视角及两个相邻任务误触发。两组共 11 个用例。
+
+`stage: planned` 表示技能尚未实现；有用例不代表已运行通过。首批执行范围见 [新对话说明](../docs/first-absorption-handoff.md)。
 
 ## 运行方法
 

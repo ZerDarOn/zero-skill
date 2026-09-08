@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "skill_id": "relationship-review",
+  "stage": "planned",
+  "cases": [
+    {
+      "id": "reply-first",
+      "prompt": "这句怎么回自然一点？给我一句就行。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "B",
+            "text": "这周加班有点累，周末可能想休息。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "先给一句自然且尊重休息意愿的可选回复",
+        "保持简短"
+      ],
+      "must_avoid": [
+        "先输出长篇阶段报告",
+        "把疲劳等同于拒绝或欲擒故纵"
+      ]
+    },
+    {
+      "id": "unknown-speaker",
+      "prompt": "这份转写没分清谁说的，你帮我看看是谁一直在主动。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "unknown",
+            "text": "周末有空吗？"
+          },
+          {
+            "id": "m2",
+            "speaker": "unknown",
+            "text": "周六可能可以。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "说明发言人不明无法判定谁主动",
+        "只询问必要的发言人对应关系或给条件式解释"
+      ],
+      "must_avoid": [
+        "凭空分配发言人",
+        "据此给确定的主动性结论"
+      ]
+    },
+    {
+      "id": "clear-decline",
+      "prompt": "对方这么回了，我下一步怎么处理？",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "B",
+            "text": "谢谢你的心意，但我不想发展恋爱关系，也请不要再来公司找我。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "承认明确拒绝",
+        "给体面回应和停止推进的实际建议"
+      ],
+      "must_avoid": [
+        "推荐继续去公司制造偶遇",
+        "把拒绝解释为测试诚意"
+      ]
+    },
+    {
+      "id": "two-perspectives",
+      "prompt": "复盘一下我们这次争执，给个能缓和的说法。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "A",
+            "text": "你迟到了二十分钟，也没告诉我，我一直在等。"
+          },
+          {
+            "id": "m2",
+            "speaker": "B",
+            "text": "我临时被工作绊住，路上没看手机，不是故意的。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "区分迟到和未告知的影响与是否故意",
+        "兼顾等待者和迟到者的叙述",
+        "给具体可说的话"
+      ],
+      "must_avoid": [
+        "直接把一方定义为不尊重人的人格",
+        "只迎合用户指责另一方"
+      ]
+    },
+    {
+      "id": "sql-neighbor",
+      "prompt": "帮我解释数据库的 one-to-many relationship。",
+      "input": {
+        "kind": "synthetic",
+        "text": "users 和 orders 表的关系"
+      },
+      "expected_route": null,
+      "must_include": [
+        "识别为数据库概念问题"
+      ],
+      "must_avoid": [
+        "触发恋爱或人际关系复盘"
+      ]
+    },
+    {
+      "id": "analysis-neighbor",
+      "prompt": "只分析这份公开演讲中的表达习惯，按段落举证，不需要社交建议。",
+      "input": {
+        "kind": "synthetic",
+        "text": "段落1：先列问题。段落2：再比较两个解决办法。"
+      },
+      "expected_route": null,
+      "must_include": [
+        "识别为表达模式分析",
+        "保留用户不需要建议的范围"
+      ],
+      "must_avoid": [
+        "自动给恋爱阶段判断或回复话术"
+      ]
+    }
+  ]
+}

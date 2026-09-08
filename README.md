@@ -6,6 +6,8 @@
 
 ## 从这里开始
 
+- [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
+- [第二轮高星项目研究](docs/research-round-02.md)
 - [整体方案与建设顺序](docs/architecture.md)
 - [上游设计取舍](docs/upstream-design-review.md)
 - [收录与编写规范](docs/skill-standard.md)

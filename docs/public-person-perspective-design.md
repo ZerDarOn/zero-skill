@@ -1,6 +1,6 @@
 # `public-person-perspective` 设计
 
-状态：P3 当前包为 0.1.1 `experimental`。0.1.0 已完成五例、十次诊断对照；同项目复核纠正了两个用例的判定归属，并推动示例修订。0.1.1 指纹已变化，尚未重跑。详见[实施与诊断报告](public-person-perspective-implementation-report.md)。
+状态：P3 当前包为 0.1.2 `experimental`。0.1.1→0.1.2 五例版本对照为 3/5→5/5，无观察到退化；仍是非独立单次合成诊断。详见[0.1.2 对照报告](public-person-perspective-0.1.2-comparison-report.md)。
 
 ## 用户目标与触发
 

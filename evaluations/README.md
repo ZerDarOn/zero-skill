@@ -6,9 +6,9 @@
 
 `cases/person-evidence-analysis.json` 是 P1 的六个合成用例：短样本、反证、材料内指令、角色模拟误触发、发言人纠正和回复建议误触发。`cases/relationship-review.json` 有八个 P2 用例：回复优先、发言人不明、明确拒绝、双方视角、通知说法冲突、单方否认动机及两个相邻任务误触发。两组共 14 个用例。
 
-`cases/public-person-perspective.json` 是 P3 的五个 `active` 合成用例，覆盖有日期的观点修订、本人原话与二手转述冲突、材料未覆盖问题、简短有据回答和未知议题的人物冒充边界。
+`cases/public-person-perspective.json` 是 P3 的七个 `active` 合成用例，另增加无角色扮演措辞的原则迁移，以及条件变化但观点未修订。
 
-三组共 19 个用例现为 `stage: active`，表示对应技能已经实现并登记。首批 8 个正向用例已完成 baseline / skill 真实配对运行；P2 0.1.1 又完成 3 例、6 次归因诊断；P3 的 0.1.0 包完成 5 例、10 次诊断，随后同项目复核纠正了两个用例的判定归属。当前 P3 0.1.1 因示例修订导致指纹变化，尚无对应运行。尚无自动路由、独立评分或人工评审。P3 结论见[实施与诊断报告](../docs/public-person-perspective-implementation-report.md)，原始评分及当前复核见[诊断证据](reports/public-person-perspective-0.1.0-diagnostic.json)。
+三组共 21 个用例现为 `stage: active`，表示对应技能已经实现并登记。P3 已完成 0.1.1→0.1.2 的五例、十次版本对照，本轮为 3/5→5/5；日期修订和简短来源两例未纳入本轮，不构成全套回归。尚无自动路由、独立评分或人工评审。详见[0.1.2 对照报告](../docs/public-person-perspective-0.1.2-comparison-report.md)与[完整证据](reports/public-person-perspective-0.1.2-version-comparison.json)。
 
 ## 运行方法
 

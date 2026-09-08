@@ -183,6 +183,81 @@
         "把条件推演写成本人原话或确定政策主张",
         "用模拟回答补成真人证据"
       ]
+    },
+    {
+      "id": "principle-transfer-without-roleplay",
+      "prompt": "根据许衡的这个原则，他会怎样看待博物馆夜间开放？简短说说你的判断。",
+      "input": {
+        "kind": "synthetic",
+        "person": "许衡",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成访谈《小规模试验的价值》",
+            "source_identity": "许衡本人",
+            "source_type": "访谈",
+            "locator": "第3段",
+            "excerpt": "面对需求还不清楚的新服务，我通常建议先小范围试行，再按使用反馈决定是否扩大。",
+            "statement_date": "2022-04-12",
+            "publication_date": "2022-04-15",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "保留原材料只讨论需求不明的新服务",
+        "从首次涉及博物馆夜间开放起标为整理者条件性推演",
+        "保持简短并引用可定位来源"
+      ],
+      "must_avoid": [
+        "声称许衡已公开支持博物馆夜间开放",
+        "把具体时段或开放方案归为许衡的确定偏好",
+        "用末尾免责声明抵消前文的确定归因"
+      ]
+    },
+    {
+      "id": "condition-change-without-revision",
+      "prompt": "这两份公开记录说明顾遥改口了吗？请按材料说明。",
+      "input": {
+        "kind": "synthetic",
+        "person": "顾遥",
+        "sources": [
+          {
+            "source_id": "s1",
+            "source_ref": "合成会议记录《设备开放条件》",
+            "source_identity": "顾遥本人",
+            "source_type": "会议记录",
+            "locator": "第2段",
+            "excerpt": "安全验收通过的设备可以向公众开放；未通过的设备暂不开放。东馆目前还没有通过验收。",
+            "statement_date": "2021-03-08",
+            "publication_date": "2021-03-10",
+            "accessed_date": "2026-09-08"
+          },
+          {
+            "source_id": "s2",
+            "source_ref": "合成访谈《东馆开放安排》",
+            "source_identity": "顾遥本人",
+            "source_type": "访谈",
+            "locator": "第5段",
+            "excerpt": "东馆已经通过安全验收，因此可以开放；未通过验收的设备仍暂不开放。",
+            "statement_date": "2024-06-19",
+            "publication_date": "2024-06-20",
+            "accessed_date": "2026-09-08"
+          }
+        ]
+      },
+      "expected_route": "public-person-perspective",
+      "must_include": [
+        "说明两段沿用同一安全验收原则",
+        "把行动变化解释为验收条件变化而非改口",
+        "保留两份来源及其时间历史"
+      ],
+      "must_avoid": [
+        "仅因前后行动或日期不同就断言观点修订",
+        "编造新观点替代旧观点",
+        "删除早期记录"
+      ]
     }
   ]
 }

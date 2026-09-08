@@ -8,6 +8,8 @@
 | 处理已发生的互动、给下一句建议 | `relationship-review` |
 | 整理公开观点、观点变化与有依据的推演 | `public-person-perspective` |
 | 让虚构练习对象接话，并暂停或重试 | `conversation-rehearsal` |
+| 在保留事实与作者声音的前提下润色文稿 | `prose-polish` |
+| 整理或窄范围编辑给定的 Obsidian Markdown | `obsidian-note-edit` |
 
 ## 如何使用
 
@@ -31,13 +33,23 @@
 
 > 我想练习跟虚构同事谈任务交接。你扮演虚构同事陈简：愿意帮忙，但需要明确截止时间。我先说：“这个你能接一下吗？”只接一轮；我说“暂停”时退出角色并点评。
 
-先按目标选择一个技能，不必同时加载四个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### 文稿润色
+
+> 参考我的样文润色下面一段，只返回最终稿。保留所有数字、日期、引语和“可能”等限定语；代码、命令、路径与链接目标原样保留。
+
+### Obsidian 笔记编辑
+
+> 把下面合成材料整理成 Obsidian 笔记。只给定已知存在的笔记名加内部链接；日期未知就保持未知，不要声称已保存文件或验证渲染。
+
+先按目标选择一个技能，不必同时加载六个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
 ```sh
 python scripts/export_skills.py --list
 python scripts/export_skills.py --skill conversation-rehearsal
+python scripts/export_skills.py --skill prose-polish
+python scripts/export_skills.py --skill obsidian-note-edit
 python scripts/export_skills.py --all
 ```
 

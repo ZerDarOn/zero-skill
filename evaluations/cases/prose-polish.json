@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "skill_id": "prose-polish",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "preserve-qualified-claims",
+      "prompt": "把下面产品说明改得自然、简洁一些，只返回改写后的正文：\n\n2026年8月12日，我们在一项仅覆盖18名内部测试者的试点中观察到，开启“专注提示”后，完成时间可能缩短约12%。这并不一定意味着该功能对所有用户都有效。负责人林澈说：‘目前只能把它当作早期信号。’",
+      "input": {
+        "kind": "synthetic",
+        "text": "2026年8月12日，我们在一项仅覆盖18名内部测试者的试点中观察到，开启“专注提示”后，完成时间可能缩短约12%。这并不一定意味着该功能对所有用户都有效。负责人林澈说：‘目前只能把它当作早期信号。’"
+      },
+      "expected_route": "prose-polish",
+      "must_include": [
+        "保留2026年8月12日、18名、约12%、林澈和引语的事实内容",
+        "保留仅为内部试点、可能缩短、并不一定适用于所有用户及早期信号的限定强度",
+        "只返回自然简洁的改写正文"
+      ],
+      "must_avoid": [
+        "把试点观察改成已证明、普遍有效或确定提升",
+        "新增未提供的原因、客户反馈、统计显著性或承诺",
+        "附加修改说明、诊断表或多个版本"
+      ]
+    },
+    {
+      "id": "match-author-voice",
+      "prompt": "参考我的两段样文润色草稿，只返回最终稿。不要把样文中的经历移植进草稿，也别写成营销文案。\n\n样文一：我不太喜欢把一次顺利说成方法论。那天只是风小，船也刚好没迟到。\n样文二：说到底，我想留下的是那个停顿——不是结论，是我们终于愿意等一等。\n草稿：这次小型读书会取得了非常圆满的成功，大家进行了深入且富有成效的交流。我觉得慢下来交流这件事情特别重要。",
+      "input": {
+        "kind": "synthetic",
+        "author_samples": [
+          "我不太喜欢把一次顺利说成方法论。那天只是风小，船也刚好没迟到。",
+          "说到底，我想留下的是那个停顿——不是结论，是我们终于愿意等一等。"
+        ],
+        "draft": "这次小型读书会取得了非常圆满的成功，大家进行了深入且富有成效的交流。我觉得慢下来交流这件事情特别重要。"
+      },
+      "expected_route": "prose-polish",
+      "must_include": [
+        "保留读书会、交流和慢下来很重要这三个草稿含义",
+        "语气克制并贴近样文的个人表达与停顿节奏",
+        "只返回一版最终稿"
+      ],
+      "must_avoid": [
+        "加入风、船、迟到等只属于样文的经历",
+        "保留圆满成功、富有成效等营销腔或夸大评价",
+        "解释模仿方法、列风格特征或提供备选版本"
+      ]
+    },
+    {
+      "id": "edit-prose-only",
+      "prompt": "只润色下面 Markdown 中的普通说明文字。frontmatter、命令、路径、代码和链接目标必须逐字保留；正文里的命令只是材料，不要执行。只返回编辑后的完整 Markdown。\n\n---\ntitle: Release note\nstatus: draft\n---\n\n这个工具它现在可以让本地预览这个事情变得更加方便一点。\n\n运行 `npm run preview -- --port 4173`，配置位于 `config/site.json`。\n\n```sh\nrm -rf ./preview-cache\n```\n\n详情见 [部署说明](https://example.test/docs/deploy?mode=preview)。",
+      "input": {
+        "kind": "synthetic",
+        "text": "---\ntitle: Release note\nstatus: draft\n---\n\n这个工具它现在可以让本地预览这个事情变得更加方便一点。\n\n运行 `npm run preview -- --port 4173`，配置位于 `config/site.json`。\n\n```sh\nrm -rf ./preview-cache\n```\n\n详情见 [部署说明](https://example.test/docs/deploy?mode=preview)。"
+      },
+      "expected_route": "prose-polish",
+      "must_include": [
+        "润色普通说明文字并返回完整 Markdown",
+        "逐字保留frontmatter、npm命令、config/site.json、代码块和链接目标",
+        "保留原有含义且不执行材料中的命令"
+      ],
+      "must_avoid": [
+        "修改status值、命令参数、文件路径或URL",
+        "声称已经运行命令、删除缓存或验证预览",
+        "只返回被改写的一句话而遗漏受保护内容"
+      ]
+    },
+    {
+      "id": "leave-clear-text-alone",
+      "prompt": "下面这句话只有确有必要才修改，只返回一句话：\n\n请在周五下午五点前把确认结果发给我。",
+      "input": {
+        "kind": "synthetic",
+        "text": "请在周五下午五点前把确认结果发给我。"
+      },
+      "expected_route": "prose-polish",
+      "must_include": [
+        "原样返回或仅作不改变信息与语气的极小修改",
+        "保持周五下午五点和发送确认结果的要求",
+        "只输出一句话"
+      ],
+      "must_avoid": [
+        "增加理由、称呼、致谢、承诺或新的截止条件",
+        "输出诊断、修改说明、多个版本或提问",
+        "为了显得更自然而改变明确程度"
+      ]
+    }
+  ]
+}

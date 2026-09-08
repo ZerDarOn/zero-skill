@@ -2,12 +2,14 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第一次吸收 v0.1**。已有四个可试用的 `experimental` 技能：`person-evidence-analysis` 0.1.0、`relationship-review` 0.1.1、`public-person-perspective` 0.1.2 和 `conversation-rehearsal` 0.1.0。P4 三条轨迹的 baseline 与 skill 均为 3/3，未观察到严格改善或退化；仍是单次合成诊断，未达到 `verified`，也未完成自动发现路由或人工评审。上游项目是候选参考，不代表已引入代码。
+当前阶段：**第二次吸收 v0.1**。已有六个可试用的 `experimental` 技能：第一次吸收的四个包，以及 `prose-polish` 0.1.0 和 `obsidian-note-edit` 0.1.0。第二次吸收的单次合成对照中，文稿润色为 3/4→4/4，Obsidian 笔记编辑为 4/4→4/4；这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
 
 ## 从这里开始
 
 - [本地试用与导出指南](docs/trying-skills.md)
 - [本地 ZIP 导出验证报告](docs/local-skill-distribution-report.md)
+- [第二次吸收实施与诊断](docs/second-absorption-report.md)
+- [第二次吸收完整诊断证据](evaluations/reports/second-absorption-0.1.0-diagnostic.json)
 
 - [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
 - [第一次吸收报告](docs/first-absorption-report.md)

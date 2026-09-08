@@ -128,6 +128,42 @@
       ],
       "evaluation": "evaluations/cases/conversation-rehearsal.json",
       "evidence": null
+    },
+    {
+      "id": "prose-polish",
+      "category": "creation",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/creation/prose-polish/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "editing",
+        "prose",
+        "voice"
+      ],
+      "upstream_ids": [
+        "humanizer"
+      ],
+      "evaluation": "evaluations/cases/prose-polish.json",
+      "evidence": null
+    },
+    {
+      "id": "obsidian-note-edit",
+      "category": "productivity",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/productivity/obsidian-note-edit/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "markdown",
+        "notes",
+        "obsidian"
+      ],
+      "upstream_ids": [
+        "obsidian-skills"
+      ],
+      "evaluation": "evaluations/cases/obsidian-note-edit.json",
+      "evidence": null
     }
   ]
 }

@@ -2,4 +2,6 @@
 
 范围：写作、故事、脚本、设计与演示。
 
-当前没有成品技能。新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。
+当前有 `prose-polish` 0.1.0，用于在保留事实、限定语、作者声音和受保护片段的前提下润色文稿。它是 `experimental`，不提供规避检测或文件发布能力。
+
+新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。

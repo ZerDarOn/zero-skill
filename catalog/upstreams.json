@@ -241,12 +241,12 @@
       "observed_on": "2026-09-08",
       "stars_display": "48,002",
       "license_declared": "MIT",
-      "review_level": "readme-reviewed",
-      "evidence_url": "https://github.com/kepano/obsidian-skills/blob/a1dc48e68138490d522c04cbf5822214c6eb1202/README.md",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/kepano/obsidian-skills/blob/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown/SKILL.md",
       "revision": "a1dc48e68138490d522c04cbf5822214c6eb1202",
       "imported": false,
       "adopt": "围绕开放格式的具体知识管理产出",
-      "caveat": "README 审阅；命令行操作与文本编辑的依赖不同"
+      "caveat": "本轮只审阅入口的属性、链接、嵌入与 callout 段落；未审查命令行工具"
     },
     {
       "id": "agentic-awesome-skills",

@@ -10,7 +10,9 @@
 
 `cases/conversation-rehearsal.json` 是 P4 的三个 `active` 合成轨迹：演练／暂停／重试、材料更正与模拟证据隔离，以及停止表演的单轮范围测试。
 
-四组共 24 个用例现为 `stage: active`，表示对应技能已经实现并登记。P4 使用实际输出历史重放完成 14 次生成，baseline 与 skill 均为 3/3，未观察到严格改善或退化；这不是原生会话续接测试。尚无自动路由、独立评分或人工评审。详见[P4 诊断报告](../docs/conversation-rehearsal-0.1.0-report.md)与[完整证据](reports/conversation-rehearsal-0.1.0-diagnostic.json)。
+第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
+
+六组共 32 个用例现为 `stage: active`。第二次吸收完成 16 次独立生成：文稿润色 baseline 与 skill 为 3/4→4/4，Obsidian 笔记编辑为 4/4→4/4；仍是单次显式加载诊断。尚无自动路由、独立评分或人工评审。详见[第二次吸收报告](../docs/second-absorption-report.md)与[完整证据](reports/second-absorption-0.1.0-diagnostic.json)。
 
 ## 运行方法
 
@@ -35,6 +37,10 @@ python scripts/validate_collection.py --fingerprint skills/people/public-person-
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/public-person-perspective.json
 python scripts/validate_collection.py --fingerprint skills/relationships/conversation-rehearsal
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/conversation-rehearsal.json
+python scripts/validate_collection.py --fingerprint skills/creation/prose-polish
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/prose-polish.json
+python scripts/validate_collection.py --fingerprint skills/productivity/obsidian-note-edit
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/obsidian-note-edit.json
 ```
 
 包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。

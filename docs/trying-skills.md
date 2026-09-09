@@ -18,6 +18,8 @@
 | 根据转录和统计复盘会议沟通行为 | `meeting-communication-review` |
 | 把给定背景、选项与约束整理成决策简报 | `decision-brief-draft` |
 | 为给定文件清单规划安全、可核对的整理去向 | `file-organization-plan` |
+| 在真实可用时段内安排学习、练习、纠错与调整 | `study-practice-plan` |
+| 把给定事实或虚构材料改编为连续的漫画分镜 | `comic-storyboard-draft` |
 
 ## 如何使用
 
@@ -81,7 +83,15 @@
 
 > 根据这份合成文件清单给出逐项整理方案，保留原路径、拟议目标和理由；处理大小写冲突，未知日期保持未知，不要移动、覆盖或删除文件。
 
-先按目标选择一个技能，不必同时加载十四个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### 学习与练习计划
+
+> 根据这些合成课程任务、先修关系和明确可用时段安排学习、做题与错因核对。所有活动都计入容量；如果时间不足，说明缩减和未覆盖内容，不要保证通过。
+
+### 漫画分镜起草
+
+> 把下面合成材料改成四格漫画分镜。每格写可画动作和图内文字状态，保持人物、道具和位置连续；创作对白不要冒充材料中的真实原话，本次不要生成图片。
+
+先按目标选择一个技能，不必同时加载十六个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
@@ -98,6 +108,8 @@ python scripts/export_skills.py --skill react-performance-review
 python scripts/export_skills.py --skill meeting-communication-review
 python scripts/export_skills.py --skill decision-brief-draft
 python scripts/export_skills.py --skill file-organization-plan
+python scripts/export_skills.py --skill study-practice-plan
+python scripts/export_skills.py --skill comic-storyboard-draft
 python scripts/export_skills.py --all
 ```
 

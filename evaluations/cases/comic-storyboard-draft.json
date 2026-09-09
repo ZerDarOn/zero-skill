@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "skill_id": "comic-storyboard-draft",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "continuous-four-panel-action",
+      "prompt": "为下面的合成场景写恰好四格、可直接交给画师的漫画分镜，不需要封面、人物设定表或生图提示词。初始状态：小岚站在房间左侧，钥匙在中央桌上的关闭蓝盒里，锁着的门在右侧；目标是她拿到钥匙并打开门。每格分别写可画的画面／动作和图内文字；允许完全无图内文字。动作、人物、钥匙、盒子和门的位置要连续，不限定镜头语言。不要声称已经绘制图片。",
+      "input": {
+        "kind": "synthetic",
+        "panel_count": 4,
+        "initial_state": "Lan at left; key inside closed blue box on center table; locked door at right",
+        "goal": "Lan obtains the key and opens the door",
+        "deliverable": "drawable scene/action plus in-image text status for each panel"
+      },
+      "expected_route": "comic-storyboard-draft",
+      "must_include": [
+        "【用户要求】只给恰好四格分镜，每格都有可画的画面或动作，并分别说明图内文字或无文字",
+        "【输入事实】从小岚在左、钥匙在中央桌上关闭蓝盒内、门在右且上锁开始，最终让她拿到钥匙并打开门",
+        "【任务不变量】用可见动作连接取钥匙和开门，保持同一人物、钥匙、盒子与门的状态连续；镜头选择可自由"
+      ],
+      "must_avoid": [
+        "【输入事实】让钥匙无动作地瞬移、复制或提前出现在手中，让门未解锁即打开，或改变蓝盒和初始位置而无说明",
+        "【用户要求】增加第五格、封面、人物设定表或生图提示词，遗漏任一格的画面／动作",
+        "【任务不变量】声称已经绘图、生成图片、观察成图或完成读者测试"
+      ]
+    },
+    {
+      "id": "metaphor-keeps-the-rule",
+      "prompt": "把下面明确虚构的桌游规则改成给新玩家看的三格知识漫画分镜，可以使用、修正或放弃“护罩像盾牌”的比喻：护罩卡正确放在单位旁时，仅在规则规定的回合内延缓污染扩散，不能保证单位不受损，也不能替代撤离；材料没有给出具体回合数。每格写画面和图内文字。不要补造回合数，也不要让画面或对白把护罩画成无限有效、放错位置也有效或无需撤离。",
+      "input": {
+        "kind": "synthetic",
+        "panel_count": 3,
+        "material": "In this fictional board game, a shield card correctly placed beside a unit delays pollution spread only for the rule-defined turns; it cannot guarantee the unit avoids damage or replace evacuation. The turn count is not provided.",
+        "optional_metaphor": "the shield card is like a shield",
+        "audience": "new players"
+      },
+      "expected_route": "comic-storyboard-draft",
+      "must_include": [
+        "【输入事实】恰好三格中保留“正确放在单位旁”“只在规则规定回合内延缓污染扩散”“不能保证无损且仍需撤离”的关键边界，允许不同叙事顺序",
+        "【任务不变量】若使用盾牌比喻，画面或文字必须限制其作用；也可修正或完全放弃比喻，只要虚构规则准确",
+        "【用户要求】每格区分可画画面与图内文字，面向新玩家形成连贯短漫画"
+      ],
+      "must_avoid": [
+        "【输入事实】用画面或文字宣称护罩保证单位不受损、无限期有效、放错位置也有效或可以替代撤离",
+        "【任务不变量】编造具体回合数、胜负结果、测试结果或材料没有给出的因果",
+        "【用户要求】超过或少于三格，只解释知识而不交分镜，或声称已经生成并验证图片"
+      ]
+    },
+    {
+      "id": "fiction-is-not-a-quote",
+      "prompt": "根据这段纯合成事迹写三格人物漫画分镜：虚构工程师林舟做了三次桌面装置原型；前两次失败后，她分别记录故障现象并修改一个变量；第三次装置稳定运行。材料没有提供任何逐字原话。可以使用旁白，也可以加入明确标为“创作台词”的对白；不能把创作对白写成林舟的真实原话或添加虚构采访、日记等来源。每格写画面和文字归属，不生成图片。",
+      "input": {
+        "kind": "synthetic",
+        "character": "fictional engineer Lin Zhou",
+        "facts": "three desktop-device prototypes; after each of the first two failures, she recorded the symptom and changed one variable; the third ran stably",
+        "verbatim_quotes": "none",
+        "panel_count": 3
+      },
+      "expected_route": "comic-storyboard-draft",
+      "must_include": [
+        "【输入事实】用恰好三格保留两次失败后各记录现象并只改一个变量、第三次稳定运行的事迹顺序",
+        "【任务不变量】所有文字都明确归为旁白、说明或创作台词；若写角色对白，必须让读者知道它不是材料提供的真实原话",
+        "【用户要求】每格提供可画场景和文字归属，直接交分镜且不生成图片"
+      ],
+      "must_avoid": [
+        "【输入事实】把未提供的话用引号或其他形式标成林舟真实原话，添加采访、日记、论文或链接等虚构来源",
+        "【任务不变量】把合成人物当成现实公众人物，改变原型次数、失败处理或第三次结果",
+        "【用户要求】增加格数、只复述材料而无可画场景，或声称已绘制、发布或核实真人资料"
+      ]
+    },
+    {
+      "id": "revise-one-silent-panel",
+      "prompt": "只返回修订后的第二格制作说明，不重写第一格或第三格。完整三格无对白草稿：第一格固定——走廊左端，小羽伸手追一只正滚向右端长椅下的红球；第三格固定——长椅旁，小羽蹲着双手抱住红球。原第二格动作不清楚，请改成能连接两侧的可画动作。三格都禁止图内文字，包括对白、旁白、标签和拟声词；“第二格：”等图外制作说明不算图内文字。不要生成图片。",
+      "input": {
+        "kind": "synthetic",
+        "scope": "revise panel 2 only",
+        "panel_1_fixed": "at the left end of a corridor, Yu reaches after a red ball rolling under a bench at the right end",
+        "panel_3_fixed": "beside the bench, Yu crouches and holds the red ball with both hands",
+        "in_image_text": "none in all panels",
+        "production_labels": "allowed outside the image"
+      },
+      "expected_route": "comic-storyboard-draft",
+      "must_include": [
+        "【用户要求】只返回第二格的制作说明；使用“第二格”等图外标签可以，但不复述或改写第一、第三格",
+        "【输入事实】第二格用可见动作把左侧追逐、球滚到右端长椅下，连接到第三格在长椅旁蹲下抱球的状态",
+        "【任务不变量】第二格不建议任何图内文字；只给可画动作说明也满足要求，不强制额外写出“无文字”，动作和位置可有多种合理设计"
+      ],
+      "must_avoid": [
+        "【用户要求】重写第一格或第三格，返回完整三格，添加图内文字，或只讲修改原则而不给第二格",
+        "【输入事实】让球无动作离开长椅区域、提前被抱住后又重新滚动，或让小羽位置无法连接固定两格",
+        "【任务不变量】把图外制作说明误当成图内对白，添加会与固定格冲突、取代小羽或破坏衔接的元素，或声称已经生成图片"
+      ]
+    }
+  ]
+}

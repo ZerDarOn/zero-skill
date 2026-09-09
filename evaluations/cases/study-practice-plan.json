@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "skill_id": "study-practice-plan",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "fit-the-available-slots",
+      "prompt": "根据这份完整的合成安排，直接给逐时段学习计划，不要另问问题。截止时间是本周日 18:00；可用时段只有周二 40 分钟、周四 75 分钟、周六 50 分钟，周三明确不可用。任务：基础概念首次学习至少 35 分钟并做 15 分钟回忆练习；应用题练习至少 40 分钟并留 20 分钟核对错因，且必须在基础概念首次学习之后；另做一次 30 分钟综合自测。休息、练习和反馈都要计入各时段容量，不要求用满所有时间。请明确保留一段大于 0 分钟的未分配缓冲，具体长度自定；不要保证学习效果。",
+      "input": {
+        "kind": "synthetic",
+        "deadline": "Sunday 18:00",
+        "available_slots": [
+          "Tuesday: 40 minutes",
+          "Thursday: 75 minutes",
+          "Saturday: 50 minutes"
+        ],
+        "unavailable": "Wednesday",
+        "requirements": [
+          "foundations first pass: at least 35 minutes",
+          "foundations recall practice: 15 minutes",
+          "application practice: at least 40 minutes, after foundations first pass",
+          "application error review: 20 minutes",
+          "mixed self-check: 30 minutes"
+        ],
+        "capacity_note": "all study, practice, feedback, and any scheduled rest count toward slot capacity; keep an explicit positive amount of unallocated buffer, with no fixed minimum"
+      },
+      "expected_route": "study-practice-plan",
+      "must_include": [
+        "【用户要求】给周二、周四和周六的逐时段计划或明确某段留空，所有安排分别不超过 40、75、50 分钟且不占用周三",
+        "【输入事实】基础概念首次学习在应用题练习之前，并覆盖 35 分钟首次学习、15 分钟回忆、40 分钟应用练习、20 分钟错因核对和 30 分钟综合自测的最低需求",
+        "【用户要求】把学习、练习、反馈和主动安排的休息都计入容量，并明确保留大于 0 分钟的未分配缓冲；缓冲长度不固定，不承诺通过或持久掌握"
+      ],
+      "must_avoid": [
+        "【输入事实】倒置明确先修关系，在周三安排任务，或让任一时段的总安排超过其容量",
+        "【任务不变量】隐去练习、反馈或主动安排的休息耗时以制造可行性，把未使用时间伪装成已安排，或把 165 分钟全部排满而没有正缓冲",
+        "【用户要求】只追问而不交计划，编造额外可用时间、考试规则或学习效果保证"
+      ]
+    },
+    {
+      "id": "confidence-versus-performance",
+      "prompt": "把今天仅有的 90 分钟练习时间分给三个合成主题，并解释优先依据；比例不要求唯一，三个主题都要有明确的时间决定，有充分理由时可以是 0 分钟。三组刚完成的 10 题练习难度相同：主题甲重要性高、自评高，只对 4 题，主要错在核心步骤；主题乙重要性中、自评低，对 9 题；主题丙重要性高、自评中，对 6 题。计划中要留出实际做题和核对错因的时间。不要把自信或单次练习当成永久掌握证据，也不要套用固定双倍时长。",
+      "input": {
+        "kind": "synthetic",
+        "total_minutes": 90,
+        "topics": {
+          "A": "high importance; high confidence; 4/10 on a recent equal-difficulty practice; core-step errors",
+          "B": "medium importance; low confidence; 9/10 on a recent equal-difficulty practice",
+          "C": "high importance; medium confidence; 6/10 on a recent equal-difficulty practice"
+        },
+        "comparability": "all three recent 10-question practices had equal difficulty",
+        "required_activity_types": [
+          "practice",
+          "error review"
+        ]
+      },
+      "expected_route": "study-practice-plan",
+      "must_include": [
+        "【用户要求】为甲、乙、丙各给一个明确时间决定，总计不超过 90 分钟；有充分理由的 0 分钟可接受，并为实际做题与错因核对都留出可见时间",
+        "【任务不变量】综合重要性和同难度练习表现，使甲的高自评不能掩盖 4/10 与核心步骤错误，也不只因乙自评低就机械给乙最多时间",
+        "【任务不变量】把自评作为有限线索、把本次表现作为当前证据而非永久掌握结论；允许多种有依据的时间比例"
+      ],
+      "must_avoid": [
+        "【输入事实】忽略甲或丙的重要性与错误证据，仅按高低自信排序，或声称乙已经永久掌握",
+        "【任务不变量】强制低自评主题获得高自评主题两倍时间，或把 4/10、9/10、6/10 改写成未提供的长期平均",
+        "【用户要求】安排超过 90 分钟，省略练习或错因核对，或保证成绩提升"
+      ]
+    },
+    {
+      "id": "replan-without-rewriting-history",
+      "prompt": "只调整下面旧计划尚未完成的部分，直接给更新。合成记录：周一“模块 A 练习 45 分钟”已经完成；周二“模块 B 练习 30 分钟”没有完成；原计划周四 60 分钟、周五 45 分钟继续学习。新冲突：周四现在完全不可用；截止前新增可用时段只有周六 60 分钟，周五 45 分钟仍可用。剩余需求：模块 B 需要 30 分钟练习和 15 分钟错因核对；模块 C 需要 40 分钟练习和 10 分钟自测。请在剩余容量内重排，保留真实完成与遗漏历史，不要重做已完成的 A 来掩盖遗漏。",
+      "input": {
+        "kind": "synthetic",
+        "history": [
+          "Monday: module A practice 45 minutes completed",
+          "Tuesday: module B practice 30 minutes missed"
+        ],
+        "old_future": [
+          "Thursday: 60 minutes",
+          "Friday: 45 minutes"
+        ],
+        "change": "Thursday is now unavailable; Saturday 60 minutes added; Friday 45 minutes remains",
+        "remaining_requirements": [
+          "module B: 30 minutes practice plus 15 minutes error review",
+          "module C: 40 minutes practice plus 10 minutes self-check"
+        ]
+      },
+      "expected_route": "study-practice-plan",
+      "must_include": [
+        "【输入事实】不重做已完成的 A，也不声称遗漏的 B 已完成；只返回剩余计划可通过，若提及周一／周二历史则必须准确",
+        "【输入事实】只使用仍可用的周五 45 分钟与周六 60 分钟，覆盖 B 的 30+15 分钟和 C 的 40+10 分钟剩余需求且各时段不超容量",
+        "【任务不变量】更新只针对剩余部分，周四取消和改用周五／周六可由计划结构直接体现，不强制另写解释段；不同合理分配都可"
+      ],
+      "must_avoid": [
+        "【输入事实】在周四安排学习，把周二遗漏写成已完成，或删除周一已完成记录",
+        "【任务不变量】重新安排 A 并把它计作剩余需求完成，遗漏 B 或 C 的练习、反馈／自测成本，或超过时段容量",
+        "【用户要求】把历史事实改成其他状态、编造新的时间窗口，或声称日历已经更新"
+      ]
+    },
+    {
+      "id": "compressed-plan-with-tradeoffs",
+      "prompt": "截止前只有周二 45 分钟和周四 45 分钟，请给总计不超过 90 分钟的压缩学习计划并明确取舍。合成课程剩余最低需求合计 160 分钟：基础方法 40 分钟，是其余三项的先修，必须完整完成后才能安排其余项；安全规则 50 分钟，重要性高；高级变式 40 分钟，重要性中；综合练习与错因核对 30 分钟，重要性高。容量不足以全部覆盖；基础方法不可压缩，其余三项允许只完成部分，但必须明确哪些没有达到最低需求。请保留实际练习和纠错，不要用“之后再补”假装截止前已经覆盖，也不要承诺通过。",
+      "input": {
+        "kind": "synthetic",
+        "available_slots": [
+          "Tuesday: 45 minutes",
+          "Thursday: 45 minutes"
+        ],
+        "total_capacity_minutes": 90,
+        "minimum_demand_minutes": 160,
+        "topics": [
+          "foundation method: exactly the full 40-minute minimum must be completed before any of the other three items",
+          "safety rules: 50 minutes; high importance",
+          "advanced variants: 40 minutes; medium importance",
+          "mixed practice and error review: 30 minutes; high importance"
+        ]
+      },
+      "expected_route": "study-practice-plan",
+      "must_include": [
+        "【输入事实】明确 90 分钟容量小于 160 分钟最低需求，不能在截止前完整覆盖全部内容",
+        "【任务不变量】给两个不超过 45 分钟的具体时段安排，先完整完成不可压缩的 40 分钟基础方法，再结合重要性安排其余项，并保留实际练习与错因核对",
+        "【用户要求】明确其余三项中哪些只完成部分、被推迟或未覆盖及其原因；可有多种合理取舍，不要求唯一比例"
+      ],
+      "must_avoid": [
+        "【输入事实】声称四项最低需求均已满足，把 90 分钟写成 160 分钟可用，或让任一时段超过 45 分钟",
+        "【任务不变量】压缩 40 分钟基础方法、在基础完成前安排其余项、完全省略练习纠错，或忽略已给重要性而无解释",
+        "【用户要求】用截止后的补学计划冒充截止前覆盖，编造额外时段或保证通过"
+      ]
+    }
+  ]
+}

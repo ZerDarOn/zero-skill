@@ -2,7 +2,7 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第六次吸收 v0.1**。已有十四个可试用的 `experimental` 技能。第六次吸收新增 `decision-brief-draft` 0.1.0 与 `file-organization-plan` 0.1.0；单次合成对照按全部冻结约束均为 4/4→4/4，没有观察到严格通过数提升或退化。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
+当前阶段：**第七次吸收 v0.1**。已有十六个可试用的 `experimental` 技能。第七次吸收新增 `study-practice-plan` 0.1.0 与 `comic-storyboard-draft` 0.1.0；单次合成对照按全部冻结约束均为 4/4→4/4，没有观察到严格通过数提升或退化。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
 
 ## 从这里开始
 
@@ -18,6 +18,8 @@
 - [第五次吸收完整诊断证据](evaluations/reports/fifth-absorption-0.1.0-diagnostic.json)
 - [第六次吸收实施与诊断](docs/sixth-absorption-report.md)
 - [第六次吸收完整诊断证据](evaluations/reports/sixth-absorption-0.1.0-diagnostic.json)
+- [第七次吸收实施与诊断](docs/seventh-absorption-report.md)
+- [第七次吸收完整诊断证据](evaluations/reports/seventh-absorption-0.1.0-diagnostic.json)
 
 - [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
 - [第一次吸收报告](docs/first-absorption-report.md)

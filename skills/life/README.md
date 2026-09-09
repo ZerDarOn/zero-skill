@@ -2,4 +2,6 @@
 
 范围：兴趣学习、旅行规划、游戏与文化娱乐。
 
-当前没有成品技能。新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。
+当前有一个 `experimental` 技能：`study-practice-plan` 0.1.0 用于根据目标、截止点、真实容量、先修关系和当前练习表现制定或调整学习计划。它不自动查询考试规则、创建日历或保证学习结果。
+
+新增包和登记方式见 [贡献指南](../../CONTRIBUTING.md)。分类及已收录技能以 [登记表](../../catalog/collection.json) 为准。

@@ -308,6 +308,42 @@
       ],
       "evaluation": "evaluations/cases/file-organization-plan.json",
       "evidence": null
+    },
+    {
+      "id": "study-practice-plan",
+      "category": "life",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/life/study-practice-plan/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "learning",
+        "practice",
+        "planning"
+      ],
+      "upstream_ids": [
+        "microsoft-cat-skills"
+      ],
+      "evaluation": "evaluations/cases/study-practice-plan.json",
+      "evidence": null
+    },
+    {
+      "id": "comic-storyboard-draft",
+      "category": "creation",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/creation/comic-storyboard-draft/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "comics",
+        "storyboards",
+        "continuity"
+      ],
+      "upstream_ids": [
+        "baoyu-skills"
+      ],
+      "evaluation": "evaluations/cases/comic-storyboard-draft.json",
+      "evidence": null
     }
   ]
 }

@@ -216,11 +216,24 @@
       "stars_display": "25,735",
       "license_declared": "MIT by default; registry and third-party exceptions",
       "review_level": "entrypoint-reviewed",
-      "evidence_url": "https://github.com/JimLiu/baoyu-skills/blob/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/SKILL.md",
+      "evidence_url": "https://github.com/JimLiu/baoyu-skills/blob/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-comic/SKILL.md",
       "revision": "6b7a2e417500561a5ecdd0b168332f4142584617",
       "imported": false,
-      "adopt": "中文创作任务拆分、配图位置与目的、信息结构和风格分离",
-      "caveat": "仅审阅文章配图入口及规划相关引用；不采用生成后端、安装、配置和文件写入流程"
+      "adopt": "分镜层次、角色与道具连续性、画面描述和图内文字分离",
+      "caveat": "此前另审阅文章配图入口；本轮完整阅读 baoyu-comic 与 storyboard-template，不采用配置门槛、强制确认、生图后端、批处理和 PDF 流程"
+    },
+    {
+      "id": "microsoft-cat-skills",
+      "url": "https://github.com/microsoft/cat-agent-skills",
+      "observed_on": "2026-09-09",
+      "stars_display": "66",
+      "license_declared": "MIT",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/microsoft/cat-agent-skills/blob/50f5d848ed68f2c8ffcf95f94e47c0a0370b819d/submissions/exam-prep-learning-plan-builder/SKILL.md",
+      "revision": "50f5d848ed68f2c8ffcf95f94e47c0a0370b819d",
+      "imported": false,
+      "adopt": "真实容量核算、练习检查点、后续复习和掉队后的剩余计划调整",
+      "caveat": "补充领域来源而非高星候选；不采用强制自评、固定双倍权重、固定复习间隔、默认晚七点或 HTML 模板"
     },
     {
       "id": "humanizer",

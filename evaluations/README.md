@@ -14,7 +14,9 @@
 
 第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`，各有四个单轮合成用例，覆盖故障边界、恢复验证、来源依赖、混杂、更正和范围化结论。
 
-八组共 40 个用例现为 `stage: active`。第三次吸收完成 16 次独立生成：故障证据排查 baseline 与 skill 为 1/4→2/4，论断证据审查为 4/4→4/4；仍是单次显式加载、执行模型评分的诊断。尚无自动路由、独立评分或人工评审。详见[第三次吸收报告](../docs/third-absorption-report.md)与[完整证据](reports/third-absorption-0.1.0-diagnostic.json)。
+第四次吸收新增 `cases/product-context-brief.json` 与 `cases/article-visual-plan.json`，各有四个单轮合成用例，覆盖证据层次、购买角色、更正范围、配图位置、不确定性和显式流程关系。
+
+十组共 48 个用例现为 `stage: active`。第四次吸收完成 16 次独立生成：按全部冻结约束，产品背景简报 baseline 与 skill 为 2/4→4/4，文章配图规划为 4/4→4/4；仍是单次显式加载、执行模型评分的诊断。尚无自动路由、独立评分或人工评审。详见[第四次吸收报告](../docs/fourth-absorption-report.md)与[完整证据](reports/fourth-absorption-0.1.0-diagnostic.json)。
 
 ## 运行方法
 
@@ -47,6 +49,10 @@ python scripts/validate_collection.py --fingerprint skills/engineering/debug-evi
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/debug-evidence-triage.json
 python scripts/validate_collection.py --fingerprint skills/research/claim-evidence-review
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/claim-evidence-review.json
+python scripts/validate_collection.py --fingerprint skills/productivity/product-context-brief
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/product-context-brief.json
+python scripts/validate_collection.py --fingerprint skills/creation/article-visual-plan
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/article-visual-plan.json
 ```
 
 包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。

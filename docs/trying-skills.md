@@ -12,6 +12,8 @@
 | 整理或窄范围编辑给定的 Obsidian Markdown | `obsidian-note-edit` |
 | 根据日志与复现记录缩小故障边界 | `debug-evidence-triage` |
 | 审查论断与给定来源之间的支持关系 | `claim-evidence-review` |
+| 把产品、购买角色、证据与未知项整理成共享背景 | `product-context-brief` |
+| 选择文章配图位置并规划信息结构或生成提示词 | `article-visual-plan` |
 
 ## 如何使用
 
@@ -51,7 +53,15 @@
 
 > 审查这条论断与 S1、S2、S3 的支持关系。追溯二手转述是否来自同一原始来源，保留样本、分母和更正，并给一版材料实际支持的表述。
 
-先按目标选择一个技能，不必同时加载八个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### 产品背景简报
+
+> 根据这些合成材料写一份短产品背景，区分当前能力、路线图、客户原话、内部想法和未知项；不要查外部资料或保存文件。
+
+### 文章配图规划
+
+> 为这篇合成文章选择最多两处真正需要视觉解释的位置，先说明信息结构和目的；没有数据时不要编造比例，本次不要生成图片。
+
+先按目标选择一个技能，不必同时加载十个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
@@ -62,6 +72,8 @@ python scripts/export_skills.py --skill prose-polish
 python scripts/export_skills.py --skill obsidian-note-edit
 python scripts/export_skills.py --skill debug-evidence-triage
 python scripts/export_skills.py --skill claim-evidence-review
+python scripts/export_skills.py --skill product-context-brief
+python scripts/export_skills.py --skill article-visual-plan
 python scripts/export_skills.py --all
 ```
 

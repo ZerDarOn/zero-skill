@@ -200,6 +200,42 @@
       ],
       "evaluation": "evaluations/cases/claim-evidence-review.json",
       "evidence": null
+    },
+    {
+      "id": "product-context-brief",
+      "category": "productivity",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/productivity/product-context-brief/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "product-context",
+        "evidence",
+        "collaboration"
+      ],
+      "upstream_ids": [
+        "marketing-skills"
+      ],
+      "evaluation": "evaluations/cases/product-context-brief.json",
+      "evidence": null
+    },
+    {
+      "id": "article-visual-plan",
+      "category": "creation",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/creation/article-visual-plan/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "illustration",
+        "visual-planning",
+        "prompts"
+      ],
+      "upstream_ids": [
+        "baoyu-skills"
+      ],
+      "evaluation": "evaluations/cases/article-visual-plan.json",
+      "evidence": null
     }
   ]
 }

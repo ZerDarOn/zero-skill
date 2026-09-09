@@ -189,12 +189,12 @@
       "observed_on": "2026-09-08",
       "stars_display": "48,223",
       "license_declared": "MIT",
-      "review_level": "readme-reviewed",
-      "evidence_url": "https://github.com/coreyhaines31/marketingskills/blob/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/README.md",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/coreyhaines31/marketingskills/blob/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/product-marketing/SKILL.md",
       "revision": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
       "imported": false,
-      "adopt": "共享产品背景、按营销任务拆分",
-      "caveat": "README 审阅；中立方法与集成推荐分别评审"
+      "adopt": "共享产品背景、购买角色分离、来源语言与有界更正",
+      "caveat": "仅审阅 product-marketing 入口；不采用硬编码 .agents、自动读取写入或固定问卷"
     },
     {
       "id": "composio-skills",
@@ -215,12 +215,12 @@
       "observed_on": "2026-09-08",
       "stars_display": "25,735",
       "license_declared": "MIT by default; registry and third-party exceptions",
-      "review_level": "readme-reviewed",
-      "evidence_url": "https://github.com/JimLiu/baoyu-skills/blob/6b7a2e417500561a5ecdd0b168332f4142584617/README.md",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/JimLiu/baoyu-skills/blob/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/SKILL.md",
       "revision": "6b7a2e417500561a5ecdd0b168332f4142584617",
       "imported": false,
-      "adopt": "中文创作任务拆分、按需组成小套装",
-      "caveat": "部分操作依赖 Bun、生成工具或平台发布能力"
+      "adopt": "中文创作任务拆分、配图位置与目的、信息结构和风格分离",
+      "caveat": "仅审阅文章配图入口及规划相关引用；不采用生成后端、安装、配置和文件写入流程"
     },
     {
       "id": "humanizer",

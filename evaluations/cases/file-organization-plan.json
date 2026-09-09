@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "skill_id": "file-organization-plan",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "same-name-is-not-duplicate",
+      "prompt": "只根据下面的完整合成清单做去重候选分析，不要移动或删除文件。组 1：Work/report.pdf 与 Archive/report.pdf 名称相同、大小都为 2 MB，但没有内容哈希或逐字比较。组 2：Templates/logo.svg 与 BrandArchive/logo.svg 已逐字比较确认内容相同；前者被当前网站引用，后者是要求保留的品牌发布归档。说明每组能确定什么、还不能确定什么以及建议状态；不要声称已经腾出空间。",
+      "input": {
+        "kind": "synthetic",
+        "scope_complete": true,
+        "groups": [
+          "Work/report.pdf and Archive/report.pdf: same name and 2 MB size; content comparison unavailable",
+          "Templates/logo.svg and BrandArchive/logo.svg: byte-identical; first is referenced by current site, second is a required release archive"
+        ]
+      },
+      "expected_route": "file-organization-plan",
+      "must_include": [
+        "【输入事实】把组 1 的内容相同性标为待核实：同名同大小不足以证明字节重复，内容比较可确认内容是否相同；即使内容相同，仍需用途、引用或保留要求决定能否安全合并或删除",
+        "【输入事实】承认组 2 内容相同，同时保留当前网站引用与品牌发布归档的用途差异，不直接建议删除任一路径",
+        "【用户要求】分别给两组有界建议状态，例如待核实与保留，不声称执行了移动、删除或释放空间"
+      ],
+      "must_avoid": [
+        "【任务不变量】把同名同大小直接判成重复，或把内容相同直接等同于任一副本无用途",
+        "【输入事实】建议删除当前引用文件或明确要求保留的归档，编造哈希、日期、引用或空间收益",
+        "【用户要求】声称已扫描磁盘、移动、删除、合并或腾出存储空间"
+      ]
+    },
+    {
+      "id": "collision-aware-mapping",
+      "prompt": "为下面两个来源文件给逐项整理方案，不要实际移动。合成文件系统明确大小写不敏感；目标 Archive/2026/ 已存在 report.pdf。范围内来源只有 Inbox/Report.pdf 与 Inbox/report-final.pdf，二者内容与用途未知。每个来源必须恰好出现一次，给出不覆盖现有文件、彼此也不冲突的目标，或者明确保留原位并说明原因。目标命名可以有多种合理方案，不强制数字后缀。",
+      "input": {
+        "kind": "synthetic",
+        "filesystem_case_sensitive": false,
+        "occupied_target": "Archive/2026/report.pdf",
+        "sources": [
+          "Inbox/Report.pdf",
+          "Inbox/report-final.pdf"
+        ],
+        "content_and_purpose": "unknown"
+      },
+      "expected_route": "file-organization-plan",
+      "must_include": [
+        "【用户要求】为两个来源各给恰好一个去向或保留决定并保留完整原路径；安全移动方案可不另写理由，选择保留原位时按 prompt 说明原因",
+        "【条件规则】若回答讨论把 Inbox/Report.pdf 按原文件名放入 Archive/2026 的方案，须正确说明大小写不敏感时会与已占用 report.pdf 碰撞；若直接给安全唯一目标或因用途未知保留原位，不复述碰撞原理也满足本项",
+        "【任务不变量】给出两个在大小写折叠后仍彼此唯一且不覆盖现有 report.pdf 的目标，或对无法安全命名者明确保留；接受描述性重命名、子目录或保留等多种方案"
+      ],
+      "must_avoid": [
+        "【任务不变量】覆盖、替换或复用已存在的 Archive/2026/report.pdf，或让两个来源映射到大小写等价目标",
+        "【输入事实】仅凭名称猜测内容、用途或重复关系并据此删除",
+        "【用户要求】漏掉或重复分配来源，声称已经创建目录、移动或验证文件"
+      ]
+    },
+    {
+      "id": "keep-project-dependencies",
+      "prompt": "根据完整合成清单给按用途整理方案，不要实际移动：site/index.html 以相对路径引用 site/assets/app.js 和 site/assets/logo.png；exports/overview.pdf 是独立参考资料；private/raw/ 明确排除、不得分析或移动。目标是区分 WebProject 与 Reference。可以让 site 整体保留或整体迁移，只要已知相对依赖继续成立；不要把所有图片按扩展名搬进统一 Images 目录。请覆盖每个范围内对象并说明排除项。",
+      "input": {
+        "kind": "synthetic",
+        "scope_complete": true,
+        "included": [
+          "site/index.html",
+          "site/assets/app.js",
+          "site/assets/logo.png",
+          "exports/overview.pdf"
+        ],
+        "dependency": "site/index.html references assets/app.js and assets/logo.png using relative paths",
+        "excluded": "private/raw/",
+        "purpose_targets": [
+          "WebProject",
+          "Reference"
+        ]
+      },
+      "expected_route": "file-organization-plan",
+      "must_include": [
+        "【输入事实】把 index.html、assets/app.js 与 assets/logo.png 作为一个依赖组保留相对布局，接受原位保留或整体移动到 WebProject 的等价方案",
+        "【输入事实】将独立 exports/overview.pdf 规划到 Reference 或给出等价的参考资料去向",
+        "【用户要求】覆盖四个范围内文件，并明确 private/raw/ 被排除且保持不动"
+      ],
+      "must_avoid": [
+        "【任务不变量】仅按扩展名把 logo.png 或 app.js 拆出依赖组，导致给定相对引用失效",
+        "【输入事实】分析、列举内部内容或移动 private/raw/，或遗漏范围内对象",
+        "【用户要求】声称已经移动文件、解析实际链接或验证网站可用"
+      ]
+    },
+    {
+      "id": "dates-are-not-capture-time",
+      "prompt": "按真实拍摄年月为这 4 个合成文件给逐项规划，每个文件恰好出现一次，不要实际移动。photo-a.jpg：EXIF 拍摄时间 2024-05-11，修改时间 2026-01-03（同步写入）；photo-b.jpg：无 EXIF 或其他拍摄时间，修改时间 2023-07-20（同步写入）；photo-c.png：用户提供并确认拍摄时间 2022-12-02；photo-d.jpg：拍摄与修改时间都未知。已知拍摄时间放到 Photos/YYYY/MM；未知拍摄年月的文件保留原位或放 Needs-Date，不能拿修改时间代替拍摄时间。",
+      "input": {
+        "kind": "synthetic",
+        "files": [
+          "photo-a.jpg: EXIF capture 2024-05-11; sync modification 2026-01-03",
+          "photo-b.jpg: capture unknown; sync modification 2023-07-20",
+          "photo-c.png: user-confirmed capture 2022-12-02",
+          "photo-d.jpg: capture and modification unknown"
+        ],
+        "target_pattern": "Photos/YYYY/MM for known capture dates; retain or Needs-Date for unknown capture dates"
+      },
+      "expected_route": "file-organization-plan",
+      "must_include": [
+        "【输入事实】将 photo-a.jpg 规划到 Photos/2024/05，将 photo-c.png 规划到 Photos/2022/12",
+        "【任务不变量】把 photo-b.jpg 与 photo-d.jpg 的拍摄年月保持为未知，并分别保留原位或规划到 Needs-Date",
+        "【用户要求】四个文件各出现恰好一次，列出原文件与目标或保留状态"
+      ],
+      "must_avoid": [
+        "【输入事实】把 photo-a 的 2026-01 或 photo-b 的 2023-07 修改时间当作拍摄年月",
+        "【任务不变量】为 photo-b 或 photo-d 编造日期，遗漏文件或让同一文件进入多个目标",
+        "【用户要求】声称已经读取真实 EXIF、创建目录、移动照片或验证结果"
+      ]
+    }
+  ]
+}

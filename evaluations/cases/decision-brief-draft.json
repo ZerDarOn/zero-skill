@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "skill_id": "decision-brief-draft",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "recommendation-is-not-approval",
+      "prompt": "请给未参与讨论的产品负责人写一份短决策简报，直接交稿，不要提问。材料：本周二要决定客服搜索试点采用 Alpha 还是 Beta，以便本季度开始试点；Alpha 预计 2—3 周可用，主要验证搜索准确率；Beta 预计 4—6 周可用，增加合作方请求的批量导入。陈个人偏好 Beta，但评审组尚未批准任何方案；交付负责人还未确定。请给出建议或条件建议，并让读者分清建议、个人偏好、未批准状态和待补信息。",
+      "input": {
+        "kind": "synthetic",
+        "audience": "product lead who did not attend the discussion",
+        "decision_due": "Tuesday this week",
+        "options": {
+          "Alpha": "2-3 weeks; validates search accuracy",
+          "Beta": "4-6 weeks; also adds partner-requested bulk import"
+        },
+        "preference": "Chen personally prefers Beta",
+        "approval": "no option approved by review group",
+        "unknown": "delivery owner"
+      },
+      "expected_route": "decision-brief-draft",
+      "must_include": [
+        "【用户要求】让陌生读者理解本周二要在 Alpha 与 Beta 间决定，以便本季度启动客服搜索试点",
+        "【输入事实】准确比较 Alpha 的 2—3 周与搜索准确率验证、Beta 的 4—6 周与批量导入范围",
+        "【任务不变量】把陈的个人偏好、作者给出的建议或条件建议、评审组尚未批准三者分开，并明确交付负责人未知"
+      ],
+      "must_avoid": [
+        "【输入事实】把 Beta、Alpha 或陈的偏好写成已经批准、组织已定或已承诺交付",
+        "【任务不变量】编造负责人、预算、客户结论、确定日期或材料之外的选项能力",
+        "【用户要求】在材料足够起草时只提问不交稿，声称查过外部资料、发送文稿或完成独立读者测试"
+      ]
+    },
+    {
+      "id": "tradeoff-under-hard-constraint",
+      "prompt": "为采购负责人起草一份简短决策建议。不可放宽条件：客户数据必须存储在欧盟区域。候选 QuickBase 已确认只有美国区域，预计 2 周上线，年费估计 8—12 万元；Harbor 已确认支持欧盟区域，预计 5—7 周上线，年费估计 18—24 万元。请比较关键代价并给建议，保留估计的范围和年度口径；不要编造评分权重或额外能力。",
+      "input": {
+        "kind": "synthetic",
+        "audience": "procurement lead",
+        "hard_constraint": "customer data must be stored in an EU region",
+        "options": {
+          "QuickBase": "US region only; 2 weeks; estimated CNY 80k-120k per year",
+          "Harbor": "EU region supported; 5-7 weeks; estimated CNY 180k-240k per year"
+        }
+      },
+      "expected_route": "decision-brief-draft",
+      "must_include": [
+        "【输入事实】明确欧盟数据驻留是不可放宽条件，QuickBase 当前已确认的美国区域不满足该条件",
+        "【输入事实】保留 QuickBase 2 周、年费估计 8—12 万元与 Harbor 5—7 周、年费估计 18—24 万元的时间和年度成本口径",
+        "【任务不变量】在当前事实下建议 Harbor，或语义等价地排除 QuickBase 并把任何重新考虑限定为数据区域事实发生变化；说明合规与更高成本、更长周期的代价，可使用简洁表格或正文"
+      ],
+      "must_avoid": [
+        "【任务不变量】仅因更便宜或更快推荐不满足硬约束的 QuickBase，或把硬约束降为普通偏好",
+        "【输入事实】把成本范围改成确定报价、混淆一次性与年度口径，或编造权重、能力和收益",
+        "【用户要求】编造评分权重，或只给无解释分数而没有所需的比较与建议，或声称方案已经采购或批准"
+      ]
+    },
+    {
+      "id": "bounded-decision-revision",
+      "prompt": "根据更正 C1 只返回修订后的一个建议段，不改写其他章节，也不要把数据更正说成我的观点反转。\n\n原建议段：建议选择 Nova。Nova 第一年成本估计 60—80 万元，低于 Orbit 的 85—95 万元；两者都满足不可放宽的 SSO 条件。当前尚未批准。\n\nC1：财务重新核算后，Nova 第一年成本估计应为 90—110 万元；Orbit 的 85—95 万元、两者均支持 SSO 和尚未批准状态不变。当前没有其他差异材料。",
+      "input": {
+        "kind": "synthetic",
+        "scope": "revise only the recommendation paragraph",
+        "original": "recommend Nova based on CNY 600k-800k first-year cost versus Orbit CNY 850k-950k; both satisfy SSO; not approved",
+        "correction": "Nova first-year estimate is CNY 900k-1.1m",
+        "unchanged": "Orbit CNY 850k-950k; both support SSO; not approved; no other differences"
+      },
+      "expected_route": "decision-brief-draft",
+      "must_include": [
+        "【用户要求】只输出一个修订后的建议段，不附加其他章节、流程说明或追问",
+        "【输入事实】把 Nova 第一年估计更新为 90—110 万元，保留 Orbit 85—95 万元、双方满足 SSO 与尚未批准",
+        "【任务不变量】让建议理由响应新成本关系：可依据较低估计区间条件性倾向 Orbit；也可说明两区间在 90—95 万元重叠、Nova 原有成本优势理由不再成立，暂不确定唯一更便宜选项并等待可比报价；不要求固定措辞"
+      ],
+      "must_avoid": [
+        "【输入事实】继续使用 Nova 60—80 万元的旧估计，改变 Orbit 范围、SSO 条件或批准状态",
+        "【任务不变量】把财务数据更正描述成用户、团队或组织观点反转，编造其他选择依据，或断言 Orbit 在所有可能实际成本下都更便宜",
+        "【用户要求】改写或补造未授权章节，声称已经更新文件或发送简报"
+      ]
+    },
+    {
+      "id": "reader-context-without-invention",
+      "prompt": "请把这些便条直接写成一份给未参会财务负责人的短决策草稿，不要提问：NTR 指“新工单路由”；本周五预算会要决定是否在本季度推广 NTR；2 个试点团队的工单平均等待时间从 18 分钟降到 12 分钟；推广底线是路由准确率至少 95%，但试点没有记录准确率。请让陌生读者看懂，并明确什么缺口会影响决定；可以给条件建议或暂缓结论，不要编造准确率，也不要声称做过独立读者测试。",
+      "input": {
+        "kind": "synthetic",
+        "audience": "finance lead who did not attend",
+        "term": "NTR means new ticket routing",
+        "decision": "Friday budget meeting decides whether to roll out this quarter",
+        "observed": "2 pilot teams; average wait time decreased from 18 to 12 minutes",
+        "hard_threshold": "routing accuracy at least 95%",
+        "missing": "pilot routing accuracy was not recorded"
+      },
+      "expected_route": "decision-brief-draft",
+      "must_include": [
+        "【用户要求】为未参会财务负责人展开 NTR 为新工单路由，并说明本周五要决定是否本季度推广",
+        "【输入事实】保留 2 个试点团队和平均等待时间 18 分钟降至 12 分钟的有限观察",
+        "【任务不变量】明确 95% 路由准确率是推广底线且当前准确率缺失会阻碍无条件批准；给条件建议或暂缓结论均可"
+      ],
+      "must_avoid": [
+        "【输入事实】编造或推算路由准确率，把等待时间下降写成满足准确率底线或普遍因果结论",
+        "【任务不变量】把本周五会议写成已批准推广，或编造预算、负责人和承诺",
+        "【用户要求】只提出问题而不交草稿，声称已查外部资料或完成独立读者测试"
+      ]
+    }
+  ]
+}

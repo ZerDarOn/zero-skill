@@ -16,6 +16,8 @@
 | 选择文章配图位置并规划信息结构或生成提示词 | `article-visual-plan` |
 | 根据代码与测量材料审查 React 性能问题 | `react-performance-review` |
 | 根据转录和统计复盘会议沟通行为 | `meeting-communication-review` |
+| 把给定背景、选项与约束整理成决策简报 | `decision-brief-draft` |
+| 为给定文件清单规划安全、可核对的整理去向 | `file-organization-plan` |
 
 ## 如何使用
 
@@ -71,7 +73,15 @@
 
 > 根据这份合成会议转录复盘指定人员的一处沟通行为，引用发言位置并给一句建议表达。只有发言开始时间时不要计算讲话时长，也不要从文字推断语调或打断。
 
-先按目标选择一个技能，不必同时加载十二个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### 决策简报起草
+
+> 根据这些合成材料写一份供负责人决策的短简报，区分建议、个人偏好、已批准事项与待补信息；保留成本估计范围，不要编造负责人或声称已经发送。
+
+### 文件整理方案
+
+> 根据这份合成文件清单给出逐项整理方案，保留原路径、拟议目标和理由；处理大小写冲突，未知日期保持未知，不要移动、覆盖或删除文件。
+
+先按目标选择一个技能，不必同时加载十四个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
@@ -86,6 +96,8 @@ python scripts/export_skills.py --skill product-context-brief
 python scripts/export_skills.py --skill article-visual-plan
 python scripts/export_skills.py --skill react-performance-review
 python scripts/export_skills.py --skill meeting-communication-review
+python scripts/export_skills.py --skill decision-brief-draft
+python scripts/export_skills.py --skill file-organization-plan
 python scripts/export_skills.py --all
 ```
 

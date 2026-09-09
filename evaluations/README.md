@@ -18,7 +18,9 @@
 
 第五次吸收新增 `cases/react-performance-review.json` 与 `cases/meeting-communication-review.json`，各有四个单轮合成用例，覆盖请求依赖、派生状态、缓存证据、实测优先级、轮次与时长、谨慎表达、比较分母和有界改写。
 
-十二组共 56 个用例现为 `stage: active`。第五次吸收完成 16 次独立生成：按全部冻结约束，React 性能审查 baseline 与 skill 为 3/4→4/4，会议沟通复盘为 3/4→3/4，后者同时有一项改善与一项退化；仍是单次显式加载、执行模型评分的诊断。尚无自动路由、独立评分或人工评审。详见[第五次吸收报告](../docs/fifth-absorption-report.md)与[完整证据](reports/fifth-absorption-0.1.0-diagnostic.json)。
+第六次吸收新增 `cases/decision-brief-draft.json` 与 `cases/file-organization-plan.json`，各有四个单轮合成用例，覆盖建议与批准边界、硬约束、有界修订、陌生读者上下文、重复证据、目标冲突、项目依赖和日期语义。
+
+十四组共 64 个用例现为 `stage: active`。第六次吸收完成 16 次独立生成：按全部冻结约束，决策简报与文件整理方案的 baseline 和 skill 均为 4/4→4/4，没有严格通过数改善或退化；仍是单次显式加载、实施代理评分的诊断。尚无自动路由、独立评分或人工评审。详见[第六次吸收报告](../docs/sixth-absorption-report.md)与[完整证据](reports/sixth-absorption-0.1.0-diagnostic.json)。
 
 ## 运行方法
 
@@ -59,6 +61,10 @@ python scripts/validate_collection.py --fingerprint skills/engineering/react-per
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/react-performance-review.json
 python scripts/validate_collection.py --fingerprint skills/productivity/meeting-communication-review
 python scripts/validate_collection.py --cases-fingerprint evaluations/cases/meeting-communication-review.json
+python scripts/validate_collection.py --fingerprint skills/creation/decision-brief-draft
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/decision-brief-draft.json
+python scripts/validate_collection.py --fingerprint skills/productivity/file-organization-plan
+python scripts/validate_collection.py --cases-fingerprint evaluations/cases/file-organization-plan.json
 ```
 
 包指纹覆盖技能包内全部文件的相对路径和内容，用例指纹覆盖用例 JSON 原文件。包或用例发生变化后，旧报告不能支持 verified 状态。

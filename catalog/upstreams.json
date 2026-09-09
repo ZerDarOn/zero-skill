@@ -138,11 +138,11 @@
       "stars_display": "175,065",
       "license_declared": "Mixed: Apache-2.0 skills; document skills source-available",
       "review_level": "entrypoint-reviewed",
-      "evidence_url": "https://github.com/anthropics/skills/blob/41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f/skills/skill-creator/SKILL.md",
+      "evidence_url": "https://github.com/anthropics/skills/blob/41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f/skills/doc-coauthoring/SKILL.md",
       "revision": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
       "imported": false,
-      "adopt": "技能编写、独立基线、定性与定量反馈",
-      "caveat": "本轮只审阅入口选段；逐目录许可不同"
+      "adopt": "读者与目的先行、有界逐段修订、从陌生读者视角检查理解缺口",
+      "caveat": "此前另审阅 skill-creator；本轮完整阅读 doc-coauthoring，不采用固定问卷、强制编辑工具或未实际执行的读者测试，具体目录许可未完整核验"
     },
     {
       "id": "superpowers",
@@ -203,11 +203,11 @@
       "stars_display": "74,645",
       "license_declared": "Apache-2.0 at repository level; per-skill terms vary",
       "review_level": "entrypoint-reviewed",
-      "evidence_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/meeting-insights-analyzer/SKILL.md",
+      "evidence_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/file-organizer/SKILL.md",
       "revision": "be2a406907dbc61b73e6827ded415c96139d13a2",
       "imported": false,
-      "adopt": "可定位行为证据、倾听与主持反馈、具体但不虚构的改进表达",
-      "caveat": "不采用口头禅心理推断、缺数据时长统计、默认目录扫描或固定长报告；具体技能许可未完整核验"
+      "adopt": "限定范围、按用途组织、逐项去向与名称冲突处理",
+      "caveat": "此前另审阅 meeting-insights-analyzer；本轮完整阅读 file-organizer，不采用自动扫描、shell 动作、弱证据去重或固定命名审美，具体技能许可未完整核验"
     },
     {
       "id": "baoyu-skills",

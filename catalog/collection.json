@@ -272,6 +272,42 @@
       ],
       "evaluation": "evaluations/cases/meeting-communication-review.json",
       "evidence": null
+    },
+    {
+      "id": "decision-brief-draft",
+      "category": "creation",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/creation/decision-brief-draft/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "decisions",
+        "briefs",
+        "evidence"
+      ],
+      "upstream_ids": [
+        "anthropic-skills"
+      ],
+      "evaluation": "evaluations/cases/decision-brief-draft.json",
+      "evidence": null
+    },
+    {
+      "id": "file-organization-plan",
+      "category": "productivity",
+      "form": "workflow",
+      "version": "0.1.0",
+      "path": "skills/productivity/file-organization-plan/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "files",
+        "organization",
+        "planning"
+      ],
+      "upstream_ids": [
+        "composio-skills"
+      ],
+      "evaluation": "evaluations/cases/file-organization-plan.json",
+      "evidence": null
     }
   ]
 }

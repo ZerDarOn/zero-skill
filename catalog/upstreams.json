@@ -273,6 +273,45 @@
       "imported": false,
       "adopt": "精确技能选择、清单校验与变更预览",
       "caveat": "集合和控制系统规模大；应用恢复功能仍有预览限制"
+    },
+    {
+      "id": "mattpocock-skills",
+      "url": "https://github.com/mattpocock/skills",
+      "observed_on": "2026-09-09",
+      "stars_display": "257,298",
+      "license_declared": "MIT",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/productivity/grilling/SKILL.md",
+      "revision": "3cca18b368ae95cdbdebbff572ccafa662551015",
+      "imported": false,
+      "adopt": "后续候选：按决策依赖组织问题、先查可获取的事实、给出建议答案",
+      "caveat": "已读 grill-me 转发入口、grilling 正文与根 LICENSE；当前实现按可回答问题分轮，不能沿用旧版一次一问介绍；本轮未改写决策技能，不采用强制全部分支访谈或默认委派"
+    },
+    {
+      "id": "carl-skills",
+      "url": "https://github.com/LearnPrompt/carl-skills",
+      "observed_on": "2026-09-09",
+      "stars_display": "69",
+      "license_declared": "MIT (GitHub metadata; individual linked repositories not reviewed)",
+      "review_level": "readme-reviewed",
+      "evidence_url": "https://github.com/LearnPrompt/carl-skills/blob/780eac3ae3a691bcdef7157b8c862f4a0b4d659e/README.md",
+      "revision": "780eac3ae3a691bcdef7157b8c862f4a0b4d659e",
+      "imported": false,
+      "adopt": "发现线索：行动型阅读、面向听众的演示规划、跨公开样本提炼写作方法",
+      "caveat": "低星补充案例集合，只读 README 选段；carl-weread、humanize-ppt、paoding 等独立仓库入口、工具和授权尚未审查，不视为已采用或已安装"
+    },
+    {
+      "id": "witchcat-skills",
+      "url": "https://github.com/witchscottishfoldcat/witchcat-skills",
+      "observed_on": "2026-09-09",
+      "stars_display": "2",
+      "license_declared": "No repository-wide license found at reviewed revision; selected third-party skills have separate licenses",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/witchscottishfoldcat/witchcat-skills/blob/fa3d57ee21c549383e0835ada65098366fd8f458/debug/root-cause-debugging/SKILL.md",
+      "revision": "fa3d57ee21c549383e0835ada65098366fd8f458",
+      "imported": false,
+      "adopt": "按原故障条件复验并核对部署产物；保留决策编号、批准历史和依据；控制追问与输出深度",
+      "caveat": "用户提供的同事案例而非高星候选；已读 decision-records、requirements-clarification、task-levels 和治理入口，及排障与工程基线相关段落；未全面审计50个包，不复制文件，不采用固定路由链、自动记忆写入或默认安装执行"
     }
   ]
 }

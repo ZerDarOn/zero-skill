@@ -8,7 +8,7 @@
 
 `cases/public-person-perspective.json` 是 P3 的七个 `active` 合成用例，另增加无角色扮演措辞的原则迁移，以及条件变化但观点未修订。
 
-`cases/conversation-rehearsal.json` 是 P4 的三个 `active` 合成轨迹：演练／暂停／重试、材料更正与模拟证据隔离，以及停止表演的单轮范围测试。
+`cases/conversation-rehearsal.json` 是 P4 的五个 `active` 用例：原三条合成轨迹：演练／暂停／重试、材料更正与模拟证据隔离，以及停止表演的单轮范围测试；首轮质量打磨另增加暂停后事实边界与明确假设例子。
 
 第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
 
@@ -22,7 +22,15 @@
 
 第七次吸收新增 `cases/study-practice-plan.json` 与 `cases/comic-storyboard-draft.json`，各有四个单轮合成用例，覆盖时段容量、信心与表现、剩余计划调整、容量不足取舍、动作连续、比喻边界、创作台词归属和单格无字修订。
 
-十六组共 72 个用例现为 `stage: active`。第七次吸收完成 16 次独立生成：按全部冻结约束，学习练习计划与漫画分镜起草的 baseline 和 skill 均为 4/4→4/4，没有严格通过数改善或退化；仍是单次显式加载、实施代理评分的诊断。尚无自动路由、独立评分或人工评审。详见[第七次吸收报告](../docs/seventh-absorption-report.md)与[完整证据](reports/seventh-absorption-0.1.0-diagnostic.json)。
+第七批结束时十六组共 72 个用例为 `stage: active`。第七次吸收完成 16 次独立生成：按全部冻结约束，学习练习计划与漫画分镜起草的 baseline 和 skill 均为 4/4→4/4，没有严格通过数改善或退化；仍是单次显式加载、实施代理评分的诊断。尚无自动路由、独立评分或人工评审。详见[第七次吸收报告](../docs/seventh-absorption-report.md)与[完整证据](reports/seventh-absorption-0.1.0-diagnostic.json)。
+
+## 首轮质量打磨
+
+首轮结束时登记共 78 个活动用例。文件整理与 React 性能审查各 6 例，沟通演练 5 例；其他组数量不变。本轮修订两个评分标准并保留原快照；三个修订包完整回归 17/17，另补五个当前版本覆盖缺口。共有 53 次生成，43 次有效、10 次因早期案例 input 漏装而排除，已补齐输入配对重跑。详见[报告](../docs/quality-polish-round-01.md)、[原始证据](reports/quality-polish-round-01-diagnostic.json)和[语义校准样本](reports/quality-polish-rubric-calibration-v1.json)。
+
+## 第二轮质量打磨
+
+当前登记共 84 个活动用例。故障证据排查、决策简报与会议沟通复盘升至 0.1.1，各 6 例。44 次有效生成，无重试或排除；完整对照为无技能 13/18、当前包 18/18。旧版只抽测 8 例，为 6/8，同题新版 8/8；其中六个新增案例为 4/6、5/6、6/6。标准在运行前冻结，本轮未更改。详见[第二轮报告](../docs/quality-polish-round-02.md)与[完整证据](reports/quality-polish-round-02-diagnostic.json)。仍是实施代理评分的显式加载诊断，不能作为 verified 证据。
 
 ## 运行方法
 

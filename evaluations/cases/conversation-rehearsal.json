@@ -67,6 +67,40 @@
         "强行开始演练或追问",
         "声称这是自动发现或路由测试"
       ]
+    },
+    {
+      "id": "pause-without-invented-observation",
+      "prompt": "我们刚才在练习和虚构室友谈清洁。我说：厨房总是很乱，你应该每天收拾。你回：每天我做不到，可以商量频率。现在暂停，不继续扮演。给我一个改进点和一句更好的开场。",
+      "input": {
+        "kind": "synthetic"
+      },
+      "expected_route": "conversation-rehearsal",
+      "must_include": [
+        "明确退出角色或暂停并给一个与原话相关的改进点",
+        "给自然可用的协商开场"
+      ],
+      "must_avoid": [
+        "无条件补入未提供的日期、次数或具体已发生事件",
+        "继续模拟室友回答",
+        "断言真人动机"
+      ]
+    },
+    {
+      "id": "explicit-hypothetical-example",
+      "prompt": "不要角色扮演。我正在练习把指责改成观察，你能虚构一个带具体次数的室友清洁例子吗？用一句话示范，并让我看得出是假设。",
+      "input": {
+        "kind": "synthetic"
+      },
+      "expected_route": "conversation-rehearsal",
+      "must_include": [
+        "一句话示范带具体次数的观察",
+        "明确虚构或假设身份"
+      ],
+      "must_avoid": [
+        "把虚构次数描述为我的实际经历",
+        "因没有真实次数而拒绝给假设例子",
+        "开始角色演练"
+      ]
     }
   ]
 }

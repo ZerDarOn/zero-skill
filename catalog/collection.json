@@ -114,7 +114,7 @@
       "id": "conversation-rehearsal",
       "category": "relationships",
       "form": "simulation",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/relationships/conversation-rehearsal/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -169,7 +169,7 @@
       "id": "debug-evidence-triage",
       "category": "engineering",
       "form": "analysis",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/engineering/debug-evidence-triage/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -178,7 +178,8 @@
         "triage"
       ],
       "upstream_ids": [
-        "superpowers"
+        "superpowers",
+        "witchcat-skills"
       ],
       "evaluation": "evaluations/cases/debug-evidence-triage.json",
       "evidence": null
@@ -241,7 +242,7 @@
       "id": "react-performance-review",
       "category": "engineering",
       "form": "analysis",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/engineering/react-performance-review/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -259,7 +260,7 @@
       "id": "meeting-communication-review",
       "category": "productivity",
       "form": "analysis",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/productivity/meeting-communication-review/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -268,7 +269,8 @@
         "evidence"
       ],
       "upstream_ids": [
-        "composio-skills"
+        "composio-skills",
+        "witchcat-skills"
       ],
       "evaluation": "evaluations/cases/meeting-communication-review.json",
       "evidence": null
@@ -277,7 +279,7 @@
       "id": "decision-brief-draft",
       "category": "creation",
       "form": "workflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/creation/decision-brief-draft/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -286,7 +288,8 @@
         "evidence"
       ],
       "upstream_ids": [
-        "anthropic-skills"
+        "anthropic-skills",
+        "witchcat-skills"
       ],
       "evaluation": "evaluations/cases/decision-brief-draft.json",
       "evidence": null
@@ -295,7 +298,7 @@
       "id": "file-organization-plan",
       "category": "productivity",
       "form": "workflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/productivity/file-organization-plan/SKILL.md",
       "status": "experimental",
       "tags": [

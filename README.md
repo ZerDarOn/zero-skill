@@ -2,10 +2,15 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第七次吸收 v0.1**。已有十六个可试用的 `experimental` 技能。第七次吸收新增 `study-practice-plan` 0.1.0 与 `comic-storyboard-draft` 0.1.0；单次合成对照按全部冻结约束均为 4/4→4/4，没有观察到严格通过数提升或退化。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
+当前阶段：**第二轮质量打磨**。已有十六个可试用的 `experimental` 技能。本轮参考同事的工程技能，将故障证据排查、决策简报与会议沟通复盘升至 0.1.1；完整回归为无技能 13/18、当前包 18/18，旧版抽测为 6/8、同题新版 8/8。结果来自单次合成诊断，不证明稳定收益或优于上游，尚未完成自动路由与独立人工评审。
 
 ## 从这里开始
 
+- [第二轮质量打磨：部署证据、决策历史与有界表达](docs/quality-polish-round-02.md)
+- [第四轮研究：同事的 Witchcat 技能](docs/research-round-04.md)
+- [第一轮质量打磨：修改与真实诊断](docs/quality-polish-round-01.md)
+- [第三轮开源与视频线索研究](docs/research-round-03.md)
+- [七批之后：技能质量审查与改进顺序](docs/skill-quality-audit-2026-09-09.md)
 - [本地试用与导出指南](docs/trying-skills.md)
 - [本地 ZIP 导出验证报告](docs/local-skill-distribution-report.md)
 - [第二次吸收实施与诊断](docs/second-absorption-report.md)

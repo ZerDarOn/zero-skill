@@ -98,6 +98,40 @@
         "【输入事实】编造优化百分比、把 p95 与单步骤耗时混为同一指标，或声称已运行 profiler",
         "【任务不变量】强制指定 memo、useMemo、transition 或框架专属方案，或忽略排序正确性"
       ]
+    },
+    {
+      "id": "shared-callback-effect-dependencies",
+      "prompt": "帮我审查这个 React 自定义 Hook。没有性能计时；现象是父组件的无关 state 每变一次，就会 unsubscribe/subscribe 和重复 prefetch。makeQuery 同时供两个 Effect 和调用方使用，API 要保留。请给原因和一个最小改法，不必运行：\nfunction useFeed(id) {\n  const makeQuery = () => ({ id, kind: \"feed\" });\n  useEffect(() => subscribe(makeQuery()), [makeQuery]);\n  useEffect(() => { prefetch(makeQuery()); }, [makeQuery]);\n  return makeQuery;\n}\nsubscribe 返回清理函数，prefetch 不返回清理函数；均为外部同步。",
+      "input": {
+        "kind": "synthetic"
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "指出每次渲染创建新 makeQuery 导致两个 Effect 依赖变化",
+        "提出保留 API 和两个同步用途的依赖稳定方案，例如 useCallback 包裹 makeQuery 并依赖 id",
+        "保留 subscribe 清理和 id 变化后的更新，不声称已测收益"
+      ],
+      "must_avoid": [
+        "仅因无计时而拒绝解释或提出改法",
+        "删掉有效依赖、外部同步或清理",
+        "把 useCallback 当作永不变化或正确性保证"
+      ]
+    },
+    {
+      "id": "cheap-stable-interaction",
+      "prompt": "审查这段 React 代码，有没有必须做的性能优化？列表只有 4 项，交互一直流畅，没有 React Compiler，也没有 memo 子组件或依赖这个函数的 Effect：\nfunction Menu({items,onPick}) { return items.map(x => <button key={x.id} onClick={() => onPick(x.id)}>{x.name}</button>); }\n最多一句话。",
+      "input": {
+        "kind": "synthetic"
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "用一句话说明现有材料没有必须优化的问题"
+      ],
+      "must_avoid": [
+        "仅因内联函数每次新建就要求 useCallback 或 memo",
+        "编造卡顿、测量或收益",
+        "扩写成性能清单"
+      ]
     }
   ]
 }

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "report_id": "quality-polish-rubric-calibration-v1",
+  "diagnostic_only": true,
+  "verification_eligible": false,
+  "method": "Synthetic answer fixtures reviewed semantically by the implementing model; not automated behavioral tests or human review. Frozen before active rubric edits.",
+  "suites": [
+    {
+      "skill_id": "article-visual-plan",
+      "old_cases_sha256": "6ab2213a5d82b442152b0260e2d8e9550c615f5cf68a8f2c8779df0a9212b4f5",
+      "old_case_snapshot": {
+        "id": "choose-informative-positions",
+        "prompt": "为这篇短文规划最多 2 张图，只给插入位置和画面简述，不写完整生成提示词：P1 介绍背景；P2 描述三步流程：收集请求→人工复核→发布；P3 是作者感想；P4 比较集中处理与逐条处理的优缺点；P5 总结。图必须帮助理解，不要为每段装饰。",
+        "input": {
+          "kind": "synthetic",
+          "text": "合成的五段文章骨架。"
+        },
+        "expected_route": "article-visual-plan",
+        "must_include": [
+          "选择 P2 的三步流程作为有信息价值的插图位置，并保持流程顺序",
+          "选择 P4 的集中处理与逐条处理比较作为另一插图位置，并体现双方优缺点",
+          "每张图都给出明确位置和帮助理解的目的或画面关系",
+          "总数不超过 2 张且只提供规划级简述"
+        ],
+        "must_avoid": [
+          "为 P1、P3 或 P5 添加无信息价值的装饰图",
+          "输出完整生成提示词、虚构文件名、嵌入图片或声称图片已生成"
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "one-informative-visual",
+          "answer": "P2 后插入一张流程图：收集请求→人工复核→发布，用箭头帮助读者理解先后关系。",
+          "expected_accept": true,
+          "reason": "一张有信息价值的图满足最多两张，不必强制 P4。",
+          "reviewed_accept": true
+        },
+        {
+          "id": "two-informative-visuals",
+          "answer": "P2 后：收集请求→人工复核→发布流程图。P4 后：集中处理与逐条处理的优缺点并排对照；两张分别解释顺序和取舍。",
+          "expected_accept": true,
+          "reason": "两张同样有效，保留任务自由度。",
+          "reviewed_accept": true
+        },
+        {
+          "id": "decorative-over-limit",
+          "answer": "在 P1、P3、P5 各放一张装饰花纹图。",
+          "expected_accept": false,
+          "reason": "三张超出上限，且不能帮助理解信息关系。",
+          "reviewed_accept": false
+        },
+        {
+          "id": "invented-automation",
+          "answer": "P2 放流程图：收集请求→自动批准→发布。",
+          "expected_accept": false,
+          "reason": "用自动批准替换给定人工复核，改变事实关系。",
+          "reviewed_accept": false
+        }
+      ],
+      "new_cases_sha256": "e79e0be8f45d1faa2dcf529fcf427076f16e1c5a3333ef48c730732315916a24",
+      "new_case_snapshot": {
+        "id": "choose-informative-positions",
+        "prompt": "为这篇短文规划最多 2 张图，只给插入位置和画面简述，不写完整生成提示词：P1 介绍背景；P2 描述三步流程：收集请求→人工复核→发布；P3 是作者感想；P4 比较集中处理与逐条处理的优缺点；P5 总结。图必须帮助理解，不要为每段装饰。",
+        "input": {
+          "kind": "synthetic",
+          "text": "合成的五段文章骨架。"
+        },
+        "expected_route": "article-visual-plan",
+        "must_include": [
+          "选择一张或两张有信息价值的图，可用 P2 流程、P4 比较或忠实表达这些关系的组合；不强制两处都选",
+          "选流程时保持收集请求、人工复核、发布的顺序；选比较时体现集中处理与逐条处理的优缺点",
+          "每张图都给出明确位置和帮助理解的目的或画面关系",
+          "总数不超过 2 张且只提供规划级简述"
+        ],
+        "must_avoid": [
+          "为 P1、P3 或 P5 添加无信息价值的装饰图",
+          "输出完整生成提示词、虚构文件名、嵌入图片或声称图片已生成"
+        ]
+      },
+      "scope": "Fixtures calibrate visual selection fidelity or diagnostic check choice, not every criterion of the full case. Historical run grades remain unchanged.",
+      "new_cases_line_endings": "LF; logical case content unchanged"
+    },
+    {
+      "skill_id": "debug-evidence-triage",
+      "old_cases_sha256": "29cdf87df547a5d85964adf5fcfde7e27d87547f37e6b1c1c6e9ca29b5d99bd5",
+      "old_case_snapshot": {
+        "id": "correlation-is-not-root-cause",
+        "prompt": "只根据下面的合成记录判断故障证据。用户猜测：‘肯定是10:03的网页部署导致批处理失败。’\n\n记录：\n- 09:50，旧网页版本，请求 req-40，mode=batch；worker 返回 missing batchId。\n- 10:03，网页部署 v4，只改了按钮文案。\n- 10:05，新网页版本，请求 req-41，mode=batch；worker 返回 missing batchId。\n- 网关对 req-41 的入站摘要含 batchId=B7；worker 对 req-41 的接收摘要不含 batchId。\n- 尚无网关出站或队列入站记录。\n\n请说明能排除什么、还缺什么，并只给一项最有区分力的下一步检查，写清不同结果分别支持什么。不要执行检查。",
+        "input": {
+          "kind": "synthetic",
+          "user_hypothesis": "10:03的网页部署导致批处理失败",
+          "records": [
+            "09:50 old-web req-40 mode=batch worker=missing batchId",
+            "10:03 web v4 deployed; button copy only",
+            "10:05 new-web req-41 mode=batch worker=missing batchId",
+            "gateway inbound req-41 has batchId=B7",
+            "worker inbound req-41 lacks batchId",
+            "gateway outbound and queue inbound evidence unavailable"
+          ]
+        },
+        "expected_route": "debug-evidence-triage",
+        "must_include": [
+          "把网页部署、已观察失败和原因假设分开",
+          "用部署前同类失败排除网页v4是该故障的必要原因，并把故障边界缩到网关入站与worker接收之间",
+          "提出一项关联req-41的网关出站与队列入站字段摘要检查，并说明字段在哪边消失分别支持哪个边界"
+        ],
+        "must_avoid": [
+          "仅因时间接近就确认网页部署是根因",
+          "在缺少中间边界证据时断言具体组件已经确定",
+          "声称已执行检查或要求打印完整配置、密钥和生产载荷"
+        ]
+      },
+      "fixtures": [
+        {
+          "id": "single-boundary-split",
+          "answer": "对 req-41 查网关出站摘要，只看 batchId 是否存在和类型。缺失支持网关内部映射或序列化边界，存在则转向队列到 worker 的下游链路；目前不能确定具体根因。",
+          "expected_accept": true,
+          "reason": "同请求、字段摘要与条件分叉足以区分网关内部与下游。",
+          "reviewed_accept": true
+        },
+        {
+          "id": "paired-boundary-split",
+          "answer": "对 req-41 比较网关出站与队列入站的 batchId 存在性。出站就缺失则查网关内部；出站有而入站无则查发布或传输边界；两处都有则查更下游。",
+          "expected_accept": true,
+          "reason": "更细的双边界对照也可以，不把它设成唯一方案。",
+          "reviewed_accept": true
+        },
+        {
+          "id": "mix-request-identifiers",
+          "answer": "比较 req-40 的网关出站与 req-41 的 worker 接收；两边不同就证明网关丢字段。",
+          "expected_accept": false,
+          "reason": "拼接不同请求且把差异直接升级为根因。",
+          "reviewed_accept": false
+        },
+        {
+          "id": "assert-without-check",
+          "answer": "不用查了，肯定是网页部署删掉 batchId。",
+          "expected_accept": false,
+          "reason": "与部署前已有故障矛盾，没有可区分的检查。",
+          "reviewed_accept": false
+        }
+      ],
+      "new_cases_sha256": "07c85276e427f57e49b621334d056cf48a77198ce23cf992936e579940614346",
+      "new_case_snapshot": {
+        "id": "correlation-is-not-root-cause",
+        "prompt": "只根据下面的合成记录判断故障证据。用户猜测：‘肯定是10:03的网页部署导致批处理失败。’\n\n记录：\n- 09:50，旧网页版本，请求 req-40，mode=batch；worker 返回 missing batchId。\n- 10:03，网页部署 v4，只改了按钮文案。\n- 10:05，新网页版本，请求 req-41，mode=batch；worker 返回 missing batchId。\n- 网关对 req-41 的入站摘要含 batchId=B7；worker 对 req-41 的接收摘要不含 batchId。\n- 尚无网关出站或队列入站记录。\n\n请说明能排除什么、还缺什么，并只给一项最有区分力的下一步检查，写清不同结果分别支持什么。不要执行检查。",
+        "input": {
+          "kind": "synthetic",
+          "user_hypothesis": "10:03的网页部署导致批处理失败",
+          "records": [
+            "09:50 old-web req-40 mode=batch worker=missing batchId",
+            "10:03 web v4 deployed; button copy only",
+            "10:05 new-web req-41 mode=batch worker=missing batchId",
+            "gateway inbound req-41 has batchId=B7",
+            "worker inbound req-41 lacks batchId",
+            "gateway outbound and queue inbound evidence unavailable"
+          ]
+        },
+        "expected_route": "debug-evidence-triage",
+        "must_include": [
+          "把网页部署、已观察失败和原因假设分开",
+          "用部署前同类失败排除网页v4是该故障的必要原因，并把故障边界缩到网关入站与worker接收之间",
+          "提出一项关联 req-41、能区分剩余解释的边界字段摘要检查，并说明不同结果支持哪个范围；接受单边界分叉或多边界对照，不强制同时采集网关出站与队列入站"
+        ],
+        "must_avoid": [
+          "仅因时间接近就确认网页部署是根因",
+          "在缺少中间边界证据时断言具体组件已经确定",
+          "声称已执行检查或要求打印完整配置、密钥和生产载荷"
+        ]
+      },
+      "scope": "Fixtures calibrate visual selection fidelity or diagnostic check choice, not every criterion of the full case. Historical run grades remain unchanged.",
+      "new_cases_line_endings": "LF; logical case content unchanged"
+    }
+  ],
+  "reviewer": "Implementing root model; semantic review, not automatic execution or independent human review"
+}

@@ -236,6 +236,42 @@
       ],
       "evaluation": "evaluations/cases/article-visual-plan.json",
       "evidence": null
+    },
+    {
+      "id": "react-performance-review",
+      "category": "engineering",
+      "form": "analysis",
+      "version": "0.1.0",
+      "path": "skills/engineering/react-performance-review/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "react",
+        "performance",
+        "evidence"
+      ],
+      "upstream_ids": [
+        "vercel-agent-skills"
+      ],
+      "evaluation": "evaluations/cases/react-performance-review.json",
+      "evidence": null
+    },
+    {
+      "id": "meeting-communication-review",
+      "category": "productivity",
+      "form": "analysis",
+      "version": "0.1.0",
+      "path": "skills/productivity/meeting-communication-review/SKILL.md",
+      "status": "experimental",
+      "tags": [
+        "meetings",
+        "communication",
+        "evidence"
+      ],
+      "upstream_ids": [
+        "composio-skills"
+      ],
+      "evaluation": "evaluations/cases/meeting-communication-review.json",
+      "evidence": null
     }
   ]
 }

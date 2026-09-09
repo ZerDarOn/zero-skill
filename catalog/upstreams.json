@@ -175,13 +175,13 @@
       "url": "https://github.com/vercel-labs/agent-skills",
       "observed_on": "2026-09-08",
       "stars_display": "30,944",
-      "license_declared": "MIT (README declaration)",
-      "review_level": "readme-reviewed",
-      "evidence_url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/README.md",
+      "license_declared": "MIT in reviewed skill entry metadata; standalone fixed LICENSE text not obtained",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/SKILL.md",
       "revision": "063bee94c3f4df8453406c830b0a7df0f2860278",
       "imported": false,
-      "adopt": "技术规则按影响排序、绑定具体任务",
-      "caveat": "README 审阅；技术建议需结合目标栈验证"
+      "adopt": "按已测影响排序、请求依赖检查、派生值与有依据的缓存边界",
+      "caveat": "另读三条相关规则；不复制规则库或数值收益，许可仅核到入口元数据，技术条件以目标 React 栈验证"
     },
     {
       "id": "marketing-skills",
@@ -202,12 +202,12 @@
       "observed_on": "2026-09-08",
       "stars_display": "74,645",
       "license_declared": "Apache-2.0 at repository level; per-skill terms vary",
-      "review_level": "readme-reviewed",
-      "evidence_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/README.md",
+      "review_level": "entrypoint-reviewed",
+      "evidence_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/meeting-insights-analyzer/SKILL.md",
       "revision": "be2a406907dbc61b73e6827ded415c96139d13a2",
       "imported": false,
-      "adopt": "场景导航、发现具体可复用工作流",
-      "caveat": "集合、连接器与可执行技能需区分；不自动接通外部服务"
+      "adopt": "可定位行为证据、倾听与主持反馈、具体但不虚构的改进表达",
+      "caveat": "不采用口头禅心理推断、缺数据时长统计、默认目录扫描或固定长报告；具体技能许可未完整核验"
     },
     {
       "id": "baoyu-skills",

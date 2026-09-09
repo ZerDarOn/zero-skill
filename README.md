@@ -2,7 +2,7 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第四次吸收 v0.1**。已有十个可试用的 `experimental` 技能。第四次吸收新增 `product-context-brief` 0.1.0 与 `article-visual-plan` 0.1.0；单次合成对照按全部冻结约束分别为 2/4→4/4 和 4/4→4/4。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
+当前阶段：**第五次吸收 v0.1**。已有十二个可试用的 `experimental` 技能。第五次吸收新增 `react-performance-review` 0.1.0 与 `meeting-communication-review` 0.1.0；单次合成对照按全部冻结约束分别为 3/4→4/4 和 3/4→3/4，后者同时有一项改善与一项退化。这仍未达到 `verified`，也未完成自动发现路由或独立人工评审。上游项目是固定来源参考，不代表已引入代码。
 
 ## 从这里开始
 
@@ -14,6 +14,8 @@
 - [第三次吸收完整诊断证据](evaluations/reports/third-absorption-0.1.0-diagnostic.json)
 - [第四次吸收实施与诊断](docs/fourth-absorption-report.md)
 - [第四次吸收完整诊断证据](evaluations/reports/fourth-absorption-0.1.0-diagnostic.json)
+- [第五次吸收实施与诊断](docs/fifth-absorption-report.md)
+- [第五次吸收完整诊断证据](evaluations/reports/fifth-absorption-0.1.0-diagnostic.json)
 
 - [第一次吸收：新对话执行说明](docs/first-absorption-handoff.md)
 - [第一次吸收报告](docs/first-absorption-report.md)

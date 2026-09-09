@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "skill_id": "meeting-communication-review",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "turns-are-not-duration",
+      "prompt": "只根据这份合成会议文字记录，回答 A 的讲话时长占比以及 A 是否打断过别人：\n\n09:00:00 A：先确认今天的目标。\n09:00:10 B：我补充一个客户问题。\n[09:00:18—09:00:40 转录缺失]\n09:00:40 A：我们先记录这个风险。\n09:01:00 C：我来整理后续。\n\n记录只有每轮开始时间，没有结束时间、音频或重叠标记。可以报告有依据的替代统计，但必须写清统计口径。",
+      "input": {
+        "kind": "synthetic",
+        "transcript_completeness": "missing segment from 09:00:18 to 09:00:40",
+        "available_metadata": "utterance start timestamps only; no end timestamps, audio, or overlap markers",
+        "visible_turns": {
+          "A": 2,
+          "B": 1,
+          "C": 1
+        }
+      },
+      "expected_route": "meeting-communication-review",
+      "must_include": [
+        "【输入事实】说明无法从只有开始时间且存在缺口的记录计算 A 的讲话时长或时长占比，不能用下一条开始时间补齐持续时间",
+        "【条件规则】若报告替代性的轮次统计，则应准确限定为 A 占可见 4 轮中的 2 轮，即 50% 的已记录轮次，并明确这不是讲话时长占比；不报告轮次统计但准确解释时长与打断均无法判断，也满足本项",
+        "【任务不变量】说明没有音频或重叠标记，无法判断 A 是否打断；未知不等于没有打断"
+      ],
+      "must_avoid": [
+        "【输入事实】依据相邻开始时间计算发言时长或忽略转录缺口",
+        "【任务不变量】断言 A 打断了或没有打断，或声称听过语气、停顿或音频",
+        "【用户要求】把轮次比例不加限定地称为讲话占比"
+      ]
+    },
+    {
+      "id": "hedging-in-context",
+      "prompt": "复盘 M 的沟通效果，恰好指出两点：一处合理谨慎和一处可改进之处。每点引用一个时间位置，并仅针对可改进之处给可执行的表达建议；不要做人格或动机判断。\n\n10:01 M：样本只有 3 家，所以这个结论可能还会变；我建议先补数据。\n10:03 J：如果周五不定接口，发布会延后。谁来定？\n10:05 M：先看下一页。\n10:12 M：我会周四补齐另外 3 家数据。",
+      "input": {
+        "kind": "synthetic",
+        "target_speaker": "M",
+        "transcript": [
+          "10:01 M: sample is only 3 organizations, so conclusion may change; suggests more data",
+          "10:03 J: asks who will decide the interface before Friday",
+          "10:05 M: moves to next slide without answering",
+          "10:12 M: commits to add 3 more organizations by Thursday"
+        ]
+      },
+      "expected_route": "meeting-communication-review",
+      "must_include": [
+        "【用户要求】恰好给出一处合理谨慎和一处可改进之处，并分别用 10:01 与 10:03/10:05 等价定位",
+        "【输入事实】把 10:01 的‘可能’联系到仅 3 家样本，视为有依据的不确定性表达，而不是回避或性格结论",
+        "【输入事实】指出 10:05 转页未回应 10:03 的负责人问题，并给不虚构负责人的可执行说法，例如明确记录该问题尚待确认并约定确认动作"
+      ],
+      "must_avoid": [
+        "【任务不变量】仅因‘可能’判断 M 紧张、缺乏自信、回避冲突或形成稳定人格结论",
+        "【输入事实】声称 M 已承诺决定接口负责人，或编造实际负责人、截止时间和他人承诺",
+        "【用户要求】增加第 3 个观察，遗漏位置依据，或把建议说法冒充实际发言"
+      ]
+    },
+    {
+      "id": "compare-with-denominators",
+      "prompt": "比较 L 在两次会议中的倾听表现。请计算‘L 的可见发言中，明确承接他人观点的追问所占比例’，并判断这些材料能否证明倾听能力已经提升。\n\n会议 A：记录完整，4 人参加，共 20 个发言轮次；L 有 8 个发言轮次，其中 3 次是明确承接他人观点的追问。\n会议 B：6 人参加，中间缺失 10 分钟转录，可见部分共 18 个发言轮次；L 在可见部分有 6 个发言轮次，其中 4 次是明确承接他人观点的追问。会议任务与 A 不同。\n\n不要把轮次比例说成发言时长，也不要从文字材料推断语调。",
+      "input": {
+        "kind": "synthetic",
+        "metric": "follow-up questions referencing another speaker divided by L's visible turns",
+        "meeting_a": {
+          "complete": true,
+          "participants": 4,
+          "total_turns": 20,
+          "l_turns": 8,
+          "l_followups": 3
+        },
+        "meeting_b": {
+          "complete": false,
+          "missing_minutes": 10,
+          "participants": 6,
+          "visible_total_turns": 18,
+          "l_visible_turns": 6,
+          "l_visible_followups": 4,
+          "task_differs_from_a": true
+        }
+      },
+      "expected_route": "meeting-communication-review",
+      "must_include": [
+        "【用户要求】使用指定分母计算 A 为 3/8，即 37.5%，B 的可见部分为 4/6，即约 66.7%",
+        "【任务不变量】明确这只是 L 可见发言轮次中的承接式追问比例，不是讲话时长、全会议占比或综合倾听评分",
+        "【输入事实】指出 B 缺失 10 分钟且参与人数和会议任务不同，因此观察到的比例上升不能单独证明倾听能力已经提升"
+      ],
+      "must_avoid": [
+        "【输入事实】只比较 3 次与 4 次而不报告分母，或用全体会议轮次作为题目指定指标的分母",
+        "【任务不变量】把 B 的可见比例包装成已证实趋势、讲话时长或人格能力结论",
+        "【输入事实】忽略缺失转录、参与人数或任务差异，或声称从文字听出语调"
+      ]
+    },
+    {
+      "id": "one-actionable-rephrase",
+      "prompt": "只给 1 个改进点和 1 句建议改写。建议必须保留已有事实与条件，不能发明责任人、日期或承诺，也不能冒充会议原话。\n\n背景：小林是 QA 联络人，不是测试环境基础设施负责人；当前不知道谁负责恢复环境。\n14:20 项目负责人陈说：‘测试环境昨天仍不可用；如果今天 17 点前恢复，我们按原计划周五回归，否则需要重新排期。小林，你负责今天 17 点前修好并保证周五上线。’",
+      "input": {
+        "kind": "synthetic",
+        "speaker": "project lead Chen",
+        "target": "Xiaolin",
+        "known_role": "QA liaison, not infrastructure owner",
+        "unknown": "environment recovery owner",
+        "facts_to_preserve": [
+          "test environment was still unavailable yesterday",
+          "if restored by 17:00 today, regression remains planned for Friday",
+          "otherwise the schedule must be reconsidered"
+        ]
+      },
+      "expected_route": "meeting-communication-review",
+      "must_include": [
+        "【用户要求】输出恰好 1 个改进点和 1 句明确标为建议的改写",
+        "【输入事实】改进点聚焦于原话把未知的环境恢复责任和上线保证错误指派给 QA 联络人",
+        "【任务不变量】建议改写保留环境昨天不可用、今天 17 点恢复这一条件、周五回归与否则重新排期，并将恢复负责人保持为待确认而非发明人选"
+      ],
+      "must_avoid": [
+        "【输入事实】让小林承诺修复环境或保证周五上线，或编造新的负责人、日期、结果承诺",
+        "【用户要求】给出多个改进点、多句候选改写、人格评价或额外会议统计",
+        "【任务不变量】把建议改写描述成陈已经说过、团队已经接受或行动已经执行"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "skill_id": "react-performance-review",
+  "stage": "active",
+  "cases": [
+    {
+      "id": "independent-versus-dependent-work",
+      "prompt": "审查下面的 React 19.2 客户端数据加载函数，最多列 2 项。项目未说明使用框架或 React Compiler。请指出哪些等待可以重叠、哪些依赖必须保留，给出最小调整方向和验证思路；不要声称已经改动或测量。\n\nasync function loadDashboard(userId) {\n  const user = await fetchUser(userId);\n  const flags = await fetchFlags(userId);\n  if (!flags.canViewBilling) return { user, invoices: [] };\n  const invoices = await fetchInvoices(user.accountId);\n  return { user, invoices };\n}\n\n约束：fetchUser 与 fetchFlags 都是只读调用且彼此不依赖；fetchInvoices 需要 user.accountId，并且没有账单权限时绝不能发起。现有 user/flags 错误需要继续向调用方暴露。",
+      "input": {
+        "kind": "synthetic",
+        "runtime": "React 19.2 client; framework and React Compiler unspecified",
+        "code": "async function loadDashboard(userId) { const user = await fetchUser(userId); const flags = await fetchFlags(userId); if (!flags.canViewBilling) return { user, invoices: [] }; const invoices = await fetchInvoices(user.accountId); return { user, invoices }; }",
+        "facts": [
+          "fetchUser and fetchFlags are read-only and independent",
+          "fetchInvoices depends on user.accountId",
+          "fetchInvoices must not start without billing permission",
+          "a failure from either user or flags must reject the overall request; if both fail, their former serial error ordering need not be preserved; no started rejection may be swallowed or left unhandled"
+        ]
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "【输入事实】识别 fetchUser 与 fetchFlags 可以重叠等待；接受先启动两个 Promise 后分别等待、Promise.all 或语义等价安排，不限定唯一语法",
+        "【任务不变量】保留权限前置和数据依赖：必须先确认 canViewBilling 且取得 user.accountId 后才能发起 fetchInvoices，无权限分支仍不请求账单",
+        "【用户要求】给出验证思路，至少覆盖有权限和无权限路径，并检查任一 user 或 flags 失败都会使整体请求 reject，且不得吞错或留下未处理的 Promise rejection"
+      ],
+      "must_avoid": [
+        "【任务不变量】把三个请求无条件放进同一个并发批次，导致无权限时也调用 fetchInvoices，或让 invoices 在 user.accountId 可用前启动",
+        "【输入事实】默认项目是 Next.js、服务端组件或已启用 React Compiler",
+        "【用户要求】超过 2 个审查项，编造性能收益，或声称已经改文件、运行代码或完成测量"
+      ]
+    },
+    {
+      "id": "avoid-unjustified-memo",
+      "prompt": "React 19.2 客户端页面中有很多下面这样的组件：\n\nfunction Badge({ label }) {\n  return <span>{label.toUpperCase()}</span>;\n}\n\n现有交互跟踪显示页面流畅，这个渲染计算可忽略，没有观察到昂贵的重复工作；React Compiler 是否启用未知。是否值得批量给 Badge 加 memo 或给 label.toUpperCase() 加 useMemo？请最多用 2 句话回答。",
+      "input": {
+        "kind": "synthetic",
+        "runtime": "React 19.2 client; React Compiler status unknown",
+        "component": "function Badge({ label }) { return <span>{label.toUpperCase()}</span>; }",
+        "observations": "interaction is smooth; render calculation is negligible; no expensive repeated work observed"
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "【输入事实】不建议基于当前证据批量添加 memo 或 useMemo，并允许简单的 toUpperCase 继续直接计算",
+        "【条件规则】若回答扩展讨论未来何时缓存，只能将其写成有 profiler 或等价测量证明存在频繁、昂贵、可复用重复渲染时的条件化建议；不讨论未来条件但正确回答当前不值得，也满足本项"
+      ],
+      "must_avoid": [
+        "【输入事实】声称 memo 或 useMemo 已有实测收益、函数引用已造成瓶颈，或假定 React Compiler 已开启",
+        "【任务不变量】把缓存说成永远禁止或任何场景都必须使用",
+        "【用户要求】超过 2 句话，声称已经修改组件或运行 profiler"
+      ]
+    },
+    {
+      "id": "derived-work-and-state",
+      "prompt": "审查这个 React 19.2 客户端组件，只给一项局部性能改善。analytics.syncQuery 是与外部分析系统同步的必要行为，必须保留；筛选结果的内容和顺序也必须不变。项目框架和 React Compiler 未说明。\n\nfunction Results({ items, analytics }) {\n  const [query, setQuery] = useState('');\n  const [visible, setVisible] = useState(items);\n\n  useEffect(() => {\n    setVisible(items.filter(item => item.name.includes(query)));\n  }, [items, query]);\n\n  useEffect(() => {\n    analytics.syncQuery(query);\n  }, [analytics, query]);\n\n  return <>\n    <input value={query} onChange={e => setQuery(e.target.value)} />\n    <List items={visible} />\n  </>;\n}\n\n说明为什么，并给一个不依赖固定代码模板的验证思路；不要声称已经修改或测试。",
+      "input": {
+        "kind": "synthetic",
+        "runtime": "React 19.2 client; framework and React Compiler unspecified",
+        "facts": [
+          "visible is derived only from current items and query",
+          "analytics.syncQuery synchronizes with an external system and must remain",
+          "filter content and ordering must remain unchanged"
+        ]
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "【输入事实】识别 visible 是 items 与 query 的纯派生值，可在渲染阶段直接派生并移除对应冗余 state/effect；是否用 useMemo 只能按计算成本有条件决定，不限定模板",
+        "【任务不变量】明确保留 analytics.syncQuery 的外部同步 Effect，不把所有 Effect 一概删除",
+        "【用户要求】验证输入变化后的筛选内容与顺序不变，并检查外部分析同步仍按 query 变化发生"
+      ],
+      "must_avoid": [
+        "【任务不变量】删除或移到渲染期执行 analytics.syncQuery，改变筛选语义、顺序或受控输入行为",
+        "【输入事实】把 useMemo 当作必选答案，或假定未提供的框架、Compiler 与实测收益",
+        "【用户要求】给出多项无关优化，或声称已经改文件、运行测试"
+      ]
+    },
+    {
+      "id": "prioritize-observed-cost",
+      "prompt": "只给最值得先处理的 1 项 React 性能问题及验证思路。React 19.2 客户端搜索页的合成交互跟踪如下：输入一次字符的 p95 响应为 180ms；每次输入都会重新运行 rankResults(results, query)，该步骤在同一跟踪中约 145ms；Badge 的 label.toUpperCase() 约 0.05ms；一个传给普通子组件的内联回调尚未测量。结果排序正确性必须保持。项目框架和 React Compiler 未说明。不要宣称已经优化或给出虚构收益。",
+      "input": {
+        "kind": "synthetic",
+        "runtime": "React 19.2 client; framework and React Compiler unspecified",
+        "trace": {
+          "typing_p95_ms": 180,
+          "rankResults_per_keystroke_ms": 145,
+          "badge_uppercase_ms": 0.05,
+          "inline_callback": "unmeasured"
+        },
+        "invariant": "ranked result correctness must remain"
+      },
+      "expected_route": "react-performance-review",
+      "must_include": [
+        "【用户要求】恰好聚焦 1 个问题，并把 rankResults 的 145ms 已测成本作为优先项，而不是轻微或未测模式",
+        "【任务不变量】给出条件化的最小方向，例如减少不必要重算、复用结果或调整非紧急计算时机，同时明确保持排序结果正确；不限定唯一 API",
+        "【用户要求】建议用同一输入交互复测 rankResults 成本和输入响应 p95，并同时核对排序正确性"
+      ],
+      "must_avoid": [
+        "【用户要求】列出第 2 个性能问题，转而优先处理 0.05ms 的 Badge 或未测内联回调",
+        "【输入事实】编造优化百分比、把 p95 与单步骤耗时混为同一指标，或声称已运行 profiler",
+        "【任务不变量】强制指定 memo、useMemo、transition 或框架专属方案，或忽略排序正确性"
+      ]
+    }
+  ]
+}

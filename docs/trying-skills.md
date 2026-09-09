@@ -14,6 +14,8 @@
 | 审查论断与给定来源之间的支持关系 | `claim-evidence-review` |
 | 把产品、购买角色、证据与未知项整理成共享背景 | `product-context-brief` |
 | 选择文章配图位置并规划信息结构或生成提示词 | `article-visual-plan` |
+| 根据代码与测量材料审查 React 性能问题 | `react-performance-review` |
+| 根据转录和统计复盘会议沟通行为 | `meeting-communication-review` |
 
 ## 如何使用
 
@@ -61,7 +63,15 @@
 
 > 为这篇合成文章选择最多两处真正需要视觉解释的位置，先说明信息结构和目的；没有数据时不要编造比例，本次不要生成图片。
 
-先按目标选择一个技能，不必同时加载十个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
+### React 性能审查
+
+> 只根据这段 React 代码和合成性能跟踪，按已测影响指出最值得先处理的一项，保留请求依赖、错误和交互正确性，并说明如何用同一指标复测。不要假定框架或 React Compiler 已启用。
+
+### 会议沟通复盘
+
+> 根据这份合成会议转录复盘指定人员的一处沟通行为，引用发言位置并给一句建议表达。只有发言开始时间时不要计算讲话时长，也不要从文字推断语调或打断。
+
+先按目标选择一个技能，不必同时加载十二个包。沟通演练可以携带必要事实与目标；从模拟返回分析时，模拟台词必须单独标记，不能作为新增真人证据。
 
 ## 本地导出
 
@@ -74,6 +84,8 @@ python scripts/export_skills.py --skill debug-evidence-triage
 python scripts/export_skills.py --skill claim-evidence-review
 python scripts/export_skills.py --skill product-context-brief
 python scripts/export_skills.py --skill article-visual-plan
+python scripts/export_skills.py --skill react-performance-review
+python scripts/export_skills.py --skill meeting-communication-review
 python scripts/export_skills.py --all
 ```
 

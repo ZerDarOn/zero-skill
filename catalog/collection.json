@@ -49,7 +49,7 @@
       "id": "person-evidence-analysis",
       "category": "people",
       "form": "analysis",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "path": "skills/people/person-evidence-analysis/SKILL.md",
       "status": "experimental",
       "tags": [
@@ -133,7 +133,7 @@
       "id": "prose-polish",
       "category": "creation",
       "form": "workflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "path": "skills/creation/prose-polish/SKILL.md",
       "status": "experimental",
       "tags": [

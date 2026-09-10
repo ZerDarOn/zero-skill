@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "report_id": "person-balanced-evidence-two-arm-02-rubric-calibration",
+  "diagnostic_only": true,
+  "verification_eligible": false,
+  "method": "Post-run semantic calibration of the frozen strict rubric. It preserves the official blind score and is not independent human review.",
+  "fixtures": [
+    {
+      "case_id": "B01",
+      "id": "responsibility-preserved-without-plan-authorship",
+      "answer": "甲让乙定优先级，但自己负责最终方案和上线跟进。",
+      "expected_accept_for_core_task": true,
+      "reason": "For judging whether Jia avoids responsibility, retained delivery ownership is material; repeating that Jia drafted both options is optional."
+    },
+    {
+      "case_id": "B01",
+      "id": "responsibility-omitted",
+      "answer": "甲把优先级交给乙决定。",
+      "expected_accept_for_core_task": false,
+      "reason": "Omitting Jia's final-plan and launch responsibility makes the delegation look one-sided."
+    },
+    {
+      "case_id": "B03",
+      "id": "promise-and-follow-through-compressed",
+      "answer": "林禾当时暂缓接手，随后按承诺完成了数据清理。",
+      "expected_accept_for_core_task": true,
+      "reason": "The current deferral, later commitment, and observed completion are preserved semantically; exact dates are optional for the user's stable-pattern question."
+    },
+    {
+      "case_id": "B03",
+      "id": "promise-erased",
+      "answer": "林禾当时拒绝了数据清理。",
+      "expected_accept_for_core_task": false,
+      "reason": "This removes the same-message commitment and later completion."
+    },
+    {
+      "case_id": "B04",
+      "id": "decision-maker-only",
+      "answer": "乙决定了优先级。",
+      "expected_accept_for_core_task": true,
+      "reason": "The user asked only who decided; naming the selected option B is additional detail, not required for correctness."
+    },
+    {
+      "case_id": "B04",
+      "id": "wrong-decision-maker",
+      "answer": "甲决定了优先级。",
+      "expected_accept_for_core_task": false,
+      "reason": "This reverses the decision owner."
+    }
+  ],
+  "reviewer": {
+    "kind": "model-assisted-post-run-calibration",
+    "independent_human": false
+  }
+}

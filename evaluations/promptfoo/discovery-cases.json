@@ -1,0 +1,11 @@
+[
+  {
+    "id": "DISCOVERY01",
+    "purpose": "验证 Codex 能在隔离项目中发现并读取 SKILL.md",
+    "prompt": "只返回原生技能发现探针令牌。",
+    "hard_criteria": [
+      "输出严格等于 CERULEAN-FALCON-SKILL"
+    ],
+    "expected_output": "CERULEAN-FALCON-SKILL"
+  }
+]

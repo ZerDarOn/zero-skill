@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "promptfoo-native-skill-file-read-canary",
+  "cases": "filesystem-read-cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 1,
+  "common_prompt": "这是隔离环境中的合成基础设施测试。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "project-skill",
+      "skill": {
+        "id": "discovery-token",
+        "source": "fixtures/discovery-token",
+        "install_mode": "project",
+        "invocation": "implicit"
+      }
+    }
+  ],
+  "comparison_kind": "discovery"
+}

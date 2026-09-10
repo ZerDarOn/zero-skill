@@ -1,0 +1,848 @@
+{
+  "schema_version": 1,
+  "report_id": "prose-preservation-0.1.2-promptfoo-diagnostic",
+  "generated_at": "2026-09-10T19:13:36.109574+00:00",
+  "skill": {
+    "id": "prose-polish",
+    "old_version": "0.1.1",
+    "old_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+    "current_version": "0.1.2",
+    "current_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+    "change": "Preserve before-to-after state relations and bind conditional audience, action, and deadline under compression; explicit corrections still replace obsolete values."
+  },
+  "source_sha256": {
+    "active_cases": "333d68e1993090743819455b1be22b77f8986be6d89a88eb989c07beb1c44139",
+    "comparison_cases": "e40949b62e4532073def6961112ddb4c45095c2c9251faaf2591231bd87063c4",
+    "comparison_spec": "f3fe7a68f4939334b7c294b54a7fe04f10e6819edb992f7f18f6058d3d7cf76e",
+    "old_snapshot_provenance": "3eef99cd7371281dd4b695488aeeadc483a19156c914800db5689dd19dd11175"
+  },
+  "native_discovery_gate": {
+    "run_id": "promptfoo-native-discovery-canary-06",
+    "status": "passed",
+    "results_sha256": "c19b9efc831474dc0da5a37cd186fa22a1ba973b03a2c37575b5c94b3721526a"
+  },
+  "generalization_pilot": {
+    "run_id": "prose-preservation-three-arm-02-pilot-r1",
+    "selected_case_ids": [
+      "P01",
+      "P02",
+      "P03",
+      "P04"
+    ],
+    "planned_repetitions": 3,
+    "executed_repetitions": 1,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "infrastructure_valid": true,
+    "results_sha256": "6f61fc2f594985102718d79115f4b33efa98479989972d556744472b731278f8",
+    "frozen_sha256": "4aeb04e505a0d4fd5caa04401ab176b514c3e68c4800a1cee209ba52581e1bb5",
+    "reviewer": {
+      "kind": "model-assisted",
+      "model": "gpt-6",
+      "independent_human": false,
+      "basis": "Blind criterion review before opening the mapping key; Unicode character and English word counts were mechanically checked."
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "skill_package_sha256": null,
+        "metrics": {
+          "rows": 4,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.105748,
+          "latency_ms_median": 8617.5,
+          "tokens_total": {
+            "cached": 17280,
+            "completion": 736,
+            "prompt": 38309,
+            "total": 39045
+          }
+        },
+        "blind_review": {
+          "outputs": 4,
+          "perfect_outputs": 3,
+          "criteria_passed": 15,
+          "criteria_total": 16,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.9375
+        }
+      },
+      {
+        "arm_id": "old",
+        "skill": "prose-polish",
+        "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+        "metrics": {
+          "rows": 4,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.0970312,
+          "latency_ms_median": 9264.5,
+          "tokens_total": {
+            "cached": 23808,
+            "completion": 704,
+            "prompt": 42165,
+            "total": 42869
+          }
+        },
+        "blind_review": {
+          "outputs": 4,
+          "perfect_outputs": 4,
+          "criteria_passed": 16,
+          "criteria_total": 16,
+          "preferred_count": 0,
+          "criterion_pass_rate": 1.0
+        }
+      },
+      {
+        "arm_id": "current",
+        "skill": "prose-polish",
+        "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+        "metrics": {
+          "rows": 4,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.0721096,
+          "latency_ms_median": 8002.0,
+          "tokens_total": {
+            "cached": 31744,
+            "completion": 768,
+            "prompt": 42757,
+            "total": 43525
+          }
+        },
+        "blind_review": {
+          "outputs": 4,
+          "perfect_outputs": 4,
+          "criteria_passed": 16,
+          "criteria_total": 16,
+          "preferred_count": 1,
+          "criterion_pass_rate": 1.0
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "P01-r1",
+        "case_id": "P01",
+        "repetition": 1,
+        "purpose": "字符限制下保留原定时间、改后时间和适用条件",
+        "hard_criteria": [
+          "同时保留原定9月18日20点和改后9月20日19点30分，清楚表达变更方向",
+          "保留会议号不变和已登记者无需重新登记",
+          "把9月17日12点前回复邮件限定于新时间有冲突者，不扩大成所有人必须回复",
+          "只给一条通知，去掉首尾空白后不超过75个Unicode字符，不新增事实"
+        ],
+        "preferred_candidate": "A",
+        "review_notes": "All three preserve the before-to-after schedule relation, registration rule, scoped conflict response, and 75-character limit. A is the most direct without an extra notice label.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "原定9月18日20:00的线上讲座改至9月20日19:30，会议号不变。已登记者无需重登；如新时间冲突，请于9月17日12:00前回复邮件。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "通知：线上讲座由原定9月18日晚8点改至9月20日晚7点半，会议号不变，已登记者无需重登；如新时间冲突，请于9月17日中午12点前回复邮件。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "通知：原定9月18日晚8点的线上讲座改至9月20日晚7点半，会议号不变。已登记者无需重登；若时间冲突，请于9月17日中午12点前回复邮件。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P02-r1",
+        "case_id": "P02",
+        "repetition": 1,
+        "purpose": "压缩合取条件时不扩大适用人群",
+        "hard_criteria": [
+          "保留申请表10月1日开放及10月3日18点截止",
+          "保留购买现场票且需要无障碍座位两个条件的合取关系",
+          "明确线上票与不需要无障碍座位的现场票都无需填写，不扩大义务范围",
+          "只给一条通知，去掉首尾空白后不超过70个Unicode字符，不新增事实"
+        ],
+        "preferred_candidate": "A",
+        "review_notes": "All three keep both dates and restrict the obligation to live-ticket attendees who need accessible seating. 'Other attendees' is a clear logical complement; A most explicitly names both exempt groups.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "无障碍座位申请表10月1日开放。仅需无障碍座位的现场票观众须于10月3日18点前填写；线上票及无需该座位的现场票观众免填。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "无障碍座位申请表10月1日开放。仅购买现场票且需无障碍座位的观众须于10月3日18点前填写，其他观众无需填写。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "无障碍座位申请表10月1日开放。仅需无障碍座位的现场票观众须于10月3日18点前填写；其他观众无需填写。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P03-r1",
+        "case_id": "P03",
+        "repetition": 1,
+        "purpose": "保留旧方案、当前决定和后续状态",
+        "hard_criteria": [
+          "保留现有12人、原定扩大到30人和当前先扩大到20人的关系",
+          "保留30人方案只是留到下一阶段讨论，不能写成取消或已实施",
+          "保留现有12人继续参加",
+          "只给一条说明，去掉首尾空白后不超过60个Unicode字符，不新增事实"
+        ],
+        "preferred_candidate": "A",
+        "review_notes": "A and B preserve the existing 12, original 30, current 20, and later-discussion states. C mentions the 30-person proposal but omits that it was the original expansion plan.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "试用原定由12人扩至30人，现先扩至20人；原12人继续参加，30人方案留待下一阶段讨论。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "试用原计划由现有12人扩大至30人，现先扩大至20人；现有12人继续参加，30人方案留待下一阶段讨论。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "试用先由12人扩至20人，现有12人继续参加；30人方案留待下一阶段讨论。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P04-r1",
+        "case_id": "P04",
+        "repetition": 1,
+        "purpose": "英文短通知保留改期关系和条件动作",
+        "hard_criteria": [
+          "Keep both the original Tuesday 2 p.m. time and the new Thursday 3 p.m. time with a clear change relationship",
+          "Keep that returning attendees do not need to register again",
+          "Limit the Monday noon reply request to people for whom Thursday does not work",
+          "Return only one notice of at most 35 words without inventing information"
+        ],
+        "preferred_candidate": "A",
+        "review_notes": "All three satisfy the schedule, registration, scoped reply, and 35-word requirements. A is shortest and most direct.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "Workshop rescheduled from Tuesday at 2 p.m. to Thursday at 3 p.m. Returning attendees need not register again. If unavailable Thursday, reply by Monday at noon.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "The workshop has moved from Tuesday at 2 p.m. to Thursday at 3 p.m. Returning attendees need not register again. If Thursday doesn’t work, reply by Monday at noon.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "The workshop has moved from Tuesday at 2 p.m. to Thursday at 3 p.m. Returning attendees need not register again. If Thursday doesn’t work, reply by Monday at noon.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      }
+    ],
+    "artifact_sha256": {
+      "blind_review_packet": "cba8d0c8e6d6f6a6bc1e0a225afa528725f17ed49cf1af9e34eb6e07410f0d77",
+      "blind_review_key": "483e04fabfcd7448b692db445620cb7de75070f31821c6d43244fbf6c14178a9",
+      "completed_review": "e062d6c607eae1ac1aeaef482dcd480a5e533bbfd4af174d20f8d6bde39b6d01",
+      "revealed_review_result": "14ed6c210d5a3479c9b1aebc43cc2b01845f474cbd35cfdd4ca1bfd95fe1b28c"
+    }
+  },
+  "targeted_regression": {
+    "run_id": "prose-preservation-three-arm-02-regression-p05-p06-r3",
+    "selected_case_ids": [
+      "P05",
+      "P06"
+    ],
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "infrastructure_valid": true,
+    "results_sha256": "eac1609582c5e32a0d7620b6bf8ea5f6e3ceb5017816a794e269b64cdf4e4323",
+    "frozen_sha256": "cd73dcd984c5852152c0f5d4b25f1b26a439dbc9ed92c5f3d1f38c42758acd9e",
+    "reviewer": {
+      "kind": "model-assisted-post-reveal-correction",
+      "model": "gpt-6",
+      "independent_human": false,
+      "basis": "Post-reveal semantic correction after a separate same-project read-only review; original outputs, frozen criteria, candidate order, and preferences are unchanged."
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "skill_package_sha256": null,
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.0888784,
+          "latency_ms_median": 7481.0,
+          "tokens_total": {
+            "cached": 41216,
+            "completion": 471,
+            "prompt": 56959,
+            "total": 57430
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 3,
+          "criteria_passed": 21,
+          "criteria_total": 24,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.875
+        }
+      },
+      {
+        "arm_id": "old",
+        "skill": "prose-polish",
+        "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.093096,
+          "latency_ms_median": 8111.0,
+          "tokens_total": {
+            "cached": 52480,
+            "completion": 1437,
+            "prompt": 63321,
+            "total": 64758
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 5,
+          "criteria_passed": 23,
+          "criteria_total": 24,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.9583
+        }
+      },
+      {
+        "arm_id": "current",
+        "skill": "prose-polish",
+        "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.1044424,
+          "latency_ms_median": 9067.5,
+          "tokens_total": {
+            "cached": 50176,
+            "completion": 1412,
+            "prompt": 64209,
+            "total": 65621
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "preferred_count": 2,
+          "criterion_pass_rate": 1.0
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "P05-r1",
+        "case_id": "P05",
+        "repetition": 1,
+        "purpose": "复现上一轮原定日期与条件限定丢失",
+        "hard_criteria": [
+          "保留本周六改周日及上午10点，不混淆原定与改后日期",
+          "保留二楼小会议室和无需重新报名",
+          "保留周日来不了者周五18点前私信，不改成所有人必须确认",
+          "只给通知，去掉首尾空白后不超过60个Unicode字符，不增加事实"
+        ],
+        "preferred_candidate": "C",
+        "review_notes": "A and B omit the original Saturday, but 'unable to attend' is naturally scoped to the immediately preceding Sunday event rather than all recipients. C preserves the complete reschedule relation and states the scope explicitly.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "通知：本周读书会改至周日上午10点，地点仍为二楼小会议室。已报名者无需重报；无法参加请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名无需重报；无法参加请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "原定周六10点的读书会改至周日10点，地点仍在二楼小会议室。已报名者无需重报；周日不能来请于周五18点前私信我。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P05-r2",
+        "case_id": "P05",
+        "repetition": 2,
+        "purpose": "复现上一轮原定日期与条件限定丢失",
+        "hard_criteria": [
+          "保留本周六改周日及上午10点，不混淆原定与改后日期",
+          "保留二楼小会议室和无需重新报名",
+          "保留周日来不了者周五18点前私信，不改成所有人必须确认",
+          "只给通知，去掉首尾空白后不超过60个Unicode字符，不增加事实"
+        ],
+        "preferred_candidate": "B",
+        "review_notes": "A and B preserve all four requirements. C omits the original Saturday, but its 'unable to attend' clause remains scoped by the immediately preceding Sunday event. B remains the preferred phrasing.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "读书会由本周六10点改至周日10点，地点仍为二楼小会议室。已报名者无需重报；周日不能参加者请于周五18点前私信我。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "原定本周六10点的读书会改至周日10点，地点仍在二楼小会议室。已报名者无需重报；周日来不了请于周五18点前私信我。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名者无需重报；无法参加者请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P05-r3",
+        "case_id": "P05",
+        "repetition": 3,
+        "purpose": "复现上一轮原定日期与条件限定丢失",
+        "hard_criteria": [
+          "保留本周六改周日及上午10点，不混淆原定与改后日期",
+          "保留二楼小会议室和无需重新报名",
+          "保留周日来不了者周五18点前私信，不改成所有人必须确认",
+          "只给通知，去掉首尾空白后不超过60个Unicode字符，不增加事实"
+        ],
+        "preferred_candidate": "B",
+        "review_notes": "A and B preserve the reschedule relation; C omits the original Saturday. All three keep the reply action conditional on inability to attend the immediately preceding Sunday event; B states that scope most explicitly.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "原定周六上午10点的读书会改至周日上午10点，地点仍在二楼小会议室。已报名无需重报；来不了请于周五18点前私信我。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "原定本周六上午10点的读书会改至周日上午10点，地点仍为二楼小会议室。已报名无需重报；周日来不了请于周五18点前私信我。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名者无需重报；无法参加请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P06-r1",
+        "case_id": "P06",
+        "repetition": 1,
+        "purpose": "明确更正时不错误保留作废旧值",
+        "hard_criteria": [
+          "使用15名且不保留12名或把更正过程写进正文",
+          "保留2026年9月8日、仅为内部测试者、试用中观察到",
+          "保留可能缩短和约8%的限定强度",
+          "只返回改后的一句话，不增加原因、证明、适用范围或其他事实"
+        ],
+        "preferred_candidate": null,
+        "review_notes": "All candidates are identical and correctly apply the authorized correction without retaining the obsolete value.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P06-r2",
+        "case_id": "P06",
+        "repetition": 2,
+        "purpose": "明确更正时不错误保留作废旧值",
+        "hard_criteria": [
+          "使用15名且不保留12名或把更正过程写进正文",
+          "保留2026年9月8日、仅为内部测试者、试用中观察到",
+          "保留可能缩短和约8%的限定强度",
+          "只返回改后的一句话，不增加原因、证明、适用范围或其他事实"
+        ],
+        "preferred_candidate": null,
+        "review_notes": "All candidates are identical and correctly apply the authorized correction without retaining the obsolete value.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "P06-r3",
+        "case_id": "P06",
+        "repetition": 3,
+        "purpose": "明确更正时不错误保留作废旧值",
+        "hard_criteria": [
+          "使用15名且不保留12名或把更正过程写进正文",
+          "保留2026年9月8日、仅为内部测试者、试用中观察到",
+          "保留可能缩短和约8%的限定强度",
+          "只返回改后的一句话，不增加原因、证明、适用范围或其他事实"
+        ],
+        "preferred_candidate": null,
+        "review_notes": "All candidates are identical and correctly apply the authorized correction without retaining the obsolete value.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "current",
+            "skill_package_sha256": "e7c4efa2e874dc91a06d35c5144060944e25af6654cbb1e6560597c7aae7a932",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "old",
+            "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill_package_sha256": null,
+            "output": "2026年9月8日，我们在仅覆盖15名内部测试者的试用中观察到，这个提示可能让等待时间缩短约8%。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      }
+    ],
+    "artifact_sha256": {
+      "blind_review_packet": "0fa49b46d6e57d3444fd41f8c2a9300645e4afd49544ba3d61ef3fb7a54a0d1b",
+      "blind_review_key": "3c66618acfc112442179a1e31b1bb5c93e2ff42de642c865217cc13429ac61a0",
+      "completed_review": "b1181cdea7aa80cbd9cd06bad4fcde3e40d8d330899ab933af2e9b4f657da033",
+      "revealed_review_result": "02f495b59f6e925b7324196e9e0d9c49838b9a3b1026a894df35dbe43f960717",
+      "original_completed_review": "3f48abfc6fe12ce0b9a718660902eaff6cbe25240c844880af0676b4785bc470",
+      "original_revealed_review_result": "628f6459df2132c2fe6fc903992ff65c7a84375c21ec0466bf8a32a41beb1062"
+    },
+    "scoring_correction": {
+      "corrected_at": "2026-09-10T20:05:17.829566+00:00",
+      "reason": "The first review treated 'unable to attend' immediately after the Sunday event as an unscoped request to every recipient. A separate read-only review identified that the nearby event context preserves the conditional audience, so criterion 3 was corrected for five P05 candidates.",
+      "scope": "Only P05 criterion 3 booleans, review notes, and derived aggregates changed. Frozen criteria, prompts, outputs, candidate order, package hashes, preferences, cost, tokens, and latency are unchanged.",
+      "blindness": "The correction occurred after arm mapping was available and is not claimed as blind or independent human review.",
+      "original_completed_review_sha256": "3f48abfc6fe12ce0b9a718660902eaff6cbe25240c844880af0676b4785bc470",
+      "original_revealed_review_result_sha256": "628f6459df2132c2fe6fc903992ff65c7a84375c21ec0466bf8a32a41beb1062",
+      "corrected_review_sha256": "b1181cdea7aa80cbd9cd06bad4fcde3e40d8d330899ab933af2e9b4f657da033",
+      "corrected_revealed_review_result_sha256": "02f495b59f6e925b7324196e9e0d9c49838b9a3b1026a894df35dbe43f960717"
+    }
+  },
+  "findings": [
+    "On P01-P04 at one repetition, baseline scored 15/16 while old and current each scored 16/16; no current-over-old gain was observed.",
+    "On P05 across three repetitions, baseline produced 0/3 perfect outputs, old produced 2/3, and current produced 3/3. The remaining separation is retention of the original Saturday, not conditional-audience scoping.",
+    "On explicit correction P06 across three repetitions, every arm produced 3/3 perfect outputs; no obsolete-value retention regression was observed."
+  ],
+  "limitations": [
+    "All content is synthetic and both Skill arms used explicit invocation.",
+    "Scoring was model-assisted rather than an independent human review.",
+    "P05 criterion 3 was corrected after reveal following a separate model-assisted review; this correction is not a blind or independent human judgment.",
+    "P01-P04 ran once each; P05-P06 ran three times each. This is targeted regression evidence, not a general writing-quality ranking.",
+    "No implicit routing, cross-model, cross-host, or real-user-data evaluation was performed.",
+    "The skill remains experimental and this evidence does not justify verified status."
+  ],
+  "revised_at": "2026-09-10T20:05:17.829566+00:00"
+}

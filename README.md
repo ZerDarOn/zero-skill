@@ -2,10 +2,23 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第五轮质量复核**。已有十六个可试用的 `experimental` 技能。本轮为产品背景简报补充限量开放、冲突来源和仅交当前稿三类回归，包保持 0.1.0 不变；完整复跑 7/7，新增三例在两次同包运行均通过。无技能的严格 6/7 差异仅在来源编号，不能解释为内容理解提升。尚未完成自动路由、独立人工评审或稳定收益验证。
+当前阶段：**第九轮硬长度上限与证据指纹打磨**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`prose-polish` 0.1.3 在 P05/P06 各三次的当前包回归中为24/24、6/6完整通过，0.1.1为23/24、无 Skill为22/24；四题单次一般化复跑三组均为15/16，未证明一般性写作优势。全部待提交文本已统一 LF，校验器会拒绝影响包指纹的 CRLF。当前仍是显式调用与模型辅助评审；隐式发现链路在当前宿主尚未完成。人物分析的平衡证据复查也未支持继续升版。
 
 ## 从这里开始
 
+- [第九轮质量打磨：硬长度上限与跨平台指纹](docs/quality-polish-round-09.md)
+- [prose-polish 0.1.3 脱敏诊断证据](evaluations/reports/prose-output-limits-0.1.3-promptfoo-diagnostic.json)
+- [第八轮质量检查：人物证据分析原生盲测 pilot](docs/quality-evaluation-round-08.md)
+- [人物分析 pilot 脱敏诊断证据](evaluations/reports/person-evidence-two-arm-01-pilot-diagnostic.json)
+- [人物平衡证据复查诊断](evaluations/reports/person-balanced-evidence-two-arm-02-pilot-diagnostic.json)
+- [第七轮评测校准：语义评分与隐式路由边界](docs/quality-evaluation-round-07.md)
+- [隐式发现宿主诊断证据](evaluations/reports/promptfoo-implicit-discovery-host-diagnostic.json)
+- [第六轮质量打磨：压缩中的关系与条件保真](docs/quality-polish-round-06.md)
+- [prose-polish 0.1.2 脱敏诊断证据](evaluations/reports/prose-preservation-0.1.2-promptfoo-diagnostic.json)
+- [Promptfoo 原生 Skill 评测基建与首轮 pilot](docs/promptfoo-native-skill-evaluation-pilot.md)
+- [Promptfoo 原生 Skill 评测脱敏诊断证据](evaluations/reports/promptfoo-native-skill-evaluation-pilot-diagnostic.json)
+- [第一轮工程三方对照：补丁、实际验收与回归超时](docs/engineering-three-arm-01-report.md)
+- [第一轮三方润色对照：无技能、我们与 Humanizer](docs/prose-three-arm-01-report.md)
 - [第五轮质量复核：产品开放范围与来源冲突](docs/quality-polish-round-05.md)
 - [第四轮质量打磨：润色不应改写真实感受](docs/quality-polish-round-04.md)
 - [第三轮质量打磨：人物分析的来源、指代与更正](docs/quality-polish-round-03.md)
@@ -88,4 +101,4 @@ docs/          架构、规范、调研取舍
 
 ## 来源与授权
 
-本阶段使用原创说明和链接进行设计研究，没有复制上游技能、脚本或素材。上游声明的许可证记录在候选表，正式引入时需针对具体提交核对许可证、素材权利及署名。此仓库自身的公开发布许可尚未选定，不应假定仓库已按 MIT 或其他许可证授权。
+本地技能使用原创说明和链接进行设计研究。三方对照另在 `evaluations/fixtures/upstreams/` 保存 Humanizer 与 Superpowers 固定提交的未修改评测夹具，附原始 MIT 许可证、版权声明和来源指纹；这些夹具不属于本地技能登记，也未全局安装或执行其中的上游脚本。上游声明的许可证记录在候选表，正式引入时需针对具体提交核对许可证、素材权利及署名。此仓库自身的公开发布许可尚未选定，不应假定仓库已按 MIT 或其他许可证授权。

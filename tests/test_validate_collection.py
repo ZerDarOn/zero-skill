@@ -28,7 +28,7 @@ class CollectionValidationTests(unittest.TestCase):
     def write_text(self, path, content):
         destination = self.root / path
         destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_text(content, encoding="utf-8")
+        destination.write_bytes(content.encode("utf-8"))
 
     def write_json(self, path, value):
         self.write_text(path, json.dumps(value, ensure_ascii=False))
@@ -79,6 +79,12 @@ class CollectionValidationTests(unittest.TestCase):
     def test_registered_draft_is_valid(self):
         self.add_skill()
         self.assertEqual(self.errors(), "")
+
+    def test_crlf_skill_is_rejected_before_fingerprinting(self):
+        record = self.add_skill()
+        path = self.root / record["path"]
+        path.write_bytes(path.read_bytes().replace(b"\n", b"\r\n"))
+        self.assertIn("CRLF line endings are unsupported", self.errors())
 
     def test_unknown_category_is_rejected(self):
         self.add_skill()["category"] = "unknown"

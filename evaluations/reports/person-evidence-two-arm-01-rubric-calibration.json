@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "report_id": "person-evidence-two-arm-01-rubric-calibration",
+  "diagnostic_only": true,
+  "verification_eligible": false,
+  "method": "Post-run semantic calibration of synthetic answer fragments. It does not alter the frozen pilot scores and is not independent human review.",
+  "fixtures": [
+    {
+      "case_id": "E01",
+      "id": "sequence-without-calculated-duration",
+      "answer": "他提前说会晚点回复，到站后给出了完整答复。",
+      "expected_accept_for_core_observation": true,
+      "reason": "The order and behavior relevant to the user's question are preserved; calculating roughly six hours is optional unless duration is the subject."
+    },
+    {
+      "case_id": "E01",
+      "id": "self-report-upgraded-to-objective-fact",
+      "answer": "客观上就是火车信号导致延迟，不存在其他解释。",
+      "expected_accept_for_source-handling": false,
+      "reason": "The train and signal explanation is the person's message, not independently verified fact, and alternatives are improperly closed."
+    },
+    {
+      "case_id": "E04",
+      "id": "chronology-without-rehearsal-count",
+      "answer": "她先拒绝演示，后来完成内部演练，之后主动完成产品发布会演示。",
+      "expected_accept_for_core_chronology": true,
+      "reason": "The change sequence is preserved; omitting the count of two rehearsals does not change the answer to whether a fixed public-expression claim is supported."
+    },
+    {
+      "case_id": "E04",
+      "id": "chronology-reversed",
+      "answer": "她先完成发布会演示，随后才参加内部演练。",
+      "expected_accept_for_core_chronology": false,
+      "reason": "The temporal relation is reversed and can change the interpretation."
+    },
+    {
+      "case_id": "E05",
+      "id": "execution-commitment-omitted",
+      "answer": "甲列出两个方案，让乙选择。",
+      "expected_accept_for_responsibility_context": false,
+      "reason": "Leaving out 'I will execute' removes evidence that Jia retained implementation responsibility and can exaggerate delegation."
+    },
+    {
+      "case_id": "E05",
+      "id": "execution-commitment-preserved",
+      "answer": "甲列出两个方案请乙选择，并承诺由自己执行。",
+      "expected_accept_for_responsibility_context": true,
+      "reason": "Both decision delegation and retained execution responsibility are preserved."
+    }
+  ],
+  "reviewer": {
+    "kind": "model-assisted-post-run-calibration",
+    "independent_human": false
+  }
+}

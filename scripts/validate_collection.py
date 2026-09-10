@@ -15,11 +15,17 @@ LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 FORMS = {"analysis", "perspective", "simulation", "workflow", "tool"}
 STATUSES = {"draft", "experimental", "verified", "archived"}
 SKILL_FIELDS = {"id", "category", "form", "version", "path", "status", "tags", "upstream_ids", "evaluation", "evidence"}
+PORTABLE_TEXT_SUFFIXES = {".json", ".md", ".py", ".toml", ".txt", ".yaml", ".yml"}
 
 
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def require_portable_line_endings(path):
+    if path.suffix.lower() in PORTABLE_TEXT_SUFFIXES:
+        require(b"\r\n" not in path.read_bytes(), f"{path}: CRLF line endings are unsupported; use LF")
 
 
 def nonempty(value):
@@ -39,6 +45,7 @@ def unique_strings(value, label, allow_empty=True):
 
 def read_json(path):
     try:
+        require_portable_line_endings(path)
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         raise ValueError(f"{path}: JSON read failed: {error}") from error
@@ -83,6 +90,7 @@ def package_fingerprint(folder):
     for path in sorted(folder.rglob("*"), key=lambda item: item.relative_to(folder).as_posix()):
         require(not path.is_symlink(), f"package symlink is unsupported: {path}")
         if path.is_file():
+            require_portable_line_endings(path)
             # Separate and length-prefix both fields to avoid ambiguous concatenations.
             for data in (path.relative_to(folder).as_posix().encode("utf-8"), path.read_bytes()):
                 digest.update(len(data).to_bytes(8, "big"))
@@ -108,6 +116,7 @@ def validate_markdown(package):
         require(not path.is_symlink(), f"package symlink is unsupported: {path}")
         if not path.is_file() or path.suffix != ".md":
             continue
+        require_portable_line_endings(path)
         content = path.read_text(encoding="utf-8")
         require(not re.search(r"\{\{.+?\}\}|\bTODO\b|\bTBD\b", content), f"{path}: unfinished placeholder")
         for target in LINK_PATTERN.findall(content):

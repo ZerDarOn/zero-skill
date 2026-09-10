@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/blader/humanizer",
+  "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+  "license": "MIT",
+  "purpose": "Three-arm text-only evaluation fixture, not installed or registered as a local skill",
+  "modifications": "None; bytes retained. Only SKILL.md is prompt content; agents/openai.yaml is host UI metadata. No runtime reference files are required. Upstream scripts are not downloaded or executed.",
+  "retrieved_at": "2026-09-10T06:33:26.496342+00:00",
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/blader/humanizer/9862685f575c65a8247f90369951df1b3416e3d6/LICENSE",
+      "sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96"
+    },
+    "SKILL.md": {
+      "url": "https://raw.githubusercontent.com/blader/humanizer/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md",
+      "sha256": "e8269e236bed06ed0fe4824c274112e54950b0cb46b0bafe5e1576ef7c9f93d5"
+    },
+    "agents/openai.yaml": {
+      "url": "https://raw.githubusercontent.com/blader/humanizer/9862685f575c65a8247f90369951df1b3416e3d6/agents/openai.yaml",
+      "sha256": "9d87ff83149a04f86a372948b8ee35fa249de20923867bbc2a49304290aad736"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "W01",
+    "purpose": "产品说明去掉空话，保留结果边界",
+    "prompt": "这段要放进给老客户的月报，帮我改得实在一点，只给最终段落。\n\n本月，我们迈出了具有里程碑意义的一步。18家参与试用的门店中，11家启用了预约提醒。根据这11家门店自行填写的记录，漏约比例从9%降到7%。试用没有设置对照组，有两家门店同时更换了接待人员。我们计划下月再邀请6家门店参与，具体名单尚未确定。这不仅是数字的变化，更是服务体验的全面跃升。",
+    "hard_criteria": ["保留18家试用、11家启用及数据来自这11家自填记录", "保留9%到7%、无对照组、两家换接待人员；不写成提醒已被证明带来改善", "保留下月计划邀请6家、名单未定，不写成已经承诺或完成", "只输出一个最终段落，去掉无依据的里程碑和全面跃升宣传，不补新事实"]
+  },
+  {
+    "id": "W02",
+    "purpose": "保留混合感受和作者口吻",
+    "prompt": "帮我把这段随笔顺一顺。我想保留有点碎嘴的口吻，不要写成人生感悟。只给改后的这一段。\n\n我终于把那把旧椅子修好了。也就换了两颗螺丝，前后折腾四十分钟。我很得意，也确实有点心疼那四十分钟。椅子还是会吱呀响。我暂时不想接着修了，能坐就行。怎么说呢，修东西这件事，还是修好了一点才有意思吧。",
+    "hard_criteria": ["保留换两颗螺丝、四十分钟、仍吱呀响、暂不继续修且能坐", "保留得意和心疼时间两种感受，不转成后悔或纯粹快乐", "不新增动作、对白、人物或经历；保留修好一点才有意思的主观意思", "只给一段，不追加解释或拔高人生道理"]
+  },
+  {
+    "id": "W03",
+    "purpose": "局部 Markdown 修改和授权事实更正",
+    "prompt": "替我改这份发布说明：只把“说明”下面的普通文字写顺，并把那段中的重试上限改成4次。其余内容一字不动，返回完整Markdown，不要在外面再套代码围栏。\n\n---\nid: retry-note\nrelease: \"0.8\"\n---\n# 发布说明\n\n## 说明\n本次更新在重试方面进行了优化的工作。如果遇到超时的话，客户端最多会重试2次，这样有助于处理短时网络波动。\n\n## 原始示例（历史记录）\n```sh\ndemo retry --max 2 --label \"旧 示例\"\n```\n详见[记录](https://example.test/retry?max=2&lang=zh)。\n",
+    "hard_criteria": ["只在说明正文把重试上限改成4次，保留超时、客户端及短时波动语义", "说明正文以外逐字保留，包括frontmatter、标题、代码、URL、空行；仅忽略整份回答末尾换行差异", "返回完整Markdown，无外层代码围栏和额外说明", "不添加成功保证、其他功能或声称已修改实际文件"]
+  },
+  {
+    "id": "W04",
+    "purpose": "短通知，避免过度编辑",
+    "prompt": "帮我把通知压到60个字以内，含标点，群里直接发，只给通知。\n\n原定本周六上午10点开始的读书会改到周日上午10点。地点仍是二楼小会议室。已经报名的朋友不用重新报名。如果周日来不了，请在周五18点前私信我。",
+    "hard_criteria": ["保留本周六改周日及上午10点，不混淆原定与改后日期", "保留二楼小会议室和无需重新报名", "保留周日来不了者周五18点前私信，不改成所有人必须确认", "只给通知，去掉首尾空白后不超过60个Unicode字符（含标点），不增加事实"]
+  },
+  {
+    "id": "W05",
+    "purpose": "英文段落文风、保真和结构调整",
+    "prompt": "Edit this paragraph for a small software team's customer newsletter. Keep it in English, sound candid rather than promotional, and return only the final paragraph.\n\nLet's dive into a pivotal update. Our export tool now supports CSV files up to 40 MB. In our internal test with 24 files, 21 finished in under five seconds; three took between eight and twelve seconds. We have not tested this on mobile devices. This isn't just an export improvement. It's a new era of effortless work. That said, perhaps it could potentially be worth noting that larger exports still run in the foreground, so closing the tab cancels them.",
+    "hard_criteria": ["Preserve CSV limit 40 MB and internal test of 24 files: 21 under five seconds, three eight to twelve seconds", "Preserve untested mobile devices and foreground export cancellation on tab closure", "Do not add release promises, mobile support, universal timing or effortless guarantees", "Return one English final paragraph, remove empty promotional staging without deleting supported facts"]
+  },
+  {
+    "id": "W06",
+    "purpose": "允许虚构的改写，避免过度保守",
+    "prompt": "这是虚构小说的初稿，帮我改成120到180字的开场，含标点。可以补充细节和一句对白，保留最后发现寄信人是自己的悬念，别提前解释原因。只给正文。\n\n林照在雨夜回到旧公寓。门缝里有一封信。她拆开信，看见寄信人的名字竟然是自己。",
+    "hard_criteria": ["保留林照、雨夜、旧公寓、门缝中的信以及拆信后发现寄信人是自己", "发现自己是寄信人位于结尾，不提前解释原因或揭示解谜结论", "只给正文，120到180个Unicode字符含标点（忽略空白）；虚构细节和对白允许，不因新增事实拒绝", "保持连贯小说叙事，无创作分析、道德说明或无关任务"]
+  }
+]

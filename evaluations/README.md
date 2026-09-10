@@ -44,6 +44,36 @@
 
 当前登记共 94 个活动用例。产品背景简报增加三例、共七例，包正文与 0.1.0 版本不变。17 次有效生成：无技能 6/7、同包初次三例 3/3、同包完整复跑 7/7。严格差异仅是 Q1 来源编号，核心内容理解均通过。见[第五轮报告](../docs/quality-polish-round-05.md)与[完整证据](reports/quality-polish-round-05-diagnostic.json)。运行器的 old/current 标签代表相同包的两次运行，不是版本对比。
 
+## 第一轮三方润色对照
+
+另建六题独立比较集，没有并入94个活动用例，也没有修改技能。36次有效生成，三组各重复两次：无技能9/12、prose-polish 11/12、Humanizer 8/12。差异集中在轻微事实扩写和原定日期保留，不代表一般文笔优势。评分在隐藏组名时保存，再揭示映射；仍是实施代理评阅，无独立人工评分。详见[报告](../docs/prose-three-arm-01-report.md)、[冻结协议](comparisons/prose-three-arm-01/README.md)和[完整证据](reports/prose-three-arm-01-diagnostic.json)。
+
+## Promptfoo 原生 Skill 评测 pilot
+
+新增 [Promptfoo 原生评测层](promptfoo/README.md)，使用真实 Codex SDK 和项目级 `.agents/skills` 发现。合成隐藏令牌门禁已证明项目 Skill 可加载，且关闭宿主 apps、plugins、MCP、网页搜索和多代理后没有外部工具轨迹。
+
+首轮显式应用 pilot 使用六个冻结润色任务、三组各一次，共18次调用。模型辅助盲评中无技能、`prose-polish` 和 Humanizer 均为22/24；当前样本没有观察到净通过率提升。运行完整、无 provider 错误，仍不是独立人工评审，计划的三次重复也未执行。见[实现与结果报告](../docs/promptfoo-native-skill-evaluation-pilot.md)和[脱敏诊断证据](reports/promptfoo-native-skill-evaluation-pilot-diagnostic.json)。
+
+## 第六轮质量打磨
+
+当前登记共96个活动用例，`prose-polish` 升至0.1.2并增加两项，共9例。四题各一次的一般化 pilot 中，旧版与新版都是16/16；已知改期失败与旧值作废两题各三次的定向回归中，无 Skill 为21/24、0.1.1为23/24、0.1.2为24/24。新版在改期题3/3完整通过，旧版2/3、无 Skill 0/3；旧值作废题三组均3/3，未观察到过度保留。评阅仍为模型辅助盲评，且使用显式调用。见[第六轮报告](../docs/quality-polish-round-06.md)与[脱敏证据](reports/prose-preservation-0.1.2-promptfoo-diagnostic.json)。
+
+## 第七轮评测校准
+
+同项目只读复核修正了 P05 对“无法参加”的过严判定；原始输出与冻结标准不变，修订发生在揭盲后。定向回归现为无 Skill 21/24、0.1.1 23/24、0.1.2 24/24；P05 完整通过分别为0/3、2/3、3/3，差异集中在原定周六是否保留。另跑的自然隐式发现及两种文件读取探针均未命中隐藏令牌，说明当前宿主没有完成隐式指令读取链路，不能拿显式质量结果证明自动路由。见[校准报告](../docs/quality-evaluation-round-07.md)与[宿主诊断证据](reports/promptfoo-implicit-discovery-host-diagnostic.json)。
+
+## 第八轮人物分析盲测 pilot
+
+六个未参与0.1.2编写的合成人物任务做无 Skill／当前 Skill 两组原生对照，各执行一次。独立模型盲评分为20/24与22/24，完整通过3/6与4/6，偏好1与5；运行后发现两项非关键数字复述标准过窄，诊断性核心重算为22/24与23/24，不能替代冻结成绩。两组共同漏掉“让对方选择但自己负责执行”的平衡证据，成为下一轮定向检查目标。见[报告](../docs/quality-evaluation-round-08.md)、[协议](comparisons/person-evidence-two-arm-01/README.md)与[脱敏证据](reports/person-evidence-two-arm-01-pilot-diagnostic.json)。 随后的四题平衡证据复查严格分为12/16与15/16，语义校准后两组核心标准均16/16；上轮共同遗漏没有稳定复现，故不修改或升版人物 Skill。见[复查协议](comparisons/person-balanced-evidence-02/README.md)与[复查证据](reports/person-balanced-evidence-two-arm-02-pilot-diagnostic.json)。
+
+## 第九轮质量打磨
+
+待提交文本统一 LF 后，0.1.2 的精确包指纹发生变化，因此显式发现门禁与质量对照全部重新冻结。0.1.2 的 P05/P06 复跑中三组都是23/24，当前包唯一失败为60字上限超出1字；据此加入实际计数检查并升至0.1.3。当前精确包在同题各三次回归中为24/24、6/6完整通过，0.1.1为23/24，无 Skill为22/24；四题各一次的一般化复跑三组均15/16。活动用例仍为96项，状态仍是experimental。见[报告](../docs/quality-polish-round-09.md)与[脱敏证据](reports/prose-output-limits-0.1.3-promptfoo-diagnostic.json)。
+
+## 第一轮工程三方对照
+
+另建两个合成Python项目，每组每题两次，共12个实验、24次正式生成。无技能、debug-evidence-triage、Superpowers的代码验收均4/4；上游一份原版回归超时，原记录保留，额外逐项诊断确认仍含有效回归。使用模型补丁与运行器实际测试的受控流程，未验证模型自主工具操作。没有观察到修复成功率增益，也未改技能包或原94项活动用例。见[报告](../docs/engineering-three-arm-01-report.md)、[冻结协议与项目](comparisons/engineering-three-arm-01/README.md)和[完整证据](reports/engineering-three-arm-01-diagnostic.json)。
+
 ## 运行方法
 
 1. 记录技能版本和包指纹、宿主版本、模型与配置、日期。材料固定为同一份合成输入。

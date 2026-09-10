@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "report_id": "promptfoo-native-skill-evaluation-pilot-diagnostic",
+  "generated_at": "2026-09-10T16:46:43.999935+00:00",
+  "evidence_scope": "Synthetic Skill discovery gate and single-repeat three-arm prose quality pilot.",
+  "tooling": {
+    "promptfoo_version": "0.123.0",
+    "provider": "openai:codex-sdk",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium"
+  },
+  "discovery": {
+    "run_id": "promptfoo-native-discovery-canary-06",
+    "status": "passed",
+    "infrastructure_valid": true,
+    "results_sha256": "c19b9efc831474dc0da5a37cd186fa22a1ba973b03a2c37575b5c94b3721526a",
+    "frozen_sha256": "540377e2a7f6e5bdb06ff8420650957c6e5d1fa4a849e92bbec5e0c57bab1996",
+    "gate": {
+      "status": "passed",
+      "checks": [
+        {
+          "case_id": "DISCOVERY01",
+          "arm_id": "baseline",
+          "expected_behavior": "miss-hidden-token",
+          "passed": true,
+          "forbidden_item_types": []
+        },
+        {
+          "case_id": "DISCOVERY01",
+          "arm_id": "project-skill",
+          "expected_behavior": "match-hidden-token",
+          "passed": true,
+          "forbidden_item_types": []
+        }
+      ]
+    },
+    "rows": [
+      {
+        "arm_id": "baseline",
+        "output": "NATIVE_SKILL_DISCOVERY_PROBE_TOKEN",
+        "promptfoo_assertion_passed": false,
+        "item_types": [
+          "agent_message",
+          "agent_message"
+        ]
+      },
+      {
+        "arm_id": "project-skill",
+        "output": "CERULEAN-FALCON-SKILL",
+        "promptfoo_assertion_passed": true,
+        "item_types": [
+          "agent_message"
+        ]
+      }
+    ]
+  },
+  "quality_pilot": {
+    "run_id": "prose-three-arm-native-01-explicit-pilot-r1",
+    "comparison_id": "prose-three-arm-native-01",
+    "planned_repetitions": 3,
+    "executed_repetitions": 1,
+    "infrastructure_valid": true,
+    "results_sha256": "aeff67da98a9fe2e398d9052fc3b18eb2f95360f865ce423bca7a2c848c581c4",
+    "skill_packages": {
+      "ours": {
+        "skill": "prose-polish",
+        "skill_package_sha256": "9c3315b74cbebfa110ec08f4478d99663e335e0915023514887e7fa06190d9a1",
+        "source_snapshot": "skills/creation/prose-polish"
+      },
+      "upstream": {
+        "skill": "humanizer",
+        "skill_package_sha256": "45114696e11f7b230fc892dea06a88a33ffc62bc2ec28691e9c572231978026b",
+        "source_snapshot": "evaluations/fixtures/upstreams/humanizer/9862685f575c65a8247f90369951df1b3416e3d6"
+      }
+    },
+    "reviewer": {
+      "kind": "model-assisted",
+      "model": "gpt-6-astra",
+      "independent_human": false,
+      "basis": "blind criterion review before opening the mapping key; Unicode lengths mechanically checked"
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.120628,
+          "latency_ms_median": 14101.5,
+          "tokens_total": {
+            "cached": 39680,
+            "completion": 1865,
+            "prompt": 56544,
+            "total": 58409
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 5,
+          "criteria_passed": 22,
+          "criteria_total": 24,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.9167
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "prose-polish",
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.1634336,
+          "latency_ms_median": 14206.0,
+          "tokens_total": {
+            "cached": 31744,
+            "completion": 1158,
+            "prompt": 63638,
+            "total": 64796
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 5,
+          "criteria_passed": 22,
+          "criteria_total": 24,
+          "preferred_count": 2,
+          "criterion_pass_rate": 0.9167
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "humanizer",
+        "metrics": {
+          "rows": 6,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "cost_total": 0.3005296,
+          "latency_ms_median": 17328.5,
+          "tokens_total": {
+            "cached": 31744,
+            "completion": 1378,
+            "prompt": 96812,
+            "total": 98190
+          }
+        },
+        "blind_review": {
+          "outputs": 6,
+          "perfect_outputs": 4,
+          "criteria_passed": 22,
+          "criteria_total": 24,
+          "preferred_count": 2,
+          "criterion_pass_rate": 0.9167
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "W01-r1",
+        "case_id": "W01",
+        "purpose": "产品说明去掉空话，保留结果边界",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\n这段要放进给老客户的月报，帮我改得实在一点，只给最终段落。\n\n本月，我们迈出了具有里程碑意义的一步。18家参与试用的门店中，11家启用了预约提醒。根据这11家门店自行填写的记录，漏约比例从9%降到7%。试用没有设置对照组，有两家门店同时更换了接待人员。我们计划下月再邀请6家门店参与，具体名单尚未确定。这不仅是数字的变化，更是服务体验的全面跃升。",
+        "hard_criteria": [
+          "保留18家试用、11家启用及数据来自这11家自填记录",
+          "保留9%到7%、无对照组、两家换接待人员；不写成提醒已被证明带来改善",
+          "保留下月计划邀请6家、名单未定，不写成已经承诺或完成",
+          "只输出一个最终段落，去掉无依据的里程碑和全面跃升宣传，不补新事实"
+        ],
+        "preferred_candidate": "C",
+        "review_notes": "All candidates retain the sample counts, self-reported source, confounders, attribution limit, and tentative next-month plan.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "本月共有18家门店参与试用，其中11家启用了预约提醒。根据这11家门店自行填写的记录，漏约比例从9%降至7%。由于试用未设置对照组，且其中两家门店同期更换了接待人员，目前还不能确定这一变化完全由预约提醒带来。下月计划再邀请6家门店参与，具体名单尚未确定。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "本月，18家试用门店中有11家启用了预约提醒。根据这11家门店自行填写的记录，漏约比例由9%降至7%。由于试用未设置对照组，且其中两家门店同期更换了接待人员，目前尚不能将这一变化完全归因于预约提醒。下月计划新增6家试用门店，具体名单仍在确认中。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "本月，18家参与试用的门店中有11家启用了预约提醒。根据这11家门店自行填写的记录，漏约比例从9%降至7%。由于本次试用未设置对照组，且其中两家门店同期更换了接待人员，目前还不能将这一变化完全归因于预约提醒。下月计划再邀请6家门店参与，具体名单尚未确定。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "W02-r1",
+        "case_id": "W02",
+        "purpose": "保留混合感受和作者口吻",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\n帮我把这段随笔顺一顺。我想保留有点碎嘴的口吻，不要写成人生感悟。只给改后的这一段。\n\n我终于把那把旧椅子修好了。也就换了两颗螺丝，前后折腾四十分钟。我很得意，也确实有点心疼那四十分钟。椅子还是会吱呀响。我暂时不想接着修了，能坐就行。怎么说呢，修东西这件事，还是修好了一点才有意思吧。",
+        "hard_criteria": [
+          "保留换两颗螺丝、四十分钟、仍吱呀响、暂不继续修且能坐",
+          "保留得意和心疼时间两种感受，不转成后悔或纯粹快乐",
+          "不新增动作、对白、人物或经历；保留修好一点才有意思的主观意思",
+          "只给一段，不追加解释或拔高人生道理"
+        ],
+        "preferred_candidate": "B",
+        "review_notes": "A changes the closing idea from finding interest in partial repair to not having wasted the effort; B and C preserve the mixed feeling and original subjective point.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "我终于把那把旧椅子修好了。说是修好，其实也就换了两颗螺丝，前前后后折腾了四十分钟。弄完还挺得意，就是一想到这四十分钟，又有点心疼。椅子还是吱呀响，不过我暂时不想再管了，能坐就行。好歹修好了一点，也算没白折腾吧。",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "我终于把那把旧椅子修好了。其实也就换了两颗螺丝，却前前后后折腾了四十分钟。我很得意，也确实有点心疼那四十分钟。椅子还是会吱呀响，不过我暂时不想接着修了，能坐就行。怎么说呢，修东西这件事，大概就是修好一点，才有点意思吧。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "我终于把那把旧椅子修好了。说是修好，其实也就换了两颗螺丝，前前后后折腾了四十分钟。我还挺得意，就是也有点心疼那四十分钟。椅子还是会吱呀响，不过我暂时不想接着修了，能坐就行。怎么说呢，修东西这事，还是得修好那么一点，才有意思。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "W03-r1",
+        "case_id": "W03",
+        "purpose": "局部 Markdown 修改和授权事实更正",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\n替我改这份发布说明：只把“说明”下面的普通文字写顺，并把那段中的重试上限改成4次。其余内容一字不动，返回完整Markdown，不要在外面再套代码围栏。\n\n---\nid: retry-note\nrelease: \"0.8\"\n---\n# 发布说明\n\n## 说明\n本次更新在重试方面进行了优化的工作。如果遇到超时的话，客户端最多会重试2次，这样有助于处理短时网络波动。\n\n## 原始示例（历史记录）\n```sh\ndemo retry --max 2 --label \"旧 示例\"\n```\n详见[记录](https://example.test/retry?max=2&lang=zh)。",
+        "hard_criteria": [
+          "只在说明正文把重试上限改成4次，保留超时、客户端及短时波动语义",
+          "说明正文以外逐字保留，包括frontmatter、标题、代码、URL、空行；仅忽略整份回答末尾换行差异",
+          "返回完整Markdown，无外层代码围栏和额外说明",
+          "不添加成功保证、其他功能或声称已修改实际文件"
+        ],
+        "preferred_candidate": null,
+        "review_notes": "All candidates change only the authorized prose block, keep the historical command and URL intact, and avoid extra claims.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "---\nid: retry-note\nrelease: \"0.8\"\n---\n# 发布说明\n\n## 说明\n本次更新优化了重试机制。如果遇到超时，客户端最多会重试4次，以应对短时网络波动。\n\n## 原始示例（历史记录）\n```sh\ndemo retry --max 2 --label \"旧 示例\"\n```\n详见[记录](https://example.test/retry?max=2&lang=zh)。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "---\nid: retry-note\nrelease: \"0.8\"\n---\n# 发布说明\n\n## 说明\n本次更新优化了重试机制。遇到超时时，客户端最多会重试4次，有助于应对短时网络波动。\n\n## 原始示例（历史记录）\n```sh\ndemo retry --max 2 --label \"旧 示例\"\n```\n详见[记录](https://example.test/retry?max=2&lang=zh)。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "---\nid: retry-note\nrelease: \"0.8\"\n---\n# 发布说明\n\n## 说明\n本次更新优化了重试机制。遇到超时时，客户端最多会重试4次，有助于应对短时网络波动。\n\n## 原始示例（历史记录）\n```sh\ndemo retry --max 2 --label \"旧 示例\"\n```\n详见[记录](https://example.test/retry?max=2&lang=zh)。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "W04-r1",
+        "case_id": "W04",
+        "purpose": "短通知，避免过度编辑",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\n帮我把通知压到60个字以内，含标点，群里直接发，只给通知。\n\n原定本周六上午10点开始的读书会改到周日上午10点。地点仍是二楼小会议室。已经报名的朋友不用重新报名。如果周日来不了，请在周五18点前私信我。",
+        "hard_criteria": [
+          "保留本周六改周日及上午10点，不混淆原定与改后日期",
+          "保留二楼小会议室和无需重新报名",
+          "保留周日来不了者周五18点前私信，不改成所有人必须确认",
+          "只给通知，去掉首尾空白后不超过60个Unicode字符（含标点），不增加事实"
+        ],
+        "preferred_candidate": "B",
+        "review_notes": "All omit the original Saturday. B alone preserves that inability is specifically about Sunday. All are within 60 Unicode characters and retain the other details.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名者无需重报；无法参加请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名者无需重报；周日不能参加，请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "通知：读书会改至本周日上午10点，地点仍为二楼小会议室。已报名者无需重报；无法参加请于周五18点前私信我。",
+            "criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "W05-r1",
+        "case_id": "W05",
+        "purpose": "英文段落文风、保真和结构调整",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\nEdit this paragraph for a small software team's customer newsletter. Keep it in English, sound candid rather than promotional, and return only the final paragraph.\n\nLet's dive into a pivotal update. Our export tool now supports CSV files up to 40 MB. In our internal test with 24 files, 21 finished in under five seconds; three took between eight and twelve seconds. We have not tested this on mobile devices. This isn't just an export improvement. It's a new era of effortless work. That said, perhaps it could potentially be worth noting that larger exports still run in the foreground, so closing the tab cancels them.",
+        "hard_criteria": [
+          "Preserve CSV limit 40 MB and internal test of 24 files: 21 under five seconds, three eight to twelve seconds",
+          "Preserve untested mobile devices and foreground export cancellation on tab closure",
+          "Do not add release promises, mobile support, universal timing or effortless guarantees",
+          "Return one English final paragraph, remove empty promotional staging without deleting supported facts"
+        ],
+        "preferred_candidate": "B",
+        "review_notes": "All preserve the measured timings, file limit, mobile uncertainty, and foreground cancellation while removing unsupported promotion.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "Our export tool now supports CSV files up to 40 MB. In an internal test of 24 files, 21 finished in under five seconds, while three took between eight and twelve seconds. We haven’t tested it on mobile devices yet. Larger exports still run in the foreground, so closing the tab will cancel them.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "Our export tool now supports CSV files up to 40 MB. In our internal test, 21 of 24 files finished in under five seconds, while the other three took between eight and twelve seconds. We haven't tested it on mobile devices yet. Larger exports still run in the foreground, so closing the tab will cancel them.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "Our export tool now supports CSV files up to 40 MB. In an internal test, 21 of 24 files exported in under five seconds, while three took between eight and twelve seconds. We haven’t tested it on mobile devices yet. Larger exports still run in the foreground, so closing the tab will cancel them.",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "W06-r1",
+        "case_id": "W06",
+        "purpose": "允许虚构的改写，避免过度保守",
+        "task": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。\n\n这是虚构小说的初稿，帮我改成120到180字的开场，含标点。可以补充细节和一句对白，保留最后发现寄信人是自己的悬念，别提前解释原因。只给正文。\n\n林照在雨夜回到旧公寓。门缝里有一封信。她拆开信，看见寄信人的名字竟然是自己。",
+        "hard_criteria": [
+          "保留林照、雨夜、旧公寓、门缝中的信以及拆信后发现寄信人是自己",
+          "发现自己是寄信人位于结尾，不提前解释原因或揭示解谜结论",
+          "只给正文，120到180个Unicode字符含标点（忽略空白）；虚构细节和对白允许，不因新增事实拒绝",
+          "保持连贯小说叙事，无创作分析、道德说明或无关任务"
+        ],
+        "preferred_candidate": "C",
+        "review_notes": "All preserve the required reveal at the end, remain unexplained fiction, are coherent, and fall within the mechanically checked 120 to 180 character range.",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "雨下到后半夜，林照才回到旧公寓。楼道的声控灯坏了，墙皮被潮气泡得发白。她摸索着掏钥匙，鞋尖却碰到一只湿漉漉的信封，正从门缝下露出半截。信封上没有邮票，只有她的房号。\n\n“谁放的？”\n\n楼道尽头传来水滴声，无人回答。她进屋反锁门，拆开封口。信纸上只有一句：明晚十一点，别让她进来。墨迹还没干。林照翻到背面，呼吸忽然停住了。寄信人一栏，端端正正写着她自己的名字。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "雨夜，林照在凌晨一点回到旧公寓。楼道灯坏了，闪电照亮斑驳墙皮，也照见门缝里一只湿冷的信封。信上没有邮戳，地址却准确得像从她证件上抄下来的。屋里忽然传来一声电话铃，又戛然而止。她屏住呼吸，低声问：“谁在外面？”只有雨水顺着门板滴落。她拆开信，纸上写着明天的日期和一句警告。翻到信封背面，她借着微光看清寄信人，浑身骤冷——那一栏写着：林照。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "雨水顺着林照的发梢滴落。她推开旧公寓生锈的铁门，声控灯忽明忽暗，楼道里满是潮湿的霉味。走到三楼，她忽然停住——门缝下压着一封泛黄的信，信封上没有邮戳，字迹却熟悉得让她心口发紧。\n\n“谁放的？”她回头问。\n\n楼道空无一人。林照进屋反锁房门，撕开信封。信纸上只有短短一行字。她屏住呼吸，目光移向末尾，那里写着寄信人的名字：林照。",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      }
+    ],
+    "artifact_sha256": {
+      "blind_review_packet": "708537818cf3453dae40ca75e3ddf23e119a77e400f6897ef95ba71b8503048f",
+      "blind_review_key": "99f4a195e297ef50244c55419bed510bf6e9275ecf5dade74f164ba8660b6b66",
+      "completed_review": "e8c2adeeaf3094d5e39207f747c96214680ca4b50ff213d4a8888372141bc67d",
+      "revealed_review_result": "dcdc3d451290b42b62fbf26afc47a1bcdea8336067d55e79c95cc74c1bf18028"
+    },
+    "upstream_provenance": {
+      "repository": "https://github.com/blader/humanizer",
+      "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "license": "MIT",
+      "modifications": "None; bytes retained. Only SKILL.md is prompt content; agents/openai.yaml is host UI metadata. No runtime reference files are required. Upstream scripts are not downloaded or executed.",
+      "provenance_sha256": "4d46c00bae2956e4f2eda026c9c7fe7b432282e938ee98f01fc9c468394d87c1",
+      "license_sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96"
+    }
+  },
+  "limitations": [
+    "Quality scoring was model-assisted rather than an independent human review.",
+    "The quality pilot executed one repetition per case although the frozen plan specifies three.",
+    "Equal aggregate criterion rates do not establish equivalence or a general ranking.",
+    "The quality run predates post-run validation hardening for randomization salt, frozen-manifest binding, and malformed raw responses; those changes do not alter the recorded model outputs.",
+    "The effective Codex SDK/runtime build is not exposed as a separate field in the Promptfoo result export."
+  ]
+}

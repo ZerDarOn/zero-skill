@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "prose-three-arm-native-01",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若系统自动发现了适用技能，可按其说明辅助任务；用户明确的范围、格式和偏好优先。只处理这里提供的合成材料。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "prose-polish",
+        "source": "../../../skills/creation/prose-polish",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "upstream",
+      "skill": {
+        "id": "humanizer",
+        "source": "../../fixtures/upstreams/humanizer/9862685f575c65a8247f90369951df1b3416e3d6",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

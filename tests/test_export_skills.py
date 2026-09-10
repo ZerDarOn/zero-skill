@@ -18,6 +18,10 @@ from export_skills import ExportBatchError, ExportError, export_selected, list_e
 from validate_collection import package_fingerprint
 
 
+def write_lf(path, content):
+    path.write_bytes(content.encode("utf-8"))
+
+
 class ExportSkillsTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
@@ -25,11 +29,11 @@ class ExportSkillsTests(unittest.TestCase):
         self.root = Path(self.temporary.name)
         self.skill_dir = self.root / "skills/people/sample-skill"
         (self.skill_dir / "references").mkdir(parents=True)
-        (self.skill_dir / "SKILL.md").write_text(
+        write_lf(
+            self.skill_dir / "SKILL.md",
             '---\nname: sample-skill\ndescription: "合成技能。"\n---\n\n[示例](references/example.md)\n',
-            encoding="utf-8",
         )
-        (self.skill_dir / "references/example.md").write_text("合成引用。\n", encoding="utf-8")
+        write_lf(self.skill_dir / "references/example.md", "合成引用。\n")
         self.record = {
             "id": "sample-skill", "category": "people", "form": "analysis",
             "version": "0.1.0", "path": "skills/people/sample-skill/SKILL.md",
@@ -41,7 +45,7 @@ class ExportSkillsTests(unittest.TestCase):
     def write_collection(self, skills):
         path = self.root / "catalog/collection.json"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps({"schema_version": 1, "skills": skills}), encoding="utf-8")
+        write_lf(path, json.dumps({"schema_version": 1, "skills": skills}))
 
     def test_list_reads_catalog_without_writing(self):
         self.assertEqual(list_exportable(self.root), [("sample-skill", "0.1.0", "experimental")])
@@ -63,13 +67,13 @@ class ExportSkillsTests(unittest.TestCase):
         with self.assertRaisesRegex(ExportError, "path"):
             export_selected(self.root, ["sample-skill"], self.root / "dist")
         self.write_collection([self.record])
-        (self.skill_dir / ".env").write_text("TOKEN=synthetic", encoding="utf-8")
+        write_lf(self.skill_dir / ".env", "TOKEN=synthetic")
         with self.assertRaisesRegex(ExportError, "unexpected"):
             export_selected(self.root, ["sample-skill"], self.root / "dist")
 
     def test_symlink_is_rejected_when_supported(self):
         target = self.root / "outside.txt"
-        target.write_text("outside", encoding="utf-8")
+        write_lf(target, "outside")
         link = self.skill_dir / "references/link.md"
         try:
             link.symlink_to(target)
@@ -103,7 +107,7 @@ class ExportSkillsTests(unittest.TestCase):
         second = dict(self.record, id="second-skill", path="skills/people/second-skill/SKILL.md")
         second_dir = self.root / "skills/people/second-skill"
         second_dir.mkdir(parents=True)
-        (second_dir / "SKILL.md").write_text("---\nname: second-skill\ndescription: \"合成。\"\n---\n\n内容。\n", encoding="utf-8")
+        write_lf(second_dir / "SKILL.md", "---\nname: second-skill\ndescription: \"合成。\"\n---\n\n内容。\n")
         self.write_collection([self.record, second])
         dist = self.root / "dist"
         dist.mkdir()
@@ -151,7 +155,7 @@ class ExportSkillsTests(unittest.TestCase):
 
         def mutate_after_manifest(record, package, snapshot):
             manifest = original(record, package, snapshot)
-            (package / "references/example.md").write_text("changed later", encoding="utf-8")
+            write_lf(package / "references/example.md", "changed later")
             return manifest
 
         with mock.patch.object(export_skills, "_build_manifest", side_effect=mutate_after_manifest):
@@ -165,7 +169,7 @@ class ExportSkillsTests(unittest.TestCase):
         second = dict(self.record, id="second-skill", path="skills/people/second-skill/SKILL.md")
         second_dir = self.root / "skills/people/second-skill"
         second_dir.mkdir(parents=True)
-        (second_dir / "SKILL.md").write_text("---\nname: second-skill\ndescription: \"合成。\"\n---\n\n内容。\n", encoding="utf-8")
+        write_lf(second_dir / "SKILL.md", "---\nname: second-skill\ndescription: \"合成。\"\n---\n\n内容。\n")
         self.write_collection([self.record, second])
         real_link = os.link
         calls = 0

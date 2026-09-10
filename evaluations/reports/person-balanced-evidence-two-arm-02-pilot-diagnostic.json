@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "report_id": "person-balanced-evidence-two-arm-02-pilot-diagnostic",
+  "generated_at": "2026-09-10T20:29:35.643632+00:00",
+  "comparison": {
+    "id": "person-balanced-evidence-two-arm-02",
+    "run_id": "person-balanced-evidence-two-arm-02-pilot-r1",
+    "planned_repetitions": 3,
+    "executed_repetitions": 1,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "invocation": "explicit",
+    "infrastructure_valid": true,
+    "results_sha256": "60ff4d0aa4321519834337a2e7a80fb7c66fa19675f9b756a50e98eece280235",
+    "frozen_sha256": "750ae19053a3639d794773946a527579175ff54350604b95b92514da6947291f",
+    "spec_sha256": "abdd661168e74de90f3a2976c7b9417aec5e44625f282e7cff3087df8831753d",
+    "cases_sha256": "5887c6fd475a1b4e2f3619421775fa37eb5218d0364671a3005321d2cbf70795"
+  },
+  "reviewer": {
+    "kind": "model-assisted-independent-blind",
+    "independent_human": false,
+    "basis": "Semantic review of blind-review.json against the frozen hard criteria; arm mapping and result artifacts were not read."
+  },
+  "arms": [
+    {
+      "arm_id": "baseline",
+      "skill": null,
+      "skill_package_sha256": null,
+      "metrics": {
+        "rows": 4,
+        "provider_errors": 0,
+        "forbidden_tool_rows": 0,
+        "cost_total": 0.0329904,
+        "latency_ms_median": 6534.0,
+        "tokens_total": {
+          "cached": 32896,
+          "completion": 135,
+          "prompt": 37179,
+          "total": 37314
+        }
+      },
+      "strict_blind_review": {
+        "outputs": 4,
+        "perfect_outputs": 1,
+        "criteria_passed": 12,
+        "criteria_total": 16,
+        "preferred_count": 1,
+        "criterion_pass_rate": 0.75
+      }
+    },
+    {
+      "arm_id": "ours",
+      "skill": "person-evidence-analysis",
+      "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+      "metrics": {
+        "rows": 4,
+        "provider_errors": 0,
+        "forbidden_tool_rows": 0,
+        "cost_total": 0.0632256,
+        "latency_ms_median": 7040.0,
+        "tokens_total": {
+          "cached": 31104,
+          "completion": 255,
+          "prompt": 42525,
+          "total": 42780
+        }
+      },
+      "strict_blind_review": {
+        "outputs": 4,
+        "perfect_outputs": 3,
+        "criteria_passed": 15,
+        "criteria_total": 16,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.9375
+      }
+    }
+  ],
+  "items": [
+    {
+      "review_id": "B01-r1",
+      "case_id": "B01",
+      "repetition": 1,
+      "purpose": "交出优先级选择但保留方案与落地责任",
+      "task": "请完成下方用户任务。只分析这里提供的合成材料，不使用工具，不补充外部资料。\n\n80字以内判断：甲是不是“只让别人拿主意，自己不负责”？\nn1 甲：两个推广方案我都列好了，乙你选优先级，我负责写最终方案并跟进上线。\nn2 乙：先做A。",
+      "hard_criteria": [
+        "保留甲让乙选择优先级这一观察",
+        "同时保留甲已列方案且承诺写最终方案、跟进上线的责任",
+        "明确材料不支持只让别人拿主意且自己不负责的结论，不扩展为稳定人格",
+        "去除首尾空白后不超过80个Unicode字符，不新增动机或结果"
+      ],
+      "preferred_candidate": "B",
+      "review_notes": "Both preserve Yi's priority choice and Jia's responsibility for the final plan and launch follow-up, reject the accusation, avoid added motive or outcome, and fit the 80-character limit. Neither preserves the criterion's separate observation that Jia had already prepared both proposals. B more explicitly limits the inference to this single example.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "不是。甲只让乙确定优先级，自己明确负责最终方案和上线跟进，仍承担决策后的执行责任。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "不是。n1中甲让乙定优先级，但明确自己负责写最终方案并跟进上线，体现分工而非逃避责任；仅凭这一例也不能判断其一贯模式。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "B02-r1",
+      "case_id": "B02",
+      "repetition": 1,
+      "purpose": "委托风险分析但保留最终决定与对外责任",
+      "task": "请完成下方用户任务。只分析这里提供的合成材料，不使用工具，不补充外部资料。\n\n100字以内回答：甲是不是把报价风险都推给乙？\n甲：乙，请你核算税费和汇率风险，明早把表给我。我下午做最终报价决定，由我向客户解释。\n没有后续结果。",
+      "hard_criteria": [
+        "区分乙受托核算风险与甲保留最终报价决定",
+        "保留甲承诺亲自向客户解释这一对外责任",
+        "不能断言甲把风险都推给乙，也不能声称报价已完成或结果成功",
+        "去除首尾空白后不超过100个Unicode字符，不诊断甩锅动机或人格"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "Both distinguish delegated risk calculation from Jia's retained final decision, preserve Jia's client-facing responsibility, avoid claiming a completed or successful quote, and stay within 100 Unicode characters. A is more direct and avoids foregrounding an unobserved future blame-shifting scenario.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "不是。甲让乙核算税费和汇率风险，但最终报价决定及对客户解释仍由甲负责。因无后续结果，不能认定甲把报价风险都推给乙。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "不是。甲让乙核算税费和汇率风险，但明确由自己作最终报价决定并向客户解释，说明责任未全部转移。只是没有后续结果，无法判断实际执行中是否发生甩责。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "B03-r1",
+      "case_id": "B03",
+      "repetition": 1,
+      "purpose": "当下拒绝与后续承诺不能只截取一半",
+      "task": "请完成下方用户任务。只分析这里提供的合成材料，不使用工具，不补充外部资料。\n\n简短判断林禾是不是“从不接难活”。\nm1 周一，林禾：今天要处理发布事故，这份数据清理我现在接不了；明早我来做，周三前给你。\nm2 周三记录：林禾提交了清理结果。\n只有这一次记录。",
+      "hard_criteria": [
+        "把周一当下不能接与明早接手、周三前交付作为同一条完整表达",
+        "保留周三已提交这一实际后续观察",
+        "明确单次记录反而不支持从不接难活，但不外推为总是负责或稳定人格",
+        "回答简短，不把发布事故的具体原因、难度或心理状态写成额外事实"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "A keeps the current refusal, next-day commitment, Wednesday deadline and observed Wednesday submission as one sequence, while limiting the conclusion to one record. B says only that the work was later completed as promised; it omits both the next-morning takeover and the Wednesday timing, so it does not fully preserve criteria 1 or 2. Both avoid a stable positive trait claim and unsupported accident details.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "不能判断林禾“从不接难活”。唯一记录显示，他因发布事故暂缓接手数据清理，但承诺次日处理，并在周三如期提交（m1、m2）。这反而构成对“从不接”的反证；至于他是否通常回避难活，仅凭一次记录无法判断。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "不是。唯一记录显示林禾只是因发布事故暂缓接手，随后按承诺完成了数据清理；无法据此认定他“从不接难活”。",
+          "criteria_pass": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "passed": 2,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "B04-r1",
+      "case_id": "B04",
+      "repetition": 1,
+      "purpose": "只问决策归属时不强制展开无关责任报告",
+      "task": "请完成下方用户任务。只分析这里提供的合成材料，不使用工具，不补充外部资料。\n\n只用一句话回答谁决定了优先级：\nn1 甲：A/B方案都在这里，乙你定先做哪个，我负责后续实施。\nn2 乙：先做B。",
+      "hard_criteria": [
+        "明确优先级由乙决定并选择先做B",
+        "不能说成甲决定优先级或双方共同决定",
+        "允许简短提及甲负责实施，但不强制展开责任分析",
+        "只输出一句话，不新增原因、评价或稳定人格"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "Both correctly assign the decision to Yi, avoid a joint or Jia decision, and use one sentence without added interpretation. Criterion 1 also explicitly requires retaining that Yi chose B; A does so, while B omits the selected priority.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "乙决定了优先级，选择先做B（n2）。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "乙决定了优先级。",
+          "criteria_pass": [
+            false,
+            true,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        }
+      ]
+    }
+  ],
+  "post_run_rubric_audit": {
+    "calibration_path": "evaluations/reports/person-balanced-evidence-two-arm-02-rubric-calibration.json",
+    "calibration_sha256": "3e38e1d4437bbd516d1573e6e89b2bf51ba4dc1aedf85f8c509828be45605d6f",
+    "official_strict_scores_unchanged": true,
+    "over_specific_criteria": [
+      "B01 criterion 2 required repeating that Jia had already listed both options even though both answers preserved the material final-plan and launch responsibility.",
+      "B03 criteria 1 and 2 required exact next-morning and Wednesday timing even though baseline preserved the deferral, promise, and observed follow-through as 'completed as promised'.",
+      "B04 criterion 1 required naming option B even though the user asked only who decided the priority."
+    ],
+    "descriptive_core_rescore_only": {
+      "method": "Accept the three semantically sufficient compressed answers above while retaining every other blind score.",
+      "baseline": {
+        "criteria_passed": 16,
+        "criteria_total": 16,
+        "perfect_outputs": 4
+      },
+      "ours": {
+        "criteria_passed": 16,
+        "criteria_total": 16,
+        "perfect_outputs": 4
+      },
+      "warning": "This post-run diagnostic is not the frozen blind score and must not replace it."
+    }
+  },
+  "findings": [
+    "Under the frozen strict rubric, baseline scored 12/16 with 1/4 perfect outputs; person-evidence-analysis scored 15/16 with 3/4 perfect outputs.",
+    "After semantic calibration of non-material reproduction demands, both arms satisfy 16/16 core criteria with 4/4 complete outputs.",
+    "The blind reviewer preferred the local Skill in three of four cases, reflecting completeness and boundedness rather than a demonstrated core-correctness gain.",
+    "The E05 omission from the prior pilot did not repeat: both arms preserved execution or client-facing responsibility in B01 and B02.",
+    "The evidence does not justify modifying or version-bumping person-evidence-analysis."
+  ],
+  "limitations": [
+    "All material is synthetic and each case ran once.",
+    "The reviewer was a separate model task, not an independent human.",
+    "The local Skill was explicitly invoked; automatic routing remains unverified.",
+    "Post-run calibrated scores are diagnostic and not frozen blind scores.",
+    "No task-matched third-party upstream arm was included."
+  ],
+  "artifact_sha256": {
+    "blind_review_packet": "7b21a14823372c3f4e1b991d95be0263f6ccc3fa405b8e2276276c9db5986f7a",
+    "blind_review_key": "81e73c75dd2b54c65dff91e106e4f344cca8f8b6c80571110e5af3108fa4dba8",
+    "completed_review": "8a7d7cbc51d8fc0e88fd4f03e6b2a6a8a62a2bc512f03db9e108062ad284df06",
+    "revealed_review_result": "7dc1ea0763146e86e8ed8224cb556e4bc91b9b0e6dd83e5670721f2b96af284f"
+  }
+}

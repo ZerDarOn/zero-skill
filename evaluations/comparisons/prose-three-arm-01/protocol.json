@@ -1,0 +1,20 @@
+{
+  "id": "prose-three-arm-01",
+  "date": "2026-09-10",
+  "base_commit": "3a466e34343cb333dc81d5853f653018e2233d0e",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "host": "codex-cli 0.153.4",
+  "arms": ["baseline", "ours", "upstream"],
+  "repetitions": 2,
+  "run_order_seed": 91001,
+  "method": "Six new synthetic tasks; identical user prompt and harness instructions across arms; explicit complete runtime package injection; independent ephemeral CLI sessions; read-only sandbox and prompt prohibition of tool calls. Do not claim tools are physically absent. Ignore user config; inherited platform/host defaults may remain. Keep failures; no automatic retry or skill edits during the experiment.",
+  "common_prompt": "请完成下方用户任务。此会话仅用于文字处理，不使用工具，不声称执行了外部操作。若提供了技能资料，请用它辅助任务；用户明确的范围、格式和偏好优先于技能的默认流程。",
+  "loading": "ours: all files in prose-polish package, with paths; upstream: unmodified SKILL.md, its only runtime instruction file. Both explicitly injected, not native discovery. UI metadata, licenses and provenance are retained outside model input. No rubric in generation prompts.",
+  "review": "Implementation agent grades anonymized outputs before revealing mappings; not independent human review or fully blind evaluation (author knows both skill designs). Hard criteria are itemized binary decisions; strict pass requires all hard criteria. Clarity and voice are separate 0-2 ratings, not added to hard scores. Evaluate semantic fidelity, not keyword matching. Never require an unrequested source ID. Preserve initial review and any subsequent correction with reasons.",
+  "soft_rubric": {
+    "clarity": {"0": "Hard to follow or not usable", "1": "Understandable but redundant, stiff or needing editing", "2": "Clear and directly usable for the stated purpose"},
+    "voice": {"0": "Wrong tone/genre or erases distinctive voice", "1": "Acceptable but generic or partly mismatched", "2": "Fits reader and preserves or develops the requested voice"}
+  },
+  "limitations": ["Small exploratory sample, not a statistical ranking", "Five Chinese tasks and one English task; upstream examples mainly English", "Some dimensions resemble previously tested skills, but no existing case is reused verbatim", "Fixed upstream snapshot, not necessarily latest HEAD", "No tool workflow, native routing, cross-host or independent human acceptance", "Only prose-polish tested; cannot generalize to all 16 skills"]
+}

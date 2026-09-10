@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "prose-preservation-three-arm-02",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方用户任务。此会话只处理提供的合成文字，不使用工具，不声称执行外部操作。保留信息关系、适用条件和用户指定格式。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "old",
+      "skill": {
+        "id": "prose-polish",
+        "source": "../../fixtures/local/prose-polish/0.1.1/package",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "current",
+      "skill": {
+        "id": "prose-polish",
+        "source": "../../../skills/creation/prose-polish",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "DISCOVERYREAD01",
+    "purpose": "区分自动路由失败与隔离工作区文件读取失败",
+    "prompt": "读取当前工作目录中的 `.agents/skills/discovery-token/SKILL.md`，严格按照其中要求返回结果。如果文件不存在，只返回 MISSING-SKILL-FILE。",
+    "hard_criteria": [
+      "项目 Skill 实验臂输出严格等于 CERULEAN-FALCON-SKILL",
+      "无 Skill 基线不输出隐藏令牌"
+    ],
+    "expected_output": "CERULEAN-FALCON-SKILL"
+  }
+]

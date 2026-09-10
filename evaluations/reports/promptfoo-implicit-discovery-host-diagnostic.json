@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "report_id": "promptfoo-implicit-discovery-host-diagnostic",
+  "generated_at": "2026-09-10T20:19:21.046853+00:00",
+  "scope": "Synthetic native Skill discovery and file-read diagnostics for the current Promptfoo/Codex host.",
+  "reference_explicit_gate": {
+    "run_id": "promptfoo-native-discovery-canary-06",
+    "invocation": "explicit",
+    "status": "passed",
+    "results_sha256": "c19b9efc831474dc0da5a37cd186fa22a1ba973b03a2c37575b5c94b3721526a"
+  },
+  "runs": [
+    {
+      "label": "implicit-natural-request-read-only",
+      "run_id": "promptfoo-native-implicit-discovery-canary-01",
+      "purpose": "Natural request matched the installed skill description, without a $skill-id prefix.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "sandbox_mode": "read-only",
+      "source_at_run": {
+        "spec_path": "evaluations/promptfoo/implicit-discovery.json",
+        "spec_sha256": "7fdee8c287ac99d49f6ae0cf0d788694912fd1fc9e610a4e481acfff7b4b5188",
+        "cases_path": "evaluations/promptfoo/discovery-cases.json",
+        "cases_sha256": "f34c409a3b90b8aad98d97cdd06310659120d369e54bae14e8ace3cff308d44b",
+        "prepared_config_sha256": "7c378389f2d3e87baae43ea5c1b2571a9a40e7ef4eb9323564b210368e9fe560",
+        "prepared_tests_sha256": "c1ec1bd17584bad49a25995f97dd6efc7e9f350e91a64fce4ef0f0e7811e2c2a"
+      },
+      "reproduction": {
+        "spec_path": "evaluations/promptfoo/implicit-discovery.json",
+        "spec_sha256": "8abce381d2e077fe1c8aa6a61fe88d6570ce91082666c0e848946da3684ad8b3",
+        "prepared_config_semantic_sha256": "14aa1ff25fe3fb7b691346784cbbdf576cd92b7600091eb253fd2a8b00c4e149",
+        "prepared_tests_semantic_sha256": "69ff54dcb312e12783f1837cd94d26cba5571e86ceb45897b903b1668e93ff07",
+        "matches_run_prepared_config_semantically": true,
+        "matches_run_prepared_tests_semantically": true
+      },
+      "frozen_sha256": "7da65e904b93dfa0da5b6290546774c599aa64e9ab9b8a577bfef67306066dee",
+      "results_sha256": "daefb44da398300e2d59a004c72eb80aec19652dfd21880d2a487e835f4e84c4",
+      "status": "failed",
+      "infrastructure_valid": true,
+      "discovery_gate": {
+        "status": "failed",
+        "checks": [
+          {
+            "case_id": "DISCOVERY01",
+            "arm_id": "baseline",
+            "expected_behavior": "miss-hidden-token",
+            "passed": true,
+            "forbidden_item_types": []
+          },
+          {
+            "case_id": "DISCOVERY01",
+            "arm_id": "project-skill",
+            "expected_behavior": "match-hidden-token",
+            "passed": false,
+            "forbidden_item_types": []
+          }
+        ]
+      },
+      "outputs": [
+        {
+          "arm_id": "baseline",
+          "invocation": "none",
+          "output": "NATIVE_SKILL_DISCOVERY_PROBE_TOKEN",
+          "raw_item_types": [
+            "agent_message"
+          ]
+        },
+        {
+          "arm_id": "project-skill",
+          "invocation": "implicit",
+          "output": "NATIVE_SKILL_DISCOVERY_PROBE_OK",
+          "raw_item_types": [
+            "agent_message",
+            "agent_message",
+            "agent_message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "direct-skill-file-read-read-only",
+      "run_id": "promptfoo-native-skill-file-read-canary-01",
+      "purpose": "The task explicitly named the project-relative SKILL.md path under the default read-only sandbox.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "sandbox_mode": "read-only",
+      "source_at_run": {
+        "spec_path": "evaluations/promptfoo/filesystem-read-discovery.json",
+        "spec_sha256": "57486b91bd2016c64e3fc73aeabb7f19c31ff59607fa0d54b50a6977038ae3e1",
+        "cases_path": "evaluations/promptfoo/filesystem-read-cases.json",
+        "cases_sha256": "d865401d2ed1b2df4f31ae8b4d0b08d01c60c3c5390da155a15086a8dd3d777d",
+        "prepared_config_sha256": "cce5e81e57a9a00d67aaa4c1bbb7f3e518d221a026e5ccdc7fa53cd016b3f281",
+        "prepared_tests_sha256": "ef9b12796da240997ac26c50df6e0944c8737ff6dc2214f6cfd19a034cfe7d9d"
+      },
+      "reproduction": {
+        "spec_path": "evaluations/promptfoo/filesystem-read-discovery.json",
+        "spec_sha256": "57486b91bd2016c64e3fc73aeabb7f19c31ff59607fa0d54b50a6977038ae3e1",
+        "prepared_config_semantic_sha256": "69a2a814e6694af3f842dfb45bbfc2174be3a68de4b29828870f339bff6202e8",
+        "prepared_tests_semantic_sha256": "75ba5c88c999024c7374eb048ec12359b119f1b662452ac8ca753bc1771d0f99",
+        "matches_run_prepared_config_semantically": true,
+        "matches_run_prepared_tests_semantically": true
+      },
+      "frozen_sha256": "c39e97f8c09c238e6a3436df15a408f8684a80d0e27691de78a8cbbe7b27ce80",
+      "results_sha256": "7ee87418aaeb9624407f81111680b09c138f1ceaba9175414e5ea0f241e7e7bf",
+      "status": "failed",
+      "infrastructure_valid": true,
+      "discovery_gate": {
+        "status": "failed",
+        "checks": [
+          {
+            "case_id": "DISCOVERYREAD01",
+            "arm_id": "baseline",
+            "expected_behavior": "miss-hidden-token",
+            "passed": true,
+            "forbidden_item_types": []
+          },
+          {
+            "case_id": "DISCOVERYREAD01",
+            "arm_id": "project-skill",
+            "expected_behavior": "match-hidden-token",
+            "passed": false,
+            "forbidden_item_types": []
+          }
+        ]
+      },
+      "outputs": [
+        {
+          "arm_id": "baseline",
+          "invocation": "none",
+          "output": "MISSING-SKILL-FILE",
+          "raw_item_types": [
+            "agent_message",
+            "agent_message",
+            "agent_message"
+          ]
+        },
+        {
+          "arm_id": "project-skill",
+          "invocation": "implicit",
+          "output": "无法读取：隔离策略拒绝了所有只读文件访问命令。",
+          "raw_item_types": [
+            "agent_message",
+            "agent_message",
+            "agent_message",
+            "agent_message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "direct-skill-file-read-workspace-write",
+      "run_id": "promptfoo-native-skill-file-read-canary-02",
+      "purpose": "The same direct-read probe used workspace-write inside per-arm temporary Git repositories.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "sandbox_mode": "workspace-write",
+      "source_at_run": {
+        "spec_path": "evaluations/promptfoo/filesystem-read-discovery.json",
+        "spec_sha256": "f644fc684234c0b8bf4920f5b3ae6eee645f2038e60057dd25a14e76d843cd7d",
+        "cases_path": "evaluations/promptfoo/filesystem-read-cases.json",
+        "cases_sha256": "d865401d2ed1b2df4f31ae8b4d0b08d01c60c3c5390da155a15086a8dd3d777d",
+        "prepared_config_sha256": "c0bcbad6ebf86ec280135b2b2fb1112cd972b7551340d52f28ac24edf3150e0e",
+        "prepared_tests_sha256": "ef9b12796da240997ac26c50df6e0944c8737ff6dc2214f6cfd19a034cfe7d9d"
+      },
+      "reproduction": {
+        "spec_path": "evaluations/promptfoo/filesystem-read-discovery-workspace-write.json",
+        "spec_sha256": "1de6b642435408bfc6c54d64109d9cfcf1e5deb4c953e8255b11d839db17d376",
+        "prepared_config_semantic_sha256": "ee0c18ca0017d9f67d9c41a13f601586c115c2a68e9886ddd0c4b4fb44a86da7",
+        "prepared_tests_semantic_sha256": "75ba5c88c999024c7374eb048ec12359b119f1b662452ac8ca753bc1771d0f99",
+        "matches_run_prepared_config_semantically": true,
+        "matches_run_prepared_tests_semantically": true
+      },
+      "frozen_sha256": "217275d72f0290cece49ed5865d6bd5f092438d5acd473fc6e6564573b073fd8",
+      "results_sha256": "db93bbe6141b29b69bcf6cd9b9a11037edaf6682147255a87cf0a8ea9b7f1b5e",
+      "status": "failed",
+      "infrastructure_valid": true,
+      "discovery_gate": {
+        "status": "failed",
+        "checks": [
+          {
+            "case_id": "DISCOVERYREAD01",
+            "arm_id": "baseline",
+            "expected_behavior": "miss-hidden-token",
+            "passed": true,
+            "forbidden_item_types": []
+          },
+          {
+            "case_id": "DISCOVERYREAD01",
+            "arm_id": "project-skill",
+            "expected_behavior": "match-hidden-token",
+            "passed": false,
+            "forbidden_item_types": []
+          }
+        ]
+      },
+      "outputs": [
+        {
+          "arm_id": "baseline",
+          "invocation": "none",
+          "output": "MISSING-SKILL-FILE",
+          "raw_item_types": [
+            "agent_message",
+            "agent_message"
+          ]
+        },
+        {
+          "arm_id": "project-skill",
+          "invocation": "implicit",
+          "output": "NATIVE_SKILL_DISCOVERY_OK",
+          "raw_item_types": [
+            "agent_message",
+            "agent_message",
+            "agent_message"
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "The natural implicit request did not produce the hidden token in the project-skill arm; the no-skill baseline also did not produce it.",
+    "Directly naming the project-relative SKILL.md path did not produce the hidden token under read-only or workspace-write isolation.",
+    "All three summaries had complete provider responses and no forbidden MCP or web item types, but every discovery gate failed.",
+    "Raw provider items contained only agent_message entries. Model text reported blocked reads, but there is no command-level failure item, so the exact enforcing layer is not established.",
+    "Each tracked reproduction spec recreates the corresponding run's prepared Promptfoo config and tests semantically. Raw spec hashes are retained separately because line-ending normalization and the split per-mode filename can change byte hashes without changing the executed configuration.",
+    "These runs do not prove or disprove automatic routing quality for repository business skills. They show that this host cannot currently complete the implicit instruction-read chain under the tested isolated configuration."
+  ],
+  "limitations": [
+    "All prompts and Skill contents are synthetic.",
+    "Each configuration ran once with gpt-5.6-sol at medium reasoning.",
+    "The workspace-write probe used disposable per-arm Git repositories with approval never, network and web disabled, and host apps, plugins, and multi-agent disabled.",
+    "Failed discovery evidence must not be converted into a verified or routing-supported claim."
+  ]
+}

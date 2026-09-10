@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "report_id": "prose-preservation-rubric-calibration-v1",
+  "diagnostic_only": true,
+  "verification_eligible": false,
+  "method": "Synthetic semantic-equivalence fixtures added after a separate model-assisted audit found an over-literal P05 score. This is not an automated test or independent human review.",
+  "case_id": "P05",
+  "criterion": "保留周日来不了者周五18点前私信，不改成所有人必须确认",
+  "fixtures": [
+    {
+      "id": "explicit-repeat-of-sunday",
+      "answer": "读书会改至周日上午10点；周日不能来请于周五18点前私信。",
+      "expected_accept": true,
+      "reason": "明确重复周日，条件对象清楚。",
+      "reviewed_accept": true
+    },
+    {
+      "id": "scope-recoverable-from-adjacent-event",
+      "answer": "读书会改至周日上午10点；无法参加请于周五18点前私信。",
+      "expected_accept": true,
+      "reason": "无法参加自然指向紧邻的周日读书会，并未要求所有人确认。",
+      "reviewed_accept": true
+    },
+    {
+      "id": "universal-confirmation",
+      "answer": "读书会改至周日上午10点；所有人请于周五18点前私信确认。",
+      "expected_accept": false,
+      "reason": "把只针对无法参加者的动作扩大为所有人必须确认。",
+      "reviewed_accept": false
+    },
+    {
+      "id": "condition-detached-to-other-event",
+      "answer": "读书会改至周日上午10点；若不能参加下周培训，请于周五18点前私信。",
+      "expected_accept": false,
+      "reason": "把条件对象改成了材料中不存在的另一活动。",
+      "reviewed_accept": false
+    }
+  ],
+  "scope": "Only calibrates the conditional-audience criterion. It does not decide whether the answer preserved the original Saturday, location, registration rule, or length limit.",
+  "reviewer": {
+    "kind": "model-assisted-post-reveal-calibration",
+    "independent_human": false
+  }
+}

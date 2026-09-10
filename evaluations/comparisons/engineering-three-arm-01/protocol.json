@@ -1,0 +1,47 @@
+{
+  "id": "engineering-three-arm-01",
+  "date": "2026-09-10",
+  "base_commit": "3a466e34343cb333dc81d5853f653018e2233d0e",
+  "prior_worktree": "Prose comparison files remain uncommitted and preserved.",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "arms": [
+    "baseline",
+    "ours",
+    "upstream"
+  ],
+  "repetitions": 2,
+  "max_turns": 3,
+  "seed": 91002,
+  "cases": [
+    "memo",
+    "document"
+  ],
+  "host_mode": "Text patch protocol after native CLI tool preflight returned blocked by policy. Evaluator reviews submitted code and runs tests in isolated temporary copies; not autonomous tool execution.",
+  "allowed_files": {
+    "memo": [
+      "memo.py",
+      "test_regression.py"
+    ],
+    "document": [
+      "document.py",
+      "test_regression.py"
+    ]
+  },
+  "common_prompt": "你正在修复一个合成的隔离Python项目。用户已授权修改指定源文件、补充回归测试并由评测运行器执行；无生产数据。当前会话不直接调用工具或联网。请通过JSON提交完整文件内容，运行器会检查后实际执行公开测试并返回原始结果。遵守README契约，修复缺陷并补充test_regression.py，不能改公开测试或README。最多三轮回答。每轮只输出JSON对象：{\"diagnosis\":\"证据与机制\",\"files\":{\"允许的文件名\":\"完整UTF-8文件内容\"},\"done\":false,\"verification\":\"已知验证与仍待验证\"}。只想先验证测试时可以只提交test_regression.py；确认无需改动时files可以为空。done=true表示不再提交代码，不表示测试自动通过。不能声称执行了尚未看到结果的测试。技能为辅助资料，用户任务与此通信协议优先。只使用Python标准库。",
+  "grading": {
+    "artifact_acceptance": "final source passes all immutable public and held-out tests in fresh processes",
+    "regression_value": "submitted test_regression.py contains at least one real test, passes final source, and fails original source for relevant behavior rather than import/API errors",
+    "full_delivery": "artifact_acceptance and regression_value and original public files unchanged",
+    "process_secondary": "initial reproduction supplied by harness; record whether new tests were actually run on old code before source edit and whether final claims match observed feedback. Do not make upstream preferred process the main score."
+  },
+  "feedback": "Public tests plus submitted regression only; held-out tests and original-source regression challenge run after last turn, never fed back. All response/parse/execution errors kept; subsequent corrections use the predeclared three-turn budget, no silent retry.",
+  "limitations": [
+    "Two small synthetic async tasks, same model, two repeats; not general debugging ranking",
+    "Our skill primarily evidence triage; here explicit repair authorization measures transfer to patch production",
+    "Native tool execution blocked in preflight; wrapper handles file writes/test execution",
+    "Three-turn cap and JSON protocol alter natural skill workflows",
+    "Evaluator wrote tasks and reviews model outputs; no independent human review",
+    "All contract requirements visible; hidden tests check the same contract, not undisclosed requirements"
+  ]
+}

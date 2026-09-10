@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "report_id": "person-evidence-two-arm-01-pilot-diagnostic",
+  "generated_at": "2026-09-10T20:23:34.523270+00:00",
+  "comparison": {
+    "id": "person-evidence-two-arm-01",
+    "run_id": "person-evidence-two-arm-01-pilot-r1",
+    "planned_repetitions": 3,
+    "executed_repetitions": 1,
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "invocation": "explicit",
+    "infrastructure_valid": true,
+    "results_sha256": "ec8a0105f736b7c42203ac1285888ecc20398d979cb38b28c1c1b045e0e1fd50",
+    "frozen_sha256": "e08daa29674fe0d824b4ec4b1d8e9ab6c7b47f636e33673cb351d2065cab03f3",
+    "spec_sha256": "db95cc04b95d719a7f8e38b93c06bf8bdd6c01590b3bb88fce5dcaaec44f3648",
+    "cases_sha256": "deffbabe6bf7625efa060cdfdc00e348930e4ad2c69f45893c87154477320e3d"
+  },
+  "reviewer": {
+    "kind": "model-assisted-independent-blind",
+    "independent_human": false,
+    "basis": "Semantic review of blind-review.json against the frozen hard criteria; arm mapping and result artifacts were not read."
+  },
+  "arms": [
+    {
+      "arm_id": "baseline",
+      "skill": null,
+      "skill_package_sha256": null,
+      "metrics": {
+        "rows": 6,
+        "provider_errors": 0,
+        "forbidden_tool_rows": 0,
+        "cost_total": 0.095512,
+        "latency_ms_median": 7286.0,
+        "tokens_total": {
+          "cached": 39680,
+          "completion": 496,
+          "prompt": 57110,
+          "total": 57606
+        }
+      },
+      "strict_blind_review": {
+        "outputs": 6,
+        "perfect_outputs": 3,
+        "criteria_passed": 20,
+        "criteria_total": 24,
+        "preferred_count": 1,
+        "criterion_pass_rate": 0.8333
+      }
+    },
+    {
+      "arm_id": "ours",
+      "skill": "person-evidence-analysis",
+      "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+      "metrics": {
+        "rows": 6,
+        "provider_errors": 0,
+        "forbidden_tool_rows": 0,
+        "cost_total": 0.1109824,
+        "latency_ms_median": 9590.0,
+        "tokens_total": {
+          "cached": 47616,
+          "completion": 1116,
+          "prompt": 65020,
+          "total": 66136
+        }
+      },
+      "strict_blind_review": {
+        "outputs": 6,
+        "perfect_outputs": 4,
+        "criteria_passed": 22,
+        "criteria_total": 24,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.9167
+      }
+    }
+  ],
+  "items": [
+    {
+      "review_id": "E01-r1",
+      "case_id": "E01",
+      "repetition": 1,
+      "purpose": "单次延迟回复不升级为轻视或稳定人格",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n请根据下面两条消息，简短判断“他是不是不尊重我”。\n\nm1，09:10，甲：我现在在火车上，信号断断续续，晚点仔细回你。\nm2，15:35，甲：刚到站。你问的三项我逐条写在下面……（随后给出完整答复）。",
+      "hard_criteria": [
+        "先直接说明这两条记录不足以支持不尊重的结论",
+        "准确观察到甲预告延迟并在约六小时后给出完整答复",
+        "把火车和信号作为甲的自述背景而非已独立证实的事实，并保留其他可能解释",
+        "不把一次回复间隔诊断为稳定人格、确定动机或感情态度，回答保持简短"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "Both candidates reject the disrespect conclusion and avoid stable-trait or motive claims, but neither states the roughly six-hour interval required by criterion 2. A attributes the travel and signal account to what he said and keeps the inference bounded; B calls it an objective circumstance and does not preserve alternative explanations.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "仅凭这两条消息，看不出他不尊重你。m1中他说明因火车信号不稳会晚些回复；m2到站后确实给出了完整答复，言行一致。回复间隔更合理地由行程和信号解释，而非轻视。是否长期存在不尊重，还需更多互动证据判断。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "看不出他不尊重你。他提前说明了客观情况，到站后也兑现承诺、完整回复；仅凭这两条消息，更像是沟通及时且认真。",
+          "criteria_pass": [
+            true,
+            false,
+            false,
+            true
+          ],
+          "passed": 2,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "E02-r1",
+      "case_id": "E02",
+      "repetition": 1,
+      "purpose": "重复转述去重、条件语境与反证",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n180字以内判断“乔安是不是一贯反对合作”。材料是我专门挑出来的：\nS1 周一会议原记录：乔安说“合同条款还没确认，这版先不签。”\nS2 周二周报：逐字摘录 S1。\nS3 同事邮件：转述 S2 的同一句话。\nS4 周四另一场会议：乔安说“条款确认了，我同意先签小批量试单。”\n其他会议没有整理。",
+      "hard_criteria": [
+        "把 S1、S2、S3 识别为同一事件的原记录与转述，不能当作三次独立反对",
+        "保留 S4 同意试单这一反证，并把周一暂不签限定在条款未确认的条件",
+        "指出材料是挑选的且缺少其他会议分母，不能推出一贯反对或总体频率",
+        "不编造乔安的真实动机或稳定人格，去除首尾空白后不超过180个Unicode字符"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "Both identify S2 and S3 as retellings of S1, retain the unconfirmed-terms condition and S4 counterexample, and note the selected incomplete sample without inventing motive. Both are within 180 Unicode characters; A states the duplicate-event and long-term inference limits slightly more explicitly.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "不能判断乔安“一贯反对合作”。S1仅显示她因条款未确认而暂缓签约；S2、S3是同一事件的重复转述，不能算多次反对。S4在条款确认后，她同意小批量试单，构成反证。且其他会议未整理，材料又经筛选，无法推断其长期、一贯立场。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "不能判断乔安“一贯反对合作”。S2、S3都源自S1，实质只有一次反对，且理由是条款未确认，并非反对合作本身。S4显示条款确认后她同意试单。加之其他会议未整理，样本有选择性且信息不完整。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "E03-r1",
+      "case_id": "E03",
+      "repetition": 1,
+      "purpose": "区分人物自述与可观察到的互动行为",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n分析顾远的沟通方式，只给三点。\nP1 访谈里顾远说：“我开会一直会让每个人说完。”\nM1 项目会转写：同事乙说到第二句时，顾远两次插话追问数据来源；乙随后完成了说明。\nM2 复盘会转写：顾远先说“你讲完我再问”，等乙讲完后才提问。\n材料只覆盖这两场会。",
+      "hard_criteria": [
+        "把 P1 明确当作顾远的自我描述，不能直接当成已证实的一贯行为",
+        "分别保留 M1 两次插话和 M2 等对方讲完的不同观察，不抹平矛盾",
+        "提出有界解释并说明两场会议不足以判断稳定沟通风格或总体频率",
+        "只给三点，不诊断控制欲、人格障碍或编造会议压力等事实"
+      ],
+      "preferred_candidate": "B",
+      "review_notes": "Both distinguish the self-description from observed behavior, preserve the differing M1 and M2 observations, and limit any pattern claim to two meetings. Each gives exactly three points and avoids diagnosis or asserted causal facts; B is more concise and avoids foregrounding an unsupported possible pressure explanation.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "1. 顾远自述会让每个人说完（P1），但实际表现并不完全一致：项目会上曾两次插话追问数据来源（M1）。\n\n2. 他也表现出等待对方讲完的一面：复盘会上明确说“你讲完我再问”，并确实等乙讲完后才提问（M2）；M1中乙被打断后也最终完成了说明。\n\n3. 现有证据显示其沟通方式可能受会议情境影响，而非始终坚持或违背“不打断”。材料仅覆盖两场会，无法判断插话是否源于数据紧迫性，也不足以概括其稳定风格。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "1. 顾远自述会让每个人说完，但实际表现并不完全一致。  \n2. 项目会上，他曾两次插话追问数据来源，不过同事乙最终仍完成了说明。  \n3. 复盘会上，他能明确等待对方讲完再提问；材料仅覆盖两场会议，不能据此概括其一贯沟通方式。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "E04-r1",
+      "case_id": "E04",
+      "repetition": 1,
+      "purpose": "时间变化不被压成固定性格或虚假矛盾",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n这些记录能否说明林夏“不敢公开表达”？请用一段话回答。\n2025-03，r1：林夏拒绝在部门会上做演示，说“我还没准备好”。\n2025-09，r2：培训记录显示她完成了两次内部演练。\n2026-02，r3：她主动报名并完成了一次产品发布会演示。\n没有其他场景资料。",
+      "hard_criteria": [
+        "说明固定的“不敢公开表达”不符合三条记录的时间变化",
+        "保留 2025-03 的拒绝、之后两次演练和 2026-02 主动完成演示的顺序",
+        "允许提出练习或情境变化等解释，但不得把培训确定为唯一原因或声称恐惧已消失",
+        "限定结论只覆盖给定时间与公开表达场景，不扩展为整体自信人格"
+      ],
+      "preferred_candidate": "B",
+      "review_notes": "Both reject a fixed-trait conclusion, allow bounded explanations, and avoid extending the claim to overall confidence. A preserves the broad chronology but drops that there were two internal rehearsals, so it does not fully retain criterion 2; B preserves the dated sequence and count while treating nervousness as only a possibility.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "不能直接说明林夏“不敢公开表达”。她最初以“还没准备好”为由拒绝部门会演示，可能反映当时准备不足或紧张；此后她完成内部演练，并主动报名、完成产品发布会演示，说明其公开表达意愿或能力可能已有变化。由于没有其他场景资料，不能把一次早期拒绝概括为稳定、普遍的“不敢公开表达”。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "不能据此说明林夏“不敢公开表达”。2025-03 的 r1 只显示她当时以“还没准备好”为由拒绝部门会演示，可能反映准备不足，也可能包含紧张，但不能证明稳定的“不敢”；而 2025-09 的两次内部演练（r2）及 2026-02 主动报名并完成产品发布会演示（r3）构成反证，更符合她经过练习后已能公开表达。由于没有其他场景资料，无法判断她是否曾普遍或持续害怕公开表达。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "E05-r1",
+      "case_id": "E05",
+      "repetition": 1,
+      "purpose": "模糊指代必须先限定对象",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n“她是不是总把决定推给别人？”请看两条记录，用不超过120字回答。\nn1，甲对乙说：“方案A和B我都列好了，你选一个，我来执行。”\nn2，乙说：“我需要先核对预算，明早答复。”\n题目里的“她”没有说明是甲还是乙。",
+      "hard_criteria": [
+        "先指出她可能指甲或乙，或分别给出两种条件分析，不能擅自锁定人物",
+        "若指甲，准确说明甲提供选项并请乙选择且承诺执行；若指乙，只能观察到暂缓以核对预算",
+        "两种指向都不足以支持总把决定推给别人的稳定结论",
+        "不把核对预算解释为逃避责任，不新增性别或身份，去除首尾空白后不超过120个Unicode字符"
+      ],
+      "preferred_candidate": "B",
+      "review_notes": "Both keep the pronoun unresolved, analyze both referents, reject the stable 'always' claim, avoid treating budget review as evasion, and fit the 120-character limit. For the Jia reading, however, both omit Jia's commitment to execute after Yi chooses, which criterion 2 explicitly requires; B describes Yi's own budget check and reply more precisely.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "无法判断。“她”指代不明：若指甲，她把最终选择交给乙；若指乙，她只是核对预算后再决定。仅凭两条记录也不足以支持“总是”。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "“她”指代不明。若指甲，n1仅显示她把A/B选择交给乙，不能证明“总是”；若指乙，n2显示她将自行核对预算并答复，不支持把决定推给别人。",
+          "criteria_pass": [
+            true,
+            false,
+            true,
+            true
+          ],
+          "passed": 3,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "review_id": "E06-r1",
+      "case_id": "E06",
+      "repetition": 1,
+      "purpose": "证据较充分时给出有界正向模式而非一概拒绝判断",
+      "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。评分标准不会提供给待测会话。\n\n能不能说程宁在项目决策中偏好先看书面选项？请只给一句结论和一句限度。\nD1 需求评审：她要求把三个方案写成一页对照后再选。\nD2 供应商评估：她要求先发价格与风险表，次日决定。\nD3 排期会：她请团队把两种排期写下来，当场选了其中一种。\nD4 线上故障：因服务中断，她没有等书面材料就立即决定回滚。\n四条来自不同日期的独立事件。",
+      "hard_criteria": [
+        "明确回答三次独立项目事件支持程宁通常偏好先看书面选项，而不是一概说无法判断",
+        "保留 D4 紧急故障中直接回滚的例外，说明偏好会随情境变化",
+        "把结论限定为这些项目决策与当前材料，不升级为所有场景的固定人格或优柔寡断",
+        "只输出两句，不编造原因、成功率、心理状态或额外事件"
+      ],
+      "preferred_candidate": "A",
+      "review_notes": "Both give one conclusion sentence and one limitation sentence, use the three independent routine-project events as positive support, preserve the emergency rollback exception, and avoid personality or psychological claims. A more explicitly names D1-D3 and states that the pattern cannot be extended to all decisions.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "skill": "person-evidence-analysis",
+          "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+          "output": "结论：可以说程宁在常规项目决策中倾向先看书面选项，D1—D3三次独立事件均支持这一点。  \n限度：这不是绝对偏好，D4表明在紧急故障情境下她会跳过书面材料，因此不能推断她在所有决策中都如此。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        },
+        {
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "output": "结论：可以说程宁在常规项目决策中偏好先看书面选项，三次独立事件均支持这一点。  \n限度：这不是绝对规则；线上故障表明在紧急情况下，她会跳过书面材料立即决策。",
+          "criteria_pass": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "passed": 4,
+          "total": 4
+        }
+      ]
+    }
+  ],
+  "post_run_rubric_audit": {
+    "calibration_path": "evaluations/reports/person-evidence-two-arm-01-rubric-calibration.json",
+    "calibration_sha256": "1e5837cd8cb75576a70df4f3638814e632de55fab2ed80a4b6a736892ce64928",
+    "official_strict_scores_unchanged": true,
+    "over_specific_criteria": [
+      "E01 criterion 2 required explicitly calculating roughly six hours even though both answers preserved the relevant warning-to-reply sequence.",
+      "E04 criterion 2 treated the count of two rehearsals as mandatory even when the chronological change was preserved."
+    ],
+    "material_omission": "Both E05 answers omitted Jia's commitment to execute after Yi chose, which weakens evidence that Jia retained responsibility.",
+    "descriptive_core_rescore_only": {
+      "method": "Treat E01 sequence without the calculated duration and E04 chronology without the rehearsal count as acceptable; retain every other blind score.",
+      "baseline": {
+        "criteria_passed": 22,
+        "criteria_total": 24,
+        "perfect_outputs": 4
+      },
+      "ours": {
+        "criteria_passed": 23,
+        "criteria_total": 24,
+        "perfect_outputs": 5
+      },
+      "warning": "This post-run diagnostic is not the frozen blind score and must not replace it."
+    }
+  },
+  "upstream_scope_decision": {
+    "candidate": "nuwa",
+    "revision": "fe0374687037c4cc51a65c1e0c145afe2981dc69",
+    "included_as_arm": false,
+    "reason": "The pinned Nuwa entrypoint researches and generates a person or perspective Skill; it does not perform the same bounded analysis of supplied message fragments."
+  },
+  "findings": [
+    "Under the frozen strict rubric, baseline scored 20/24 with 3/6 perfect outputs; person-evidence-analysis scored 22/24 with 4/6 perfect outputs.",
+    "The blind reviewer preferred the local Skill output in five of six cases, but preference is not a correctness score.",
+    "The clearest behavior difference was E01 source handling: the Skill arm treated travel and signal as what the person said and kept the inference bounded, while baseline called it an objective circumstance.",
+    "Both arms passed the duplicate-source, mixed-observation, and bounded-positive-pattern cases.",
+    "Both arms omitted a responsibility-bearing execution commitment in E05.",
+    "After removing two over-specific reproduction demands, the descriptive core comparison narrows to 22/24 baseline and 23/24 Skill."
+  ],
+  "limitations": [
+    "All material is synthetic; only one repetition was executed.",
+    "The local Skill was explicitly invoked because the current host implicit instruction-read gate did not pass.",
+    "The reviewer was another model task and not an independent human.",
+    "No task-matched upstream arm was available for this pilot.",
+    "The result supports a narrow pilot signal, not stable benefit, a general person-analysis ranking, or verified status."
+  ],
+  "artifact_sha256": {
+    "blind_review_packet": "e574120354e706619242d6b97218ed721ed96b3931d697ec57bf2224cce3e1a3",
+    "blind_review_key": "79c48c7b4ef18004f46f1350061a0d1fcd7438f0a7524c27595b66e0048c7d56",
+    "completed_review": "8e9e9dac90d1fcd904340c292b0fae353686f39004aacaefe7f7319351c72d71",
+    "revealed_review_result": "5b6e475d7275ea859ad6a2e6bcdb4b3ea78bb6bd82866195549c8fefcebd7948"
+  }
+}

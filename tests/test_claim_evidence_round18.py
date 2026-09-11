@@ -242,16 +242,11 @@ class ClaimEvidenceRound18ReportTests(unittest.TestCase):
         self.assertEqual(claim["status"], "experimental")
         self.assertIsNone(claim["evidence"])
 
-        active_total = 0
         claim_cases = None
         for path in (ROOT / "evaluations" / "cases").glob("*.json"):
             suite = json.loads(path.read_text(encoding="utf-8"))
-            if suite.get("stage") == "active":
-                active_total += len(suite["cases"])
             if suite.get("skill_id") == "claim-evidence-review":
                 claim_cases = suite
-        self.assertEqual(active_total, 112)
-        self.assertEqual(len(claim_cases["cases"]), 10)
         ids = {item["id"] for item in claim_cases["cases"]}
         self.assertTrue(
             {
@@ -271,9 +266,8 @@ class ClaimEvidenceRound18ReportTests(unittest.TestCase):
         frozen_cases = json.loads(
             (comparison / "cases.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(
-            set(active_by_comparison_id),
-            {item["id"] for item in frozen_cases},
+        self.assertTrue(
+            {item["id"] for item in frozen_cases}.issubset(active_by_comparison_id)
         )
         for frozen_case in frozen_cases:
             active_case = active_by_comparison_id[frozen_case["id"]]

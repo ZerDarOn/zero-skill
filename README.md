@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十八轮论断证据前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共112项。`claim-evidence-review` 保持0.1.0；六个新题中无Skill与当前包均为52/54、16/18完整，未观察到严格净增益。当前包获得7次盲评偏好、无Skill为3次，但总token多约29.4%；多批样本的精确数字保真仍需跨拓扑复测，隐式路由门禁未通过。
+当前阶段：**第十九轮论断证据定量保真诊断**。已有十六个可试用的 `experimental` 技能，活动用例共116项。`claim-evidence-review` 保持0.1.0；四个新题中无Skill为35/36、11/12完整，当前包为34/36、10/12，偏好均为2次。跨第十八、十九轮，当前包在五个相关题型15次输出中出现4次核心数字遗漏，无Skill为2次；这是确认性复测信号，不是预注册升版结论。
 
 ## 从这里开始
+
+- [第十九轮质量打磨：定量保真前向诊断](docs/quality-polish-round-19.md)
+- [定量保真第十九轮机器诊断](evaluations/reports/claim-quantitative-preservation-round-19-diagnostic.json)
 
 - [第十八轮质量打磨：论断证据前向诊断](docs/quality-polish-round-18.md)
 - [论断证据第十八轮机器诊断](evaluations/reports/claim-evidence-round-18-diagnostic.json)

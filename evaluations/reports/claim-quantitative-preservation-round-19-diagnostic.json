@@ -1,0 +1,841 @@
+{
+  "schema_version": 1,
+  "report_id": "claim-quantitative-preservation-round-19-diagnostic",
+  "generated_at": "2026-09-11T18:00:00+08:00",
+  "scope": {
+    "skill_id": "claim-evidence-review",
+    "version": "0.1.0",
+    "catalog_status": "experimental",
+    "active_case_count": 14,
+    "collection_active_case_count": 116,
+    "formal_outputs": 24,
+    "blind_review_items": 12,
+    "criterion_booleans": 72
+  },
+  "experiment": {
+    "comparison_id": "claim-quantitative-preservation-forward-12",
+    "run_id": "claim-quantitative-preservation-forward-12-promptfoo-20260911T091556Z-f2d635",
+    "freeze_commit": "704855f73c8b57ab595ebe1d89f54d09697f6e4e",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "710afd0bdf1dfc5b4312c169c81f030b60dd82fdc9eb9840bd35a4d9c81167f9",
+      "cases.json": "cc2e69cbe0786e58e4555bd44409880106227893c36d9ec784dace86b55298a4"
+    },
+    "prepared_hashes": {
+      "config": "84a368d06a80e3ed6bbd4ca1ad8e42e5c965c121c23b7c646bb745a4d6e20a2f",
+      "tests": "6955e83342613baf49cd9c4158d71208ed78d39c15745e6ff857c9eef2434f65"
+    },
+    "artifact_hashes": {
+      "frozen.json": "0c1056a331be9a6c7625a461abd805888dbd525c9dc35b052cea9ad9d847fffb",
+      "results.json": "01aee7acf9c6cb72492216bef074e2885ed720755b6ea30fb0438c278d6d047c",
+      "summary.json": "e37e1aec6a7a7d8a90491a3d05dfd2441563e2ed387b9e4f253e76fef510e23b",
+      "blind-review.json": "5bd1790d480e399307719696c8a6989fd8216f0d603f2c651cb70621e20a5404",
+      "blind-review-key.json": "803db50c9ef835abdad04462123fa5f2a45c465c8efca26a176645b12e82bc55",
+      "blind-review-form.json": "1780723e5cf4530742141706c8963ace5bd90f626004d921f7571a66b3065c3c",
+      "blind-review-completed-independent.json": "a46b97b98522824b6e83e03fd7b2b16ea27c44f465850f80d218e22c66f3c619",
+      "review-result-blind-review-completed-independent.json": "b4d5e2429c2e576323070a6bb95660a035f6549518ca99b9be5fe8baffe1974d"
+    },
+    "reviewer": {
+      "kind": "model-assisted-independent-task",
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "prior_skill_revision_exposure_note": "Saw the current 0.1.0 skill and protocol, but no candidate revision.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "independent_human": false,
+      "note": "Another task in the same project scored anonymous candidates after protocol exposure and without candidate-to-arm mapping."
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 12,
+          "promptfoo_passed_rows": 12,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.1667344,
+          "latency_ms_median": 14552.5,
+          "tokens_total": {
+            "cached": 99456,
+            "completion": 3326,
+            "prompt": 114564,
+            "total": 117890
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 12,
+          "perfect_outputs": 11,
+          "criteria_passed": 35,
+          "criteria_total": 36,
+          "preferred_count": 2,
+          "criterion_pass_rate": 0.9722
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "claim-evidence-review",
+        "package_evidence_path": "skills/research/claim-evidence-review",
+        "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+        "runtime": {
+          "skill": "claim-evidence-review",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 12,
+          "promptfoo_passed_rows": 12,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.231192,
+          "latency_ms_median": 13775.0,
+          "tokens_total": {
+            "cached": 99200,
+            "completion": 4194,
+            "prompt": 126108,
+            "total": 130302
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 12,
+          "perfect_outputs": 10,
+          "criteria_passed": 34,
+          "criteria_total": 36,
+          "preferred_count": 2,
+          "criterion_pass_rate": 0.9444
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "independent-trials-different-endpoints-r1",
+        "case_id": "independent-trials-different-endpoints",
+        "repetition": 1,
+        "purpose": "Keep two independent randomized results distinct when their endpoints, windows, and effect sizes differ.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两项独立试验重复证明提醒能让完成率提高10个百分点。’\n\n[S1，试验一] 新注册用户随机分组，各200人；14天内完成设置：提醒组150/200，对照组130/200，差10个百分点。\n[S2，试验二] 另一地区既有用户随机分组，各250人；30天仍保持启用：提醒组170/250，对照组160/250，差4个百分点。\n[S3，综述草稿] 把S1和S2写成‘相同终点上重复得到10个百分点’，没有新增数据。\n\n说明独立性、每项结果和是否构成重复，并给一版准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立随机试验，S3只汇总它们而不是第三项证据，同时不把两项独立性抹掉",
+          "完整保留S1的150/200对130/200、14天设置完成、差10个百分点，以及S2的170/250对160/250、30天保持启用、差4个百分点",
+          "指出两项试验的人群、终点、时间窗和效应幅度不同，不能称为相同终点和10个百分点的重复；改写分别承认各自范围内的随机结果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：明确S1、S2为两项独立随机试验，并说明S3没有新增数据。A2通过：完整给出S1的150/200对130/200、14天与10个百分点，以及S2的170/250对160/250、30天与4个百分点。A3通过：指出人群、终点、窗口和幅度不同，改写分别承认两项结果而不称重复。B1通过：明确两项独立试验且S3只是转述。B2通过：两项原始分子分母、终点、窗口和差值齐全。B3通过：完整否定相同终点10个百分点的重复说法并分别改写。两者实质相当。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立性：S1与S2来自不同地区和用户群体，分别随机分组，可视为两项独立试验。\n- 各项结果：S1中，14天设置完成率为75%（150/200）对65%（130/200），提高10个百分点。S2中，30天保持启用率为68%（170/250）对64%（160/250），提高4个百分点。\n- 是否构成重复：不构成“完成率提高10个百分点”的重复证明。两项试验的终点不同（完成设置与保持启用），观察期不同（14天与30天），效应也不同（10与4个百分点）。S3没有新增数据。\n- 准确改写：**“两项独立随机试验分别发现：提醒使14天设置完成率提高10个百分点，并使30天保持启用率提高4个百分点；由于终点和效应不同，不能称为重复证明完成率提高10个百分点。”**",
+            "output_sha256": "6f80114472adaecc797a056fcf05c192824ea27bd7c6f702c7fcb6d9bfb4f66c",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立性：S1与S2是不同地区/人群、不同样本的随机分组试验，可视为两项独立试验；S3只是对二者的转述，不是新增独立证据。\n- S1：新注册用户中，14天内完成设置率为提醒组150/200（75%）、对照组130/200（65%），高10个百分点。\n- S2：既有用户中，30天仍保持启用率为提醒组170/250（68%）、对照组160/250（64%），高4个百分点。\n- 是否构成重复：两项试验都观察到提醒组指标更高，但对象、终点和观察期不同，且差值分别为10和4个百分点，因此没有重复证明“完成率提高10个百分点”。S3所谓“相同终点上重复得到10个百分点”不受原始数据支持。\n\n准确改写：两项独立随机试验在不同人群和终点上均观察到提醒组比例较高：试验一的14天设置完成率高10个百分点，试验二的30天保持启用率高4个百分点；现有材料不支持“两次重复证明完成率提高10个百分点”。",
+            "output_sha256": "dee0cfabd2126cf3a6085e2234fa80b3340f518ec32b534295e18a17d7edd206",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "independent-trials-different-endpoints-r2",
+        "case_id": "independent-trials-different-endpoints",
+        "repetition": 2,
+        "purpose": "Keep two independent randomized results distinct when their endpoints, windows, and effect sizes differ.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两项独立试验重复证明提醒能让完成率提高10个百分点。’\n\n[S1，试验一] 新注册用户随机分组，各200人；14天内完成设置：提醒组150/200，对照组130/200，差10个百分点。\n[S2，试验二] 另一地区既有用户随机分组，各250人；30天仍保持启用：提醒组170/250，对照组160/250，差4个百分点。\n[S3，综述草稿] 把S1和S2写成‘相同终点上重复得到10个百分点’，没有新增数据。\n\n说明独立性、每项结果和是否构成重复，并给一版准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立随机试验，S3只汇总它们而不是第三项证据，同时不把两项独立性抹掉",
+          "完整保留S1的150/200对130/200、14天设置完成、差10个百分点，以及S2的170/250对160/250、30天保持启用、差4个百分点",
+          "指出两项试验的人群、终点、时间窗和效应幅度不同，不能称为相同终点和10个百分点的重复；改写分别承认各自范围内的随机结果"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "baseline",
+        "review_notes": "A1通过：S1、S2被保留为两项独立试验，S3被限定为错误概括而非新增证据。A2通过：150/200对130/200与170/250对160/250均保留，并配对14天、30天和10、4个百分点。A3通过：人群、终点、时间范围和幅度差异均被指出，改写不声称重复。B1通过：正确说明两项独立试验和S3非新增证据。B2不通过：只给75%对65%及68%对64%，遗漏标准要求保留的四个原始分子分母。B3通过：仍正确区分人群、终点、窗口和效应并分别承认结果。A保留定量信息更完整。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立性：S1与S2使用不同地区/用户群和不同样本，可视为两项独立的随机分组试验。\n- S1结果：14天内完成设置率为75%（150/200）对65%（130/200），提高10个百分点。\n- S2结果：30天仍保持启用率为68%（170/250）对64%（160/250），提高4个百分点。\n- 是否构成重复：不构成“相同终点上重复证明提高10个百分点”。两项试验的终点分别是“完成设置”和“保持启用”，且效果分别为10和4个百分点。S3只是错误概括，没有新增证据。\n\n准确改写：“两项独立随机试验中，提醒组在各自不同终点上均高于对照组：试验一的14天设置完成率提高10个百分点，试验二的30天保持启用率提高4个百分点；这不能称为对同一终点或10个百分点效果的重复证明。”",
+            "output_sha256": "1b349c18861858d11de47e6179a7745d16c5f43e098015b3fe142e4ca3e4eb52",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- **独立性**：S1与S2使用不同地区、不同用户群和不同样本，可视为两项独立试验；S3只是对二者的转述，不是新增独立证据。\n- **各项结果**：S1的14天设置完成率为75%对65%，高10个百分点；S2的30天保持启用率为68%对64%，高4个百分点。\n- **是否构成重复**：两项试验的方向一致，但终点、时间范围和效应幅度不同，因此不能称为“在相同终点上重复证明提高10个百分点”。\n- **准确改写**：两项独立随机试验在不同用户群和不同终点上均观察到提醒组比例较高：14天设置完成率高10个百分点，30天保持启用率高4个百分点。",
+            "output_sha256": "91b86dacabc0dccee315902065d9f80921b05652a2fadc37dc8a43a343aa6b05",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "independent-trials-different-endpoints-r3",
+        "case_id": "independent-trials-different-endpoints",
+        "repetition": 3,
+        "purpose": "Keep two independent randomized results distinct when their endpoints, windows, and effect sizes differ.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两项独立试验重复证明提醒能让完成率提高10个百分点。’\n\n[S1，试验一] 新注册用户随机分组，各200人；14天内完成设置：提醒组150/200，对照组130/200，差10个百分点。\n[S2，试验二] 另一地区既有用户随机分组，各250人；30天仍保持启用：提醒组170/250，对照组160/250，差4个百分点。\n[S3，综述草稿] 把S1和S2写成‘相同终点上重复得到10个百分点’，没有新增数据。\n\n说明独立性、每项结果和是否构成重复，并给一版准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立随机试验，S3只汇总它们而不是第三项证据，同时不把两项独立性抹掉",
+          "完整保留S1的150/200对130/200、14天设置完成、差10个百分点，以及S2的170/250对160/250、30天保持启用、差4个百分点",
+          "指出两项试验的人群、终点、时间窗和效应幅度不同，不能称为相同终点和10个百分点的重复；改写分别承认各自范围内的随机结果"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A1通过：明确S1与S2独立，S3仅转述且不是独立证据。A2通过：两项试验的四个原始计数、14天和30天终点及10、4个百分点全部保留。A3通过：人群、终点、时间和幅度差异完整，改写分别承认窄结果。B1通过：两项独立性和S3无新增证据均清楚。B2通过：150/200对130/200、170/250对160/250及相应范围齐全。B3通过：明确不能称相同终点或10个百分点的重复。A对S3和固定幅度边界略更完整。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- **独立性**：S1与S2使用不同地区、不同用户群和样本，可视为两项独立随机试验；S3仅转述两项试验，不是独立证据。\n- **各项结果**：S1中新注册用户14天内设置完成率为75%（150/200）对65%（130/200），提高10个百分点。S2中既有用户30天启用保持率为68%（170/250）对64%（160/250），提高4个百分点。\n- **是否构成重复**：两项试验都观察到提醒组比例更高，但对象、终点和时间范围不同，且差值分别为10和4个百分点，因此不能称为“在相同终点上重复证明提高10个百分点”。材料也未提供统计不确定性，不能据此声称“证明”了固定幅度。\n- **准确改写**：“两项独立随机试验分别观察到提醒组的相应指标较对照组高：新注册用户14天设置完成率高10个百分点，另一地区既有用户30天启用保持率高4个百分点；两项试验方向一致，但并非对同一终点或10个百分点效果的重复验证。”",
+            "output_sha256": "e03797e6edb371c1d1a15adc51bfd063c2cb0c26f3a4233132e5306ce6b7f6f2",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立性：S1与S2来自不同地区/人群的两项随机分组试验，可视为独立试验；但人群、观察期和终点不同。\n- 结果：S1设置完成率为75%（150/200）对65%（130/200），提高10个百分点。S2保持启用率为68%（170/250）对64%（160/250），提高4个百分点。\n- 是否构成重复：不构成“相同终点重复证明提高10个百分点”。两项效应差异为4—10个百分点，且S2衡量的是30天保持启用，并非设置完成。S3没有新增证据。\n\n准确改写：“两项独立随机试验均观察到提醒组指标较高：试验一的14天设置完成率高10个百分点，试验二的30天保持启用率高4个百分点；由于终点、人群和观察期不同，不能称为重复证明完成率提高10个百分点。”",
+            "output_sha256": "5a0f8987326e36d9a0cf3b95d7b7973c47b33c9a92f4e1362ccb76755442b2aa",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "regions-with-missing-denominator-r1",
+        "case_id": "regions-with-missing-denominator",
+        "repetition": 1,
+        "purpose": "Preserve comparable and non-comparable regional counts without inventing a missing denominator or hiding an opposite direction.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三个地区的投诉率都下降了。’\n\n[S1，北区] 调整前90单中18单投诉，调整后90单中9单投诉。\n[S2，南区] 调整前有11单投诉，但总订单数缺失；调整后60单中6单投诉。\n[S3，西区] 调整前40单中4单投诉，调整后40单中8单投诉。\n\n逐区说明能比较什么、不能比较什么，并给一句准确的总体结论。",
+        "hard_criteria": [
+          "保留北区18/90到9/90并判断下降，保留西区4/40到8/40并判断上升，不隐藏与原论断相反的西区方向",
+          "保留南区调整前11单投诉但分母缺失、调整后6/60，明确不能据此计算或比较南区前后投诉率，也不编造前期订单数",
+          "总体结论明确‘三个地区投诉率都下降’不成立，分别概括北区下降、西区上升、南区率变化无法判断，不把三地强行合并成一个无依据总率"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "baseline",
+        "review_notes": "A1通过：北区18/90到9/90判为下降，西区4/40到8/40判为上升。A2通过：保留南区前期11单和后期6/60，明确缺前期分母而不能比较率。A3通过：总体否定三地都下降，并分别概括下降、未知和上升，未合并总率。B1通过：北区与西区原始数值及相反方向完整。B2不通过：说明前期分母缺失，但没有保留调整前11单投诉这一关键已知计数。B3通过：结论正确拒绝原论断并分区概括。A完整保留南区已知信息。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：可直接比较投诉率。调整前为 18/90＝20%，调整后为 9/90＝10%，下降了10个百分点。\n- 南区：调整后投诉率为 6/60＝10%；但调整前总订单数缺失，无法计算或比较调整前后的投诉率。只能确定调整前有11单投诉，不能据此认定投诉率下降。\n- 西区：可直接比较投诉率。调整前为 4/40＝10%，调整后为 8/40＝20%，上升了10个百分点。\n\n总体结论：论断不成立；北区投诉率下降，南区无法判断，西区投诉率反而上升。",
+            "output_sha256": "f4f22744c01c2553de46e207f5fd828796ddcf230f31abdfe5909af226865f2c",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区（S1）：投诉率从20%（18/90）降至10%（9/90），下降10个百分点。\n- 南区（S2）：调整后投诉率为10%（6/60）；调整前缺少订单总数，无法计算或比较投诉率。\n- 西区（S3）：投诉率从10%（4/40）升至20%（8/40），上升10个百分点。\n\n总体结论：材料不支持“三个地区的投诉率都下降了”；北区下降，南区无法判断，西区反而上升。",
+            "output_sha256": "a148fdbbb2abf376c69d2ddabc005acc7752aef0f285bafae6981b2eef8825da",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "regions-with-missing-denominator-r2",
+        "case_id": "regions-with-missing-denominator",
+        "repetition": 2,
+        "purpose": "Preserve comparable and non-comparable regional counts without inventing a missing denominator or hiding an opposite direction.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三个地区的投诉率都下降了。’\n\n[S1，北区] 调整前90单中18单投诉，调整后90单中9单投诉。\n[S2，南区] 调整前有11单投诉，但总订单数缺失；调整后60单中6单投诉。\n[S3，西区] 调整前40单中4单投诉，调整后40单中8单投诉。\n\n逐区说明能比较什么、不能比较什么，并给一句准确的总体结论。",
+        "hard_criteria": [
+          "保留北区18/90到9/90并判断下降，保留西区4/40到8/40并判断上升，不隐藏与原论断相反的西区方向",
+          "保留南区调整前11单投诉但分母缺失、调整后6/60，明确不能据此计算或比较南区前后投诉率，也不编造前期订单数",
+          "总体结论明确‘三个地区投诉率都下降’不成立，分别概括北区下降、西区上升、南区率变化无法判断，不把三地强行合并成一个无依据总率"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：北区18/90到9/90下降和西区4/40到8/40上升均准确。A2通过：南区后期6/60及前期11单、分母缺失均保留，未比较不可比率。A3通过：明确不能称三地都下降并分别给出三地状态。B1通过：北区与西区数值和方向完整。B2通过：明确南区前期11单但无总订单数、后期6/60，无法判断率变化。B3通过：总体结论不合并无依据总率。两者等价。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区（S1）：投诉率从20%（18/90）降至10%（9/90），下降10个百分点。\n- 南区（S2）：调整后投诉率为10%（6/60）；调整前缺少总订单数，虽投诉数从11单变为6单，但无法比较投诉率。\n- 西区（S3）：投诉率从10%（4/40）升至20%（8/40），上升10个百分点。\n\n总体结论：不能说“三个地区的投诉率都下降了”；北区下降，南区无法判断，西区反而上升。",
+            "output_sha256": "3593e7ffab171e3e98c1fd7b5d552836ce47e170cd83d2517faebed95db59675",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：可以比较投诉率。调整前为 18/90＝20%，调整后为 9/90＝10%，下降了10个百分点。\n- 南区：调整后投诉率为 6/60＝10%；调整前只有11单投诉，总订单数缺失，无法计算或比较投诉率，因此不能判断是否下降。\n- 西区：可以比较投诉率。调整前为 4/40＝10%，调整后为 8/40＝20%，上升了10个百分点。\n\n总体结论：论断不成立；北区投诉率下降，南区无法判断，西区投诉率反而上升。",
+            "output_sha256": "853514edda2e3060673a7f92f012a75e624ab4fad1e685e7bd59347d5b921a38",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "regions-with-missing-denominator-r3",
+        "case_id": "regions-with-missing-denominator",
+        "repetition": 3,
+        "purpose": "Preserve comparable and non-comparable regional counts without inventing a missing denominator or hiding an opposite direction.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三个地区的投诉率都下降了。’\n\n[S1，北区] 调整前90单中18单投诉，调整后90单中9单投诉。\n[S2，南区] 调整前有11单投诉，但总订单数缺失；调整后60单中6单投诉。\n[S3，西区] 调整前40单中4单投诉，调整后40单中8单投诉。\n\n逐区说明能比较什么、不能比较什么，并给一句准确的总体结论。",
+        "hard_criteria": [
+          "保留北区18/90到9/90并判断下降，保留西区4/40到8/40并判断上升，不隐藏与原论断相反的西区方向",
+          "保留南区调整前11单投诉但分母缺失、调整后6/60，明确不能据此计算或比较南区前后投诉率，也不编造前期订单数",
+          "总体结论明确‘三个地区投诉率都下降’不成立，分别概括北区下降、西区上升、南区率变化无法判断，不把三地强行合并成一个无依据总率"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A1通过：北区18/90到9/90下降、西区4/40到8/40上升均保留。A2通过：南区前期11单、缺失分母及后期6/60均明确，结论限于无法比较率。A3通过：总体否定原论断并逐区概括，没有无依据汇总。B1通过：北区与西区的原始分母和方向准确。B2不通过：虽然正确讨论缺失分母并给出后期6/60及条件阈值，但没有明示保留前期11单投诉。B3通过：总体仍正确区分下降、未知和上升。A更直接且完整。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区（S1）：投诉率从 18/90（20%）降至 9/90（10%），下降10个百分点。\n- 南区（S2）：调整后投诉率为 6/60（10%）；调整前仅知11单投诉、缺少总订单数，无法比较投诉率是否下降。\n- 西区（S3）：投诉率从 4/40（10%）升至 8/40（20%），上升10个百分点。\n\n总体结论：不能说“三个地区的投诉率都下降了”；北区下降，南区无法判断，西区反而上升。",
+            "output_sha256": "9bdd2ab6fb6354ec10f0c7a60f16903f98778b63aa1b3109f86647e762dfc68c",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：可比较。投诉率从 18/90＝20% 降至 9/90＝10%，下降了10个百分点。\n- 南区：不可确定。调整后投诉率为 6/60＝10%；调整前总订单数缺失，无法计算投诉率。若调整前总订单数少于110单则下降，等于110单则持平，大于110单则上升。\n- 西区：可比较。投诉率从 4/40＝10% 升至 8/40＝20%，上升了10个百分点。\n\n总体结论：不能说“三个地区的投诉率都下降了”；北区下降，南区无法确定，西区反而上升。",
+            "output_sha256": "1c9e384b275f8989d6cb033b385c5f7a9ab1464b9968134aa782f87c9224cda0",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-bullet-cross-product-summary-r1",
+        "case_id": "two-bullet-cross-product-summary",
+        "repetition": 1,
+        "purpose": "Preserve the quantitative status of two products under a strict concise output shape without inventing a trend for a one-time sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n把证据审查写成严格两条项目符号，每条对应一个产品，不要加标题或结尾。待审论断是‘两个产品的满意度都提高了’。\n\n[S1，产品甲] 同一问卷口径下，调整前50份中32份满意，调整后50份中36份满意；无对照组。\n[S2，产品乙] 调整后一次调查100份中70份满意；没有调整前数据。\n[S3，月报草稿] 写道‘甲乙均提高’，只汇总S1和S2，没有新增样本。",
+        "hard_criteria": [
+          "严格只给两条项目符号且分别对应产品甲、产品乙，不加标题、第三条或结尾段",
+          "产品甲一条保留32/50到36/50的描述性上升及无对照限制，不把S3算成独立支持或直接写成调整造成改善",
+          "产品乙一条保留调整后70/100，并明确缺少调整前数据所以不能判断是否提高；总体不接受‘两个产品都提高’"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：严格只有甲、乙两条项目符号，无标题或结尾。A2通过：甲的32/50到36/50、描述性上升和无对照限制完整，未把S3当独立支持。A3通过：乙保留70/100并说明缺前期数据，且明确不接受两个产品都提高。B1通过：同样严格两条且逐产品对应。B2通过：甲的原始数值、描述性范围、无对照和S3非独立均明确。B3通过：乙的70/100与不可判断方向完整，未接受总体论断。两者均完整。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 产品甲：满意度由64%（32/50）升至72%（36/50），样本内提高8个百分点；但无对照组，只能支持前后调查结果上升，不能确定由调整导致。\n- 产品乙：仅有调整后满意度70%（70/100），缺少调整前数据，无法判断是否提高；S3没有新增证据，因此“两个产品的满意度都提高了”不成立。",
+            "output_sha256": "9e9cc3d76f1e6c33b710b67f46ed0bb99c0cdbc100f25fa8dc4d67c5fc41ee3b",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 产品甲：S1显示满意率由32/50（64%）升至36/50（72%），提高8个百分点，支持样本中的描述性提高；无对照组，不能确认调整导致了提高。S3仅转述该材料，不构成独立证据。\n- 产品乙：S2仅显示调整后满意率为70/100（70%），缺少调整前数据，不能判断是否提高。S3没有新增样本，不能补足这一缺口。",
+            "output_sha256": "030314e6c862336cd17a717334c774585dab311d2837162dad351b0921a47c12",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-bullet-cross-product-summary-r2",
+        "case_id": "two-bullet-cross-product-summary",
+        "repetition": 2,
+        "purpose": "Preserve the quantitative status of two products under a strict concise output shape without inventing a trend for a one-time sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n把证据审查写成严格两条项目符号，每条对应一个产品，不要加标题或结尾。待审论断是‘两个产品的满意度都提高了’。\n\n[S1，产品甲] 同一问卷口径下，调整前50份中32份满意，调整后50份中36份满意；无对照组。\n[S2，产品乙] 调整后一次调查100份中70份满意；没有调整前数据。\n[S3，月报草稿] 写道‘甲乙均提高’，只汇总S1和S2，没有新增样本。",
+        "hard_criteria": [
+          "严格只给两条项目符号且分别对应产品甲、产品乙，不加标题、第三条或结尾段",
+          "产品甲一条保留32/50到36/50的描述性上升及无对照限制，不把S3算成独立支持或直接写成调整造成改善",
+          "产品乙一条保留调整后70/100，并明确缺少调整前数据所以不能判断是否提高；总体不接受‘两个产品都提高’"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：输出恰为两条项目符号且无额外段落。A2通过：甲32/50到36/50的样本上升、无对照和S3无新增证据均保留。A3通过：乙70/100及缺少调整前数据导致无法判断均明确。B1通过：两条结构严格符合要求。B2通过：甲的计数、描述性上升和非因果限制完整。B3通过：乙的单次70/100不能支持提高，S3也未补足缺口。两者无实质差异。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 产品甲：满意度由32/50（64%）升至36/50（72%），提高8个百分点；但无对照组，只能支持样本中的前后上升，不能确认总体满意度或调整所致的提高。S3未提供新增证据。\n- 产品乙：仅有调整后70/100（70%）满意，缺少调整前数据，无法判断满意度是否提高；S3只是汇总并宣称“提高”，不构成额外证据。",
+            "output_sha256": "fd742836d600e7be859d967c0bfb2d2dc812db410c9c9b561200486ad336f1c0",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 产品甲：S1支持满意比例由32/50（64%）升至36/50（72%），提高8个百分点；但无对照组，不能确认是调整导致。S3未增加独立证据。\n- 产品乙：S2仅显示调整后70/100（70%）满意，缺少调整前数据，不能判断是否提高；S3只是转述，不能支持“乙提高”。",
+            "output_sha256": "8f7ba0ec982137ca07341107b38bc01dc13a739a510e597045ca8c3cbbf58905",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-bullet-cross-product-summary-r3",
+        "case_id": "two-bullet-cross-product-summary",
+        "repetition": 3,
+        "purpose": "Preserve the quantitative status of two products under a strict concise output shape without inventing a trend for a one-time sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n把证据审查写成严格两条项目符号，每条对应一个产品，不要加标题或结尾。待审论断是‘两个产品的满意度都提高了’。\n\n[S1，产品甲] 同一问卷口径下，调整前50份中32份满意，调整后50份中36份满意；无对照组。\n[S2，产品乙] 调整后一次调查100份中70份满意；没有调整前数据。\n[S3，月报草稿] 写道‘甲乙均提高’，只汇总S1和S2，没有新增样本。",
+        "hard_criteria": [
+          "严格只给两条项目符号且分别对应产品甲、产品乙，不加标题、第三条或结尾段",
+          "产品甲一条保留32/50到36/50的描述性上升及无对照限制，不把S3算成独立支持或直接写成调整造成改善",
+          "产品乙一条保留调整后70/100，并明确缺少调整前数据所以不能判断是否提高；总体不接受‘两个产品都提高’"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：仅两条项目符号，分别对应甲乙，无标题或结尾。A2通过：甲32/50到36/50、描述性提高、无对照及S3非独立均完整。A3通过：乙70/100、前期缺失和不可判断提高均明确。B1通过：输出同样严格为两条。B2通过：甲的原始计数及非因果范围保留，未使用S3升级支持。B3通过：乙的70/100和未知趋势完整，并明确总体论断不成立。两者质量相当。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 产品甲：S1支持满意率从32/50（64%）升至36/50（72%），描述性提高8个百分点；但无对照组，不能确认调整导致提高。S3仅转述该材料，不构成独立证据。\n- 产品乙：S2仅显示调整后满意率为70/100（70%），因缺少调整前数据，无法判断是否提高；S3没有新增样本，不能补足这一缺口。",
+            "output_sha256": "447ef5ceed183cdd1faeb6c3956fb8e95143b474c4491232da171f4830f5e3fd",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 产品甲：满意度由64%（32/50）升至72%（36/50），样本内提高8个百分点；但无对照组，只能支持前后调查结果上升，不能确认是调整导致。\n- 产品乙：仅有调整后满意度70%（70/100），缺少调整前数据，无法判断是否提高；S3未提供新增证据，因此“两个产品的满意度都提高了”不成立。",
+            "output_sha256": "51f3071a73b43239282a53451b091fd99ae40cfbe4f169387af68a73bea1a7bd",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-queues-shared-audit-r1",
+        "case_id": "two-queues-shared-audit",
+        "repetition": 1,
+        "purpose": "Preserve both independent operational samples while counting a shared audit as validation rather than a third sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三项独立证据证明新分单页让两个队列的退回率都下降。’\n\n[S1，甲队列记录] 启用前40单中8单被退回，启用后40单中4单被退回；同一天还启用了自动分单。\n[S2，乙队列记录] 启用前60单中15单被退回，启用后60单中12单被退回；没有对照组，材料没有说明同期是否还有其他变化。\n[S3，数据复核] 审计员用S1和S2的同一批逐单记录重算，确认上述计数无录入错误，没有新增样本。\n\n说明独立样本数、每个队列的变化和因果边界，并给一版准确改写。",
+        "hard_criteria": [
+          "明确只有甲、乙两批独立业务样本，S3复核同一批记录并验证计数，但不是第三批独立样本",
+          "完整保留甲队列8/40到4/40、乙队列15/60到12/60的前后变化，不只写比例方向或遗漏任一队列",
+          "改写承认两个队列的记录都出现描述性下降，同时指出甲有自动分单混杂、乙无对照且同期变化未知，不写成新页面已被证明造成下降"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：明确只有甲乙两批样本，S3只复核原记录并确认计数。A2通过：甲8/40到4/40、乙15/60到12/60均完整保留。A3通过：改写承认两队列描述性下降，并分别指出自动分单混杂、无对照和同期未知，未归因页面。B1通过：两批独立样本和S3非第三批说明完整。B2通过：两队列原始分子分母及变化齐全。B3通过：因果限制与准确改写完整。两者等价。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "**独立样本数：**2批，即甲、乙两个队列的逐单记录。S3复核的是同一批记录，仅确认计数无误，不构成第三项独立证据或新增样本。\n\n**队列变化：**\n\n- 甲：8/40（20%）降至4/40（10%），下降10个百分点，相对下降50%。\n- 乙：15/60（25%）降至12/60（20%），下降5个百分点，相对下降20%。\n\n**因果边界：**材料支持两个队列启用后观察到的退回率均低于启用前，但不能证明是新分单页所致。甲同期启用了自动分单，无法分离两项变化的影响；乙没有对照组，且同期其他变化不明。S3只增强计数准确性，不增强因果识别。\n\n**准确改写：**“两批队列记录显示，新分单页启用后，甲队列退回率由20%降至10%，乙队列由25%降至20%；复核确认计数无误，但由于缺少对照且存在或不能排除同期变化，现有材料不能将下降归因于新分单页。”",
+            "output_sha256": "37abfbc22d00be9b7aa0ec0fbb13165dc688005813d1e7d281035d71e1b5a6e0",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- **独立样本数：2项**，即甲、乙两个队列。S3只是复核S1、S2的同一批记录，未新增样本，不能算第三项独立证据。\n- **甲队列：**退回率从8/40（20%）降至4/40（10%），下降10个百分点（相对下降50%）。\n- **乙队列：**退回率从15/60（25%）降至12/60（20%），下降5个百分点（相对下降20%）。\n- **因果边界：**材料只能表明启用前后观察到退回率下降，不能证明下降由新分单页造成。甲队列同期启用了自动分单，存在混杂；乙队列没有对照组，且不清楚同期是否存在其他变化。S3仅确认计数无误，不增强因果识别。\n\n**准确改写：**“两个队列的记录显示，启用新分单页后退回率分别从20%降至10%、从25%降至20%；对同批记录的复核确认计数无误。但由于甲队列同期启用了自动分单，乙队列缺少对照组且同期变化不明，这些材料不能证明新分单页导致退回率下降。”",
+            "output_sha256": "59608e5cd8957786ee3a878d39335f6f5240afa207615ddf1a436efedba1690a",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-queues-shared-audit-r2",
+        "case_id": "two-queues-shared-audit",
+        "repetition": 2,
+        "purpose": "Preserve both independent operational samples while counting a shared audit as validation rather than a third sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三项独立证据证明新分单页让两个队列的退回率都下降。’\n\n[S1，甲队列记录] 启用前40单中8单被退回，启用后40单中4单被退回；同一天还启用了自动分单。\n[S2，乙队列记录] 启用前60单中15单被退回，启用后60单中12单被退回；没有对照组，材料没有说明同期是否还有其他变化。\n[S3，数据复核] 审计员用S1和S2的同一批逐单记录重算，确认上述计数无录入错误，没有新增样本。\n\n说明独立样本数、每个队列的变化和因果边界，并给一版准确改写。",
+        "hard_criteria": [
+          "明确只有甲、乙两批独立业务样本，S3复核同一批记录并验证计数，但不是第三批独立样本",
+          "完整保留甲队列8/40到4/40、乙队列15/60到12/60的前后变化，不只写比例方向或遗漏任一队列",
+          "改写承认两个队列的记录都出现描述性下降，同时指出甲有自动分单混杂、乙无对照且同期变化未知，不写成新页面已被证明造成下降"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：甲乙被识别为两组独立队列，S3仅复核且无新增样本。A2通过：8/40到4/40与15/60到12/60均准确保留。A3通过：描述性下降、甲的自动分单混杂、乙无对照和同期未知均进入回答及改写。B1通过：只有两批样本及S3作用说明清楚。B2通过：两个队列的完整计数和方向均保留。B3通过：没有把下降归因于新页面，限制完整。两者均满足。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立样本数：2组，即甲、乙两个队列；S3只是复核同一批记录，并非第三项独立证据。\n- 甲队列：退回率从8/40（20%）降至4/40（10%），下降10个百分点（相对下降50%）。\n- 乙队列：退回率从15/60（25%）降至12/60（20%），下降5个百分点（相对下降20%）。\n- 因果边界：材料支持两个队列启用前后的描述性下降，但不能证明下降由新分单页造成。甲队列同期启用了自动分单；乙队列没有对照组，且同期是否存在其他变化不明。\n\n准确改写：两组独立队列记录显示，启用新分单页后，甲队列退回率由20%降至10%，乙队列由25%降至20%；S3确认计数无误，但未提供新增独立样本。由于存在同期变化或相关信息缺失，现有材料不能将下降因果归因于新分单页。",
+            "output_sha256": "aa6eac1eeea26538f86a0254fd1cc95407ab83d737f8c624fbf1878624a08ed7",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本：只有两批队列记录，共200单；S3复核的是S1、S2原始记录，没有新增独立样本，因此不能算第三项独立证据。\n- 甲队列：退回率从8/40＝20%降至4/40＝10%，下降10个百分点（相对下降50%）。\n- 乙队列：退回率从15/60＝25%降至12/60＝20%，下降5个百分点（相对下降20%）。\n- 因果边界：数据表明启用前后两个队列的样本退回率均下降，但不能证明是新分单页造成的。甲队列同期启用了自动分单，存在混杂；乙队列没有对照组，且同期其他变化不明。S3只能确认计数无误，不能增强因果识别。\n\n准确改写：“两批队列记录显示，新分单页启用后，甲、乙队列的样本退回率分别下降10和5个百分点；复核确认计数无误，但由于同期变化及缺少对照，现有材料不能证明下降由新分单页导致。”",
+            "output_sha256": "b01b5168d1bad1b33fbeddabe4f65a609dd093bdfb6eba55a05b69aa189b9638",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "two-queues-shared-audit-r3",
+        "case_id": "two-queues-shared-audit",
+        "repetition": 3,
+        "purpose": "Preserve both independent operational samples while counting a shared audit as validation rather than a third sample.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘三项独立证据证明新分单页让两个队列的退回率都下降。’\n\n[S1，甲队列记录] 启用前40单中8单被退回，启用后40单中4单被退回；同一天还启用了自动分单。\n[S2，乙队列记录] 启用前60单中15单被退回，启用后60单中12单被退回；没有对照组，材料没有说明同期是否还有其他变化。\n[S3，数据复核] 审计员用S1和S2的同一批逐单记录重算，确认上述计数无录入错误，没有新增样本。\n\n说明独立样本数、每个队列的变化和因果边界，并给一版准确改写。",
+        "hard_criteria": [
+          "明确只有甲、乙两批独立业务样本，S3复核同一批记录并验证计数，但不是第三批独立样本",
+          "完整保留甲队列8/40到4/40、乙队列15/60到12/60的前后变化，不只写比例方向或遗漏任一队列",
+          "改写承认两个队列的记录都出现描述性下降，同时指出甲有自动分单混杂、乙无对照且同期变化未知，不写成新页面已被证明造成下降"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A1通过：明确两批队列样本，S3只验证同批计数而非第三项证据。A2通过：甲8/40到4/40、乙15/60到12/60的原始变化齐全。A3通过：承认两项描述性下降并分别保留甲的明确混杂与乙的无对照、同期未知。B1通过：两批样本和S3无新增样本的边界准确。B2通过：两队列原始分子分母及比例变化完整。B3通过：准确改写不作因果归因，虽结尾概括为同期变化和缺少对照，前文已逐队列给出限制。两者无明显优劣。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本数：2组，即甲、乙两个队列。S3复核的是S1、S2的同一批记录，仅确认计数无误，不构成第三项独立证据，也未增加样本。\n- 甲队列：退回率从8/40（20%）降至4/40（10%），下降10个百分点（相对下降50%）。\n- 乙队列：退回率从15/60（25%）降至12/60（20%），下降5个百分点（相对下降20%）。\n- 因果边界：材料只能说明启用前后两个队列的观察退回率均下降，不能证明下降由新分单页造成。甲队列同期启用了自动分单，存在明确混杂；乙队列没有对照组，且同期是否存在其他变化不明。\n\n准确改写：“两组队列记录显示，启用新分单页后，甲、乙队列的退回率分别下降10和5个百分点；复核确认计数无误，但未提供新增独立证据。由于同期变化和缺少对照组，这些材料不能证明新分单页导致退回率下降。”",
+            "output_sha256": "412f0715539b242ee2152ad518ae68246b5342716a96240cdc43ad5b7541f867",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "**独立样本数：**仅有两批不同队列的样本，共200单；S3复核的是S1、S2原记录，不构成第三项独立证据。\n\n**变化：**\n\n- 甲队列：8/40（20%）降至4/40（10%），下降10个百分点，相对下降50%。\n- 乙队列：15/60（25%）降至12/60（20%），下降5个百分点，相对下降20%。\n\n**因果边界：**材料支持两个队列启用后的样本退回率均低于启用前，但不能证明下降由新分单页造成。甲队列同期启用了自动分单；乙队列没有对照组，且同期其他变化不明。\n\n**准确改写：**“两批前后对比记录显示，新分单页启用后，甲、乙队列的退回率分别从20%降至10%、从25%降至20%；复核确认计数无误，但未提供独立的新样本，且现有材料不足以将下降归因于新分单页。”",
+            "output_sha256": "825ec59dc7a17e10e62705048f3e7b751587583325242fc3014d2173bc415196",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "overall": {
+      "baseline": {
+        "criteria_passed": 35,
+        "criteria_total": 36,
+        "perfect_outputs": 11,
+        "outputs": 12,
+        "preferred_count": 2
+      },
+      "version_0_1_0": {
+        "criteria_passed": 34,
+        "criteria_total": 36,
+        "perfect_outputs": 10,
+        "outputs": 12,
+        "preferred_count": 2
+      },
+      "ties": 8,
+      "strict_outcome": "version-0.1.0-minus-one-criterion"
+    },
+    "by_case": {
+      "independent-trials-different-endpoints": {
+        "baseline": {
+          "criteria_passed": 9,
+          "criteria_total": 9,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 1
+        },
+        "version_0_1_0": {
+          "criteria_passed": 8,
+          "criteria_total": 9,
+          "perfect_outputs": 2,
+          "outputs": 3,
+          "preferred_count": 1
+        }
+      },
+      "regions-with-missing-denominator": {
+        "baseline": {
+          "criteria_passed": 8,
+          "criteria_total": 9,
+          "perfect_outputs": 2,
+          "outputs": 3,
+          "preferred_count": 1
+        },
+        "version_0_1_0": {
+          "criteria_passed": 8,
+          "criteria_total": 9,
+          "perfect_outputs": 2,
+          "outputs": 3,
+          "preferred_count": 1
+        }
+      },
+      "two-bullet-cross-product-summary": {
+        "baseline": {
+          "criteria_passed": 9,
+          "criteria_total": 9,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0
+        },
+        "version_0_1_0": {
+          "criteria_passed": 9,
+          "criteria_total": 9,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0
+        }
+      },
+      "two-queues-shared-audit": {
+        "baseline": {
+          "criteria_passed": 9,
+          "criteria_total": 9,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0
+        },
+        "version_0_1_0": {
+          "criteria_passed": 9,
+          "criteria_total": 9,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0
+        }
+      }
+    },
+    "cost_and_efficiency": {
+      "baseline_total_tokens": 117890,
+      "version_0_1_0_total_tokens": 130302,
+      "total_token_delta": 12412,
+      "total_token_delta_percent": 10.5,
+      "baseline_completion_tokens": 3326,
+      "version_0_1_0_completion_tokens": 4194,
+      "completion_token_delta_percent": 26.1,
+      "baseline_cost": 0.1667344,
+      "version_0_1_0_cost": 0.231192,
+      "cost_delta_percent": 38.7,
+      "baseline_latency_ms_median": 14552.5,
+      "version_0_1_0_latency_ms_median": 13775.0,
+      "latency_delta_percent": -5.3
+    },
+    "current_failures": {
+      "version_0_1_0": [
+        {
+          "review_id": "independent-trials-different-endpoints-r2",
+          "criterion_index": 2,
+          "mechanism": "Preserved percentages but omitted the original 200 and 250 per-arm sample denominators."
+        },
+        {
+          "review_id": "regions-with-missing-denominator-r1",
+          "criterion_index": 2,
+          "mechanism": "Preserved the missing-denominator limitation but omitted the known pre-period count of 11 complaints."
+        }
+      ],
+      "baseline": [
+        {
+          "review_id": "regions-with-missing-denominator-r3",
+          "criterion_index": 2,
+          "mechanism": "Preserved the missing-denominator limitation but omitted the known pre-period count of 11 complaints."
+        }
+      ]
+    },
+    "cross_round_quantitative_fidelity_signal": {
+      "prior_report_path": "evaluations/reports/claim-evidence-round-18-diagnostic.json",
+      "prior_report_sha256": "1b6508cc460685e245785e94530e66c1c1f3dfd5cc3f2fb389bf7c52d0b474c8",
+      "related_topologies": 5,
+      "outputs_per_arm": 15,
+      "baseline_omissions": 2,
+      "version_0_1_0_omissions": 4,
+      "exploratory": true,
+      "interpretation": "The signal spans shared-data, different-endpoint, and missing-denominator surfaces, but it was assembled after reveal and cannot replace the round-19 preregistered revision threshold."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "final_version": "0.1.0",
+    "final_skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+    "catalog_status": "experimental",
+    "active_cases_added": 4,
+    "reason": "Version 0.1.0 missed one criterion in each of two new topologies, but neither failure repeated within its topology and baseline also had one related miss. The preregistered threshold requiring repeated failures in at least two new topologies with clearly fewer baseline failures was not met.",
+    "next_gap": "Run three new quantitative-preservation topologies with five repetitions per arm. Open candidate design only if version 0.1.0 has at least two omissions in each of two topologies while baseline has no more than one in each."
+  },
+  "limitations": [
+    "All tasks and evidence are synthetic.",
+    "The comparison used one model, one reasoning level, and three repetitions per arm.",
+    "The model-assisted reviewer was not an independent human domain expert and had prior protocol and current-skill exposure.",
+    "The explicit arm had no skillCalls telemetry, so actual per-response skill loading is not independently proven.",
+    "The one-criterion difference, tied preferences, and cross-round four-to-two signal are descriptive and not statistically significant.",
+    "The cross-round signal was assembled after reveal and is used only to design a confirmatory protocol.",
+    "Implicit routing was not retested."
+  ]
+}

@@ -12,7 +12,7 @@
 
 第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
 
-第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`。前者保留四个单轮合成用例；后者在原四题基础上由第十八轮增加六个前向回归题，目前共十题，覆盖来源依赖、字段级更正、有限日志、聚合反转、材料内指令、链接访问边界和强证据正向控制。
+第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`。前者保留四个单轮合成用例；后者在原四题基础上由第十八轮增加六题、第十九轮增加四题，目前共十四题，覆盖来源依赖、字段级更正、有限日志、聚合反转、材料内指令、链接边界、强证据控制，以及多队列、多地区和多试验的定量保真。
 
 第四次吸收新增 `cases/product-context-brief.json` 与 `cases/article-visual-plan.json`，各有四个单轮合成用例，覆盖证据层次、购买角色、更正范围、配图位置、不确定性和显式流程关系。
 
@@ -170,3 +170,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第十八轮质量打磨
 
 第十八轮把 `claim-evidence-review` 0.1.0 放入六题、两臂、三次重复的原生显式盲测。36次输出全部有效，无Skill与当前包均为52/54、16/18完整；盲评偏好为3比7，另有8次持平。当前包总token为229,099，无Skill为177,055，约增加29.4%。严格分没有净增益，且当前包在同一个多批样本题中两次漏掉至少一批精确数字，因此保持0.1.0，不设计候选升版。六题加入活动回归，总数增至112；结果仍是合成、单模型、显式条件下的模型辅助盲评，不构成 `verified` 证据。详见[第十八轮报告](../docs/quality-polish-round-18.md)与[自包含机器诊断](reports/claim-evidence-round-18-diagnostic.json)。
+
+## 第十九轮质量打磨
+
+第十九轮用四个全新定量保真题继续测试 `claim-evidence-review` 0.1.0，两臂各重复三次。24次输出全部有效；无Skill为35/36、11/12完整，当前包为34/36、10/12，偏好各2次，另有8次持平。当前包总token为130,302，无Skill为117,890，约增加10.5%。当前包在两个题型各漏一次关键定量信息，未达到预注册的题型内重复与baseline明显更少门槛，因此保持0.1.0。四题加入活动回归，总数增至116；跨第十八、十九轮的探索性4对2遗漏只用于触发下一组五次重复确认，不能替代本轮升版标准。详见[第十九轮报告](../docs/quality-polish-round-19.md)与[自包含机器诊断](reports/claim-quantitative-preservation-round-19-diagnostic.json)。

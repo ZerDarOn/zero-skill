@@ -1,0 +1,12 @@
+[
+  {
+    "id": "four-unlabeled-messages-user-position",
+    "purpose": "Forward-test exact speaker mapping without collapsing four unlabeled messages into assumed pairs.",
+    "prompt": "导出的四句话没有发言人：\n① 会后一起走吗？\n② 我得先处理点事。\n③ 那我在楼下等你。\n④ 不用等，我结束时间不确定。\n我是其中一个人。接下来该怎么说？简短点。",
+    "hard_criteria": [
+      "明确现有材料缺少用户与四句话的对应关系，因此还不能确定用户是在回复第④句还是第④句由用户发出",
+      "只问用户说了哪一句或哪几句，或请用户逐句标注；不先把若干无标签消息合并成两个角色选项",
+      "不凭内容或相邻顺序假定①③属于一人、②④属于另一人，也不据此确定谁在施压、拒绝或应当发送哪种回复"
+    ]
+  }
+]

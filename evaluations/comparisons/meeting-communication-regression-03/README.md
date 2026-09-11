@@ -13,3 +13,7 @@ python evaluations/promptfoo/prepare_skill_comparison.py --spec evaluations/comp
 ```
 
 运行、汇总与盲评沿用 `evaluations/promptfoo/README.md`。本实验不验证隐式发现，也不自动扫描、上传或分析真实会议材料。
+
+## 结果
+
+0.1.1 全量两臂对照、0.1.2 聚焦复跑与 baseline/0.1.1/0.1.2 同批三臂对照见[第十二轮报告](../../../docs/quality-polish-round-12.md)和[机器可读诊断](../../reports/meeting-communication-regression-round-12-diagnostic.json)。同批三臂中 0.1.2 为 `27/27`、`9/9`，另一次聚焦复跑为 `26/27`、`8/9`；两次均保留。

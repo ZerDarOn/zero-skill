@@ -76,6 +76,14 @@
 
 自然提示定向复跑中，无 Skill、0.1.1、0.1.2分别为17/24、18/24、22/24；焦点单题四臂复跑中，无 Skill、0.1.1、0.1.2、0.1.3分别为8/12、7/12、9/12、12/12，0.1.3三次均完整通过。当前包六题单次回归为23/24，无 Skill为22/24。总计98次真实生成，其中2次预检不计分；正式39个匿名 review item 均由另一个同项目模型任务揭盲前评分。没有运行真实 React、浏览器或读屏器，也没有验证隐式路由。见[报告](../docs/quality-polish-round-10.md)、[第一次协议](comparisons/react-performance-two-arm-01/README.md)、[定向协议](comparisons/react-performance-regression-02/README.md)与[脱敏证据](reports/react-performance-quality-round-10-diagnostic.json)。
 
+## 第十一轮 React 浏览器运行验收
+
+`react-performance-review` 0.1.3 的三个实现边界已落入 React 19.2 + Playwright 合成夹具。本地 Edge 最终 `9/9`，远端 Ubuntu Chromium job 类型检查和 `3/3` 浏览器验收通过；一次早期 `8/9` 并发失败未稳定复现，仍保留为限制。见[第十一轮报告](../docs/quality-polish-round-11.md)与[机器记录](reports/react-performance-runtime-round-11-diagnostic.json)。
+
+## 第十二轮会议沟通质量打磨
+
+新增7题显式加载盲测，每题三次。0.1.1 相对 baseline 从 `7/21` 完美输出、`48/63` 硬标准提高到 `11/21`、`53/63`。修订为0.1.2后，同批 baseline/0.1.1/0.1.2 三臂聚焦对照为 `0/9`、`0/9`、`9/9` 完美输出；另一次0.1.2复跑为 `8/9`，残留失败保留。评阅不是独立人工，且未测试隐式发现，状态仍为 experimental。见[第十二轮报告](../docs/quality-polish-round-12.md)、[冻结用例](comparisons/meeting-communication-regression-03/README.md)与[机器可读诊断](reports/meeting-communication-regression-round-12-diagnostic.json)。
+
 ## 第一轮工程三方对照
 
 另建两个合成Python项目，每组每题两次，共12个实验、24次正式生成。无技能、debug-evidence-triage、Superpowers的代码验收均4/4；上游一份原版回归超时，原记录保留，额外逐项诊断确认仍含有效回归。使用模型补丁与运行器实际测试的受控流程，未验证模型自主工具操作。没有观察到修复成功率增益，也未改技能包或原94项活动用例。见[报告](../docs/engineering-three-arm-01-report.md)、[冻结协议与项目](comparisons/engineering-three-arm-01/README.md)和[完整证据](reports/engineering-three-arm-01-diagnostic.json)。

@@ -1,0 +1,954 @@
+{
+  "schema_version": 1,
+  "report_id": "meeting-communication-regression-round-12",
+  "run_date": "2026-09-11",
+  "status": "diagnostic",
+  "skill_id": "meeting-communication-review",
+  "current_version": "0.1.2",
+  "current_package_sha256": "80a26c5f43408ee4e02386c6e7d4e97e30caa1850d3cf7fd10f8721a1be92b37",
+  "method": {
+    "fixtures": "synthetic meeting excerpts only",
+    "rubric_visibility": "hard criteria stored as Promptfoo metadata and excluded from model prompts",
+    "isolation": "separate temporary Git root and HOME per arm; network, web search, apps, plugins, MCP, and multi-agent disabled",
+    "scoring": "blind candidate labels scored before arm mapping was revealed",
+    "review_independence": "Codex primary model review; no independent human reviewer"
+  },
+  "external_reference": {
+    "repository": "https://github.com/ComposioHQ/awesome-claude-skills",
+    "skill_path": "meeting-insights-analyzer/SKILL.md",
+    "revision": "be2a406907dbc61b73e6827ded415c96139d13a2",
+    "observed_stars": 74838,
+    "observed_on": "2026-09-11",
+    "license": "No repository-wide license or meeting-insights-analyzer-specific license found at the reviewed revision.",
+    "included_as_model_arm": false,
+    "reason": "The source was reviewed for design comparison but was not copied or redistributed without a clear applicable license."
+  },
+  "changes_from_0.1.1": [
+    "Preserve the named source of a reported allegation or disputed claim even under tight sentence limits.",
+    "When counts support a requested comparison, state both the fraction and corresponding percentage.",
+    "Classify suggestion, assignment proposal, assignee acceptance, and final decision separately when extracting commitments."
+  ],
+  "runs": [
+    {
+      "label": "full-0.1.1-vs-baseline",
+      "status": "completed",
+      "infrastructure_valid": true,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit",
+      "repetitions": 3,
+      "selected_case_ids": [
+        "reported-claim-is-not-admission",
+        "explicit-revision-controls-current-state",
+        "facilitator-turn-share-is-not-dominance",
+        "duplicate-speaker-label-blocks-person-attribution",
+        "visible-fillers-do-not-prove-nervousness",
+        "missing-segment-does-not-prove-consent",
+        "proposal-is-not-confirmed-commitment"
+      ],
+      "result_rows": 42,
+      "provider_passed_rows": 42,
+      "provider_failed_rows": 0,
+      "arms": [
+        {
+          "id": "baseline",
+          "skill_version": null,
+          "skill_package_sha256": null,
+          "outputs": 21,
+          "perfect_outputs": 7,
+          "criteria_passed": 48,
+          "criteria_total": 63,
+          "criterion_pass_rate": 0.7619,
+          "preferred_count": 0
+        },
+        {
+          "id": "ours",
+          "skill_version": "0.1.1",
+          "skill_package_sha256": "0fbf89a61ca02ff91d4c00adae4fab1db63cda9620a65c38257639eb36c062c4",
+          "outputs": 21,
+          "perfect_outputs": 11,
+          "criteria_passed": 53,
+          "criteria_total": 63,
+          "criterion_pass_rate": 0.8413,
+          "preferred_count": 12
+        }
+      ],
+      "case_results": [
+        {
+          "case_id": "duplicate-speaker-label-blocks-person-attribution",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        },
+        {
+          "case_id": "explicit-revision-controls-current-state",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        },
+        {
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 1,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 8,
+              "criteria_total": 9,
+              "perfect_outputs": 2,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        },
+        {
+          "case_id": "missing-segment-does-not-prove-consent",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        },
+        {
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        },
+        {
+          "case_id": "reported-claim-is-not-admission",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        },
+        {
+          "case_id": "visible-fillers-do-not-prove-nervousness",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        }
+      ],
+      "reviewer": {
+        "kind": "codex-primary-manual-blind-review",
+        "model": "gpt-6-astra",
+        "independent_human": false
+      },
+      "artifact_sha256": {
+        "frozen": "44dfe6e4fd381dc1d58e56c4e96376d95bf229136b04b7ba7311465da29052ea",
+        "results": "b7b5b92370af779391833ff7ea9974b86c2c7076bb9a09b57a2df1ce7d3be2da",
+        "blind_packet": "deed423d8edc13605bd8cbc4911a7db9ab717d408ab80baa2c0e4db59aa0be48",
+        "blind_key": "4d821c9f7f69f6f7673858d8e5656c3a1a290a0d0ea58117af75957cd794c999",
+        "completed_review": "621a0500f7362fe2c5566e82cb477e4bdea05bb7816ef8b552d6104e7c1509a3",
+        "review_result": "25d79754c181d42ba0bac8ff17c29011fab1dcf59af62b125cfa24496852be2a"
+      }
+    },
+    {
+      "label": "focused-0.1.2-vs-baseline",
+      "status": "completed",
+      "infrastructure_valid": true,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit",
+      "repetitions": 3,
+      "selected_case_ids": [
+        "reported-claim-is-not-admission",
+        "facilitator-turn-share-is-not-dominance",
+        "proposal-is-not-confirmed-commitment"
+      ],
+      "result_rows": 18,
+      "provider_passed_rows": 18,
+      "provider_failed_rows": 0,
+      "arms": [
+        {
+          "id": "baseline",
+          "skill_version": null,
+          "skill_package_sha256": null,
+          "outputs": 9,
+          "perfect_outputs": 0,
+          "criteria_passed": 18,
+          "criteria_total": 27,
+          "criterion_pass_rate": 0.6667,
+          "preferred_count": 0
+        },
+        {
+          "id": "ours",
+          "skill_version": "0.1.2",
+          "skill_package_sha256": "80a26c5f43408ee4e02386c6e7d4e97e30caa1850d3cf7fd10f8721a1be92b37",
+          "outputs": 9,
+          "perfect_outputs": 8,
+          "criteria_passed": 26,
+          "criteria_total": 27,
+          "criterion_pass_rate": 0.963,
+          "preferred_count": 8
+        }
+      ],
+      "case_results": [
+        {
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        },
+        {
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 8,
+              "criteria_total": 9,
+              "perfect_outputs": 2,
+              "outputs": 3,
+              "preferred_count": 2
+            }
+          ]
+        },
+        {
+          "case_id": "reported-claim-is-not-admission",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "ours",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            }
+          ]
+        }
+      ],
+      "reviewer": {
+        "kind": "codex-primary-manual-blind-review",
+        "model": "gpt-6-astra",
+        "independent_human": false
+      },
+      "artifact_sha256": {
+        "frozen": "1714896b4a88eb941cfb4b5ba8c2909779f9be957a9f5e2970455663d910b9ff",
+        "results": "229a58d923e507ae54d99f15e4fe98c16172bd8e066a1039cab12b3f209ef926",
+        "blind_packet": "4299120b5ef5a1aeba56b23140024c8a62ce5496d2aa209811789a75da54da12",
+        "blind_key": "b7092131cb18c69e5d6d4c02313704ee1d6fd974f414648500fe4a6078566149",
+        "completed_review": "76b8f8630bfb4e7d8c20520ad3b1b03360eb618e1067c6171f6ae45eb16d54a8",
+        "review_result": "5cef22900c5e48c78beaf7924d9f464f286b8130354704b34321254503705862"
+      }
+    },
+    {
+      "label": "direct-baseline-vs-0.1.1-vs-0.1.2",
+      "status": "completed",
+      "infrastructure_valid": true,
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit",
+      "repetitions": 3,
+      "selected_case_ids": [
+        "reported-claim-is-not-admission",
+        "facilitator-turn-share-is-not-dominance",
+        "proposal-is-not-confirmed-commitment"
+      ],
+      "result_rows": 27,
+      "provider_passed_rows": 27,
+      "provider_failed_rows": 0,
+      "arms": [
+        {
+          "id": "baseline",
+          "skill_version": null,
+          "skill_package_sha256": null,
+          "outputs": 9,
+          "perfect_outputs": 0,
+          "criteria_passed": 18,
+          "criteria_total": 27,
+          "criterion_pass_rate": 0.6667,
+          "preferred_count": 0
+        },
+        {
+          "id": "current",
+          "skill_version": "0.1.2",
+          "skill_package_sha256": "80a26c5f43408ee4e02386c6e7d4e97e30caa1850d3cf7fd10f8721a1be92b37",
+          "outputs": 9,
+          "perfect_outputs": 9,
+          "criteria_passed": 27,
+          "criteria_total": 27,
+          "criterion_pass_rate": 1.0,
+          "preferred_count": 9
+        },
+        {
+          "id": "old",
+          "skill_version": "0.1.1",
+          "skill_package_sha256": "0fbf89a61ca02ff91d4c00adae4fab1db63cda9620a65c38257639eb36c062c4",
+          "outputs": 9,
+          "perfect_outputs": 0,
+          "criteria_passed": 18,
+          "criteria_total": 27,
+          "criterion_pass_rate": 0.6667,
+          "preferred_count": 0
+        }
+      ],
+      "case_results": [
+        {
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "current",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            },
+            {
+              "id": "old",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        },
+        {
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "current",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            },
+            {
+              "id": "old",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        },
+        {
+          "case_id": "reported-claim-is-not-admission",
+          "arms": [
+            {
+              "id": "baseline",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            },
+            {
+              "id": "current",
+              "criteria_passed": 9,
+              "criteria_total": 9,
+              "perfect_outputs": 3,
+              "outputs": 3,
+              "preferred_count": 3
+            },
+            {
+              "id": "old",
+              "criteria_passed": 6,
+              "criteria_total": 9,
+              "perfect_outputs": 0,
+              "outputs": 3,
+              "preferred_count": 0
+            }
+          ]
+        }
+      ],
+      "reviewer": {
+        "kind": "codex-primary-manual-blind-review",
+        "model": "gpt-6-astra",
+        "independent_human": false
+      },
+      "artifact_sha256": {
+        "frozen": "2a893207c780d5911b72d87bf47f2168b6471c18b7d9585a8fae5314b3de1bbb",
+        "results": "b00853b3964c38a54a6a9ee1f3ccc2f56fe11446b8669cf1baa591a39a77b3d8",
+        "blind_packet": "72b024a86d6543dd7df8e1b7264123f77c50d68ae87d57c9daf45e7820081878",
+        "blind_key": "c7e42e4011d68d3915d4d885b43748efe74c417dea627ab1018b4ddca190ae42",
+        "completed_review": "6148e60b46c4ea66eb7c842ac520d031e8ced65ff41a2de6eedb67d4d08da064",
+        "review_result": "da09388431d3a7db7c37978e3f6318042744104a8f391238ec8ca11fd989e6a7"
+      },
+      "revealed_items": [
+        {
+          "review_id": "facilitator-turn-share-is-not-dominance-r1",
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "hard_criteria": [
+            "准确报告 F 为 10/20 即 50% 的可见发言轮次，并明确这不是讲话时长",
+            "结合主持角色及 6 轮流程性发言说明，仅凭轮次占比不能判定主导过度",
+            "可把 4 轮复述确认作为本次材料中的倾听迹象，但不能据此证明整体倾听能力或做绩效结论"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "不能据此认定 F 主导过度或倾听能力差：其 10 轮发言中 6 轮属于主持流程，轮次数也无法反映实际发言时长；另外 4 轮明确复述他人观点并请对方确认，反而体现了积极倾听。由于缺少结束时间和音频，结论仍需保留。",
+              "output_sha256": "bc6544d4fe77b885c5cf7bde1c4b4f09b65955ae8598789e0fadb24c21dd3656",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "不能据此认定 F 主导过度或倾听能力差：F 占可见发言的 10/20（50%），其中 6 轮用于议程、转场或报时，符合主持职责；另有 4 轮复述他人观点并请其确认，体现了可观察的倾听核验。由于缺少结束时间和音频，无法判断其实际发言时长、抢话或语调。",
+              "output_sha256": "7cda76b0490533f625151b7cabcb2f80274f1f77aaf7b17a0d23bea9bd52cabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "现有材料不足以认定 F 主导过度或倾听能力差：F 占可见轮次的 10/20，但其中 6 轮用于议程、转场或报时，符合主持职责，另有 4 轮复述他人观点并请其确认，反而体现了可观察的倾听行为；因缺少结束时间、音频和重叠信息，无法判断其发言时长、是否打断或挤压他人参与。",
+              "output_sha256": "360e91c1b52d4a5cd6da620692f8ac388808adc4dc27c9fb0ad93c358b41ebea",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "facilitator-turn-share-is-not-dominance-r2",
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "hard_criteria": [
+            "准确报告 F 为 10/20 即 50% 的可见发言轮次，并明确这不是讲话时长",
+            "结合主持角色及 6 轮流程性发言说明，仅凭轮次占比不能判定主导过度",
+            "可把 4 轮复述确认作为本次材料中的倾听迹象，但不能据此证明整体倾听能力或做绩效结论"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "现有证据不支持 F 主导过度或倾听能力差：其 10 轮发言中 6 轮属于主持流程，另 4 轮会复述他人观点并请对方确认，反而体现了积极倾听。由于缺少发言时长、打断情况和音频信息，仅凭轮次与开始时间无法判定其占用过多话语权。",
+              "output_sha256": "7c8f6dbb53aed92fcc193ce00464daafefac33bef40e13741596f1516aa1d7c2",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "不能认定 F 主导过度或倾听能力差：他虽占可见发言的 10/20 轮，但其中 6 轮属于议程、转场或报时，符合主持职责；另有 4 轮复述他人观点并请其确认，反而体现了可观察的积极倾听。由于缺少结束时间和音频，无法判断发言时长、抢话或重叠情况。",
+              "output_sha256": "fad75a7787946653220ac2a7517cc75404aa9f9fa50be35770f346c1790f196e",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "不能据此认定 F 主导过度或倾听能力差：F 占可见轮次的 10/20（50%），但其中 6 轮用于议程、转场或报时，另 4 轮复述他人观点并请其确认，后者反而是积极倾听的可观察证据。由于缺少结束时间和音频，无法判断实际发言时长、打断或重叠情况。",
+              "output_sha256": "2e2bf9050ad3a3c83122dcaf6b28a073af5bf53a32326caac131f2820f5c5c13",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "facilitator-turn-share-is-not-dominance-r3",
+          "case_id": "facilitator-turn-share-is-not-dominance",
+          "hard_criteria": [
+            "准确报告 F 为 10/20 即 50% 的可见发言轮次，并明确这不是讲话时长",
+            "结合主持角色及 6 轮流程性发言说明，仅凭轮次占比不能判定主导过度",
+            "可把 4 轮复述确认作为本次材料中的倾听迹象，但不能据此证明整体倾听能力或做绩效结论"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "不能据此认定 F 主导过度或倾听能力差：他虽占可见发言的 10/20 轮，但其中 6 轮用于议程、转场或报时，且缺少结束时间和音频，无法判断发言时长、打断或重叠；另外 4 轮明确复述他人观点并请其确认，反而提供了积极倾听的文本证据。",
+              "output_sha256": "dd0a0bab139fcff3f338cc699821a4624d29937f8d5311509b8f28870c88b6c9",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "不能据此判断 F 主导过度或倾听能力差：F 占 10/20 个可见轮次（50%），其中 6/10（60%）用于议程、转场或报时，另 4/10（40%）明确复述他人观点并请其确认，后者反而体现了可观察的倾听核验行为。由于没有结束时间或音频，无法判断 F 的发言时长占比、语调、停顿或是否存在抢话。",
+              "output_sha256": "0742042fc4d4aba0def0a6c6a7bf03d97b95621309c4a375d9e5989fac27a65b",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "不能据此认定 F 主导过度或倾听能力差：虽然 F 占 10/20 个发言轮次，但其中 6 轮只是议程、转场或报时，另外 4 轮均在复述他人观点并请其确认，反而体现了积极倾听；且缺少发言时长和音频，无法判断其实际占用时间、打断或压制他人的情况。",
+              "output_sha256": "5e82ae2d14b731a75ae8f9bc818b4e2deab91ca78534568b6871ad15de7e1bc6",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "proposal-is-not-confirmed-commitment-r1",
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "hard_criteria": [
+            "说明材料中没有已确认的行动承诺；12:00 是建议，12:02 是尚未得到小周确认的提议",
+            "改进建议要求明确确认负责人、交付内容和时间，但不声称小周已接受或发明后续决议",
+            "保持行动承诺与建议表达分开，不把未来建议冒充会议事实"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "已确认的行动承诺：无。小周周二提交方案仅为主持人提议，未获小周回应或会议决议确认。\n\n改进建议：主持人应在结束前明确询问小周是否接受任务与期限，并记录最终确认结果。",
+              "output_sha256": "b24a7dc9810db5ef9c445cca2e5b82c43a899ccd5cdbd2225221f140194d581b",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "已确认的行动承诺：无。L 在 12:00 仅提出建议；主持人在 12:02 提议小周周二交方案，但小周未回应，也无后续决议。\n\n改进建议：主持人应在结束前请小周明确是否接受任务和期限，并记录最终决议。",
+              "output_sha256": "2f4d87308e4ecc481fd10ad8d9b15b0c08365166392528952878afb1536fe92a",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "已确认的行动承诺：无。\n\n改进建议：会后应向小周确认是否接受“周二提交方案”，明确截止时间和交付物后再记为行动承诺。",
+              "output_sha256": "2dff0a1ce0a97e303deb29d4105695c648848565fe5e24e3555fa4e2ff8cc6f6",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "proposal-is-not-confirmed-commitment-r2",
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "hard_criteria": [
+            "说明材料中没有已确认的行动承诺；12:00 是建议，12:02 是尚未得到小周确认的提议",
+            "改进建议要求明确确认负责人、交付内容和时间，但不声称小周已接受或发明后续决议",
+            "保持行动承诺与建议表达分开，不把未来建议冒充会议事实"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "已确认的行动承诺：无（小周未回应，未形成决议）。\n\n改进建议：主持人应在结束前请小周明确确认是否承诺周二提交方案，并记录最终结论。",
+              "output_sha256": "25fe84312c13588515049d00d659b88cdbba15094a21ec5d13b28fe0c64bd8dd",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "已确认的行动承诺：无。L仅提出建议，主持人提议小周周二交方案，但小周未回应，也无后续决议。\n\n改进建议：主持人应在散会前请小周明确是否接受任务及周二期限，并记录最终决议。",
+              "output_sha256": "cc36ad5980e3ccd2c9f4aa3f283c5ba8cfb945872030466f6e40a8dbddc49acb",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "已确认的行动承诺：无。\n\n改进建议：主持人应请小周明确确认是否接受“周二提交方案”及具体交付内容后，再将其记为行动项。",
+              "output_sha256": "9994a68c425788f77c28d55b19d7cbf466479f5e9341e3773625a4dd53cba379",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "proposal-is-not-confirmed-commitment-r3",
+          "case_id": "proposal-is-not-confirmed-commitment",
+          "hard_criteria": [
+            "说明材料中没有已确认的行动承诺；12:00 是建议，12:02 是尚未得到小周确认的提议",
+            "改进建议要求明确确认负责人、交付内容和时间，但不声称小周已接受或发明后续决议",
+            "保持行动承诺与建议表达分开，不把未来建议冒充会议事实"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "已确认的行动承诺：无。主持人的提议未获小周回应，也无后续决议。\n\n改进建议：主持人应在结束前请小周明确确认是否接受“周二交方案”，确认后再记录责任人与期限。",
+              "output_sha256": "83c337cbcb8b012ea9d7cd7ad4f36b8896866b93aea7a11354c9d7190387d694",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "已确认的行动承诺：无。12:00仅为建议，12:02“小周周二交方案”未获小周确认，也无后续决议。\n\n改进建议：主持人提出责任人与期限后，应请小周明确回应是否接受，并在结束前确认最终决议。",
+              "output_sha256": "b103c08b626c2d82195313ad437a2a9ffe025a508b1a78b33bf9ce2880a6287c",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "已确认的行动承诺：无。\n\n改进建议：会后应由小周明确回复是否接受“周二提交方案”，并补充负责人、截止时间及交付标准后再记为行动承诺。",
+              "output_sha256": "f82767cbbbcdcc96672708357f3171329faf75fbfa27c1ec4726b0649b36791d",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "reported-claim-is-not-admission-r1",
+          "case_id": "reported-claim-is-not-admission",
+          "hard_criteria": [
+            "明确 N 没有承认自己总在回避冲突；这是李经理的说法，且 N 明确否认",
+            "把可支持的窄观察限定为 N 在本次会议主张当天列出并逐项确认价格分歧",
+            "严格只用两句话，不把单次表达扩展为稳定人格、动机或长期模式"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "N没有承认自己“总在回避冲突”，而是明确表示不同意这一判断。更窄的观察是：在15:02这次发言中，N主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "1e52e1b694e7e0d11cce8f251e09bf38763162ff842d84189efb75f016d64ebe",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "N 没有承认自己总在回避冲突，反而明确表示不同意这一判断。更窄的观察是：在这次会议中，N 主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "d85c5a5876d028c6e6fd4efb3ee9236b925d39752a84681f658d78fb383a82d1",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "N没有承认自己“总在回避冲突”，而是明确不同意李经理的这一判断。  \n这段话只能支持更窄的观察：在这次价格分歧中，N主张当天列出分歧并逐项确认。",
+              "output_sha256": "89d6182a1f396137ad31155a05e1589105e58f38d5aadd7eef38fe24d9386791",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "reported-claim-is-not-admission-r2",
+          "case_id": "reported-claim-is-not-admission",
+          "hard_criteria": [
+            "明确 N 没有承认自己总在回避冲突；这是李经理的说法，且 N 明确否认",
+            "把可支持的窄观察限定为 N 在本次会议主张当天列出并逐项确认价格分歧",
+            "严格只用两句话，不把单次表达扩展为稳定人格、动机或长期模式"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "N没有承认自己“总在回避冲突”，而是明确表示不同意。更窄的观察是：在这一次讨论中，N主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "d4248d49c9f0169ab481d51ccd1d0b0e7825b47b12e77e8b3bf95a7f4f7c5538",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "N 没有承认自己总在回避冲突，而是明确表示不同意这一判断。  \n这段话只支持一个更窄的观察：在这次价格分歧中，N 主张当天列出分歧并逐项确认。",
+              "output_sha256": "93afa3eb59a1519af8b4955c349a67f23044239f6af63979d73145aa41045194",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "N没有承认自己“总在回避冲突”，而是明确不同意李经理的这一判断。材料只能支持更窄的观察：在这次价格分歧中，N主张当天列出分歧并逐项确认。",
+              "output_sha256": "035f9600717e69879779ae57e530f5314c99f5f65b47e5d6c41f1d278edbfd30",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            }
+          ]
+        },
+        {
+          "review_id": "reported-claim-is-not-admission-r3",
+          "case_id": "reported-claim-is-not-admission",
+          "hard_criteria": [
+            "明确 N 没有承认自己总在回避冲突；这是李经理的说法，且 N 明确否认",
+            "把可支持的窄观察限定为 N 在本次会议主张当天列出并逐项确认价格分歧",
+            "严格只用两句话，不把单次表达扩展为稳定人格、动机或长期模式"
+          ],
+          "preferred_arm": "current",
+          "review_notes": "Strict scoring applies all frozen subclauses; preferences select the only complete candidate in each item.",
+          "candidates": [
+            {
+              "arm_id": "old",
+              "skill_version": "0.1.1",
+              "output": "N 没有承认自己总在回避冲突，而是明确表示不同意这一判断。  \n这段话只能支持更窄的观察：在 15:02 的这次发言中，N 主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "4758b815366d2a0aad8818468acf38807e2c48a5afb44d99ba18c7af229e360e",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "current",
+              "skill_version": "0.1.2",
+              "output": "N 没有承认自己“总在回避冲突”；他明确表示这是李经理的判断，并对此不同意。  \n这段话只能支持更窄的观察：在这次讨论中，N 主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "b714587158c31d85ff3eb9e3e0b55362b88b862e17c632a34360e412a3bd0bcd",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ]
+            },
+            {
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "N没有承认自己总在回避冲突，反而明确表示不同意这一判断。更窄的观察是：在这一次沟通中，N主张当天列出价格分歧并逐项确认。",
+              "output_sha256": "b6b7f52324ccb810d206c171621eef2adf3f56a838b1f4bd3ccfce6d7923b60c",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evaluation_design_findings": [
+    {
+      "case_id": "visible-fillers-do-not-prove-nervousness",
+      "finding": "Criterion 2 also required an explicit speaking-time-share limitation although the user asked for filler frequency, so all 0.1.1 and baseline outputs were marked down despite correctly rejecting per-minute rates.",
+      "decision": "Retain the frozen score for auditability, but do not add irrelevant verbosity to the skill or use this item as evidence of product regression."
+    },
+    {
+      "case_id": "duplicate-speaker-label-blocks-person-attribution",
+      "finding": "Criterion 2 uses permissive wording (can describe), so omissions were treated as acceptable when identity ambiguity and the next step were correct.",
+      "decision": "Treat the case as a safety-boundary check rather than a discriminating completeness metric."
+    }
+  ],
+  "conclusion": {
+    "direct_three_arm": "On the same 9 paired items, baseline and 0.1.1 each achieved 18/27 criteria and 0/9 perfect outputs; 0.1.2 achieved 27/27 and 9/9, and was preferred in all 9 items.",
+    "residual_variance": "A separate 0.1.2 focused run achieved 26/27 and 8/9 because one output omitted the 12:00 suggestion; this miss is retained and prevents claiming universal reliability.",
+    "scope": "The evidence supports the three tested explicit-invocation boundaries only."
+  },
+  "catalog_decision": {
+    "status": "experimental",
+    "evidence": null,
+    "reason": "No implicit discovery test, independent human review, real meeting data, or production host acceptance was completed."
+  }
+}

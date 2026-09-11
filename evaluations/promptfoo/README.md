@@ -34,11 +34,11 @@ python evaluations/promptfoo/run_skill_comparison.py --run <上一步输出目�
 python evaluations/promptfoo/summarize_skill_comparison.py --run <同一目录>
 ```
 
-隐式门禁不给任务添加 `$skill-id`，无技能与项目 Skill 两组收到完全相同的自然请求。通过只证明当前运行时能按描述发现这个合成探针；它不证明业务 Skill 一定会自动触发，也不证明使用 Skill 后的回答质量更高。
+隐式门禁不给任务添加 `$skill-id`，无技能与项目 Skill 两组收到完全相同的自然请求。准备器会为项目 Skill 实验臂追加 `skill-used`，并为基线追加 `not-skill-used`；通过需要隐藏令牌与成功读取 `SKILL.md` 的轨迹同时成立。它只证明当前运行时能按描述发现这个合成探针，不证明业务 Skill 一定会自动触发或回答质量更高。
 
 当前宿主的首次隐式门禁没有通过；直接指定项目内 Skill 文件的 read-only 与 workspace-write 诊断也未读到隐藏令牌。详见[第七轮评测校准](../../docs/quality-evaluation-round-07.md)和[脱敏宿主诊断证据](../reports/promptfoo-implicit-discovery-host-diagnostic.json)。在读取链路解决前，这项结果只能记为宿主评测阻塞，不能判成业务 Skill 路由失败。
 
-Promptfoo 的 `skillCalls` 根据命令读取 `SKILL.md` 推断。原生显式调用可能由运行时直接加载正文而没有命令轨迹，所以缺少 `skillCalls` 既不能证明加载，也不能证明未加载。
+Promptfoo 的 `skillCalls` 是根据成功读取 `SKILL.md` 的命令推断出的启发式信号。隐式评测缺少该信号时，本仓库将其记为未证明路由，并以 `routing-failed` 停止质量结论。原生显式 `$skill-id` 可能由运行时直接加载正文而没有命令轨迹，因此显式评测不强制这项断言。
 
 ## 三方质量评测
 
@@ -51,7 +51,7 @@ Promptfoo 的 `skillCalls` 根据命令读取 `SKILL.md` 推断。原生显式�
 Skill 配置中的 `invocation` 可设为：
 
 - `explicit`：仅该实验臂的任务前增加显式 `$skill-id` 调用，适合测“应用 Skill 后是否有帮助”；
-- `implicit`：三组收到完全相同的自然任务，适合另测自动路由。
+- `implicit`：各组收到完全相同的自然任务，同时要求技能臂出现 `skill-used`、基线出现 `not-skill-used`，适合另测自动路由。
 
 先做一个用例、一次重复的预检：
 
@@ -71,7 +71,7 @@ python evaluations/promptfoo/summarize_skill_comparison.py --run <同一目录>
 
 摘要器会生成：
 
-- `summary.json`：覆盖数、基础设施门禁、每臂 token、成本和延迟；
+- `summary.json`：覆盖数、基础设施门禁、隐式路由轨迹、每臂 token、成本和延迟；
 - `blind-review.json`：不含实验臂或 Skill 名称的匿名候选；
 - `blind-review-form.json`：待填写的逐项布尔评分；
 - `blind-review-key.json`：揭盲映射，评分完成前不要打开。

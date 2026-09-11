@@ -286,6 +286,14 @@ def prepare_comparison(
             )
 
         common_prompt = spec["common_prompt"].strip()
+        implicit_skill_ids = sorted(
+            {
+                arm["skill"]["id"]
+                for arm in spec["arms"]
+                if arm.get("skill") is not None
+                and arm["skill"].get("invocation", "implicit") == "implicit"
+            }
+        )
         promptfoo_tests = []
         for case in cases:
             base_prompt = case["prompt"].strip()
@@ -317,10 +325,20 @@ def prepare_comparison(
                         "hard_criteria": case["hard_criteria"],
                     },
                 }
+                assertions = []
                 if isinstance(case.get("expected_output"), str):
-                    promptfoo_test["assert"] = [
+                    assertions.append(
                         {"type": "equals", "value": case["expected_output"]}
-                    ]
+                    )
+                if invocation == "implicit":
+                    assertions.append({"type": "skill-used", "value": skill["id"]})
+                elif skill is None:
+                    assertions.extend(
+                        {"type": "not-skill-used", "value": skill_id}
+                        for skill_id in implicit_skill_ids
+                    )
+                if assertions:
+                    promptfoo_test["assert"] = assertions
                 promptfoo_tests.append(promptfoo_test)
 
         config = {
@@ -363,6 +381,7 @@ def prepare_comparison(
                 "isolated_user_home_per_arm": True,
                 "host_apps_plugins": False,
                 "evaluation_rubric_visible_to_agent": False,
+                "implicit_skill_trace_assertions": bool(implicit_skill_ids),
             },
         }
         write_json(staging / "frozen.json", frozen)

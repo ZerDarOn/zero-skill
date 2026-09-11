@@ -54,7 +54,15 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
         )
 
     @staticmethod
-    def row(arm_id, output, expected=None, item_types=None):
+    def row(
+        arm_id,
+        output,
+        expected=None,
+        item_types=None,
+        invocation=None,
+        skill_calls=None,
+        attempted_skill_calls=None,
+    ):
         assertions = [] if expected is None else [{"type": "equals", "value": expected}]
         raw = {
             "items": [
@@ -66,13 +74,21 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
             "metadata": {
                 "case_id": "C01",
                 "arm_id": arm_id,
-                "invocation": "none" if arm_id == "baseline" else "explicit",
+                "invocation": invocation
+                or ("none" if arm_id == "baseline" else "explicit"),
                 "purpose": "synthetic quality check",
                 "hard_criteria": ["Preserve the date", "Do not invent facts"],
             },
             "vars": {"prompt": "Rewrite the synthetic note."},
             "testCase": {"assert": assertions},
-            "response": {"output": output, "raw": json.dumps(raw)},
+            "response": {
+                "output": output,
+                "raw": json.dumps(raw),
+                "metadata": {
+                    "skillCalls": skill_calls or [],
+                    "attemptedSkillCalls": attempted_skill_calls or [],
+                },
+            },
             "success": output == expected if expected is not None else True,
             "error": (
                 "synthetic assertion mismatch"
@@ -113,6 +129,74 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
         self.assertEqual(baseline["provider_errors"], 0)
         self.assertFalse((self.run_dir / "blind-review.json").exists())
 
+    def test_implicit_discovery_gate_requires_confirmed_skill_read(self):
+        arms = [
+            {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},
+            {
+                "id": "project-skill",
+                "skill": "discovery-token",
+                "install_mode": "project",
+                "invocation": "implicit",
+            },
+        ]
+        expected = "CERULEAN-FALCON-SKILL"
+        self.write_run(
+            "discovery",
+            arms,
+            [
+                self.row("baseline", "unknown", expected),
+                self.row(
+                    "project-skill",
+                    expected,
+                    expected,
+                    invocation="implicit",
+                ),
+            ],
+        )
+
+        summary = self.module["summarize_comparison"](self.run_dir)
+
+        self.assertEqual(summary["status"], "failed")
+        skill_check = summary["discovery_gate"]["checks"][1]
+        self.assertTrue(skill_check["skill_trace_expected"])
+        self.assertFalse(skill_check["skill_trace_matched"])
+        skill_arm = next(
+            arm for arm in summary["arms"] if arm["id"] == "project-skill"
+        )
+        self.assertEqual(skill_arm["rows_with_expected_skill_call"], 0)
+
+    def test_implicit_discovery_gate_accepts_confirmed_skill_read(self):
+        arms = [
+            {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},
+            {
+                "id": "project-skill",
+                "skill": "discovery-token",
+                "install_mode": "project",
+                "invocation": "implicit",
+            },
+        ]
+        expected = "CERULEAN-FALCON-SKILL"
+        self.write_run(
+            "discovery",
+            arms,
+            [
+                self.row("baseline", "unknown", expected),
+                self.row(
+                    "project-skill",
+                    expected,
+                    expected,
+                    invocation="implicit",
+                    skill_calls=[{"name": "discovery-token", "source": "heuristic"}],
+                ),
+            ],
+        )
+
+        summary = self.module["summarize_comparison"](self.run_dir)
+
+        self.assertEqual(summary["status"], "passed")
+        skill_check = summary["discovery_gate"]["checks"][1]
+        self.assertTrue(skill_check["skill_trace_matched"])
+
     def test_discovery_gate_rejects_false_positive_baseline(self):
         arms = [
             {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},
@@ -140,6 +224,75 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
         self.assertEqual(baseline_check["expected_behavior"], "miss-hidden-token")
         self.assertFalse(baseline_check["passed"])
 
+    def test_implicit_quality_summary_stops_at_missing_skill_trace(self):
+        arms = [
+            {
+                "id": "baseline",
+                "skill": None,
+                "install_mode": "none",
+                "invocation": "none",
+            },
+            {
+                "id": "ours",
+                "skill": "ours",
+                "install_mode": "project",
+                "invocation": "implicit",
+            },
+        ]
+        self.write_run(
+            "quality",
+            arms,
+            [
+                self.row("baseline", "plain"),
+                self.row("ours", "good by chance", invocation="implicit"),
+            ],
+        )
+
+        summary = self.module["summarize_comparison"](self.run_dir)
+
+        self.assertEqual(summary["status"], "routing-failed")
+        self.assertEqual(summary["routing_gate"]["status"], "failed")
+        ours_check = next(
+            check
+            for check in summary["routing_gate"]["checks"]
+            if check["arm_id"] == "ours"
+        )
+        self.assertFalse(ours_check["passed"])
+        self.assertTrue((self.run_dir / "blind-review.json").is_file())
+
+    def test_implicit_quality_summary_accepts_confirmed_skill_trace(self):
+        arms = [
+            {
+                "id": "baseline",
+                "skill": None,
+                "install_mode": "none",
+                "invocation": "none",
+            },
+            {
+                "id": "ours",
+                "skill": "ours",
+                "install_mode": "project",
+                "invocation": "implicit",
+            },
+        ]
+        self.write_run(
+            "quality",
+            arms,
+            [
+                self.row("baseline", "plain"),
+                self.row(
+                    "ours",
+                    "skill output",
+                    invocation="implicit",
+                    skill_calls=[{"name": "ours", "source": "heuristic"}],
+                ),
+            ],
+        )
+
+        summary = self.module["summarize_comparison"](self.run_dir)
+
+        self.assertEqual(summary["status"], "awaiting-human-review")
+        self.assertEqual(summary["routing_gate"]["status"], "passed")
     def test_malformed_provider_raw_response_marks_run_invalid(self):
         arms = [
             {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},

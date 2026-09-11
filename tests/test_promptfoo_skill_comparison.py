@@ -218,6 +218,21 @@ class PromptfooSkillComparisonTests(unittest.TestCase):
             )
         )
         self.assertEqual(frozen["constraints"]["sandbox_mode"], "workspace-write")
+        self.assertEqual(
+            tests[0]["assert"],
+            [
+                {"type": "equals", "value": "SYNTHETIC"},
+                {"type": "not-skill-used", "value": "ours"},
+            ],
+        )
+        self.assertEqual(
+            tests[1]["assert"],
+            [
+                {"type": "equals", "value": "SYNTHETIC"},
+                {"type": "skill-used", "value": "ours"},
+            ],
+        )
+        self.assertTrue(frozen["constraints"]["implicit_skill_trace_assertions"])
 
     def test_rejects_invalid_sandbox_mode(self):
         spec = json.loads(self.spec_path.read_text(encoding="utf-8"))

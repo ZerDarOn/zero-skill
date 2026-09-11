@@ -66,6 +66,27 @@ def response_output(row: dict[str, object]) -> str:
     return output if isinstance(output, str) else ""
 
 
+def response_metadata(row: dict[str, object]) -> dict[str, object]:
+    response = row.get("response")
+    metadata = response.get("metadata") if isinstance(response, dict) else None
+    return metadata if isinstance(metadata, dict) else {}
+
+
+def skill_call_names(row: dict[str, object], field: str) -> list[str]:
+    calls = response_metadata(row).get(field)
+    if not isinstance(calls, list):
+        return []
+    return sorted(
+        {
+            call["name"]
+            for call in calls
+            if isinstance(call, dict)
+            and isinstance(call.get("name"), str)
+            and call["name"]
+        }
+    )
+
+
 def numeric(value: object) -> float:
     if isinstance(value, (int, float)) and not isinstance(value, bool):
         return float(value)
@@ -190,6 +211,10 @@ def normalize_rows(
                 else {},
                 "item_types": types,
                 "forbidden_item_types": forbidden_types(types),
+                "skill_calls": skill_call_names(row, "skillCalls"),
+                "attempted_skill_calls": skill_call_names(
+                    row, "attemptedSkillCalls"
+                ),
             }
         )
     expected_keys = {
@@ -228,6 +253,21 @@ def arm_summaries(
                 "forbidden_tool_rows": sum(
                     bool(row["forbidden_item_types"]) for row in arm_rows
                 ),
+                "rows_with_expected_skill_call": (
+                    sum(arm.get("skill") in row["skill_calls"] for row in arm_rows)
+                    if arm.get("skill")
+                    else 0
+                ),
+                "skill_calls": sorted(
+                    {name for row in arm_rows for name in row["skill_calls"]}
+                ),
+                "attempted_skill_calls": sorted(
+                    {
+                        name
+                        for row in arm_rows
+                        for name in row["attempted_skill_calls"]
+                    }
+                ),
                 "cost_total": round(sum(row["cost"] for row in arm_rows), 8),
                 "latency_ms_median": round(statistics.median(latencies), 2),
                 "tokens_total": {
@@ -246,6 +286,10 @@ def discovery_gate(
     skill_ids = [arm["id"] for arm in frozen["arms"] if arm.get("skill")]
     if len(baseline_ids) != 1 or not skill_ids:
         raise ValueError("discovery comparison needs one baseline and at least one skill arm")
+    arm_by_id = {arm["id"]: arm for arm in frozen["arms"]}
+    target_skills = {
+        arm["skill"] for arm in frozen["arms"] if arm.get("skill")
+    }
     checks = []
     for row in normalized:
         expected = row["expected_output"]
@@ -253,12 +297,31 @@ def discovery_gate(
             raise ValueError("discovery rows require an equals assertion")
         matched = row["output"].strip() == expected
         should_match = row["arm_id"] in skill_ids
-        passed = matched == should_match and not row["forbidden_item_types"]
+        arm = arm_by_id[row["arm_id"]]
+        expected_skill = arm.get("skill")
+        skill_trace_expected = should_match and arm.get("invocation") == "implicit"
+        skill_trace_matched = (
+            expected_skill in row["skill_calls"] if skill_trace_expected else None
+        )
+        unexpected_skill_calls = sorted(target_skills.intersection(row["skill_calls"]))
+        trace_passed = (
+            not skill_trace_expected or skill_trace_matched is True
+        ) and (should_match or not unexpected_skill_calls)
+        passed = (
+            matched == should_match
+            and trace_passed
+            and not row["forbidden_item_types"]
+        )
         checks.append(
             {
                 "case_id": row["case_id"],
                 "arm_id": row["arm_id"],
                 "expected_behavior": "match-hidden-token" if should_match else "miss-hidden-token",
+                "skill_trace_expected": skill_trace_expected,
+                "skill_trace_matched": skill_trace_matched,
+                "skill_calls": row["skill_calls"],
+                "attempted_skill_calls": row["attempted_skill_calls"],
+                "unexpected_skill_calls": unexpected_skill_calls,
                 "passed": passed,
                 "forbidden_item_types": row["forbidden_item_types"],
             }
@@ -268,6 +331,52 @@ def discovery_gate(
         "checks": checks,
     }
 
+
+def implicit_routing_gate(
+    normalized: list[dict[str, object]], frozen: dict[str, object]
+) -> dict[str, object]:
+    implicit_arms = {
+        arm["id"]: arm["skill"]
+        for arm in frozen["arms"]
+        if arm.get("skill") and arm.get("invocation") == "implicit"
+    }
+    if not implicit_arms:
+        return {"status": "not-applicable", "checks": []}
+    target_skills = set(implicit_arms.values())
+    baseline_ids = {
+        arm["id"] for arm in frozen["arms"] if not arm.get("skill")
+    }
+    checks = []
+    for row in normalized:
+        arm_id = row["arm_id"]
+        expected_skill = implicit_arms.get(arm_id)
+        if expected_skill is None and arm_id not in baseline_ids:
+            continue
+        relevant_calls = sorted(target_skills.intersection(row["skill_calls"]))
+        unexpected_calls = [
+            name for name in relevant_calls if name != expected_skill
+        ]
+        passed = (
+            expected_skill in relevant_calls and not unexpected_calls
+            if expected_skill is not None
+            else not relevant_calls
+        )
+        checks.append(
+            {
+                "case_id": row["case_id"],
+                "arm_id": arm_id,
+                "repetition": row["repetition"],
+                "expected_skill": expected_skill,
+                "skill_calls": row["skill_calls"],
+                "attempted_skill_calls": row["attempted_skill_calls"],
+                "unexpected_skill_calls": unexpected_calls,
+                "passed": passed,
+            }
+        )
+    return {
+        "status": "passed" if checks and all(check["passed"] for check in checks) else "failed",
+        "checks": checks,
+    }
 
 def anonymized_review(
     normalized: list[dict[str, object]],
@@ -402,6 +511,8 @@ def summarize_comparison(run_dir: Path) -> dict[str, object]:
         summary["discovery_gate"] = gate
         summary["status"] = gate["status"] if infrastructure_valid else "failed"
     else:
+        routing = implicit_routing_gate(normalized, frozen)
+        summary["routing_gate"] = routing
         packet_path = run_dir / "blind-review.json"
         key_path = run_dir / "blind-review-key.json"
         form_path = run_dir / "blind-review-form.json"
@@ -422,9 +533,12 @@ def summarize_comparison(run_dir: Path) -> dict[str, object]:
         write_json_once(packet_path, packet)
         write_json_once(key_path, key)
         write_json_once(form_path, form)
-        summary["status"] = (
-            "awaiting-human-review" if infrastructure_valid else "infrastructure-invalid"
-        )
+        if not infrastructure_valid:
+            summary["status"] = "infrastructure-invalid"
+        elif routing["status"] == "failed":
+            summary["status"] = "routing-failed"
+        else:
+            summary["status"] = "awaiting-human-review"
         summary["blind_review"] = {
             "packet": packet_path.name,
             "packet_sha256": sha256_file(packet_path),

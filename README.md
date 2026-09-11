@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十五轮关系边界回归**。已有十六个可试用的 `experimental` 技能，活动用例共99项。上一轮无 Skill 与 `relationship-review` 0.1.1 同为19/19；本轮更难的两臂回归发现三项稳定共同缺口；0.1.2 三臂验证已显著改善，但无标签多句仍有归并错误，0.1.3 候选正在定向验证。隐式路由门禁仍未通过。
+当前阶段：**第十五轮关系边界回归**。已有十六个可试用的 `experimental` 技能，活动用例共99项。困难题发现来源保留、停止追问和未知身份三项稳定缺口；0.1.2 的三臂定向分从旧版12/27提高到23/27，0.1.3又将新四句映射题从0.1.2的7/9提高到9/9。最终包仍为experimental，隐式路由门禁未通过。
 
 ## 从这里开始
+
+- [第十五轮质量打磨：关系边界、来源与未知身份](docs/quality-polish-round-15.md)
+- [关系边界第十五轮机器诊断](evaluations/reports/relationship-boundary-round-15-diagnostic.json)
 
 - [第十四轮质量检查：关系沟通三方盲测](docs/quality-polish-round-14.md)
 - [关系沟通三方盲测机器诊断](evaluations/reports/relationship-three-arm-round-14-diagnostic.json)

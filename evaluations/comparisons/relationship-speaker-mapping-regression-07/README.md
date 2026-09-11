@@ -11,3 +11,7 @@ python evaluations/promptfoo/prepare_skill_comparison.py --spec evaluations/comp
 ```
 
 运行、汇总与盲评沿用 [`evaluations/promptfoo/README.md`](../../promptfoo/README.md)。
+
+## 结果
+
+三臂各3个输出全部有效。冻结盲评分为无 Skill 0/9、0.1.2 7/9、0.1.3 9/9；完整输出分别为0/3、2/3、3/3。最终保留0.1.3，状态仍为experimental，见[第十五轮报告](../../../docs/quality-polish-round-15.md)。

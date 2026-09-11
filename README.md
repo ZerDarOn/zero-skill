@@ -2,9 +2,11 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十一轮 React 浏览器运行验收基建**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`react-performance-review` 保持0.1.3；新增 React 19.2 + Playwright 合成夹具，在本机 Edge 上验证迟到响应、虚拟焦点交接和 Profiler/外部同步三个运行边界，最终三场景各重复三次为9/9。技能仍未完成隐式发现、真实读屏和生产应用验收，因此不升级状态。
+当前阶段：**第十三轮隐式路由证据门禁**。已有十六个可试用的 `experimental` 技能，活动用例共96项。Promptfoo 原生评测现在要求隐式技能臂出现成功 `SKILL.md` 读取轨迹，缺失时以 `routing-failed` 停止质量结论。当前宿主的合成 canary 仍未通过，因此没有把第十二轮会议技能的显式收益外推为自动路由能力。
 
 ## 从这里开始
+
+- [第十三轮质量打磨：隐式路由证据门禁](docs/quality-polish-round-13.md)
 
 - [第十一轮质量打磨：React 浏览器运行验收](docs/quality-polish-round-11.md)
 - [React 浏览器运行夹具](evaluations/runtime/react-performance-review/README.md)

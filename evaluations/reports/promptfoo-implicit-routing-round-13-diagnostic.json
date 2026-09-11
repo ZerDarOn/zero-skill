@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "report_id": "promptfoo-implicit-routing-round-13-diagnostic",
+  "generated_at": "2026-09-11T04:35:00+00:00",
+  "scope": "Synthetic implicit Codex Skill routing trace gate on the current Promptfoo host.",
+  "repository_commit_at_run": "5e9b030fe3edefe2d3ed98d651a5e9cef21528cd",
+  "framework": {
+    "promptfoo_version": "0.123.0",
+    "implicit_skill_arm_assertion": "skill-used",
+    "baseline_assertion": "not-skill-used",
+    "skill_signal": "Heuristic successful SKILL.md command read reported by the Codex SDK provider.",
+    "prepare_script_sha256": "b53706df603ad44ca448429fcd4c8c96865a4ffa30ea4770146ea8c08ef797d2",
+    "summary_script_sha256": "bf350e659612ecf9710d8ddaf383a88910facc783eab1a1e1c82f909e234b376",
+    "references": [
+      "https://www.promptfoo.dev/docs/guides/test-agent-skills/",
+      "https://www.promptfoo.dev/docs/providers/openai-codex-sdk/"
+    ]
+  },
+  "run": {
+    "run_id": "promptfoo-native-implicit-discovery-20260911-trace-gate",
+    "comparison_id": "promptfoo-native-implicit-discovery-canary",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "repetitions": 1,
+    "sandbox_mode": "read-only",
+    "spec_path": "evaluations/promptfoo/implicit-discovery.json",
+    "spec_sha256": "8abce381d2e077fe1c8aa6a61fe88d6570ce91082666c0e848946da3684ad8b3",
+    "cases_path": "evaluations/promptfoo/discovery-cases.json",
+    "cases_sha256": "3df9c43e6084ffb11d4dbd8ba6d18003c5250d35b83678e341aafd8a34fec7b9",
+    "skill_package_sha256": "52a3264a3c921d47f383349875ef5df0b45f6fe390e620c045c16be957d4e076",
+    "prepared_config_sha256": "7c378389f2d3e87baae43ea5c1b2571a9a40e7ef4eb9323564b210368e9fe560",
+    "prepared_tests_sha256": "24c0fefa39fca7e8130b760b42eb50dd71d753243f7357ae261faf6b0b766f40",
+    "frozen_sha256": "9bef44e6d2bd4abcdbe20abc088a0ef54511e5b38faabe77831aad19a8e1c2fb",
+    "results_sha256": "4de551c0bcbb05611fad9b1e07739c6472910a0de6b37128cbe16b763ba0243d",
+    "summary_sha256": "ced68b9102bb4ec62c2f3d6d1ab68f3969fd50bfab42777f8105977492ebc9e4",
+    "provider_rows": 2,
+    "provider_errors": 0,
+    "forbidden_tool_rows": 0,
+    "infrastructure_valid": true,
+    "status": "failed",
+    "discovery_gate": "failed",
+    "arms": [
+      {
+        "id": "baseline",
+        "invocation": "none",
+        "output": "NATIVE_SKILL_DISCOVERY_PROBE_OK",
+        "skill_calls": [],
+        "attempted_skill_calls": [],
+        "promptfoo_passed": false,
+        "error": "Expected output to equal CERULEAN-FALCON-SKILL."
+      },
+      {
+        "id": "project-skill",
+        "skill": "discovery-token",
+        "invocation": "implicit",
+        "output": "NATIVE_SKILL_DISCOVERY_PROBE_OK",
+        "skill_calls": [],
+        "attempted_skill_calls": [],
+        "promptfoo_passed": false,
+        "error": "Missing required skill(s): discovery-token. Actual skills: (none)."
+      }
+    ]
+  },
+  "findings": [
+    "The baseline did not report a target skill read and did not return the hidden token.",
+    "The project-skill arm neither returned the hidden token nor exposed a successful discovery-token SKILL.md read.",
+    "Promptfoo's skill-used assertion independently rejected the project-skill row instead of relying on the model's claim that it used a skill.",
+    "Both provider responses were complete and had no forbidden MCP or web-search item types; transport completeness does not override the failed routing gate.",
+    "The meeting business implicit comparison was not run because the prerequisite synthetic routing gate failed."
+  ],
+  "limitations": [
+    "The skill, prompt, and token are synthetic.",
+    "Each arm ran once, so this is a routing prerequisite diagnostic rather than a quality estimate.",
+    "Codex SDK skillCalls are heuristic successful file-read evidence, not a first-class invocation event.",
+    "The result is specific to the tested host and isolated configuration and does not establish a defect in meeting-communication-review.",
+    "No independent human review was performed."
+  ],
+  "catalog_effect": {
+    "skill_versions_changed": false,
+    "skill_status_changed": false,
+    "active_cases_changed": false,
+    "meeting_communication_review_version": "0.1.2",
+    "meeting_communication_review_status": "experimental"
+  }
+}

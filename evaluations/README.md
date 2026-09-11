@@ -84,6 +84,10 @@
 
 新增7题显式加载盲测，每题三次。0.1.1 相对 baseline 从 `7/21` 完美输出、`48/63` 硬标准提高到 `11/21`、`53/63`。修订为0.1.2后，同批 baseline/0.1.1/0.1.2 三臂聚焦对照为 `0/9`、`0/9`、`9/9` 完美输出；另一次0.1.2复跑为 `8/9`，残留失败保留。评阅不是独立人工，且未测试隐式发现，状态仍为 experimental。见[第十二轮报告](../docs/quality-polish-round-12.md)、[冻结用例](comparisons/meeting-communication-regression-03/README.md)与[机器可读诊断](reports/meeting-communication-regression-round-12-diagnostic.json)。
 
+## 第十三轮隐式路由证据门禁
+
+Promptfoo 准备器现在为隐式技能臂加入 `skill-used`、为基线加入 `not-skill-used`；摘要器记录成功与尝试读取轨迹，并在缺少目标技能读取时将质量评测标为 `routing-failed`。提交后的两臂合成 canary 响应完整，但项目技能臂的 `skillCalls` 为0，Promptfoo 明确报告缺少 `discovery-token`，因此没有继续运行会议业务隐式对照。技能包、活动用例和 catalog 均未修改。见[第十三轮报告](../docs/quality-polish-round-13.md)与[机器可读诊断](reports/promptfoo-implicit-routing-round-13-diagnostic.json)。
+
 ## 第一轮工程三方对照
 
 另建两个合成Python项目，每组每题两次，共12个实验、24次正式生成。无技能、debug-evidence-triage、Superpowers的代码验收均4/4；上游一份原版回归超时，原记录保留，额外逐项诊断确认仍含有效回归。使用模型补丁与运行器实际测试的受控流程，未验证模型自主工具操作。没有观察到修复成功率增益，也未改技能包或原94项活动用例。见[报告](../docs/engineering-three-arm-01-report.md)、[冻结协议与项目](comparisons/engineering-three-arm-01/README.md)和[完整证据](reports/engineering-three-arm-01-diagnostic.json)。

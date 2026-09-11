@@ -36,7 +36,7 @@ python evaluations/promptfoo/summarize_skill_comparison.py --run <同一目录>
 
 隐式门禁不给任务添加 `$skill-id`，无技能与项目 Skill 两组收到完全相同的自然请求。准备器会为项目 Skill 实验臂追加 `skill-used`，并为基线追加 `not-skill-used`；通过需要隐藏令牌与成功读取 `SKILL.md` 的轨迹同时成立。它只证明当前运行时能按描述发现这个合成探针，不证明业务 Skill 一定会自动触发或回答质量更高。
 
-当前宿主的首次隐式门禁没有通过；直接指定项目内 Skill 文件的 read-only 与 workspace-write 诊断也未读到隐藏令牌。详见[第七轮评测校准](../../docs/quality-evaluation-round-07.md)和[脱敏宿主诊断证据](../reports/promptfoo-implicit-discovery-host-diagnostic.json)。在读取链路解决前，这项结果只能记为宿主评测阻塞，不能判成业务 Skill 路由失败。
+当前宿主的隐式门禁仍未通过；直接指定项目内 Skill 文件的 read-only 与 workspace-write 诊断也未读到隐藏令牌。2026-09-11 加入 trace 断言后的复跑中，项目技能臂 `skillCalls` 为0，Promptfoo 明确报告缺少 `discovery-token`。详见[第十三轮隐式路由证据门禁](../../docs/quality-polish-round-13.md)和[最新脱敏证据](../reports/promptfoo-implicit-routing-round-13-diagnostic.json)；早期诊断见[第七轮评测校准](../../docs/quality-evaluation-round-07.md)。在读取链路解决前，这项结果只能记为宿主评测阻塞，不能判成业务 Skill 路由失败。
 
 Promptfoo 的 `skillCalls` 是根据成功读取 `SKILL.md` 的命令推断出的启发式信号。隐式评测缺少该信号时，本仓库将其记为未证明路由，并以 `routing-failed` 停止质量结论。原生显式 `$skill-id` 可能由运行时直接加载正文而没有命令轨迹，因此显式评测不强制这项断言。
 

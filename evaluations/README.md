@@ -12,7 +12,7 @@
 
 第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
 
-第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`，各有四个单轮合成用例，覆盖故障边界、恢复验证、来源依赖、混杂、更正和范围化结论。
+第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`。前者保留四个单轮合成用例；后者在原四题基础上由第十八轮增加六个前向回归题，目前共十题，覆盖来源依赖、字段级更正、有限日志、聚合反转、材料内指令、链接访问边界和强证据正向控制。
 
 第四次吸收新增 `cases/product-context-brief.json` 与 `cases/article-visual-plan.json`，各有四个单轮合成用例，覆盖证据层次、购买角色、更正范围、配图位置、不确定性和显式流程关系。
 
@@ -166,3 +166,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 报告需要当前版本、包指纹和用例指纹、模型／宿主、复核人、日期、每个用例的基线和 skill 原始输出、判定与理由。结构校验要求覆盖全部登记用例且 `passed: true`；这些字段仍然由真实运行和人工复核填写，程序不会判断输出语义，也不会自动运行模型。
 
 提升为 verified 前还需人工确认：有实际帮助或清楚的标准化收益，没有无法解释的退化，并写在对应结果理由中。不能为追求通过而事后删掉失败用例；用例变更须单独说明并重新对照运行。
+
+## 第十八轮质量打磨
+
+第十八轮把 `claim-evidence-review` 0.1.0 放入六题、两臂、三次重复的原生显式盲测。36次输出全部有效，无Skill与当前包均为52/54、16/18完整；盲评偏好为3比7，另有8次持平。当前包总token为229,099，无Skill为177,055，约增加29.4%。严格分没有净增益，且当前包在同一个多批样本题中两次漏掉至少一批精确数字，因此保持0.1.0，不设计候选升版。六题加入活动回归，总数增至112；结果仍是合成、单模型、显式条件下的模型辅助盲评，不构成 `verified` 证据。详见[第十八轮报告](../docs/quality-polish-round-18.md)与[自包含机器诊断](reports/claim-evidence-round-18-diagnostic.json)。

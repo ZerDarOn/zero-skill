@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十五轮关系边界回归**。已有十六个可试用的 `experimental` 技能，活动用例共99项。困难题发现来源保留、停止追问和未知身份三项稳定缺口；0.1.2 的三臂定向分从旧版12/27提高到23/27，0.1.3又将新四句映射题从0.1.2的7/9提高到9/9。最终包仍为experimental，隐式路由门禁未通过。
+当前阶段：**第十六轮关系归因回归**。已有十六个可试用的 `experimental` 技能，活动用例共102项。`relationship-review` 0.1.4在三臂前向回归中由0.1.3的69/81提高到78/81，六个反过度纠正复用题达到54/54；嵌套转述仍有2/3次来源压平。最终包仍为experimental，隐式路由门禁未通过。
 
 ## 从这里开始
+
+- [第十六轮质量打磨：关系归因与过度纠正回归](docs/quality-polish-round-16.md)
+- [关系归因第十六轮机器诊断](evaluations/reports/relationship-attribution-round-16-diagnostic.json)
 
 - [第十五轮质量打磨：关系边界、来源与未知身份](docs/quality-polish-round-15.md)
 - [关系边界第十五轮机器诊断](evaluations/reports/relationship-boundary-round-15-diagnostic.json)

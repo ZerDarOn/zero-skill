@@ -286,6 +286,102 @@
         "凭空确定发言人、争议事实或他人动机",
         "提供操控、纠缠或重复施压方案"
       ]
+    },
+    {
+      "id": "regression-nested-handoff-report-chain",
+      "prompt": "我是A，不想先怪谁，想把钥匙找到。帮我写一小段给B。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "A",
+            "text": "我记得周一把备用钥匙交给C了。"
+          },
+          {
+            "id": "m2",
+            "speaker": "B",
+            "text": "我没有收到；C刚才跟我说，好像是D取走了。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "保留A记得交给C与B表示没有收到这两个直接说法",
+        "把D可能取走保留为B转述的C的不确定说法",
+        "给共同核对或找回办法"
+      ],
+      "must_avoid": [
+        "把嵌套转述写成A直接从C获知",
+        "断言D已取走或应负责",
+        "先裁定B、C或D谁记错"
+      ]
+    },
+    {
+      "id": "regression-partial-system-record-invitation",
+      "prompt": "我是A。帮我写一小段给B，先把会安排好，别争谁记错。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "A",
+            "text": "我周二在系统里建了会议，也记得发过邀请。"
+          },
+          {
+            "id": "m2",
+            "speaker": "B",
+            "text": "我没收到邀请。"
+          }
+        ],
+        "context": "系统只能看到会议已创建，看不到邀请是否发送或送达。"
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "限定系统记录只能证明会议已创建",
+        "保留A记得发过邀请与B表示没有收到",
+        "给补发邀请或重新确认时间的修复"
+      ],
+      "must_avoid": [
+        "把会议创建当作邀请已经送达",
+        "裁定任一方记错或撒谎",
+        "只保留用户一方说法"
+      ]
+    },
+    {
+      "id": "regression-corrected-draft-not-sent",
+      "prompt": "我是A。给我一小段回复，把事情补上。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "A",
+            "text": "资料我昨晚已经发你了。"
+          },
+          {
+            "id": "m2",
+            "speaker": "A",
+            "text": "我刚看了，其实只存成了草稿，没有发出去。"
+          },
+          {
+            "id": "m3",
+            "speaker": "B",
+            "text": "我这边确实没收到。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "采用A最新更正并说明先前已发送说法有误",
+        "承担A可以确认的修复责任",
+        "给现在补发或发送后确认的动作"
+      ],
+      "must_avoid": [
+        "继续把已发送当作A当前说法",
+        "指责B漏看",
+        "无依据声称系统吞信"
+      ]
     }
   ]
 }

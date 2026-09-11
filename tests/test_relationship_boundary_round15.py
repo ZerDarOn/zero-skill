@@ -144,25 +144,19 @@ class RelationshipBoundaryRound15ReportTests(unittest.TestCase):
         relationship = next(
             item for item in catalog["skills"] if item["id"] == "relationship-review"
         )
-        self.assertEqual(relationship["version"], "0.1.3")
         self.assertEqual(relationship["status"], "experimental")
-        current_skill = ROOT / "skills" / "relationships" / "relationship-review"
+        historical_skill = (
+            ROOT
+            / "evaluations"
+            / "comparisons"
+            / "relationship-attribution-regression-09"
+            / "packages"
+            / "relationship-review-0.1.3"
+        )
         self.assertEqual(
-            VALIDATOR["package_fingerprint"](current_skill),
+            VALIDATOR["package_fingerprint"](historical_skill),
             report["decision"]["final_skill_package_sha256"],
         )
-
-        active_total = 0
-        relationship_cases = None
-        for path in (ROOT / "evaluations" / "cases").glob("*.json"):
-            suite = json.loads(path.read_text(encoding="utf-8"))
-            if suite.get("stage") == "active":
-                active_total += len(suite["cases"])
-            if suite.get("skill_id") == "relationship-review":
-                relationship_cases = suite
-        self.assertEqual(active_total, 99)
-        self.assertEqual(len(relationship_cases["cases"]), 11)
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,2747 @@
+{
+  "schema_version": 1,
+  "report_id": "relationship-attribution-round-16-diagnostic",
+  "generated_at": "2026-09-11T07:17:05.564397+00:00",
+  "scope": {
+    "skill_id": "relationship-review",
+    "starting_version": "0.1.3",
+    "final_version": "0.1.4",
+    "catalog_status": "experimental",
+    "active_case_count": 14,
+    "collection_active_case_count": 102,
+    "formal_outputs": 117,
+    "blind_review_items": 45,
+    "criterion_booleans": 351
+  },
+  "experiments": [
+    {
+      "comparison_id": "relationship-overcorrection-regression-08",
+      "run_id": "relationship-overcorrection-regression-08-20260911",
+      "freeze_commit": "326296a26033f7f1f0b8bd78ebc0be5a68fab908",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "infrastructure_valid": true,
+      "source_hashes": {
+        "promptfoo.json": "a12f24924652b312d325bd68e1d7866d4e52246c8a302eaeea253728ccf3324f",
+        "cases.json": "d04de5f2de9664d47c1f8c229d384378f50764f5a5845ae39862317d32c18b03"
+      },
+      "prepared_hashes": {
+        "config": "ce2fa25b94c7e24a0161bc05d8a49fc24d7ff335c0ae55e2c5f1fb83e5c775a4",
+        "tests": "333994063e9ae44a6dd039e9087290d38cf22bc646150d8ebfbad5e194729a52"
+      },
+      "artifact_hashes": {
+        "frozen.json": "a928bf60f88580ffceeb4c0135d2021e41369855562fa46ab66ed77eaac25c0a",
+        "results.json": "d7bfa15fb199a529dd5c6fd749334e1b845e5585a4fb2784f00e439514e1a04e",
+        "summary.json": "a92a51b23d3b8c33f8a662f07c35461c1efc6fed1188ae4df4e7630df84885aa",
+        "blind-review.json": "0a43c24c39c0c08e9504ace0258bc635f2cf94b284ef66feab81f4884edf9ffe",
+        "blind-review-key.json": "9265274835494fef07e3393ad1ec98e51b4451388b693ac1d9cd6140f1261c32",
+        "blind-review-completed-independent.json": "0234e0eae8a1292364f86b5468e3e2473d171de7be3153067c49a4f88b401b2a",
+        "review-result-blind-review-completed-independent.json": "2b11a0c0048b6f152ff70f347748152f3f7a7427cad27b5e0c859d3dd4b9cb72"
+      },
+      "reviewer": {
+        "kind": "independent-codex-model-blind-review",
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "medium",
+        "blind_to_arm_mapping": true,
+        "independent_human": false,
+        "prior_protocol_exposure": true,
+        "prior_skill_revision_exposure": false,
+        "note": "The separate reviewer had seen the protocol before anonymous criterion scoring but did not see the arm mapping."
+      },
+      "rubric_note": "The conditional-branch speaker mapping and the nearby-migration claim were corrected during independent pre-freeze review. Scores use the frozen revised protocol.",
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_version": null,
+          "skill_package_sha256": null,
+          "package_evidence_path": null,
+          "runtime": {
+            "rows": 18,
+            "promptfoo_passed_rows": 18,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "latency_ms_median": 7320.5,
+            "tokens_total": {
+              "cached": 153472,
+              "completion": 697,
+              "prompt": 171754,
+              "total": 172451
+            },
+            "cost_total": 0.1484568
+          },
+          "strict_blind_review": {
+            "outputs": 18,
+            "perfect_outputs": 15,
+            "criteria_passed": 51,
+            "criteria_total": 54,
+            "preferred_count": 1,
+            "criterion_pass_rate": 0.9444
+          }
+        },
+        {
+          "arm_id": "ours",
+          "skill": "relationship-review",
+          "skill_version": "0.1.3",
+          "skill_package_sha256": "cdeffe23f9d9b0810128db8b274aa2ff34bacbf6ff04755ef76604b1de1e3a84",
+          "package_evidence_path": "evaluations/comparisons/relationship-attribution-regression-09/packages/relationship-review-0.1.3",
+          "runtime": {
+            "rows": 18,
+            "promptfoo_passed_rows": 18,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "latency_ms_median": 7840.0,
+            "tokens_total": {
+              "cached": 150272,
+              "completion": 1021,
+              "prompt": 200760,
+              "total": 201781
+            },
+            "cost_total": 0.2824808
+          },
+          "strict_blind_review": {
+            "outputs": 18,
+            "perfect_outputs": 15,
+            "criteria_passed": 51,
+            "criteria_total": 54,
+            "preferred_count": 8,
+            "criterion_pass_rate": 0.9444
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "clear-labeled-return-date-one-line-r1",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 1,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项都只用一句确认下周二还书，回应了对方的同意，没有多问或升级分析。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，谢谢你，那我下周二把书还给你。",
+              "output_sha256": "6ce480d2dd5c27ab2ee00db48dc48231229d65514941193c44a76c0f49c8a275",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "clear-labeled-return-date-one-line-r2",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 2,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项均自然确认既定日期并致谢，形状和边界相同。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好的，那就下周二还你，谢谢！",
+              "output_sha256": "25b19713f88b251428b68440c609fe9da64a0e10a29ab6510ea2b75ca23273ed",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，谢谢你，那我下周二把书还给你。",
+              "output_sha256": "6ce480d2dd5c27ab2ee00db48dc48231229d65514941193c44a76c0f49c8a275",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "clear-labeled-return-date-one-line-r3",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 3,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项都完整满足一句确认、日期保留和不额外追问。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，谢谢你，那我下周二把书还给你。",
+              "output_sha256": "6ce480d2dd5c27ab2ee00db48dc48231229d65514941193c44a76c0f49c8a275",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r1",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 1,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "ours",
+          "review_notes": "两项都按两套映射给出分支且没有追问；A在情形一更直接接住了对方的理解。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢你理解，等我休息好了再联系你。\n\n情形二：先不再发消息，等对方主动联系。",
+              "output_sha256": "10b68a20c94e3dd7211eaddcf6bf1469029089eac89f9b538691f85fef1fe042",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：我先休息，之后再和对方聊。  \n情形二：给对方空间，等之后再聊。",
+              "output_sha256": "ea1f08d9164b6581ea349cd0a98678d2002647253f6e61094e62d03e4ae9cd2c",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r2",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 2,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "两项均正确区分映射；B在情形二更明确说明不再发送并等待对方主动。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：谢谢理解，之后再联系。  \n情形二：先不打扰，之后再联系。",
+              "output_sha256": "652ac5814adb38340b9e616e0bec50b3f0932a6cbc86142b3a916bf3dc86266d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢理解，等我休息好了再联系你。\n\n情形二：先不再发消息，把下一次主动留给对方。",
+              "output_sha256": "1f64ef0d3d3cf328ba6d9a5f80fd811896b0b337c34049d380ea39bb232d3d87",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r3",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 3,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项都给足两个短分支，按映射处理休息与等待，没有混淆身份或贴标签。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：先安心休息，之后再联系对方。  \n情形二：先不打扰对方，之后再择机联系。",
+              "output_sha256": "8ed58abc660a3a8bdfe5e36852d9d94290b8b3d7ca3dbaa394486ef1f780ea60",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢理解，等我休息好了再联系你。\n\n情形二：先不打扰，等对方休息好后主动联系。",
+              "output_sha256": "447c3545a1dad8bff6ed8e393d594b7548cd3815031601ee2958e4f9a8579ef7",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r1",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 1,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "两项都把周日下午视为具体替代安排；B顺带询问时间，更便于落实。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，那就周日下午一起喝咖啡！",
+              "output_sha256": "e9af74fe30c2a17f1444acd2e275f703ec45f360ca7600985ce2e8b511ec6557",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "可以呀，那就周日下午喝咖啡，几点方便？",
+              "output_sha256": "f17663f914889b7d3cd948b5c4ef3c64c5afa56fdf64ce476a02d90d2ea85042",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r2",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 2,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "ours",
+          "review_notes": "两项都明确接受周日下午；A询问具体时间，推进更完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好呀，周日下午喝咖啡，几点方便？",
+              "output_sha256": "b6b516651214067a218abfe5fe7f996810bdfe07e1a32256801d3dd3ac5dffb0",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，周日下午喝咖啡，没问题！",
+              "output_sha256": "2858862a7c7334b98ca6ca23e404cfc4e85014fa979e95e41a3b31684b00d3af",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r3",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 3,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "两项均正常接受替代安排；B继续确认时间地点，比尚未定细节时直接说到时见更可执行。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，那就周日下午喝咖啡，到时见！",
+              "output_sha256": "f0211c4fd984ba61708201c51cb189dd9bb9522319a965622f7bde2176a09ecd",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "可以呀，那就周日下午喝咖啡，具体几点、在哪儿见？",
+              "output_sha256": "63833769eb29218d3ab1ef01e02ecd849e2516c1392ef4b76aeabbbc3f9e664c",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r1",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 1,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "A没有保留双方原说法；B保留了A的记忆，但仍省略B称未收到及前台无登记。两项的核对补救与合作语气均合格，B的来源保留相对更多。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先去前台和昨天经过的地方再找一遍，也麻烦你再确认一下有没有收到或代拿。咱们先把门禁卡找回来，至于哪里出了岔子之后再一起核对。",
+              "output_sha256": "b89d109599d379945fcf901931676b8f9e4bb676a83962cf43afc7bd62fe197e",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "我记得是放在前台了，但现在先不纠结谁记错了。我去和前台一起再找找、确认一下记录，有进展马上告诉你；如果确实找不到，我们再一起补办。",
+              "output_sha256": "8c077374bce13ce22edcb75a36f10310e54c5137b2f15496171ee6c04422c80d",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r2",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 2,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "A直接转入查找，没有自然保留双方来源；B只保留A记得放前台，仍遗漏B和前台的说法。两项均有可执行核对且不指责，B略完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先回前台再确认一下，也把昨天的经过重新梳理一遍。你那边方便的话也再找找，我们先一起把门禁卡找到，暂时不纠结是谁记错了；有进展随时同步。",
+              "output_sha256": "f14c738abf3d91cb0f1762da1d942e2ee4375c8bcdf8b88c6f857c983f100e57",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "我记得是放在前台了，但现在先不纠结哪边记错。我们一起再找找，我也联系前台确认一下交接情况，先把卡找回来。",
+              "output_sha256": "1aad4684360f0df86b446d913e33c1f355107ea7f1c5149b12368af2d02bfe06",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r3",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 3,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "ours",
+          "review_notes": "A未复述任何一方的归属说法；B保留A的记忆但没有保留B称未收到和前台无登记。两项的查找、补办与语气均合格，B更接近第一项标准。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先再去前台确认一下，也找找门禁卡可能放过的地方。你那边也麻烦再检查一下，咱们先把卡找到，暂时不纠结是谁记错了；有进展随时同步。",
+              "output_sha256": "c5379bf75ba4d0a87fe8ca9eabbd02f881327339df986342b39d01c1f9c619b6",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "我记得是放在前台了，但现在先不纠结谁记错了。我们一起再问问前台、找一下交接记录，尽快把卡找到；如果确实找不到，再商量补办。",
+              "output_sha256": "1854dc0e5f56c7dec837d628f48e720260d6f8d718dbbef134681bf21ebbce34",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r1",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 1,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "baseline",
+          "review_notes": "两项都接受等到周四确认且不重问身份；B明确回扣下周六，略更具体。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好呀，那你周四确定后告诉我就行。",
+              "output_sha256": "c693e711b8cc761f6ef370b2f962e80dc09f3cd9fb4cb7b31e54111884ccb768",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我下周六是否可以。",
+              "output_sha256": "c3da9c6013311bfb0aef461c3367f442b4b5696751f005492c63a275e1a6b9ff",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r2",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 2,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项措辞近乎相同，均正确使用既有映射并等待周四确认。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好，那你周四确定后告诉我就行。",
+              "output_sha256": "c8a7f740e48a6f20e536544045cc2cab12fa152e1df5ea856a43047b9f98aabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我。",
+              "output_sha256": "f949f03ed1a94d3845f1a6e5ea510963dbf2a4d01563b0c168d0a74e5395c536",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r3",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 3,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项均为一句自然回复，接受对方周四再确认，没有追加日期或身份问题。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好，那你周四确定后告诉我吧。",
+              "output_sha256": "e7f960de0fe30bcf951d0ed760f7fce199d852384a8f6486c894ca2256fe1f89",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我就行。",
+              "output_sha256": "c8a7f740e48a6f20e536544045cc2cab12fa152e1df5ea856a43047b9f98aabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r1",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 1,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项都直接接受周六下午看展，没有质疑兴趣或加入防御性建议。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好呀，那就周六下午一起去看吧！",
+              "output_sha256": "53918c5094fb9f91aca728151381bd084f72f6065a889880202223ee90001204",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好啊，我周六下午有空，一起去吧！",
+              "output_sha256": "9ce17d8dbec62fc203112632f2ab823e07848b52f509f2d52331e2ad9e358bc3",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r2",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 2,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项均自然、简短并积极确认明确邀约，无可观察差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好啊，这周六下午一起去看那个展吧！",
+              "output_sha256": "b09d71064eed7e5b915ada1b2b4eff7f7e0a7e8e38f9b8ff5d8b57072a10f191",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好呀，周六下午可以，我们一起去吧！",
+              "output_sha256": "f6b0679d5529f9f056d095c48e39969575ced36b5340e3b9bff3b4a8086e9585",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r3",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 3,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两项都完整满足三条标准，表达差异不足以形成偏好。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill_version": "0.1.3",
+              "output": "好呀，周六下午可以，我们一起去吧！",
+              "output_sha256": "f6b0679d5529f9f056d095c48e39969575ced36b5340e3b9bff3b4a8086e9585",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，我周六下午有空，一起去吧！",
+              "output_sha256": "e2b0398b1fb50f189901b0f49203bed27c9120cd27c5dd2a7c46485e06877d8e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "comparison_id": "relationship-attribution-regression-09",
+      "run_id": "relationship-attribution-regression-09-20260911",
+      "freeze_commit": "1f26169148d52a4a10758192ef58eb9e7905aec4",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "infrastructure_valid": true,
+      "source_hashes": {
+        "promptfoo.json": "173264fb851e47c389ff1c4ce28cde3154bdb41288097fd5dac76b883ac2da86",
+        "cases.json": "412a0ec7cd0168094bf01659f3686172ff8eee08791e344aaf6046ef140cbc9a"
+      },
+      "prepared_hashes": {
+        "config": "b0ef9fb80d96c5468894daa425d3b9785250908b551df485d3e04ab7cbc10d7d",
+        "tests": "3c15f67994891476c9ac15c9f27b90065432dc69aca0a64273dd5f304897d868"
+      },
+      "artifact_hashes": {
+        "frozen.json": "8fb6152d38848b1033e4fec79ff3952f4ce7c1c538aec069558ddfec45b08504",
+        "results.json": "b9cfa5084f43dbbfac773bdcedd9f09b31a38a70d66c4d158a579890843a827a",
+        "summary.json": "b2a400e7b2502f56508683f12ac54c8e9b64e38bcf5dea77cd32b93a9a21562b",
+        "blind-review.json": "9f578bb233b4319c1cacde831e2295b5c7d86264aed9fdad4d138f92ac391ced",
+        "blind-review-key.json": "12fb3ac28ca3ed9293d118c172969309541e638a442c092787a7c196123caa7a",
+        "blind-review-completed-independent.json": "e41ce5f0d0cfc05f036fa44ab4d31fa6278664bda044e204345f6d7cb7045951",
+        "review-result-blind-review-completed-independent.json": "6aabac8dba3de7c47458bd95ad0a86a887058f8d6e2705a72a4c6316fcf3f8de"
+      },
+      "reviewer": {
+        "kind": "independent-codex-model-blind-review",
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "medium",
+        "blind_to_arm_mapping": true,
+        "independent_human": false,
+        "prior_protocol_exposure": true,
+        "prior_skill_revision_exposure": true,
+        "note": "The separate reviewer had seen both the protocol and skill revision before anonymous criterion scoring but did not see the arm mapping."
+      },
+      "rubric_note": "Before freezing, independent review removed a requirement to repeat an already-compatible statement and abstracted the candidate rule away from the three case labels.",
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_version": null,
+          "skill_package_sha256": null,
+          "package_evidence_path": null,
+          "runtime": {
+            "rows": 27,
+            "promptfoo_passed_rows": 27,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "latency_ms_median": 7875.0,
+            "tokens_total": {
+              "cached": 245248,
+              "completion": 1154,
+              "prompt": 258402,
+              "total": 259556
+            },
+            "cost_total": 0.1737952
+          },
+          "strict_blind_review": {
+            "outputs": 27,
+            "perfect_outputs": 18,
+            "criteria_passed": 72,
+            "criteria_total": 81,
+            "preferred_count": 5,
+            "criterion_pass_rate": 0.8889
+          }
+        },
+        {
+          "arm_id": "previous",
+          "skill": "relationship-review",
+          "skill_version": "0.1.3",
+          "skill_package_sha256": "cdeffe23f9d9b0810128db8b274aa2ff34bacbf6ff04755ef76604b1de1e3a84",
+          "package_evidence_path": "evaluations/comparisons/relationship-attribution-regression-09/packages/relationship-review-0.1.3",
+          "runtime": {
+            "rows": 27,
+            "promptfoo_passed_rows": 27,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "latency_ms_median": 8785.0,
+            "tokens_total": {
+              "cached": 233856,
+              "completion": 2045,
+              "prompt": 300954,
+              "total": 302999
+            },
+            "cost_total": 0.4028344
+          },
+          "strict_blind_review": {
+            "outputs": 27,
+            "perfect_outputs": 19,
+            "criteria_passed": 69,
+            "criteria_total": 81,
+            "preferred_count": 2,
+            "criterion_pass_rate": 0.8519
+          }
+        },
+        {
+          "arm_id": "candidate",
+          "skill": "relationship-review",
+          "skill_version": "0.1.4",
+          "skill_package_sha256": "1f9ebb6ba4d394da7c638eb2f76f11407633c75ec6c92bb4c3d900af7f77de87",
+          "package_evidence_path": "evaluations/comparisons/relationship-attribution-regression-09/packages/relationship-review-0.1.4-candidate",
+          "runtime": {
+            "rows": 27,
+            "promptfoo_passed_rows": 27,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "latency_ms_median": 9789.0,
+            "tokens_total": {
+              "cached": 229120,
+              "completion": 2656,
+              "prompt": 295932,
+              "total": 298588
+            },
+            "cost_total": 0.412016
+          },
+          "strict_blind_review": {
+            "outputs": 27,
+            "perfect_outputs": 24,
+            "criteria_passed": 78,
+            "criteria_total": 81,
+            "preferred_count": 12,
+            "criterion_pass_rate": 0.963
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "clear-labeled-return-date-one-line-r1",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 1,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项都只用一句确认下周二还书并致谢，没有额外问题或关系分析。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，那我下周二把书还给你，谢谢！",
+              "output_sha256": "27cd0d1e67be8a21819ccea84eb8bd1657d0eb53dea8fe7f6e6a207b70bb034e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "clear-labeled-return-date-one-line-r2",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 2,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项均自然确认既定日期，回应对方同意且没有重新协商。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，谢谢你，那我下周二把书还给你。",
+              "output_sha256": "6ce480d2dd5c27ab2ee00db48dc48231229d65514941193c44a76c0f49c8a275",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "clear-labeled-return-date-one-line-r3",
+          "case_id": "clear-labeled-return-date-one-line",
+          "repetition": 3,
+          "purpose": "Check that clear speaker identity and a settled practical arrangement do not trigger needless clarification.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“下周二把书还你可以吗？”B：“可以，不急。”我想礼貌确认。只给一句能直接发给 B 的话。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的确认，不附分析、列表、多个版本或额外问题",
+            "确认下周二还书并自然回应 B 的同意或体谅，不改动日期，也不重新协商已接受的安排",
+            "不追问谁说了哪句，不把普通确认升级成边界、关系阶段、冷淡或动机分析"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项内容等价，完整满足一句确认、日期保留和不多问。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好的，那我下周二把书还给你，谢谢！",
+              "output_sha256": "27cd0d1e67be8a21819ccea84eb8bd1657d0eb53dea8fe7f6e6a207b70bb034e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好的，那我下周二还你，谢谢！",
+              "output_sha256": "352c2a421836b3007adf784d57dc3d64aee1b75a616c2ac2b999f0a05e4b222d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r1",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 1,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "candidate",
+          "review_notes": "三项都按两套映射给出分支且未追问；B最直接接住情形一，并在情形二明确等待对方主动。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢你理解，等我休息好了再联系你。\n\n情形二：先不再发消息，给对方空间，等对方主动联系。",
+              "output_sha256": "28503b0d0b698ff20a0c517cd0228e9dc1909d5833ffb3737c00f0d6531ff37a",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "情形一：谢谢你理解，等我休息好了再联系你。  \n情形二：先不再发消息，等对方主动联系。",
+              "output_sha256": "39ed1f0cb42398d118830a974bd983c3256fdd6552b5c86269525afda7839e78",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：我先安心休息，之后再回应对方。  \n情形二：我先给对方空间，之后再联系。",
+              "output_sha256": "a24326a1505a564a9f2351cdf365ce2bfb27f8956d2a809b8226da751e86151f",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r2",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 2,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项均区分两套身份并给出暂不发送或等待的下一步，没有混淆或贴标签。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：我先安心休息，之后再联系对方。  \n情形二：我先不打扰，等对方休息好再说。",
+              "output_sha256": "d01d8b51afa752908d65dd92d5d2b229710240affb4cc031ad2958090bf1f8f2",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "情形一：谢谢你理解，等我休息好了再联系你。\n\n情形二：先不打扰，等对方主动联系。",
+              "output_sha256": "87069a0ad7cb97b40bdb06d5acbac4b39b7e238559b34d91a9707ca31b37eb89",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢你理解，等我休息好了再联系你。\n\n情形二：这周先不打扰，之后等对方主动联系。",
+              "output_sha256": "6d8f0441eb1131266c7e2727928690a44795f31a9995bc41c2a113c274032320",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "conditional-options-without-clarification-r3",
+          "case_id": "conditional-options-without-clarification",
+          "repetition": 3,
+          "purpose": "Honor an explicit request for conditional options when the user declines clarification and permits multiple items.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n三句话没有姓名：\n① 周末有空吗？\n② 这周想自己休息。\n③ 好，你先休息，之后再说。\n不要追问，也没有单句限制。请分别按两种完整映射给下一步，各一条短句：情形一，②是我说的、①③是对方说的；情形二，①③是我说的、②是对方说的。",
+          "hard_criteria": [
+            "严格给出两个清楚标注的条件分支，分别对应题面给出的两套完整映射，不反问身份或只选其中一种",
+            "情形一接住对方③的理解即可；情形二说明暂时不用再发或等待对方，而不把用户当成③的接收者",
+            "按各分支的完整映射判断，不混淆两套身份，也不贴冷淡、纠缠、控制或关系阶段标签"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "candidate",
+          "review_notes": "三项都符合条件分支要求；A对两种情形的处理最直接，情形二明确等待对方主动。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "情形一：谢谢理解，等我休息好了再联系你。\n\n情形二：先不再打扰，等对方主动联系。",
+              "output_sha256": "f6b145edcfba9756b16208f897c9d749ff60c302db87eae17c0468e635f10f25",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "情形一：我先安心休息，之后再和对方聊。  \n情形二：我先不打扰对方，之后再聊。",
+              "output_sha256": "9b86f3bb9192794d6533f7fa8032e2e620a4014880747d0ed27cbccc494ebd69",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "情形一：谢谢理解，等我休息好了再联系你。\n\n情形二：先不再发消息，等对方休息后主动联系。",
+              "output_sha256": "eaebebeed7c02995fcec96217642765aece680414f45284c40f373cd9d3a57ff",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "corrected-draft-not-sent-r1",
+          "case_id": "corrected-draft-not-sent",
+          "repetition": 1,
+          "purpose": "Use a speaker's latest correction without shifting responsibility back onto the other party.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A 先说：“资料我昨晚已经发你了。”过了一会儿 A 修正：“我刚看了，其实只存成了草稿，没有发出去。”B：“我这边确实没收到。”给我一小段回复，把事情补上。",
+          "hard_criteria": [
+            "采用 A 的最新更正，明确先前说已经发送有误或已被修正，不继续把已发送当作 A 的当前说法",
+            "不把 B 未收到归因于 B 漏看、系统吞信或其他未经支持的原因；可以自然接住 B 未收到，但在 A 已确认没有发送后不要求机械重复来源标签",
+            "承担可归于 A 的修复并提出现在补发或发送后确认等动作，表达简洁自然"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "baseline",
+          "review_notes": "三项都采用最新更正、没有归责B或系统，并承担补发；C表达最简洁完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "抱歉，是我弄错了，资料昨晚只存成了草稿，确实没发出去。我现在马上补发，发完再跟你确认。",
+              "output_sha256": "3a6f5886895a40557232081925133f295d9c69352d60937f76e8cf8bb862a32f",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "是我弄错了，确实只存成了草稿，抱歉让你白找了。我现在马上重新发送，发完再请你确认一下。",
+              "output_sha256": "ce013ae99858ae14644265b1315bd836e1f3701a6ba535678f63114534c43b19",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "抱歉，是我记错了，资料只存成了草稿，确实没有发出去。我这就补发，发完再请你确认一下。",
+              "output_sha256": "81084aabc5cac2b7beb1378727dbe0208767dd508549fd76e60338f743b04a65",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "corrected-draft-not-sent-r2",
+          "case_id": "corrected-draft-not-sent",
+          "repetition": 2,
+          "purpose": "Use a speaker's latest correction without shifting responsibility back onto the other party.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A 先说：“资料我昨晚已经发你了。”过了一会儿 A 修正：“我刚看了，其实只存成了草稿，没有发出去。”B：“我这边确实没收到。”给我一小段回复，把事情补上。",
+          "hard_criteria": [
+            "采用 A 的最新更正，明确先前说已经发送有误或已被修正，不继续把已发送当作 A 的当前说法",
+            "不把 B 未收到归因于 B 漏看、系统吞信或其他未经支持的原因；可以自然接住 B 未收到，但在 A 已确认没有发送后不要求机械重复来源标签",
+            "承担可归于 A 的修复并提出现在补发或发送后确认等动作，表达简洁自然"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "candidate",
+          "review_notes": "三项均承认此前记错并立即补发；C同时说明草稿状态和发送后确认，较完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "抱歉，是我弄错了，资料只存成了草稿，确实没有发出去。我现在补发，发完后再请你确认一下。",
+              "output_sha256": "9d964f251d8d8c91a02ca25c8472aa41aceba2896370327e0239ee146b01996e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "抱歉，是我记错了，确实没发出去。我现在就把资料发给你。",
+              "output_sha256": "026acfa77a45294b08a40f594b4575e0d525b22a9c3db6bfdd3ecd5c18380f9b",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "抱歉，是我记错了，资料确实还在草稿里。我现在补发给你，发出后再跟你确认。",
+              "output_sha256": "b9d76426f5a0a4eee65566251f18286306473637dfb40a7fb12cc74067541a1b",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "corrected-draft-not-sent-r3",
+          "case_id": "corrected-draft-not-sent",
+          "repetition": 3,
+          "purpose": "Use a speaker's latest correction without shifting responsibility back onto the other party.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A 先说：“资料我昨晚已经发你了。”过了一会儿 A 修正：“我刚看了，其实只存成了草稿，没有发出去。”B：“我这边确实没收到。”给我一小段回复，把事情补上。",
+          "hard_criteria": [
+            "采用 A 的最新更正，明确先前说已经发送有误或已被修正，不继续把已发送当作 A 的当前说法",
+            "不把 B 未收到归因于 B 漏看、系统吞信或其他未经支持的原因；可以自然接住 B 未收到，但在 A 已确认没有发送后不要求机械重复来源标签",
+            "承担可归于 A 的修复并提出现在补发或发送后确认等动作，表达简洁自然"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "candidate",
+          "review_notes": "三项都承认此前说法有误并补发；B明确保留草稿状态且承诺发送后确认。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "抱歉，是我记错了，资料只存成了草稿，确实还没发出去。我现在补发，发出后再告诉你。",
+              "output_sha256": "3cbbc9d366adcae1f1d4ef9e4fe1ea78e3eb8075844be7f311651eb7c245dcf1",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "抱歉，是我记错了，资料确实只存成了草稿。我现在马上补发，发出后再跟你确认。",
+              "output_sha256": "3cb082159cc9cbb75bd77554599ebef63596465796e23eb37ea949b54543fb8e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "是我弄错了，不好意思，我现在就把资料发给你，发完再跟你确认。",
+              "output_sha256": "838c31c5a4ec16a3386de95785028d094dfd0734c586fa613c98095094ac13c6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r1",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 1,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项都把周日下午作为明确替代安排并直接接受，没有防御性建议。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好呀，周日下午可以，到时候一起喝咖啡！",
+              "output_sha256": "828830b22a4bb0d3d980898fb11a7b9f1fcd1bb082c34ea01fb45cabf00968dc",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，那就周日下午喝咖啡！",
+              "output_sha256": "843f6fa1c7f26f47d50b44525aa3415b8d39cdbf2fdd098f8cca04e745984b4a",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，周日下午可以，咱们到时喝咖啡！",
+              "output_sha256": "adb1e6a0aa5ef538b9f6f97a840d0a9a84bd5b99908450a095bf08e69fc0c46e",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r2",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 2,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "candidate",
+          "review_notes": "三项都接受替代安排；C询问具体时间，推进落实且比同时把时间地点都交给对方更自然。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "可以呀，那就周日下午喝咖啡，到时见！",
+              "output_sha256": "4465cab79c616857a9f8ac1e1d8b7ddd2bf54f59b8b9ef125af519f091d551cb",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "可以呀，周日下午喝咖啡，时间地点你定？",
+              "output_sha256": "dd19de1471a474b914bf2a8949bd22f0564fcda2063a2fe70f69091866faa2fd",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "可以呀，那就周日下午喝咖啡，具体几点方便？",
+              "output_sha256": "cbebe46c98d29d3df8b02b035d066bee1e86d8a798cc5c4e206243f81b4f0d65",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "decline-with-concrete-alternative-r3",
+          "case_id": "decline-with-concrete-alternative",
+          "repetition": 3,
+          "purpose": "Recognize a concrete alternative as continued coordination rather than a rejection or mixed signal.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“周五不行，不过周日下午有空，要不要那时喝咖啡？”我周日也可以。只给一句能直接发的回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，接受或确认周日下午喝咖啡",
+            "把 B 提出的周日下午视为可继续落实的具体替代安排，不误写成拒绝、敷衍或持续含糊",
+            "不追问发言人，不建议停止联系、测试兴趣、降低投入或等待 B 再次主动"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "previous",
+          "review_notes": "三项均满足标准；C在确认周日下午的同时询问时间，最便于继续协调。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "可以呀，那就周日下午喝咖啡，具体几点方便？",
+              "output_sha256": "cbebe46c98d29d3df8b02b035d066bee1e86d8a798cc5c4e206243f81b4f0d65",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好呀，那就周日下午一起喝咖啡！",
+              "output_sha256": "e9af74fe30c2a17f1444acd2e275f703ec45f360ca7600985ce2e8b511ec6557",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，周日下午可以，几点见比较方便？",
+              "output_sha256": "e0e7a25a8849542502bc0bfd3c63fd72dac4832ba040d80aeb6e4928264238cb",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r1",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 1,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "candidate",
+          "review_notes": "A同时保留我记得放前台与对方称无登记、未收到，并给查找和补办；B只留A的记忆，C省略双方来源。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得昨天下班前把门禁卡放在前台了，你说前台没有登记、你也没收到。咱们先不纠结谁记错了，一起再去前台和可能放卡的地方找找，找不到就尽快挂失补办。",
+              "output_sha256": "1990a77a9260a4c26ccc47994712b25b7a819e4700c904c1066c8ac641691008",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "我记得是放在前台了，但现在先不纠结谁记错。我们一起再问问前台、找一下交接记录和附近位置，先把卡找回来；如果还是找不到，我就尽快去补办。",
+              "output_sha256": "66472377f45c455a293d1d85d883f941d8116adec8dd95d21b9368aed7d7165c",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先去前台再确认一下，也检查下可能放过的地方。你那边方便的话也再找找，我们先把门禁卡找到，暂时不纠结是谁记错了；有进展随时同步。",
+              "output_sha256": "14b88ec867726d819064d9bfc1f5f536da03b4c26abe9aaf6e62ed91837ee41b",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r2",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 2,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "candidate",
+          "review_notes": "A完整保留双方说法并共同核对；B未保留任何原说法，C只保留A的记忆，后三项的行动和语气均合格。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得昨天下班前把门禁卡放在前台了，你说前台没有登记、你也没收到。咱们先一起再跟前台核对一下，把卡找到，暂时不纠结是谁记错了。",
+              "output_sha256": "87855aadc27086f29500e4d180ea294ec912714d33ea7f2acb474c57bd87c6f6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先再仔细找找，也麻烦你帮忙看看有没有放在别处。我们先把门禁卡找到，之后再一起核对前台的情况。谢谢。",
+              "output_sha256": "e8850e31ab2bc8cd4b35f12f3b72d20eb1f46d93cc1171f47447ec4837d0741b",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "我记得是放在前台了，但现在先不纠结谁记错了。我们一起再问问前台、找一下周边和失物处，先把卡找到；如果找不到，我就尽快补办。",
+              "output_sha256": "e2aa356f0216fa23a578003e876c4c3d1e6945ff4eedfd2bf1bb8dab571dd39c",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "disputed-access-card-handoff-r3",
+          "case_id": "disputed-access-card-handoff",
+          "repetition": 3,
+          "purpose": "Check nearby-domain regression for attributed-dispute handling in a physical handoff scenario.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得昨天下班前把门禁卡放在前台了。”B：“前台说没有登记，我也没收到。”我想先把事情解决，不想争谁记错了。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得已放前台与 B 表示未收到、前台无登记这两个有来源的说法，不把任一方记忆写成已核实事实",
+            "提出当前可执行的共同核对或补救办法，并可建议以后交接留确认，不要求先裁定谁记错或谁撒谎",
+            "表达日常、合作且不过度冗长，不指责 B、前台或用户，也不引入题目之外的监控、处罚或人格判断"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "previous",
+          "review_notes": "A和C均保留A记忆、前台无登记及B未收到并提出查找；B省略双方来源。C的来源表达和行动安排略完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得昨天下班前把门禁卡放前台了，但前台说没有登记，你这边也没收到。咱们先不纠结谁记错了，我先和你一起找找、再问问前台，尽快把卡找到。",
+              "output_sha256": "2f6ebb91fe0df22d2d6fd49fda4144277fe5c1ed3822ec91bd1a0f2d83797ede",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "我先再找一下门禁卡，也会和前台确认。你那边方便的话也帮忙再看看有没有收到，我们先把卡找到，暂时不纠结是谁记错了。",
+              "output_sha256": "2805a55a80735d03b40327fbbdfcfccdbde1400f9d41b82f53028f493979b6f4",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "我记得自己昨天下班前把门禁卡放在前台了，但前台说没有登记，你这边也没收到。咱们先不纠结谁记错了，我先去前台和沿途再找一遍，也问问有没有人代收，找到后马上告诉你。",
+              "output_sha256": "d737cfa1254d21cba098c304bf1d922e4ec46639a97df835b0d1be5f990cf24b",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r1",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 1,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "baseline",
+          "review_notes": "三项都正确使用已有映射并等待周四；C明确回扣下周六爬山，信息最完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好，那你周四确定后告诉我就行～",
+              "output_sha256": "89a280f03ee55fce33158a36e664761dcde09e09bf1e1b40ea65c0c305c56b4b",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好，那你周四确定后告诉我就行。",
+              "output_sha256": "c8a7f740e48a6f20e536544045cc2cab12fa152e1df5ea856a43047b9f98aabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我，下周六可以的话我们就去爬山。",
+              "output_sha256": "fc98ac4d2a97d8ef2aa977d0098bb31b30909e72d0340333bc80940f865fcd28",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r2",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 2,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "baseline",
+          "review_notes": "三项均不多问且接受等待；B明确说明周四确认的是下周六是否可行。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好，那你周四确定后告诉我就行。",
+              "output_sha256": "c8a7f740e48a6f20e536544045cc2cab12fa152e1df5ea856a43047b9f98aabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我下周六是否可以。",
+              "output_sha256": "c3da9c6013311bfb0aef461c3367f442b4b5696751f005492c63a275e1a6b9ff",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好，那你周四确定后告诉我就行。",
+              "output_sha256": "c8a7f740e48a6f20e536544045cc2cab12fa152e1df5ea856a43047b9f98aabe",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "explicit-numbered-speaker-mapping-r3",
+          "case_id": "explicit-numbered-speaker-mapping",
+          "repetition": 3,
+          "purpose": "Use an explicit message-number mapping instead of re-asking identity or treating the transcript as ambiguous.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n导出的对话没有姓名，但①和③是我说的，②和④是对方说的：\n① 周末去爬山吗？\n② 这周不行，下周可能可以。\n③ 那下周六呢？\n④ 我周四才能确定。\n只给我一句回复。",
+          "hard_criteria": [
+            "只给一句自然、可直接发送的话，接住对方周四才能确定这一限制",
+            "接受等待对方周四确认或请其确定后告知，不催立即承诺，不连续追加新日期",
+            "使用题面已经给出的①③与②④映射，不再追问身份，也不声称映射仍然未知"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "baseline",
+          "review_notes": "三项都满足标准；B回扣下周六，比仅说确定后告知略具体。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好，那你周四确定了告诉我就行。",
+              "output_sha256": "4b4aed6b5a4ecbe7e4bf379e67e8c4900d65590ac492f5aa2a44f0e4ff86b93d",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好，那你周四确定后告诉我下周六是否方便。",
+              "output_sha256": "b55261e658a2b8b68a62f51e8cba4765cb2e5fb760d254dbc1df733ab6ecc414",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，那你周四确定后告诉我就行～",
+              "output_sha256": "83a39c629d9c5fa35fb2396dbe9aa21d48caa2f192f9e42e3f8e5ac2ac6d17a5",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r1",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 1,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项几乎相同，都积极确认周六下午看展，没有质疑或防御性建议。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好啊，周六下午一起去看吧！",
+              "output_sha256": "35d773f4a303ba824736675c1d05e98f7d0d8192f23c7b59dcc5c6544fe38365",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r2",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 2,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项均是一句自然接受，未加入额外条件或关系判断。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好啊，这周六下午一起去看吧！",
+              "output_sha256": "abbb49cefd910a21602d454e5d0e42c206729a8af2b4cdf034120ad268d90422",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "mutual-specific-invitation-r3",
+          "case_id": "mutual-specific-invitation",
+          "repetition": 3,
+          "purpose": "Ensure the anti-manipulation rule does not burden a clear reciprocal invitation with unnecessary stopping advice.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 说：“我也想去看那个展，这周六下午怎么样？”我周六下午有空。只给一句自然回复。",
+          "hard_criteria": [
+            "严格只给一句自然、可直接发送的话，明确接受或积极确认周六下午看展",
+            "可以推进必要的小细节，但不重新质疑 B 是否真想见面，也不要求 B 再证明兴趣",
+            "不输出制造嫉妒、暂停追问、把主动权留给对方等与当前明确双向邀约无关的防御性建议"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三项都完整满足明确邀约的三条标准，差异不足以形成偏好。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "好呀，周六下午一起去看吧！",
+              "output_sha256": "7f720620d9d2fa74e1cbe245d3f1180e7ee87ec3002c02c73bd07f486621e9d6",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "好啊，周六下午我有空，我们一起去吧！",
+              "output_sha256": "e1d781b90a2eef7782cab93e9a011939460c82cc683895c96e3db3e86623af79",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "nested-handoff-report-chain-r1",
+          "case_id": "nested-handoff-report-chain",
+          "repetition": 1,
+          "purpose": "Preserve direct statements and an uncertain nested third-party report before proposing a practical search.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得周一把备用钥匙交给 C 了。”B：“我没有收到；C 刚才跟我说，好像是 D 取走了。”我不想先怪谁，想把钥匙找到。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得把钥匙交给 C 与 B 表示没有收到这两个直接说法，不把交付或未收升级为独立核实事实",
+            "把 D 可能取走明确保留为 B 转述的 C 的不确定说法，不直接断言 C 亲自告诉了 A、D 已取走或 D 应负责",
+            "提出当前可执行的共同核对或找回办法，表达合作且不先责怪 B、C、D 或裁定谁记错"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "candidate",
+          "review_notes": "A保留A与B的直接说法，但把C的转述写得像直接信息；B正确保留嵌套不确定性却遗漏B未收到；C省略两类来源，只留下核对行动。A整体保留的信息最多。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得周一把备用钥匙交给 C 了，你这边说没收到，C 刚才又说好像是 D 取走了。咱们先不急着判断是谁的问题，一起问问 D，再确认一下钥匙现在在哪儿吧。",
+              "output_sha256": "27aff4fb2e6567588eac35f878284257d874edd178f9cbaf9a8d7705c36618aa",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "B，我记得周一把备用钥匙交给 C 了。你说 C 好像提到是 D 取走了，但我们先不判断是谁的问题。能否一起再向 C 和 D 确认一下钥匙现在在哪里？先把钥匙找到要紧。",
+              "output_sha256": "03c5e60d7cae999ea0d250abc9e10dd56e0d2d01bf687dd8736a238d43fc46aa",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "我也不想先下结论，我们先一起确认一下：麻烦你问问 C 具体交给了谁，我再联系 D 核实，先把备用钥匙找到。",
+              "output_sha256": "af5c8ae4e0fa24c89d96604e561fdb184c5d4c377b990205237c7351f10877c2",
+              "criteria_pass": [
+                false,
+                false,
+                true
+              ],
+              "passed": 1,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "nested-handoff-report-chain-r2",
+          "case_id": "nested-handoff-report-chain",
+          "repetition": 2,
+          "purpose": "Preserve direct statements and an uncertain nested third-party report before proposing a practical search.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得周一把备用钥匙交给 C 了。”B：“我没有收到；C 刚才跟我说，好像是 D 取走了。”我不想先怪谁，想把钥匙找到。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得把钥匙交给 C 与 B 表示没有收到这两个直接说法，不把交付或未收升级为独立核实事实",
+            "把 D 可能取走明确保留为 B 转述的 C 的不确定说法，不直接断言 C 亲自告诉了 A、D 已取走或 D 应负责",
+            "提出当前可执行的共同核对或找回办法，表达合作且不先责怪 B、C、D 或裁定谁记错"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "baseline",
+          "review_notes": "A保留双方直接说法但写平C经B转述的层级；B正确写成你说C可能提到D但遗漏B未收到；C两项来源标准都未满足。B对最关键的嵌套层级处理更准确。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得周一把备用钥匙交给 C 了，你说没收到，C 又说好像是 D 取走了。咱们先别急着怪谁，一起问问 C 和 D，把钥匙的去向确认清楚吧。",
+              "output_sha256": "2a30a3499a09b8633eebb0d13fc107d77fcd76ac6ceec7c0c85eb69561402685",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "B，我记得周一把备用钥匙交给 C 了。你说 C 好像提到是 D 取走了，但我们先不急着判断是谁的问题，一起确认一下钥匙现在在哪里吧。",
+              "output_sha256": "8afba9965363027154f3cd8e7f42628610ac23bf5cd04e031eca4a5e2aa498ba",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "知道了，我先不判断是谁拿的。咱们一起问问 C 和 D，确认钥匙最后交到谁手里，先把它找回来。",
+              "output_sha256": "4b410d9ee018d771a1c42dc58c067196f98bdbcc014a2bebf18ccbc0e907f0f0",
+              "criteria_pass": [
+                false,
+                false,
+                true
+              ],
+              "passed": 1,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "nested-handoff-report-chain-r3",
+          "case_id": "nested-handoff-report-chain",
+          "repetition": 3,
+          "purpose": "Preserve direct statements and an uncertain nested third-party report before proposing a practical search.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我记得周一把备用钥匙交给 C 了。”B：“我没有收到；C 刚才跟我说，好像是 D 取走了。”我不想先怪谁，想把钥匙找到。帮我写一小段给 B。",
+          "hard_criteria": [
+            "自然保留 A 记得把钥匙交给 C 与 B 表示没有收到这两个直接说法，不把交付或未收升级为独立核实事实",
+            "把 D 可能取走明确保留为 B 转述的 C 的不确定说法，不直接断言 C 亲自告诉了 A、D 已取走或 D 应负责",
+            "提出当前可执行的共同核对或找回办法，表达合作且不先责怪 B、C、D 或裁定谁记错"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "candidate",
+          "review_notes": "A遗漏B未收到且把C说法写成直接信息；B保留嵌套转述但仍遗漏B未收到；C同时保留A记忆、B未收到和B转述C的不确定说法，并给共同核对。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "先不急着判断是谁拿的，我们一起核对一下：我周一记得交给了 C，C 说好像是 D 取走了。能不能问问 D，再看看钥匙最后放哪儿了？",
+              "output_sha256": "dc989f61ac460eb19647f52ae678abe10fac9b2d5420094910dcfe8a4b08c6d6",
+              "criteria_pass": [
+                false,
+                false,
+                true
+              ],
+              "passed": 1,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "B，我这边记得周一把备用钥匙交给了 C。你说 C 提到可能是 D 取走了，我们先一起确认一下钥匙现在在哪里，暂时别急着判断是谁的问题。你方便再和 C、D 核实一下吗？有消息告诉我，谢谢。",
+              "output_sha256": "61caa30958acb238253e585b8b965b7aa7a7b466b47dc7766599530fc91af055",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得周一把备用钥匙交给 C 了，你说没收到，C 又跟你说好像是 D 取走了。咱们先不判断是谁的问题，一起跟 C 和 D 核对一下，先把钥匙找到吧。",
+              "output_sha256": "0fd4f53af0ce55ccf7d4d8a797ceaaa36051d9c7f833e7ca0e7e67da70645de3",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "partial-system-record-invitation-r1",
+          "case_id": "partial-system-record-invitation",
+          "repetition": 1,
+          "purpose": "Limit a shared record to what it proves while preserving conflicting accounts about delivery.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我周二在系统里建了会议，也记得发过邀请。”B：“我没收到邀请。”系统现在只能看到会议已创建，看不到邀请是否发送或送达。帮我写一小段给 B，先把会安排好，别争谁记错。",
+          "hard_criteria": [
+            "区分系统只证明会议已创建与它不能证明邀请是否发送或送达，不把会议记录当作 B 已收到通知的证据",
+            "自然保留 A 记得发过邀请与 B 表示没有收到这两个有来源的说法，不裁定任一方记错或撒谎",
+            "提出补发邀请、重新确认时间等可执行修复，语气合作且不过度冗长"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "candidate",
+          "review_notes": "A保留A记得发送和B未收到，但未明确系统只证明会议已创建；B、C准确限定系统记录，却省略A与B的相冲突说法。A保留责任来源更多。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得周二建会时发过邀请，你这边确实没收到，现在系统也无法核实发送或送达情况。咱们先不纠结谁记错了，我马上重新发一份邀请，你收到后帮我确认一下，我们先把会议安排好。",
+              "output_sha256": "d0961c1f007cc6ee87ff8e269a63d8920e3a1d29a11991cb1f5a3f30bd6c324e",
+              "criteria_pass": [
+                false,
+                true,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "先把会安排好：我再发一次会议邀请，也把时间和会议信息直接同步给你。系统目前只能确认会议已创建，无法确认邀请是否发送或送达，我们先不纠结谁记错，以这次信息为准。",
+              "output_sha256": "4d09bce160618f50310667526348821bf01402b6ff5c33f4973698ebca53f29a",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "收到，系统目前只能确认会议已创建，邀请是否发出或送达暂时核实不了。咱们先不纠结谁记错了，我现在把会议信息重新发你一遍，确认好时间，先把会议安排上。",
+              "output_sha256": "0fee41b2a2b58b263056f85367c5dba12340000a8872d02843f5c2e23cc64fe4",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "partial-system-record-invitation-r2",
+          "case_id": "partial-system-record-invitation",
+          "repetition": 2,
+          "purpose": "Limit a shared record to what it proves while preserving conflicting accounts about delivery.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我周二在系统里建了会议，也记得发过邀请。”B：“我没收到邀请。”系统现在只能看到会议已创建，看不到邀请是否发送或送达。帮我写一小段给 B，先把会安排好，别争谁记错。",
+          "hard_criteria": [
+            "区分系统只证明会议已创建与它不能证明邀请是否发送或送达，不把会议记录当作 B 已收到通知的证据",
+            "自然保留 A 记得发过邀请与 B 表示没有收到这两个有来源的说法，不裁定任一方记错或撒谎",
+            "提出补发邀请、重新确认时间等可执行修复，语气合作且不过度冗长"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "candidate",
+          "review_notes": "A未说明系统能确认会议创建且遗漏A记得发送；C限定了系统范围但省略双方说法；B同时保留记录边界、A的记忆与B未收到，并给出补发确认。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "收到，你这边没收到邀请。我们先把会安排好，我现在重新发一份邀请，你看这个时间是否合适；之前的发送情况系统里暂时无法确认，我们先不纠结这个。",
+              "output_sha256": "0347f390d65f3f081d68e1481143c16c0f6c98ac1e9a718e5d7b97851f8b4226",
+              "criteria_pass": [
+                false,
+                false,
+                true
+              ],
+              "passed": 1,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "你说没收到，我这边记得发过，但现在系统只能确认会议已创建，没法核实邀请是否发出或送达。咱们先把会安排好：我重新发一遍会议时间和链接，你收到后回我一下；如果时间不合适，我们再调整。",
+              "output_sha256": "0890d2e79329d1e0f6c11795d0f8a71faf9daad9a9680b79ba2ba9d7f75e7ea0",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "先不纠结邀请是否发出或送达，系统目前只能确认会议已创建。我现在把会议信息再发你一遍，我们先把时间安排好。",
+              "output_sha256": "de90ee54ed8caac9332aa265a3b9dd033b61e9802b39b7a556b1c57d8bd46d36",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        },
+        {
+          "review_id": "partial-system-record-invitation-r3",
+          "case_id": "partial-system-record-invitation",
+          "repetition": 3,
+          "purpose": "Limit a shared record to what it proves while preserving conflicting accounts about delivery.",
+          "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。A：“我周二在系统里建了会议，也记得发过邀请。”B：“我没收到邀请。”系统现在只能看到会议已创建，看不到邀请是否发送或送达。帮我写一小段给 B，先把会安排好，别争谁记错。",
+          "hard_criteria": [
+            "区分系统只证明会议已创建与它不能证明邀请是否发送或送达，不把会议记录当作 B 已收到通知的证据",
+            "自然保留 A 记得发过邀请与 B 表示没有收到这两个有来源的说法，不裁定任一方记错或撒谎",
+            "提出补发邀请、重新确认时间等可执行修复，语气合作且不过度冗长"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "candidate",
+          "review_notes": "三项都正确限制系统记录并给修复；只有B同时保留A记得发过和B确实未收到，来源最完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "previous",
+              "skill_version": "0.1.3",
+              "output": "那我们先把会安排好：系统目前只能确认会议已创建，邀请是否发出或送达都查不到，我这就重新发一遍，你收到后回我一声，我们先按约定时间开会。",
+              "output_sha256": "044d1e14b33ea531e04329c0675340486348f089af930b47fca1b1c3d19484b9",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "candidate",
+              "skill_version": "0.1.4",
+              "output": "我记得周二发过邀请，你这边确实没收到；目前系统只能确认会议已创建，无法核实邀请是否发出或送达。我们先不纠结是哪一步出了问题，我现在重新发一份邀请，并把会议时间和链接直接发给你，先把会安排好。",
+              "output_sha256": "c26b644e068cc8df8256fb524783b45b0afe21ad7a828ec5d31d68c35759b97a",
+              "criteria_pass": [
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 3
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill_version": null,
+              "output": "先把会安排好最重要。我这边能确认会议已创建，但目前无法核实邀请是否发出或送达。我现在把会议信息再发你一遍，咱们先按这个安排；邀请的情况之后再核对。",
+              "output_sha256": "1b3f0618d63470114a8f335378f7c9ee7d7e92b5e1d1c9f1499f3b4a73f26c76",
+              "criteria_pass": [
+                true,
+                false,
+                true
+              ],
+              "passed": 2,
+              "total": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "overcorrection_stage": {
+      "baseline": {
+        "criteria": "51/54",
+        "perfect_outputs": "15/18",
+        "preferred": 1
+      },
+      "version_0_1_3": {
+        "criteria": "51/54",
+        "perfect_outputs": "15/18",
+        "preferred": 8
+      },
+      "finding": "No over-clarification or defensive stopping regression was observed. Both arms failed the access-card attribution criterion in all three repetitions while the skill was more often preferred."
+    },
+    "candidate_stage": {
+      "baseline": {
+        "criteria": "72/81",
+        "perfect_outputs": "18/27",
+        "preferred": 5
+      },
+      "version_0_1_3": {
+        "criteria": "69/81",
+        "perfect_outputs": "19/27",
+        "preferred": 2
+      },
+      "version_0_1_4": {
+        "criteria": "78/81",
+        "perfect_outputs": "24/27",
+        "preferred": 12
+      },
+      "new_case_totals": {
+        "baseline": {
+          "criteria": "21/27",
+          "perfect_outputs": "3/9",
+          "preferred": 2
+        },
+        "version_0_1_3": {
+          "criteria": "17/27",
+          "perfect_outputs": "3/9",
+          "preferred": 0
+        },
+        "version_0_1_4": {
+          "criteria": "24/27",
+          "perfect_outputs": "6/9",
+          "preferred": 7
+        }
+      },
+      "reused_case_totals": {
+        "baseline": {
+          "criteria": "51/54",
+          "perfect_outputs": "15/18"
+        },
+        "version_0_1_3": {
+          "criteria": "52/54",
+          "perfect_outputs": "16/18"
+        },
+        "version_0_1_4": {
+          "criteria": "54/54",
+          "perfect_outputs": "18/18"
+        }
+      },
+      "attribution_criteria": {
+        "new_three_cases": {
+          "baseline": "12/18",
+          "version_0_1_3": "8/18",
+          "version_0_1_4": "15/18"
+        },
+        "including_access_card": {
+          "baseline": "12/21",
+          "version_0_1_3": "9/21",
+          "version_0_1_4": "18/21"
+        }
+      }
+    },
+    "residual": {
+      "case_id": "nested-handoff-report-chain",
+      "candidate_criteria": "7/9",
+      "candidate_perfect_outputs": "1/3",
+      "detail": "Two of three candidate outputs flattened the B-to-C nested report. The run does not establish general nested-source handling."
+    }
+  },
+  "decision": {
+    "promote": true,
+    "final_version": "0.1.4",
+    "final_skill_package_sha256": "1f9ebb6ba4d394da7c638eb2f76f11407633c75ec6c92bb4c3d900af7f77de87",
+    "catalog_status": "experimental",
+    "reason": "The candidate improved new evidence-topology criteria and the original attribution regression without any reused-case regression.",
+    "next_gap": "Test a surface-different four-layer chain that distinguishes speaker, reporter, original source, and uncertainty before any later revision."
+  },
+  "limitations": [
+    "All prompts and messages are synthetic.",
+    "Both comparisons used explicit project skill invocation and do not establish implicit routing.",
+    "The reviewer was a separate Codex model task, not an independent human relationship expert.",
+    "The reviewer had prior protocol exposure in both stages and prior skill-revision exposure in the candidate stage, although arm mappings remained hidden until scoring.",
+    "The nested-report residual remains unresolved and limits the generalization claim.",
+    "Catalog status remains experimental and evidence remains null."
+  ]
+}

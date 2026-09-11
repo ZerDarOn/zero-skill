@@ -1685,7 +1685,7 @@
           "skill": "relationship-review",
           "skill_version": "0.1.3",
           "skill_package_sha256": "cdeffe23f9d9b0810128db8b274aa2ff34bacbf6ff04755ef76604b1de1e3a84",
-          "package_evidence_path": "skills/relationships/relationship-review",
+          "package_evidence_path": "evaluations/comparisons/relationship-attribution-regression-09/packages/relationship-review-0.1.3",
           "runtime": {
             "rows": 3,
             "promptfoo_passed_rows": 3,

@@ -72,7 +72,7 @@
       "id": "relationship-review",
       "category": "relationships",
       "form": "workflow",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "path": "skills/relationships/relationship-review/SKILL.md",
       "status": "experimental",
       "tags": [

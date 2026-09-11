@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十六轮关系归因回归**。已有十六个可试用的 `experimental` 技能，活动用例共102项。`relationship-review` 0.1.4在三臂前向回归中由0.1.3的69/81提高到78/81，六个反过度纠正复用题达到54/54；嵌套转述仍有2/3次来源压平。最终包仍为experimental，隐式路由门禁未通过。
+当前阶段：**第十七轮多跳来源前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共106项。`relationship-review` 保持0.1.4；三个新多跳题由无Skill的23/27提高到27/27，直接负责人控制两臂均为9/9。第十六轮特定交接表面的来源压平残留仍保留，隐式路由门禁未通过。
 
 ## 从这里开始
+
+- [第十七轮质量打磨：多跳来源前向诊断](docs/quality-polish-round-17.md)
+- [多跳来源第十七轮机器诊断](evaluations/reports/relationship-nested-source-round-17-diagnostic.json)
 
 - [第十六轮质量打磨：关系归因与过度纠正回归](docs/quality-polish-round-16.md)
 - [关系归因第十六轮机器诊断](evaluations/reports/relationship-attribution-round-16-diagnostic.json)

@@ -382,6 +382,114 @@
         "指责B漏看",
         "无依据声称系统吞信"
       ]
+    },
+    {
+      "id": "regression-relayed-release-window-group-note",
+      "prompt": "我是A，没看到正式通知。想在项目群里确认时间，别把传话写成定案。帮我写一小段。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "B",
+            "text": "C转告我，D说发布窗口可能从周五晚八点改到周四晚八点。"
+          }
+        ]
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "保留A从B得知、B的信息来自C转告D的多跳来源",
+        "保留周五晚八点到周四晚八点只是可能变更",
+        "请负责人、正式渠道或当前排期确认"
+      ],
+      "must_avoid": [
+        "写成A直接从C或D获知",
+        "把周四写成已经确定",
+        "指责任何传话者"
+      ]
+    },
+    {
+      "id": "regression-corrected-nested-shift-report",
+      "prompt": "我是A，要在小组里提醒大家别按未确认的时间行动。写一小段。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "B",
+            "text": "C告诉我，D已经把值班从周六改到周日。"
+          },
+          {
+            "id": "m2",
+            "speaker": "B",
+            "text": "我又问了C，C只是听D说可能改，还没定。"
+          }
+        ],
+        "context": "第二条是十分钟后的更正。"
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "使用B最新更正并撤回周日已经确定的旧说法",
+        "保留A从B得知、B核对C、C只听D说可能调整的来源链",
+        "建议等待正式确认、请负责人确认或暂按现行安排"
+      ],
+      "must_avoid": [
+        "继续把周日写成定案",
+        "写成A直接问过C或D",
+        "责怪B、C或D"
+      ]
+    },
+    {
+      "id": "regression-partial-calendar-with-nested-update",
+      "prompt": "我是A，想给团队发一小段确认安排。",
+      "input": {
+        "kind": "synthetic",
+        "text": "共享日历当前显示周五下午三点；B告诉A，C转告说D提过可能改到周四下午三点。",
+        "context": "日历只能证明当前页面还写周五，不能证明没有待发布的变更。"
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "限定日历只证明当前页面仍写周五下午三点",
+        "保留B告诉A、C转告D可能改到周四下午三点的多跳来源",
+        "请求负责人或正式更新确认最终时间"
+      ],
+      "must_avoid": [
+        "断言安排一定未变",
+        "写成A直接从C或D获知",
+        "裁定日历或传话哪方错误"
+      ]
+    },
+    {
+      "id": "regression-direct-authoritative-update-control",
+      "prompt": "我是A。B问我还是周五吗？只给一句能直接发给B的回复。",
+      "input": {
+        "kind": "synthetic",
+        "messages": [
+          {
+            "id": "m1",
+            "speaker": "D",
+            "role": "排期负责人",
+            "text": "最终确定：发布窗口改到周四晚八点。"
+          },
+          {
+            "id": "m2",
+            "speaker": "B",
+            "text": "还是周五吗？"
+          }
+        ],
+        "context": "D的消息直接发在项目群。"
+      },
+      "expected_route": "relationship-review",
+      "must_include": [
+        "只给一句自然回复",
+        "明确最终时间是周四晚八点",
+        "把负责人直接最终通知作为当前有效安排"
+      ],
+      "must_avoid": [
+        "把最终通知降格为传闻或可能变化",
+        "再次追问来源链",
+        "加入无关责任或边界分析"
+      ]
     }
   ]
 }

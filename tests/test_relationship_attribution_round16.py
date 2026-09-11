@@ -326,16 +326,11 @@ class RelationshipAttributionRound16ReportTests(unittest.TestCase):
             report["decision"]["final_skill_package_sha256"],
         )
 
-        active_total = 0
-        relationship_cases = None
-        for path in (ROOT / "evaluations" / "cases").glob("*.json"):
-            suite = json.loads(path.read_text(encoding="utf-8"))
-            if suite.get("stage") == "active":
-                active_total += len(suite["cases"])
-            if suite.get("skill_id") == "relationship-review":
-                relationship_cases = suite
-        self.assertEqual(active_total, 102)
-        self.assertEqual(len(relationship_cases["cases"]), 14)
+        relationship_cases = json.loads(
+            (
+                ROOT / "evaluations" / "cases" / "relationship-review.json"
+            ).read_text(encoding="utf-8")
+        )
         self.assertTrue(
             {
                 "regression-nested-handoff-report-chain",

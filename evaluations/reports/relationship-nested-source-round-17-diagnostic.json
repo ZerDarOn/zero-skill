@@ -1,0 +1,727 @@
+{
+  "schema_version": 1,
+  "report_id": "relationship-nested-source-round-17-diagnostic",
+  "generated_at": "2026-09-11T07:49:13.431013+00:00",
+  "scope": {
+    "skill_id": "relationship-review",
+    "version": "0.1.4",
+    "catalog_status": "experimental",
+    "active_case_count": 18,
+    "collection_active_case_count": 106,
+    "formal_outputs": 24,
+    "blind_review_items": 12,
+    "criterion_booleans": 72
+  },
+  "experiment": {
+    "comparison_id": "relationship-nested-source-forward-10",
+    "run_id": "relationship-nested-source-forward-10-20260911",
+    "freeze_commit": "db121f9ce32e4dce7868e5f02e6667783cdcd594",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "0e2c995275cc818b6506bb0f1cb15769a11a60b79a0984d6c8e4bb76bc393f8c",
+      "cases.json": "710cdfa8dd7a9fae0585a04b74e9a93b96604d547c0fda1ed7eb92e55b4eb6fd"
+    },
+    "prepared_hashes": {
+      "config": "8d42a8866244ab46c231ebb1eeed1f81fc28c391adbe0a86b3ca529c46a94878",
+      "tests": "e83ddb3e8ad71631bea110ffd70da5beaa330ec9d62e7aac06103f77d6cf6771"
+    },
+    "artifact_hashes": {
+      "frozen.json": "97c9c6b96536cf073fabb12a8806d60738f0ea464aeeb72d04075cd11e3862dd",
+      "results.json": "482b938706558650716f4e6b31c2ce3fef702dea2c60e89d9fb088ce45a42a6f",
+      "summary.json": "26601b26fe41ca34ff3b4dcdba2575bcf35005f963ef7958327ff0daf53882b9",
+      "blind-review.json": "9e8a75c83085f23fc55423dfc193f228d1c36cc9b8c72ca5f562f046977492c1",
+      "blind-review-key.json": "a30ab749450ee9e08d51e394c324b695120d95025ed4f5691d1861371488ac0e",
+      "blind-review-completed-independent.json": "1dc8e5e8a0cd98c0bd487cc5b79d93aa5702d86a7a9b58c50a96237a12724090",
+      "review-result-blind-review-completed-independent.json": "e17e18976e190a21b37d4ca127ba2afb685226a9948d38271a148d1a04dbf594"
+    },
+    "reviewer": {
+      "kind": "independent-codex-model-blind-review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "blind_to_arm_mapping": true,
+      "independent_human": false,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "note": "The separate reviewer had seen the protocol and the prior 0.1.4 revision, but the arm mapping remained hidden until successful scoring."
+    },
+    "review_format_note": "The first scoring attempt rejected four literal tie strings. Before any successful score or reveal, the original reviewer changed only those four preference fields to null as required by the frozen form; criterion booleans, notes, and other preferences were unchanged.",
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "skill_version": null,
+        "skill_package_sha256": null,
+        "package_evidence_path": null,
+        "runtime": {
+          "rows": 12,
+          "promptfoo_passed_rows": 12,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "latency_ms_median": 9276.5,
+          "tokens_total": {
+            "cached": 95104,
+            "completion": 711,
+            "prompt": 112852,
+            "total": 113563
+          },
+          "cost_total": 0.1232536
+        },
+        "strict_blind_review": {
+          "outputs": 12,
+          "perfect_outputs": 8,
+          "criteria_passed": 32,
+          "criteria_total": 36,
+          "preferred_count": 2,
+          "criterion_pass_rate": 0.8889
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "relationship-review",
+        "skill_version": "0.1.4",
+        "skill_package_sha256": "1f9ebb6ba4d394da7c638eb2f76f11407633c75ec6c92bb4c3d900af7f77de87",
+        "package_evidence_path": "evaluations/comparisons/relationship-attribution-regression-09/packages/relationship-review-0.1.4-candidate",
+        "runtime": {
+          "rows": 12,
+          "promptfoo_passed_rows": 12,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "latency_ms_median": 9862.0,
+          "tokens_total": {
+            "cached": 104448,
+            "completion": 1304,
+            "prompt": 134658,
+            "total": 135962
+          },
+          "cost_total": 0.1886992
+        },
+        "strict_blind_review": {
+          "outputs": 12,
+          "perfect_outputs": 12,
+          "criteria_passed": 36,
+          "criteria_total": 36,
+          "preferred_count": 6,
+          "criterion_pass_rate": 1.0
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "corrected-nested-shift-report-r1",
+        "case_id": "corrected-nested-shift-report",
+        "repetition": 1,
+        "purpose": "Use the corrected current version of a nested report without preserving the withdrawn certainty.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 先对我说：“C 告诉我，D 已经把值班从周六改到周日。”十分钟后 B 更正：“我又问了 C，C 只是听 D 说可能改，还没定。”我要在小组里提醒大家别按未确认的时间行动。写一小段。",
+        "hard_criteria": [
+          "使用 B 的最新更正，明确先前“已经改到周日”的确定说法不再是当前有效信息，不继续把周日写成定案",
+          "保留 A 的信息来自 B、B 核对 C 后得知 C 只是听 D 说可能调整这一来源链与不确定程度，不写成 A 直接问过 C 或 D",
+          "给出等待正式确认、请负责人确认或暂按现行安排等安全下一步，不责怪 B、C 或 D"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两项都采用尚未确定的最新状态并建议等待确认；A完全省略B核对C、C听D说的来源链，B保留了B更正以及C听D说可能调整的层级，因此B更完整。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "提醒大家一下：值班从周六改到周日目前还没确定，只是可能调整。请先不要按周日安排，等确认后再行动。",
+            "output_sha256": "0ca6e6b0c83ae9c9d345262b1e41c817d17506bc9ad3f4c9a245d3eda9247cba",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "提醒大家：B 刚才更正了消息，C 听 D 说值班可能从周六改到周日，但目前还没确定。请大家先不要按周日安排，等最终确认后再行动。",
+            "output_sha256": "4d03b84ce0ef81a49ca1c0a118086a0457e6c040862fcc4af8f50b69325d637b",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-nested-shift-report-r2",
+        "case_id": "corrected-nested-shift-report",
+        "repetition": 2,
+        "purpose": "Use the corrected current version of a nested report without preserving the withdrawn certainty.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 先对我说：“C 告诉我，D 已经把值班从周六改到周日。”十分钟后 B 更正：“我又问了 C，C 只是听 D 说可能改，还没定。”我要在小组里提醒大家别按未确认的时间行动。写一小段。",
+        "hard_criteria": [
+          "使用 B 的最新更正，明确先前“已经改到周日”的确定说法不再是当前有效信息，不继续把周日写成定案",
+          "保留 A 的信息来自 B、B 核对 C 后得知 C 只是听 D 说可能调整这一来源链与不确定程度，不写成 A 直接问过 C 或 D",
+          "给出等待正式确认、请负责人确认或暂按现行安排等安全下一步，不责怪 B、C 或 D"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A明确说明最初确定说法随后被更正，并保留B转述、C听D说可能调整的来源链；B正确表达未确定和等待确认，但没有交代任何来源层级。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "提醒大家：B 最初转述 C 说 D 已把值班从周六改到周日，但随后更正，C 只是听 D 说可能调整，目前还没确定。请大家先不要按周日安排，等确认后的正式通知。",
+            "output_sha256": "7e9bb5f6be6c82f238ec470cf158b5e0eb5728e203994c510e28b54179c814fe",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "提醒大家：目前值班时间是否从周六改到周日还没确定，请先不要按周日安排或行动，等确认后再执行。",
+            "output_sha256": "85bedaecf8ed0d368e5c70bfa798279bade1a4d926b252922fdc9ee55a6718ef",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-nested-shift-report-r3",
+        "case_id": "corrected-nested-shift-report",
+        "repetition": 3,
+        "purpose": "Use the corrected current version of a nested report without preserving the withdrawn certainty.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。B 先对我说：“C 告诉我，D 已经把值班从周六改到周日。”十分钟后 B 更正：“我又问了 C，C 只是听 D 说可能改，还没定。”我要在小组里提醒大家别按未确认的时间行动。写一小段。",
+        "hard_criteria": [
+          "使用 B 的最新更正，明确先前“已经改到周日”的确定说法不再是当前有效信息，不继续把周日写成定案",
+          "保留 A 的信息来自 B、B 核对 C 后得知 C 只是听 D 说可能调整这一来源链与不确定程度，不写成 A 直接问过 C 或 D",
+          "给出等待正式确认、请负责人确认或暂按现行安排等安全下一步，不责怪 B、C 或 D"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两项都没有把周日写成定案且给出安全下一步；A只保留了可能调整，丢失B到C再到D的来源链，B同时保留更正、嵌套来源和不确定程度。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "提醒大家：值班从周六改到周日目前只是可能调整，尚未确定。请先不要按周日安排，等确认后再行动。",
+            "output_sha256": "a2275e4c8dcc86430ad3e6ee8b20d5e7e7b39d4730eb7b186232fae0197bbd4f",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "提醒一下：B 最初转述 C 说值班已从周六改到周日，但随后更正为 C 只是听 D 说可能调整，目前还没确定。请大家先不要按周日行动，以最终确认的安排为准。",
+            "output_sha256": "d7369e762175b946c31d0bd5e9575c33ec2077911e94676a8de0cb09400bf6bc",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "direct-authoritative-update-control-r1",
+        "case_id": "direct-authoritative-update-control",
+        "repetition": 1,
+        "purpose": "Avoid needless source-chain hedging when the responsible person has made a direct final update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。项目群里，排期负责人 D 直接发了：“最终确定：发布窗口改到周四晚八点。”B 问我：“还是周五吗？”只给一句能直接发给 B 的回复。",
+        "hard_criteria": [
+          "严格只给一句自然、可直接发送的话，明确告诉 B 最终时间是周四晚八点",
+          "把题面中负责人 D 在项目群的直接最终通知当作当前有效安排，不无故写成传闻、可能变化或仍需核实",
+          "不追问来源链，不加入责任分析、边界建议或与确认时间无关的解释"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两项都是一句自然回复，均直接把负责人D的最终通知作为当前安排并明确周四晚八点，没有增加核实、归因追问或无关解释。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "不是，D 刚在项目群里最终确定改到周四晚八点了。",
+            "output_sha256": "54e0304714b4542ef2dccab846391d2aefa2bbd83a8925b03fe6b769d759ce0f",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "不是，D 刚在群里最终确定改到周四晚八点了。",
+            "output_sha256": "e7d5d0676a4dfdb203e1ad4c1c6acca8d13eb61c8a24200592de371b6c7a9ee7",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "direct-authoritative-update-control-r2",
+        "case_id": "direct-authoritative-update-control",
+        "repetition": 2,
+        "purpose": "Avoid needless source-chain hedging when the responsible person has made a direct final update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。项目群里，排期负责人 D 直接发了：“最终确定：发布窗口改到周四晚八点。”B 问我：“还是周五吗？”只给一句能直接发给 B 的回复。",
+        "hard_criteria": [
+          "严格只给一句自然、可直接发送的话，明确告诉 B 最终时间是周四晚八点",
+          "把题面中负责人 D 在项目群的直接最终通知当作当前有效安排，不无故写成传闻、可能变化或仍需核实",
+          "不追问来源链，不加入责任分析、边界建议或与确认时间无关的解释"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两项均简洁否定周五并确认周四晚八点，直接采用D的最终更新，不含传闻化、再确认要求或责任分析，质量等价。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "不是，D 已经最终确定改到周四晚八点。",
+            "output_sha256": "c48b175e6e3f6bdd2cd447c364f64a4148e5c4526c94a146259188a4acc05b67",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "不是，D 刚在项目群里最终确定改到周四晚八点了。",
+            "output_sha256": "54e0304714b4542ef2dccab846391d2aefa2bbd83a8925b03fe6b769d759ce0f",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "direct-authoritative-update-control-r3",
+        "case_id": "direct-authoritative-update-control",
+        "repetition": 3,
+        "purpose": "Avoid needless source-chain hedging when the responsible person has made a direct final update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。项目群里，排期负责人 D 直接发了：“最终确定：发布窗口改到周四晚八点。”B 问我：“还是周五吗？”只给一句能直接发给 B 的回复。",
+        "hard_criteria": [
+          "严格只给一句自然、可直接发送的话，明确告诉 B 最终时间是周四晚八点",
+          "把题面中负责人 D 在项目群的直接最终通知当作当前有效安排，不无故写成传闻、可能变化或仍需核实",
+          "不追问来源链，不加入责任分析、边界建议或与确认时间无关的解释"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两项都只有一句且明确回复最终时间为周四晚八点；B虽未重复“最终”二字，但将D在项目群的确认直接作为有效安排，没有任何不确定化表达。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "不是，D 刚在项目群里最终确定改到周四晚八点了。",
+            "output_sha256": "54e0304714b4542ef2dccab846391d2aefa2bbd83a8925b03fe6b769d759ce0f",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "不是，D 刚在项目群确认发布窗口改到周四晚八点。",
+            "output_sha256": "bf20dfcf2d6e26bf83907ef832201930d9f4f395e05e25c7e645e75a82723341",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "partial-calendar-with-nested-update-r1",
+        "case_id": "partial-calendar-with-nested-update",
+        "repetition": 1,
+        "purpose": "Keep a limited shared record separate from a nested tentative update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。共享日历现在仍显示周五下午三点；B 告诉我：“C 转告说，D 提过可能改到周四下午三点。”日历只能证明当前页面还写周五，不能证明没有待发布的变更。我想给团队发一小段确认安排。",
+        "hard_criteria": [
+          "限定共享日历只能证明当前页面仍写周五下午三点，不据此断言安排一定未变，也不把日历写成已经确认周四",
+          "保留 B 告诉 A、C 转告 D 曾提过可能改到周四下午三点这一多跳来源和不确定程度，不写成 A 直接从 C 或 D 获知",
+          "提出核对负责人或正式更新并确认最终时间的动作，表达简洁且不裁定日历或传话哪方错误"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "两项都把日历表述为当前仍显示周五并请求确认，没有裁定哪方错误；A完整保留B告诉A、C转述D曾提到可能改期，B用“另听说”压平了全部嵌套来源。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，共享日历目前仍显示周五下午3点；但B告诉我，C转述D提过可能改到周四下午3点。麻烦D或负责排期的同事确认一下最终时间，谢谢。",
+            "output_sha256": "0c4d53906803ed1e5a5e4d90aac014a8480af9a0751d5ee99d769709692c3cf6",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，共享日历目前仍显示周五下午三点；另听说安排可能改为周四下午三点，但尚未确认。请知情者确认最终时间，如有变更也请同步更新日历，谢谢。",
+            "output_sha256": "7f8cf93c95c61d7070b3884b883386bd94510cd672af2b0792577f7030ea4388",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "partial-calendar-with-nested-update-r2",
+        "case_id": "partial-calendar-with-nested-update",
+        "repetition": 2,
+        "purpose": "Keep a limited shared record separate from a nested tentative update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。共享日历现在仍显示周五下午三点；B 告诉我：“C 转告说，D 提过可能改到周四下午三点。”日历只能证明当前页面还写周五，不能证明没有待发布的变更。我想给团队发一小段确认安排。",
+        "hard_criteria": [
+          "限定共享日历只能证明当前页面仍写周五下午三点，不据此断言安排一定未变，也不把日历写成已经确认周四",
+          "保留 B 告诉 A、C 转告 D 曾提过可能改到周四下午三点这一多跳来源和不确定程度，不写成 A 直接从 C 或 D 获知",
+          "提出核对负责人或正式更新并确认最终时间的动作，表达简洁且不裁定日历或传话哪方错误"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两项均区分日历当前显示与尚未确认的候选变更，保留B到C再到D的来源链并请求最终确认；B避免额外推测日历可能尚未更新，表述稍更克制。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，目前共享日历仍显示周五下午三点；另外，B 说 C 转告过，D 曾提到可能改到周四下午三点。日历信息可能尚未更新，请大家确认最终安排是周四还是周五下午三点。",
+            "output_sha256": "567f1d321f61e87e27eacf196667e6eb4feaf8b12a3e47f3541edf0d523259b7",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，共享日历目前仍显示周五下午三点；同时 B 告诉我，C 转告说 D 提过可能改到周四下午三点。请确认最终安排；如有待发布的变更，也请同步更新日历，谢谢。",
+            "output_sha256": "aa6a140b38b07a1984777dee036f6648253ad488c1d2aefc2333a619e1116c91",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "partial-calendar-with-nested-update-r3",
+        "case_id": "partial-calendar-with-nested-update",
+        "repetition": 3,
+        "purpose": "Keep a limited shared record separate from a nested tentative update.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。共享日历现在仍显示周五下午三点；B 告诉我：“C 转告说，D 提过可能改到周四下午三点。”日历只能证明当前页面还写周五，不能证明没有待发布的变更。我想给团队发一小段确认安排。",
+        "hard_criteria": [
+          "限定共享日历只能证明当前页面仍写周五下午三点，不据此断言安排一定未变，也不把日历写成已经确认周四",
+          "保留 B 告诉 A、C 转告 D 曾提过可能改到周四下午三点这一多跳来源和不确定程度，不写成 A 直接从 C 或 D 获知",
+          "提出核对负责人或正式更新并确认最终时间的动作，表达简洁且不裁定日历或传话哪方错误"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "两项都完整保留有限日历证据、多跳候选更新和最终确认动作；B直接请D或知情同事确认并同步日历，行动对象更明确，略优于泛化提问。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，共享日历目前仍显示周五下午三点；另外，B 告诉我，C 转告说 D 提过可能改到周四下午三点。请问最终安排是哪一个时间？如有待发布的变更，也请同步更新日历，谢谢。",
+            "output_sha256": "476928522e0e070d986150b340b2a7760577ed7dd86b8f513568cf44860e5bc2",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，目前共享日历仍显示周五下午3点；但B告诉我，C转告说D提过可能改到周四下午3点。请D或知情同事确认最终时间，并同步更新日历，谢谢。",
+            "output_sha256": "eb2472be7820a15b617c881827f47bf8b82d191f62c69c72f0e0e8136142530d",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "relayed-release-window-group-note-r1",
+        "case_id": "relayed-release-window-group-note",
+        "repetition": 1,
+        "purpose": "Preserve a multi-hop tentative scheduling report when communicating it to people outside the source chain.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。我没看到正式通知。B 刚告诉我：“C 转告我，D 说发布窗口可能从周五晚八点改到周四晚八点。”我想在项目群里确认时间，别把传话写成定案。帮我写一小段。",
+        "hard_criteria": [
+          "明确当前信息来自 B 告诉 A、B 的信息又来自 C 转告的 D 的说法；允许自然压缩，但不能写成 A 直接从 C 或 D 获知",
+          "保留 D 说的是可能从周五晚八点改到周四晚八点，不把周四写成已确定，也不丢掉原时间与候选时间",
+          "提出由负责人、正式渠道或当前排期确认的可执行动作，表达简洁合作且不指责任何传话者"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两项均明确A从B得知、B的信息来自C转述D，完整保留周五到周四的可能变化，并以正式通知或最终确认收束，表达同样自然合作。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，我这边还没看到正式通知。刚听 B 说，C 转告他，D 提到发布窗口可能从周五晚 8 点调整到周四晚 8 点。请相关同事确认一下最终时间，以正式通知为准，谢谢。",
+            "output_sha256": "8b898637e35ca506d3bae02105fa1f18dc6dff9c740e81d389f414d322ed33f0",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，想确认一下发布窗口：B 刚告诉我，C 转述 D 说时间可能从周五晚八点改到周四晚八点。目前我还没看到正式通知，请问最终时间是否已经确定？谢谢。",
+            "output_sha256": "38d51a67686e7ed8e299ca0ad0ad88b9bb530b1b53cd9c6ab7f6105bda1850bf",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "relayed-release-window-group-note-r2",
+        "case_id": "relayed-release-window-group-note",
+        "repetition": 2,
+        "purpose": "Preserve a multi-hop tentative scheduling report when communicating it to people outside the source chain.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。我没看到正式通知。B 刚告诉我：“C 转告我，D 说发布窗口可能从周五晚八点改到周四晚八点。”我想在项目群里确认时间，别把传话写成定案。帮我写一小段。",
+        "hard_criteria": [
+          "明确当前信息来自 B 告诉 A、B 的信息又来自 C 转告的 D 的说法；允许自然压缩，但不能写成 A 直接从 C 或 D 获知",
+          "保留 D 说的是可能从周五晚八点改到周四晚八点，不把周四写成已确定，也不丢掉原时间与候选时间",
+          "提出由负责人、正式渠道或当前排期确认的可执行动作，表达简洁合作且不指责任何传话者"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "两项都保留B、C、D的完整传话链、两个时间点及可能性，并请求正式确认；B在信息完整的同时更紧凑，群消息读起来稍自然。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，我还没看到正式通知。刚听 B 转述，C 告诉他，D 说发布窗口可能从周五晚 8 点调整到周四晚 8 点。请问最终时间是否已经确定？以哪条正式通知为准？",
+            "output_sha256": "1c75c79bde16fb81713c0b22f3c07a4678240b2687ba52ab1a4e3c568931a8ad",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，想确认一下发布窗口：B 刚告诉我，C 转述 D 说时间可能从周五晚八点调整到周四晚八点。目前我还没看到正式通知，请问最终时间确定了吗？",
+            "output_sha256": "af70bcdc6a7520bd583eec6599de4ddefdfc34833b860ed3d87b230478dd2066",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "relayed-release-window-group-note-r3",
+        "case_id": "relayed-release-window-group-note",
+        "repetition": 3,
+        "purpose": "Preserve a multi-hop tentative scheduling report when communicating it to people outside the source chain.",
+        "task": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。\n\n我是 A。我没看到正式通知。B 刚告诉我：“C 转告我，D 说发布窗口可能从周五晚八点改到周四晚八点。”我想在项目群里确认时间，别把传话写成定案。帮我写一小段。",
+        "hard_criteria": [
+          "明确当前信息来自 B 告诉 A、B 的信息又来自 C 转告的 D 的说法；允许自然压缩，但不能写成 A 直接从 C 或 D 获知",
+          "保留 D 说的是可能从周五晚八点改到周四晚八点，不把周四写成已确定，也不丢掉原时间与候选时间",
+          "提出由负责人、正式渠道或当前排期确认的可执行动作，表达简洁合作且不指责任何传话者"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两项均满足三项标准；B用“C转告他”更明确呈现C到B这一跳，同时保留D的可能说法、原候选时间和确认动作，因此略优。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill_version": null,
+            "output": "大家好，想确认一下发布窗口时间：B 刚告诉我，C 转述 D 说发布时间可能从周五晚八点调整到周四晚八点。目前我还没看到正式通知，请问最终时间是否已经确定？",
+            "output_sha256": "b287f05089a6e9b126b13fde477486e46129d39c80afa5ade3cf8b082f5479ef",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill_version": "0.1.4",
+            "output": "大家好，我目前还没看到正式通知。刚刚 B 告诉我，C 转告他，D 说发布窗口可能从周五晚 8 点改到周四晚 8 点。想请相关同事确认一下，最终发布时间是哪一个？",
+            "output_sha256": "6f5f774755580251d00d4159d1ea24c0afe8786086ce8f19bc0394b2911f4d66",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "overall": {
+      "baseline": {
+        "criteria": "32/36",
+        "perfect_outputs": "8/12",
+        "preferred": 2
+      },
+      "version_0_1_4": {
+        "criteria": "36/36",
+        "perfect_outputs": "12/12",
+        "preferred": 6
+      },
+      "ties": 4
+    },
+    "multi_hop_cases": {
+      "case_ids": [
+        "relayed-release-window-group-note",
+        "corrected-nested-shift-report",
+        "partial-calendar-with-nested-update"
+      ],
+      "baseline": {
+        "criteria": "23/27",
+        "perfect_outputs": "5/9",
+        "preferred": 2
+      },
+      "version_0_1_4": {
+        "criteria": "27/27",
+        "perfect_outputs": "9/9",
+        "preferred": 6
+      }
+    },
+    "direct_control": {
+      "case_id": "direct-authoritative-update-control",
+      "baseline": {
+        "criteria": "9/9",
+        "perfect_outputs": "3/3",
+        "preferred": 0
+      },
+      "version_0_1_4": {
+        "criteria": "9/9",
+        "perfect_outputs": "3/3",
+        "preferred": 0
+      },
+      "ties": 3
+    },
+    "prior_residual": {
+      "case_id": "nested-handoff-report-chain",
+      "source_report": "relationship-attribution-round-16-diagnostic",
+      "candidate_criteria": "7/9",
+      "candidate_perfect_outputs": "1/3",
+      "detail": "The earlier personal handoff wording still has two flattened-report failures. This run adds positive evidence on three new group-message surfaces but does not erase or explain that residual."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "final_version": "0.1.4",
+    "final_skill_package_sha256": "1f9ebb6ba4d394da7c638eb2f76f11407633c75ec6c92bb4c3d900af7f77de87",
+    "catalog_status": "experimental",
+    "active_cases_added": 4,
+    "reason": "The current package passed every frozen criterion, including all multi-hop cases and the direct-source control, so the predeclared rule requires recording the result without another revision.",
+    "next_gap": "Retest the earlier compact personal-handoff surface with different wording before claiming general nested-source handling."
+  },
+  "limitations": [
+    "All prompts and messages are synthetic.",
+    "The comparison used explicit project skill invocation and does not establish implicit routing.",
+    "The reviewer was a separate Codex model task, not an independent human relationship expert.",
+    "The reviewer had prior protocol and skill-revision exposure, although arm mappings remained hidden until scoring.",
+    "Only one direct authoritative-source control was included.",
+    "The earlier nested-handoff residual remains valid.",
+    "Catalog status remains experimental and evidence remains null."
+  ]
+}

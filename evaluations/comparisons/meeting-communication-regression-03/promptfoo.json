@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "meeting-communication-regression-03",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方合成会议沟通任务。只返回用户要求的结果，不说明评测过程。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "meeting-communication-review",
+        "source": "../../../skills/productivity/meeting-communication-review",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

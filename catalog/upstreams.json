@@ -199,15 +199,15 @@
     {
       "id": "composio-skills",
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
-      "observed_on": "2026-09-08",
-      "stars_display": "74,645",
-      "license_declared": "Apache-2.0 at repository level; per-skill terms vary",
+      "observed_on": "2026-09-11",
+      "stars_display": "74,838",
+      "license_declared": "No repository-wide license found at reviewed revision; selected skill directories may declare separate terms",
       "review_level": "entrypoint-reviewed",
       "evidence_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/file-organizer/SKILL.md",
       "revision": "be2a406907dbc61b73e6827ded415c96139d13a2",
       "imported": false,
       "adopt": "限定范围、按用途组织、逐项去向与名称冲突处理",
-      "caveat": "此前另审阅 meeting-insights-analyzer；本轮完整阅读 file-organizer，不采用自动扫描、shell 动作、弱证据去重或固定命名审美，具体技能许可未完整核验"
+      "caveat": "此前审阅 meeting-insights-analyzer，本轮复核固定提交仍未发现根许可证或该技能的单独许可证；不复制或分发该文件。完整阅读 file-organizer，不采用自动扫描、shell 动作、弱证据去重或固定命名审美"
     },
     {
       "id": "baoyu-skills",

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "reported-claim-is-not-admission",
+    "purpose": "Do not turn reported speech plus denial into the target speaker own admission.",
+    "prompt": "只用两句话回答：N 是否承认自己总在回避冲突，以及这段话能支持什么更窄的观察。\n\n15:02 N：李经理刚才说“你总是在回避冲突”，但我不同意这个判断；这次我主张今天把价格分歧列出来，逐项确认。\n\n不要评价人格或动机。",
+    "hard_criteria": [
+      "明确 N 没有承认自己总在回避冲突；这是李经理的说法，且 N 明确否认",
+      "把可支持的窄观察限定为 N 在本次会议主张当天列出并逐项确认价格分歧",
+      "严格只用两句话，不把单次表达扩展为稳定人格、动机或长期模式"
+    ]
+  },
+  {
+    "id": "explicit-revision-controls-current-state",
+    "purpose": "Use the explicit correction as current state while preserving the earlier statement as history.",
+    "prompt": "用恰好两个要点整理当前决定状态和修订历史，不评价 A 的性格。\n\n09:00 A：决定周五上线，小吴负责。\n09:20 A：我修正刚才的说法：周五只是候选日期，安全评审通过后再决定；负责人也还没确认。\n\n不要把建议写成已经执行。",
+    "hard_criteria": [
+      "当前状态写为周五仅是候选日期，是否上线需等安全评审后再决定，负责人未确认",
+      "保留 09:00 曾说周五上线且指定小吴、09:20 明确修正这一历史顺序",
+      "严格恰好两个要点，不把旧说法继续当成当前承诺，不把修订解释为人格缺陷"
+    ]
+  },
+  {
+    "id": "facilitator-turn-share-is-not-dominance",
+    "purpose": "Account for role and content before turning visible turn share into dominance or listening ability.",
+    "prompt": "用一个短段落回答 F 是否主导过度、倾听能力是否差。\n\n合成会议记录完整，共 20 个可见发言轮次。主持人 F 有 10 轮：6 轮是报议程、转场或报时，4 轮明确复述他人观点后请对方确认。其余三人合计 10 轮。只有每轮文字和开始时间，没有结束时间或音频。",
+    "hard_criteria": [
+      "准确报告 F 为 10/20 即 50% 的可见发言轮次，并明确这不是讲话时长",
+      "结合主持角色及 6 轮流程性发言说明，仅凭轮次占比不能判定主导过度",
+      "可把 4 轮复述确认作为本次材料中的倾听迹象，但不能据此证明整体倾听能力或做绩效结论"
+    ]
+  },
+  {
+    "id": "duplicate-speaker-label-blocks-person-attribution",
+    "purpose": "Do not merge two people who share an exported display label into one profile.",
+    "prompt": "分析 Alex 的沟通表现，并给一个下一步。\n\n导出说明：参会者中有两位不同的人都显示为“Alex”，文件没有账号 ID，以下行无法区分属于哪一位。\n10:01 Alex：我赞成先做小范围试点。\n10:04 Alex：我不同意，应该直接全量。\n10:08 Alex：能否先确认风险阈值？",
+    "hard_criteria": [
+      "明确同名标签无法可靠归属于同一个人，因此不能合并成某位 Alex 的立场变化或沟通画像",
+      "可以描述 Alex 标签下出现了相反立场和风险阈值问题，但保持为标签级观察",
+      "下一步要求取得可区分的说话人标识或映射后再做人级分析，不猜测哪句话属于谁"
+    ]
+  },
+  {
+    "id": "visible-fillers-do-not-prove-nervousness",
+    "purpose": "Report available filler counts with valid denominators without inventing duration or mental state.",
+    "prompt": "回答 A 的 filler 使用频率，并判断 A 是否紧张。\n\n可见记录有 A 的 6 个发言轮次，其中 3 轮共标出了 5 个 [FILLER] 标记。记录只有每轮开始时间，没有结束时间、音频或缺失片段说明。转录系统可能漏标。",
+    "hard_criteria": [
+      "报告可见材料中共 5 个标记，分布在 A 的 3/6 轮即 50% 可见轮次，并说明转录可能漏标",
+      "说明没有持续时间，不能计算每分钟 filler 频率或讲话时长占比",
+      "说明这些文字标记不足以证明 A 紧张，不声称听过语气、停顿或音频"
+    ]
+  },
+  {
+    "id": "missing-segment-does-not-prove-consent",
+    "purpose": "Do not convert no visible objection across a transcript gap into unanimous agreement.",
+    "prompt": "只用一句话回答团队是否一致同意方案。\n\n11:00 A：大家有异议吗？\n[11:01—11:06 转录缺失]\n11:07 A：进入下一项。\n\n没有投票记录、参会者逐一确认或会议决议。",
+    "hard_criteria": [
+      "严格只用一句话",
+      "明确无法从现有材料确认一致同意，因为关键时段转录缺失且没有投票、逐一确认或决议记录",
+      "不把可见部分没有反对或 A 转入下一项等同于所有人同意"
+    ]
+  },
+  {
+    "id": "proposal-is-not-confirmed-commitment",
+    "purpose": "Separate a suggestion and unanswered assignment proposal from a confirmed action item.",
+    "prompt": "先列出已确认的行动承诺，再给一句改进建议。\n\n12:00 L：建议小周下周看看埋点问题。\n12:02 主持人：小周周二交方案，可以吗？\n12:03 记录结束；没有小周回应，也没有后续决议。",
+    "hard_criteria": [
+      "说明材料中没有已确认的行动承诺；12:00 是建议，12:02 是尚未得到小周确认的提议",
+      "改进建议要求明确确认负责人、交付内容和时间，但不声称小周已接受或发明后续决议",
+      "保持行动承诺与建议表达分开，不把未来建议冒充会议事实"
+    ]
+  }
+]

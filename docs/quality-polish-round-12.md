@@ -59,7 +59,7 @@
 
 - `python scripts/validate_collection.py`：通过；
 - `python -m unittest discover -s tests -v`：55 通过，1 个 Windows 符号链接权限用例跳过；
-- [GitHub Actions run 34558889581](https://github.com/ZerDarOn/zero-skill/actions/runs/34558889581)：Ubuntu/Windows Python 3.11、3.12 与 React Chromium 五个 job 全部通过；该运行验证的是前一提交的跨平台修复，0.1.2 仍需推送后的 CI 复核。
+- [GitHub Actions run 34560358549](https://github.com/ZerDarOn/zero-skill/actions/runs/34560358549)：当前 0.1.2 提交的 Ubuntu/Windows Python 3.11、3.12 与 React Chromium 五个 job 全部通过。
 
 机器可读报告见 `evaluations/reports/meeting-communication-regression-round-12-diagnostic.json`。报告包含同批三臂的逐输出揭盲评分，原始运行目录继续按约定留在被忽略的 `evaluations/runs/`。
 

@@ -70,6 +70,12 @@
 
 待提交文本统一 LF 后，0.1.2 的精确包指纹发生变化，因此显式发现门禁与质量对照全部重新冻结。0.1.2 的 P05/P06 复跑中三组都是23/24，当前包唯一失败为60字上限超出1字；据此加入实际计数检查并升至0.1.3。当前精确包在同题各三次回归中为24/24、6/6完整通过，0.1.1为23/24，无 Skill为22/24；四题各一次的一般化复跑三组均15/16。活动用例仍为96项，状态仍是experimental。见[报告](../docs/quality-polish-round-09.md)与[脱敏证据](reports/prose-output-limits-0.1.3-promptfoo-diagnostic.json)。
 
+## 第十轮 React 性能审查原生盲测
+
+六个新合成题各重复三次的第一次两臂盲测，冻结严格分为无 Skill 66/72、0.1.1 64/72；揭盲后识别出可控时钟和 DOM 焦点两项比用户可见任务更窄的标准，保留原分后诊断性核心重算为两组均72/72。共同虚拟焦点缺口触发0.1.2与0.1.3窄修。
+
+自然提示定向复跑中，无 Skill、0.1.1、0.1.2分别为17/24、18/24、22/24；焦点单题四臂复跑中，无 Skill、0.1.1、0.1.2、0.1.3分别为8/12、7/12、9/12、12/12，0.1.3三次均完整通过。当前包六题单次回归为23/24，无 Skill为22/24。总计98次真实生成，其中2次预检不计分；正式39个匿名 review item 均由另一个同项目模型任务揭盲前评分。没有运行真实 React、浏览器或读屏器，也没有验证隐式路由。见[报告](../docs/quality-polish-round-10.md)、[第一次协议](comparisons/react-performance-two-arm-01/README.md)、[定向协议](comparisons/react-performance-regression-02/README.md)与[脱敏证据](reports/react-performance-quality-round-10-diagnostic.json)。
+
 ## 第一轮工程三方对照
 
 另建两个合成Python项目，每组每题两次，共12个实验、24次正式生成。无技能、debug-evidence-triage、Superpowers的代码验收均4/4；上游一份原版回归超时，原记录保留，额外逐项诊断确认仍含有效回归。使用模型补丁与运行器实际测试的受控流程，未验证模型自主工具操作。没有观察到修复成功率增益，也未改技能包或原94项活动用例。见[报告](../docs/engineering-three-arm-01-report.md)、[冻结协议与项目](comparisons/engineering-three-arm-01/README.md)和[完整证据](reports/engineering-three-arm-01-diagnostic.json)。

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "skill_id": "react-performance-review",
+  "version": "0.1.1",
+  "source": "skills/engineering/react-performance-review before the 0.1.2 focus-and-deterministic-verification update",
+  "package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+  "purpose": "Exact local package snapshot for baseline-versus-old-versus-current synthetic evaluation.",
+  "modifications": "None; bytes copied before editing the current package.",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 4298,
+      "sha256": "fc60bc574fda33084392b5e54d3ce2dacf7af12c781f73aa98937d583ad5f1db"
+    }
+  ],
+  "copied_at": "2026-09-11T02:04:00+00:00",
+  "source_commit": "9f2c65319f8aed43784b17fa7f7b03b836d5901a"
+}

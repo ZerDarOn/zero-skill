@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "react-performance-regression-native-02",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "old",
+      "skill": {
+        "id": "react-performance-review",
+        "source": "../../fixtures/local/react-performance-review/0.1.1/package",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "current",
+      "skill": {
+        "id": "react-performance-review",
+        "source": "../../../skills/engineering/react-performance-review",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

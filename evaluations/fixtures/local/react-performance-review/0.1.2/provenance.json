@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "skill_id": "react-performance-review",
+  "version": "0.1.2",
+  "source": "skills/engineering/react-performance-review before the 0.1.3 explicit-focus-verification update",
+  "package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+  "purpose": "Exact local package snapshot for 0.1.2-versus-0.1.3 synthetic evaluation.",
+  "modifications": "None; bytes copied before editing the current package.",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 4747,
+      "sha256": "c1ec4492bbee8a7f48d5fce581640d7dcae73b8933464cbb1eac2dfd8373e511"
+    }
+  ],
+  "copied_at": "2026-09-11T02:16:00+00:00",
+  "source_commit": null
+}

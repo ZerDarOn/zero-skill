@@ -1,0 +1,2920 @@
+{
+  "schema_version": 1,
+  "report_id": "react-performance-quality-round-10-diagnostic",
+  "generated_at": "2026-09-11T02:27:18.109230+00:00",
+  "skill": {
+    "id": "react-performance-review",
+    "version": "0.1.3",
+    "package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+    "status": "experimental",
+    "changes": [
+      "0.1.2 adds correctness boundaries for virtualized or recycled DOM and deterministic timing or ordering verification.",
+      "0.1.3 requires focus handoff after the target mounts and explicit verification of actual focus or a valid active-item relation when focus matters."
+    ],
+    "local_snapshots": {
+      "0.1.1": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+      "0.1.2": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496"
+    }
+  },
+  "sources": [
+    {
+      "name": "React useTransition reference",
+      "url": "https://react.dev/reference/react/useTransition",
+      "used_for": "Controlled text input updates remain urgent; transitions mark non-blocking rendering work and do not delay the action callback itself.",
+      "observed_on": "2026-09-11"
+    },
+    {
+      "name": "React useSyncExternalStore reference",
+      "url": "https://react.dev/reference/react/useSyncExternalStore",
+      "used_for": "Repeated getSnapshot calls must be Object.is-stable while the store is unchanged.",
+      "observed_on": "2026-09-11"
+    },
+    {
+      "name": "React useEffectEvent reference",
+      "url": "https://react.dev/reference/react/useEffectEvent",
+      "used_for": "A timer may read latest committed values without restarting, while Effect Events must not hide truly reactive dependencies.",
+      "observed_on": "2026-09-11"
+    },
+    {
+      "name": "Vercel React Best Practices fixed entrypoint",
+      "url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/SKILL.md",
+      "revision": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "license_declared_in_frontmatter": "MIT",
+      "used_for": "Candidate discovery and task-match review only.",
+      "not_used_as_arm_because": "The complete referenced rule closure and standalone license text were not fixed locally; a partial copy would be an unfair upstream arm."
+    }
+  ],
+  "primary_post_run_calibration": {
+    "status": "diagnostic-only; frozen strict scores remain authoritative for the registered review",
+    "why": [
+      "R02 criterion 4 required a fake or otherwise controlled clock, while the visible task only asked for one verification idea. Two current-skill answers covered changing roomId, draft, ticks, and unmount without naming clock control.",
+      "R06 criteria 3 and 4 required explicit DOM focus handoff and focus verification, while the visible task required cross-window keyboard selection, scrolling, stable identity, and screen-reader collection semantics without explicitly naming DOM focus."
+    ],
+    "strict": {
+      "baseline": {
+        "criteria_passed": 66,
+        "criteria_total": 72,
+        "perfect_outputs": 15,
+        "outputs": 18
+      },
+      "react-performance-review-0.1.1": {
+        "criteria_passed": 64,
+        "criteria_total": 72,
+        "perfect_outputs": 13,
+        "outputs": 18
+      }
+    },
+    "visible-task-semantic-recount": {
+      "baseline": {
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "perfect_outputs": 18,
+        "outputs": 18
+      },
+      "react-performance-review-0.1.1": {
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "perfect_outputs": 18,
+        "outputs": 18
+      }
+    },
+    "interpretation": "The initial comparison did not establish a core task advantage or regression. It exposed a narrower review-completeness gap used for targeted follow-up."
+  },
+  "comparisons": [
+    {
+      "label": "initial-v011-three-repetition",
+      "comparison_id": "react-performance-native-blind-01",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "selected_case_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ],
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit for every skill arm; none for baseline",
+      "infrastructure_valid": true,
+      "constraints": {
+        "native_skill_discovery": true,
+        "sandbox_mode": "read-only",
+        "network_access": false,
+        "web_search": "disabled",
+        "isolated_git_root_per_arm": true,
+        "isolated_user_home_per_arm": true,
+        "host_apps_plugins": false,
+        "evaluation_rubric_visible_to_agent": false
+      },
+      "hashes": {
+        "results_sha256": "1b37476184b52672e65ef8a0c4143c3e88f7c894a91afd07ec73f8f61fbec176",
+        "frozen_sha256": "7af9a8b67c1cc21f6509c87bc43b3165c561d32be50295161b0d0375f744c475",
+        "summary_sha256": "ce5d82c3483fc0356530a95755bbc86252ea532ec9a9ac387b3f19c9bd83a72c",
+        "blind_packet_sha256": "ded4e5ea0ecfa93f52c9700c424e6cee0c4636707934c4e5a3817d231495ce2d",
+        "blind_key_sha256": "9d5685bff34e6da947f0d5c3f2be315b19d60a325e56998c661b370eff0278be",
+        "completed_review_sha256": "8a77a3bff87b69690cd93757391851b3e2e64c351a89447033f550fdc1399821",
+        "scored_review_sha256": "9d73f09b0db1db1d9703acb4eace135a70e48698be285c9353639ad5f7d753d6",
+        "spec_sha256": "d54427ab46f51b6abd00cc0c532f01ea0fbbee13d43ba1763c2bfafa1af5880f",
+        "cases_sha256": "4245bf7a6c0d47973fcb6ee95daf3d6dc49df70760e848e8d65727fcff4f75b1"
+      },
+      "reviewer": {
+        "kind": "model-assisted-independent-blind-review"
+      },
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "metrics": {
+            "id": "baseline",
+            "skill": null,
+            "install_mode": "none",
+            "invocation": "none",
+            "rows": 18,
+            "promptfoo_passed_rows": 18,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.2779256,
+            "latency_ms_median": 13303.0,
+            "tokens_total": {
+              "cached": 148224,
+              "completion": 6556,
+              "prompt": 170103,
+              "total": 176659
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "baseline",
+            "skill": null,
+            "outputs": 18,
+            "perfect_outputs": 15,
+            "criteria_passed": 66,
+            "criteria_total": 72,
+            "preferred_count": 2,
+            "criterion_pass_rate": 0.9167
+          }
+        },
+        {
+          "arm_id": "ours",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+          "metrics": {
+            "id": "ours",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 18,
+            "promptfoo_passed_rows": 18,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.4634832,
+            "latency_ms_median": 14890.0,
+            "tokens_total": {
+              "cached": 138368,
+              "completion": 8649,
+              "prompt": 197157,
+              "total": 205806
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "ours",
+            "skill": "react-performance-review",
+            "outputs": 18,
+            "perfect_outputs": 13,
+            "criteria_passed": 64,
+            "criteria_total": 72,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.8889
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "R01-r1",
+          "case_id": "R01",
+          "repetition": 1,
+          "purpose": "按实测定位 Context value 身份导致的大范围重渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端页面没有启用 React Compiler。只给最值得处理的 1 项发现和验证方法。Grid 和 Cell 已用 memo 隔离，传给 Grid 的 props 在 filter 更新前后保持稳定；Cell 只读取 ThemeContext。Profiler 的同一次合成跟踪显示：只修改 filter 时，App 重新渲染，theme 没变，但 120 个 Cell 都重新渲染，该次 commit 为 74ms；真正切换 theme 时这些 Cell 本来就应该更新。代码如下：\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  const [filter, setFilter] = useState('all');\n  const themeValue = { theme, setTheme };\n  return (\n    <ThemeContext.Provider value={themeValue}>\n      <Filter value={filter} onChange={setFilter} />\n      <Grid />\n    </ThemeContext.Provider>\n  );\n}\n\n不要声称已经优化，也不要给虚构收益。",
+          "hard_criteria": [
+            "把 filter 更新时重新创建 ThemeContext value 的对象身份与 120 个消费者重渲染、74ms commit 联系起来，并把它列为唯一发现",
+            "提出只在实际依赖变化时保持 value 身份稳定的最小方向；可接受按 theme 构造稳定 value、按读写用途拆分 context 或语义等价做法，不限定固定 API",
+            "明确保留 theme 与 setTheme 行为，真正的 theme 变化仍应通知相关消费者",
+            "建议用相同 filter 更新和 theme 切换复测消费者渲染数或 commit，并核对主题行为；不编造已获得的下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都准确定位 Context value 身份、保留主题行为，并给出同条件复测。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "**发现：`ThemeContext.Provider` 的 `value` 每次渲染都会创建新对象。**\n\n修改 `filter` 会让 `App` 重渲染，`themeValue = { theme, setTheme }` 的引用随之改变。React 按 `Object.is` 判断 Context 值，因此会通知全部 120 个 `Cell`；`memo` 不能阻止 Context 消费者因值变化而重渲染。\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证方法：**在相同合成跟踪下重新录制 Profiler：\n\n- 只修改 `filter`：检查 120 个 `Cell` 不再因 `ThemeContext` 更新而渲染，并记录该 commit 时长。\n- 真正切换 `theme`：确认 120 个 `Cell` 仍全部更新。\n\n以新测量结果报告变化，不预设具体性能收益。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**发现：`ThemeContext.Provider` 的 `value` 每次渲染都会创建新对象。**  \n修改 `filter` 会让 `App` 重渲染，`themeValue` 引用随之变化；Context 按 `Object.is` 判断值已改变，因此绕过 `memo`，通知 120 个 `Cell` 重渲染。这与该次 74ms commit 的跟踪结果吻合。\n\n最小改善：\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n验证方法：用相同的合成跟踪再次只修改 `filter`，确认 120 个 `Cell` 不再因 ThemeContext 更新而渲染，并比较该 commit 的持续时间；随后切换 `theme`，确认 120 个 `Cell` 仍会更新且主题显示和 `setTheme` 行为保持正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R01-r2",
+          "case_id": "R01",
+          "repetition": 2,
+          "purpose": "按实测定位 Context value 身份导致的大范围重渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端页面没有启用 React Compiler。只给最值得处理的 1 项发现和验证方法。Grid 和 Cell 已用 memo 隔离，传给 Grid 的 props 在 filter 更新前后保持稳定；Cell 只读取 ThemeContext。Profiler 的同一次合成跟踪显示：只修改 filter 时，App 重新渲染，theme 没变，但 120 个 Cell 都重新渲染，该次 commit 为 74ms；真正切换 theme 时这些 Cell 本来就应该更新。代码如下：\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  const [filter, setFilter] = useState('all');\n  const themeValue = { theme, setTheme };\n  return (\n    <ThemeContext.Provider value={themeValue}>\n      <Filter value={filter} onChange={setFilter} />\n      <Grid />\n    </ThemeContext.Provider>\n  );\n}\n\n不要声称已经优化，也不要给虚构收益。",
+          "hard_criteria": [
+            "把 filter 更新时重新创建 ThemeContext value 的对象身份与 120 个消费者重渲染、74ms commit 联系起来，并把它列为唯一发现",
+            "提出只在实际依赖变化时保持 value 身份稳定的最小方向；可接受按 theme 构造稳定 value、按读写用途拆分 context 或语义等价做法，不限定固定 API",
+            "明确保留 theme 与 setTheme 行为，真正的 theme 变化仍应通知相关消费者",
+            "建议用相同 filter 更新和 theme 切换复测消费者渲染数或 commit，并核对主题行为；不编造已获得的下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均满足四项标准，无实质质量差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**发现：`ThemeContext.Provider` 的值在每次 `App` 渲染时都会创建新对象。** 修改 `filter` 后，虽然 `theme` 未变，但 `themeValue` 引用改变，React 会通知所有 Context 消费者，因此 `memo` 无法阻止 120 个 `Cell` 重新渲染。这与 74ms 的 Profiler 记录吻合。\n\n最小改进方向：\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证方法：** 在相同数据和环境下重复同一 Profiler 合成跟踪，分别记录：\n\n- 只修改 `filter`：确认 `Cell` 不再因 ThemeContext 更新而重新渲染，并比较该次 commit 耗时。\n- 切换 `theme`：确认 120 个 `Cell` 仍全部更新且主题显示正确。\n\n以重新测得的数据判断效果，不预设具体收益。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "**发现：`ThemeContext.Provider` 的 `value` 每次 App 渲染都会创建新对象。**  \n修改 `filter` 时，即使 `theme` 未变，`themeValue` 的引用仍会变化；React 使用 `Object.is` 判断 Context 值，因此会通知全部 120 个 `Cell`。`memo` 无法阻止由 Context 更新触发的渲染。\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证方法：**用相同交互重新录制 Profiler：\n\n- 只修改 `filter`：确认 `App` 仍渲染，但 `Cell` 不再因 `ThemeContext` 更新而渲染。\n- 切换 `theme`：确认 120 个 `Cell` 仍全部正确更新。\n- 比较修改前后该 `filter` commit 的耗时，但在实际测量前不要预设收益。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R01-r3",
+          "case_id": "R01",
+          "repetition": 3,
+          "purpose": "按实测定位 Context value 身份导致的大范围重渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端页面没有启用 React Compiler。只给最值得处理的 1 项发现和验证方法。Grid 和 Cell 已用 memo 隔离，传给 Grid 的 props 在 filter 更新前后保持稳定；Cell 只读取 ThemeContext。Profiler 的同一次合成跟踪显示：只修改 filter 时，App 重新渲染，theme 没变，但 120 个 Cell 都重新渲染，该次 commit 为 74ms；真正切换 theme 时这些 Cell 本来就应该更新。代码如下：\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  const [filter, setFilter] = useState('all');\n  const themeValue = { theme, setTheme };\n  return (\n    <ThemeContext.Provider value={themeValue}>\n      <Filter value={filter} onChange={setFilter} />\n      <Grid />\n    </ThemeContext.Provider>\n  );\n}\n\n不要声称已经优化，也不要给虚构收益。",
+          "hard_criteria": [
+            "把 filter 更新时重新创建 ThemeContext value 的对象身份与 120 个消费者重渲染、74ms commit 联系起来，并把它列为唯一发现",
+            "提出只在实际依赖变化时保持 value 身份稳定的最小方向；可接受按 theme 构造稳定 value、按读写用途拆分 context 或语义等价做法，不限定固定 API",
+            "明确保留 theme 与 setTheme 行为，真正的 theme 变化仍应通知相关消费者",
+            "建议用相同 filter 更新和 theme 切换复测消费者渲染数或 commit，并核对主题行为；不编造已获得的下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均满足四项标准，无实质质量差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "**发现：`ThemeContext.Provider` 的 value 每次 `App` 渲染都会创建新对象。**\n\n修改 `filter` 时，虽然 `theme` 未变，但 `themeValue` 的引用变了；Context 使用 `Object.is` 比较 value，因此会通知全部 120 个 `Cell`，`memo` 无法阻止 Context 导致的重渲染。\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证方法：**用同一套 Profiler 合成跟踪分别执行：\n\n1. 只修改 `filter`：确认 `App` 更新，但 `Cell` 不再出现在该次渲染中，并记录 commit 时间作前后对比。\n2. 切换 `theme`：确认 120 个 `Cell` 仍全部更新，验证主题传播没有被破坏。\n\n实际收益应以重新测量结果为准；现有 74ms 数据不能直接当作修改后的收益。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**发现：`ThemeContext.Provider` 的 value 每次渲染都会创建新对象。**  \n修改 `filter` 会让 `App` 重渲染，`themeValue` 引用随之变化；Context 使用 `Object.is` 判断 value，因此即使 `theme` 未变，120 个 `Cell` 仍会绕过 `memo` 重新渲染。该路径已记录到 74ms commit。\n\n最小调整：\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证：**使用相同数据和 Profiler 操作序列重复记录：\n\n- 仅修改 `filter`：确认 120 个 `Cell` 不再重新渲染，并比较 commit 时长。\n- 切换 `theme`：确认所有 `Cell` 仍正常重新渲染且主题显示正确。\n\n实际收益需以复测结果为准。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r1",
+          "case_id": "R02",
+          "repetition": 1,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "baseline",
+          "review_notes": "B 的验证只说记录 tick，没有使用假计时器或等价可控时钟，未满足第4项的确定性要求。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖让 interval 的闭包永久捕获首次渲染的 `roomId` 和 `draft`，导致陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时只创建一次 interval：\n\n```jsx\nconst tick = useEffectEvent(() => send(roomId, draft));\n\nuseEffect(() => {\n  const timer = setInterval(tick, 1000);\n  return () => clearInterval(timer);\n}, []);\n```\n\n验证：使用假定时器依次更新草稿、切换房间并触发 tick，断言发送最新 `roomId`/`draft`，卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 回调闭包永久捕获挂载时的 `roomId` 和 `draft`，以减少重建为代价破坏了正确性。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 interval 只在挂载时创建并在卸载时清理：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：建议记录每次 tick 的参数并覆盖输入、切换房间和卸载场景，确认发送的始终是当时最新的 `roomId` 与 `draft`，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r2",
+          "case_id": "R02",
+          "repetition": 2,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "Effect Event 与持续更新 ref 都是可接受的等价机制，两者验证完整。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 闭包永久捕获挂载时的 `roomId` 和 `draft`，导致切换房间或更新草稿后仍发送旧值。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 封装每次 tick 的发送逻辑，让 interval 只创建一次，同时读取最新的 `roomId` 和 `draft`；保留 Effect 清理以在卸载时停止 timer。\n\n验证：建议用假计时器覆盖草稿更新、房间切换和卸载，确认每次 tick 发送当时的最新值，且卸载后不再调用 `send`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖让 interval 回调形成陈旧闭包，永久捕获首次渲染的 `roomId` 和 `draft`；清理虽能在卸载时停止 timer，却无法更新回调数据。\n\n修复方向：用两个 `ref` 分别保存当前 `roomId` 和最新 `draft`，每次渲染同步更新 `.current`；Effect 仍只创建一次 interval，tick 时读取 ref，并在清理函数中 `clearInterval`。\n\n验证：用 fake timers 模拟编辑、切换房间和卸载，断言每个 tick 都以当时最新的 `roomId`/`draft` 调用 `send`，且卸载后不再调用。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r3",
+          "case_id": "R02",
+          "repetition": 3,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": "B",
+          "preferred_arm": "baseline",
+          "review_notes": "A 覆盖值变化和卸载，但没有提出假计时器或等价可控时钟；B 明确给出确定性计时验证。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 闭包永久捕获挂载时的 `roomId` 和 `draft`，导致发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 封装 `send(roomId, draft)`，Effect 仅创建一次 interval 并在清理函数中取消；每个 tick 调用 Effect Event 读取最新值。\n\n验证：建议连续输入并切换房间，确认每个 tick 发送当前房间的最新草稿，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖使 interval 回调形成陈旧闭包，永久捕获首次渲染的 `roomId` 和 `draft`。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 interval 仅创建一次：\n\n```jsx\nconst onTick = useEffectEvent(() => send(roomId, draft));\n\nuseEffect(() => {\n  const timer = setInterval(onTick, 1000);\n  return () => clearInterval(timer);\n}, []);\n```\n\n验证：用假定时器在重渲染并切换房间、更新草稿后触发 tick，断言只发送最新值，并在卸载后推进时间确认不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R03-r1",
+          "case_id": "R03",
+          "repetition": 1,
+          "purpose": "区分受控输入的紧急状态与可延后的昂贵结果渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端搜索页的 ResultPanel 渲染一次约 95ms，结果内容必须对应最新输入。当前写法让输入值立即更新，只把结果查询条件标成非紧急更新：\n\nconst [query, setQuery] = useState('');\nconst [resultsQuery, setResultsQuery] = useState('');\nconst [isPending, startTransition] = useTransition();\nfunction handleChange(e) {\n  const next = e.target.value;\n  setQuery(next);\n  startTransition(() => setResultsQuery(next));\n}\nreturn <>\n  <input value={query} onChange={handleChange} />\n  <ResultPanel query={resultsQuery} />\n</>;\n\n同事建议把 setQuery 也移进 startTransition，并声称这样会把 95ms 计算降下来。请判断这项建议，最多 2 段，并给验证思路。不要声称已经测过修改后结果。",
+          "hard_criteria": [
+            "拒绝把控制 input value 的 setQuery 一并移入 transition，说明受控输入的直接状态应保持紧急更新",
+            "允许保留当前把结果面板更新标成非紧急的边界，并明确 transition 改变调度或响应方式，不会让一次完整 ResultPanel 计算自动变便宜；可以说明过时渲染可能被中断或放弃",
+            "保持最终 ResultPanel 对应最新 query，并在提到 pending 或中间旧结果时不把它误写成最终结果可以陈旧",
+            "验证建议覆盖快速连续输入时输入框即时性、最终结果正确性以及同口径的响应或 commit 指标；不编造下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都保留紧急输入更新，正确区分调度与单次计算成本，并验证最终结果。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "不建议。受控 `<input>` 的 `query` 必须同步更新；把 `setQuery` 放进 `startTransition` 会造成输入显示滞后，React 也不支持用 Transition 控制文本输入。Transition 只改变更新的优先级，使昂贵的 `ResultPanel` 渲染可被新输入中断，并不会自动把其约 95ms 的计算量“降下来”。当前双状态方案能保持输入即时响应，并让过期结果渲染被后续更新取代；也可考虑同步更新 `query`，再以 `useDeferredValue(query)` 驱动结果面板。\n\n验证时用 React DevTools Profiler 分别记录原方案、同事方案及 `useDeferredValue` 方案：连续快速输入并比较按键到输入框显示的延迟、`ResultPanel` 每次提交耗时、被中断的渲染及最终提交次数。同时在查询响应乱序或快速连输场景下断言面板最终只显示最新输入对应的结果；若查询含异步请求，还需用取消请求或请求序号避免旧响应覆盖新响应。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "不建议。受控输入的 `setQuery` 应保持紧急同步更新；把它移进 `startTransition` 可能导致输入无法及时反映键入，且 Transition 只改变更新优先级、允许中断过时渲染，并不会把 `ResultPanel` 的约 95ms 计算本身降下来。当前拆分方式合理：输入立即更新，昂贵结果渲染可被后续输入中断并最终对应最新的 `resultsQuery`。若其中还有异步请求，则需额外用取消或请求序号防止旧响应覆盖新结果。\n\n建议在相同设备、构建模式和输入序列下，用 React Profiler 对比当前实现与候选实现，记录输入响应延迟、`ResultPanel` 每次提交/渲染耗时、过时渲染是否被中断及提交次数；同时快速连续输入并断言最终面板严格对应最后一个查询。若目标是降低那 95ms，应另行分析 `ResultPanel` 内的实际计算，而不是依赖 Transition 降低计算量。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R03-r2",
+          "case_id": "R03",
+          "repetition": 2,
+          "purpose": "区分受控输入的紧急状态与可延后的昂贵结果渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端搜索页的 ResultPanel 渲染一次约 95ms，结果内容必须对应最新输入。当前写法让输入值立即更新，只把结果查询条件标成非紧急更新：\n\nconst [query, setQuery] = useState('');\nconst [resultsQuery, setResultsQuery] = useState('');\nconst [isPending, startTransition] = useTransition();\nfunction handleChange(e) {\n  const next = e.target.value;\n  setQuery(next);\n  startTransition(() => setResultsQuery(next));\n}\nreturn <>\n  <input value={query} onChange={handleChange} />\n  <ResultPanel query={resultsQuery} />\n</>;\n\n同事建议把 setQuery 也移进 startTransition，并声称这样会把 95ms 计算降下来。请判断这项建议，最多 2 段，并给验证思路。不要声称已经测过修改后结果。",
+          "hard_criteria": [
+            "拒绝把控制 input value 的 setQuery 一并移入 transition，说明受控输入的直接状态应保持紧急更新",
+            "允许保留当前把结果面板更新标成非紧急的边界，并明确 transition 改变调度或响应方式，不会让一次完整 ResultPanel 计算自动变便宜；可以说明过时渲染可能被中断或放弃",
+            "保持最终 ResultPanel 对应最新 query，并在提到 pending 或中间旧结果时不把它误写成最终结果可以陈旧",
+            "验证建议覆盖快速连续输入时输入框即时性、最终结果正确性以及同口径的响应或 commit 指标；不编造下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均满足四项标准；A 对过渡中旧结果的处理是条件化补充，不构成错误。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "不建议。受控输入的 `setQuery` 必须同步更新，不能依赖 Transition；移进去可能造成输入回显滞后，也不会减少 `ResultPanel` 的约 95ms 渲染计算。Transition 只降低更新优先级，使慢渲染可被新输入中断；当前拆分方向合理。若结果在过渡期间也绝不能显示旧查询内容，应在 `query !== resultsQuery` 或 `isPending` 时隐藏/标记旧结果，最终仅展示最新输入对应的结果。\n\n建议用 React Profiler 对同一输入序列比较两种写法，关注输入事件到输入框提交的延迟、`ResultPanel` 每次提交的 actual duration、被中断/重复的渲染次数及总耗时；同时记录每次可见结果对应的 query，确认旧结果不会在最新输入后错误展示或最终提交。不要预期仅移动 `setQuery` 会降低那 95ms；若目标是减少计算，还需另行定位 `ResultPanel` 内的昂贵工作。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "不建议。受控输入的 `setQuery` 应保持同步，不能用 Transition 控制；移入 `startTransition` 可能造成输入回退或明显卡顿。Transition 也不会把 `ResultPanel` 的约 95ms 计算本身“降下来”，只是把结果更新标为可中断的非紧急工作。当前拆分状态的方向正确：输入立即响应，旧的结果渲染可被新输入打断，最终提交应对应最新的 `resultsQuery`。若要真正降低耗时，需要优化、缓存或拆分 `ResultPanel` 的计算。\n\n验证时用生产构建和 React Profiler，对比快速连续输入下的输入响应、被中断/提交的 ResultPanel 渲染及单次计算耗时；同时记录每次提交时输入值与面板 query，确认停止输入后面板只提交最新条件。重点区分“交互更流畅”与“95ms 计算量减少”，不要仅看 `isPending`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R03-r3",
+          "case_id": "R03",
+          "repetition": 3,
+          "purpose": "区分受控输入的紧急状态与可延后的昂贵结果渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端搜索页的 ResultPanel 渲染一次约 95ms，结果内容必须对应最新输入。当前写法让输入值立即更新，只把结果查询条件标成非紧急更新：\n\nconst [query, setQuery] = useState('');\nconst [resultsQuery, setResultsQuery] = useState('');\nconst [isPending, startTransition] = useTransition();\nfunction handleChange(e) {\n  const next = e.target.value;\n  setQuery(next);\n  startTransition(() => setResultsQuery(next));\n}\nreturn <>\n  <input value={query} onChange={handleChange} />\n  <ResultPanel query={resultsQuery} />\n</>;\n\n同事建议把 setQuery 也移进 startTransition，并声称这样会把 95ms 计算降下来。请判断这项建议，最多 2 段，并给验证思路。不要声称已经测过修改后结果。",
+          "hard_criteria": [
+            "拒绝把控制 input value 的 setQuery 一并移入 transition，说明受控输入的直接状态应保持紧急更新",
+            "允许保留当前把结果面板更新标成非紧急的边界，并明确 transition 改变调度或响应方式，不会让一次完整 ResultPanel 计算自动变便宜；可以说明过时渲染可能被中断或放弃",
+            "保持最终 ResultPanel 对应最新 query，并在提到 pending 或中间旧结果时不把它误写成最终结果可以陈旧",
+            "验证建议覆盖快速连续输入时输入框即时性、最终结果正确性以及同口径的响应或 commit 指标；不编造下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均正确说明 transition 的边界和复测指标。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "不建议。受控输入的 `setQuery` 必须同步更新，不能用 Transition；移进去可能造成输入显示滞后，也不会自动减少 `ResultPanel` 的 95ms 计算量。现有“双状态”方案更合适：输入立即更新，结果渲染可被更新的输入打断，最终提交最新的 `resultsQuery`。Transition 改变的是调度优先级，不是单次计算成本；若结果涉及异步请求，还应通过取消请求或序号校验防止旧响应覆盖新结果。\n\n验证时可在生产构建中用 React Profiler 对比快速连续输入：检查输入框是否逐键即时更新、过期的 `ResultPanel` 渲染是否未提交、最终结果是否对应最后一次输入，并分别记录 commit 时长与交互延迟。若目标是降低 95ms 本身，需要进一步定位 `ResultPanel` 热点，考虑 memo、减少渲染数据量、虚拟化或优化计算。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "不建议把 `setQuery` 移进 `startTransition`。受控输入的更新必须保持紧急，否则输入框可能滞后；而 transition 只会降低 `ResultPanel` 更新的优先级、允许其被更新的输入中断，并不会自动减少约 95ms 的计算量。当前拆分方向正确；若要降低实际耗时，应针对 `ResultPanel` 的计算、渲染数量或缓存策略优化。若其中包含异步请求，还需防止旧请求覆盖最新结果。\n\n建议在相同输入序列和数据量下用 React Profiler/浏览器性能面板对比：记录输入响应延迟、`ResultPanel` 每次提交的渲染耗时及提交次数，并确认快速连续输入后最终结果始终对应最新值。预期验证的是交互调度是否更流畅，而不是预设 95ms 已下降。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R04-r1",
+          "case_id": "R04",
+          "repetition": 1,
+          "purpose": "区分 debounce 减少启动次数与迟到响应竞态",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端搜索 Effect。250ms debounce 已减少快速输入时启动的请求，但一旦请求发出就不会取消；合成测试中 search('a') 比后发的 search('ab') 更晚返回，旧结果最终覆盖了新结果。最新查询的 loading、error 和 items 必须保持一致。最多给 2 项修复要点和一个确定性验证方法。\n\nuseEffect(() => {\n  if (!query) {\n    setItems([]);\n    return;\n  }\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    try {\n      setItems(await search(query));\n      setError(null);\n    } catch (error) {\n      setError(error);\n    } finally {\n      setLoading(false);\n    }\n  }, 250);\n  return () => clearTimeout(timer);\n}, [query]);\n\n不要声称已经运行测试。",
+          "hard_criteria": [
+            "区分 debounce 对尚未启动请求的作用与已启动请求的迟到竞态，明确当前清 timer 不能阻止旧响应覆盖新状态",
+            "提出让旧请求不能提交状态的方案；可接受 AbortController 配合 search、查询或代次身份检查，或语义等价取消与提交门禁",
+            "方案同时约束 items、error 和 loading 属于最新查询，并正确处理清理或取消；不能只保护 items 而允许旧 finally 清掉新请求的 loading",
+            "用可控 Promise 或等价方法让 a 晚于 ab 返回，验证最终三类状态都属于 ab，且不把取消当普通失败展示"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都区分定时器与已启动请求，并用提交门禁保护全部状态。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "1. 为每次 Effect 设置失效标记，并在 `search` 支持 `signal` 时同时使用 `AbortController`。所有状态写入（包括 `finally` 中的 `setLoading(false)`）都必须先确认本次 Effect 仍是最新查询：\n\n```jsx\nuseEffect(() => {\n  let active = true;\n  const controller = new AbortController();\n\n  if (!query) {\n    setItems([]);\n    setError(null);\n    setLoading(false);\n    return () => {\n      active = false;\n      controller.abort();\n    };\n  }\n\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    setError(null);\n\n    try {\n      const result = await search(query, { signal: controller.signal });\n      if (active) setItems(result);\n    } catch (error) {\n      if (active && error?.name !== 'AbortError') {\n        setError(error);\n      }\n    } finally {\n      if (active) setLoading(false);\n    }\n  }, 250);\n\n  return () => {\n    active = false;\n    clearTimeout(timer);\n    controller.abort();\n  };\n}, [query]);\n```\n\n2. 不要只依赖取消：请求可能不支持 `AbortSignal`，或在取消前已经完成。`active`/递增请求序号才是防止旧请求更新 `items`、`error` 和 `loading` 的正确性屏障；空查询也应统一清空这三项状态。\n\n确定性验证：使用假计时器和两个手动控制的 deferred Promise；输入 `a`，推进 250ms 使其请求启动，再输入 `ab` 并推进 250ms。先 resolve `ab`，再 resolve 或 reject `a`，最后断言 `items` 始终是 `ab` 的结果、`error` 不受 `a` 影响且 `loading === false`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "1. 在每次 Effect 中同时使用 `AbortController` 和实例有效标记；清理时取消定时器、终止请求，并禁止旧请求更新任何状态。即使 `search` 不支持真正取消，有效标记仍能保证正确性。\n\n```jsx\nuseEffect(() => {\n  let active = true;\n  const controller = new AbortController();\n\n  // 新查询立即接管整组状态\n  setLoading(false);\n  setError(null);\n\n  if (!query) {\n    setItems([]);\n    return () => {\n      active = false;\n      controller.abort();\n    };\n  }\n\n  const timer = setTimeout(async () => {\n    if (!active) return;\n    setLoading(true);\n\n    try {\n      const nextItems = await search(query, {\n        signal: controller.signal,\n      });\n      if (active) setItems(nextItems);\n    } catch (error) {\n      if (active && error?.name !== \"AbortError\") {\n        setError(error);\n      }\n    } finally {\n      if (active) setLoading(false);\n    }\n  }, 250);\n\n  return () => {\n    active = false;\n    clearTimeout(timer);\n    controller.abort();\n  };\n}, [query]);\n```\n\n2. `active` 检查必须覆盖 `items`、`error` 和 `loading` 的所有异步写入，尤其是 `catch` 和 `finally`；否则旧请求仍可能清除新请求的错误或过早关闭其 loading。\n\n确定性验证：使用可手动 resolve/reject 的 deferred Promise 模拟 `search`。依次输入 `a`、等待其请求启动，再输入 `ab` 并等待其请求启动；先完成 `ab`，后完成或拒绝 `a`。断言最终 `items` 仅为 `ab` 的结果、`error` 不受 `a` 影响、`loading` 在 `ab` 完成后为 `false`。无需依赖真实网络或随机延迟。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R04-r2",
+          "case_id": "R04",
+          "repetition": 2,
+          "purpose": "区分 debounce 减少启动次数与迟到响应竞态",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端搜索 Effect。250ms debounce 已减少快速输入时启动的请求，但一旦请求发出就不会取消；合成测试中 search('a') 比后发的 search('ab') 更晚返回，旧结果最终覆盖了新结果。最新查询的 loading、error 和 items 必须保持一致。最多给 2 项修复要点和一个确定性验证方法。\n\nuseEffect(() => {\n  if (!query) {\n    setItems([]);\n    return;\n  }\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    try {\n      setItems(await search(query));\n      setError(null);\n    } catch (error) {\n      setError(error);\n    } finally {\n      setLoading(false);\n    }\n  }, 250);\n  return () => clearTimeout(timer);\n}, [query]);\n\n不要声称已经运行测试。",
+          "hard_criteria": [
+            "区分 debounce 对尚未启动请求的作用与已启动请求的迟到竞态，明确当前清 timer 不能阻止旧响应覆盖新状态",
+            "提出让旧请求不能提交状态的方案；可接受 AbortController 配合 search、查询或代次身份检查，或语义等价取消与提交门禁",
+            "方案同时约束 items、error 和 loading 属于最新查询，并正确处理清理或取消；不能只保护 items 而允许旧 finally 清掉新请求的 loading",
+            "用可控 Promise 或等价方法让 a 晚于 ab 返回，验证最终三类状态都属于 ab，且不把取消当普通失败展示"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均覆盖取消、请求代次、三类状态和确定性乱序验证。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "1. 在 Effect 清理中同时 `clearTimeout` 和 `AbortController.abort()`，并把 `signal` 传给 `search`，减少已过期请求的无用工作；`AbortError` 不应显示为搜索错误。\n\n2. 取消不能单独保证正确性：用递增请求 ID 或 `active` 标记，仅允许最新查询写入 `items`、`error`、`loading`。新查询开始时清空旧错误；空查询应明确设置 `items=[]`、`error=null`、`loading=false`。例如所有异步写入均包在 `if (requestId === latestId.current)` 中，包括 `finally` 的 `setLoading(false)`。\n\n确定性验证：使用 fake timers 和两个手动控制的 Promise，依次输入 `a`、推进 250ms、输入 `ab`、再推进 250ms；先让 `ab` 成功返回，后让 `a` 成功或失败。每次结算后都断言界面保持 `ab` 的 items、对应的 error 状态及 `loading=false`，旧请求不能改变其中任何一项。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- 在 Effect 中创建 `AbortController`，清理时同时 `clearTimeout(timer)` 和 `controller.abort()`；让 `search(query, { signal })` 支持取消，并忽略 `AbortError`。\n- 再用递增的请求版本号兜底：只有版本仍为最新的请求才能更新 `items`、`error`、`loading`。空查询也要递增版本并统一设置 `items=[]`、`error=null`、`loading=false`，避免旧请求的 `finally` 干扰当前状态。\n\n确定性验证：使用两个手动控制的 Promise，依次触发 `query=\"a\"` 和 `\"ab\"`，先 resolve `\"ab\"`、再 resolve `\"a\"`；最终断言界面只显示 `\"ab\"` 的结果，`error === null` 且 `loading === false`。同时覆盖旧请求晚 reject 的情况，确认它也不能改写最新状态。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R04-r3",
+          "case_id": "R04",
+          "repetition": 3,
+          "purpose": "区分 debounce 减少启动次数与迟到响应竞态",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端搜索 Effect。250ms debounce 已减少快速输入时启动的请求，但一旦请求发出就不会取消；合成测试中 search('a') 比后发的 search('ab') 更晚返回，旧结果最终覆盖了新结果。最新查询的 loading、error 和 items 必须保持一致。最多给 2 项修复要点和一个确定性验证方法。\n\nuseEffect(() => {\n  if (!query) {\n    setItems([]);\n    return;\n  }\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    try {\n      setItems(await search(query));\n      setError(null);\n    } catch (error) {\n      setError(error);\n    } finally {\n      setLoading(false);\n    }\n  }, 250);\n  return () => clearTimeout(timer);\n}, [query]);\n\n不要声称已经运行测试。",
+          "hard_criteria": [
+            "区分 debounce 对尚未启动请求的作用与已启动请求的迟到竞态，明确当前清 timer 不能阻止旧响应覆盖新状态",
+            "提出让旧请求不能提交状态的方案；可接受 AbortController 配合 search、查询或代次身份检查，或语义等价取消与提交门禁",
+            "方案同时约束 items、error 和 loading 属于最新查询，并正确处理清理或取消；不能只保护 items 而允许旧 finally 清掉新请求的 loading",
+            "用可控 Promise 或等价方法让 a 晚于 ab 返回，验证最终三类状态都属于 ab，且不把取消当普通失败展示"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "递增版本和 Effect 内失效标记都是正确的等价提交门禁。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "1. 为每次 Effect 分配递增的请求版本；只有版本仍为最新时，才允许同时更新 `items`、`error` 和 `loading`。清理函数除取消 debounce 外还应使旧版本失效，避免旧请求的 `catch`/`finally` 覆盖新状态。\n\n2. 若 `search` 支持 `AbortSignal`，为每次请求创建 `AbortController` 并在清理时调用 `abort()`；即使使用取消，仍保留版本检查，因为底层请求可能无法取消或恰好已完成。空查询时同步重置 `items`、`error` 和 `loading`。\n\n```jsx\nconst requestVersion = useRef(0);\n\nuseEffect(() => {\n  const version = ++requestVersion.current;\n  const controller = new AbortController();\n\n  setError(null);\n  setLoading(false);\n\n  if (!query) {\n    setItems([]);\n    return () => controller.abort();\n  }\n\n  const timer = setTimeout(async () => {\n    if (version !== requestVersion.current) return;\n    setLoading(true);\n\n    try {\n      const nextItems = await search(query, { signal: controller.signal });\n      if (version === requestVersion.current) {\n        setItems(nextItems);\n        setError(null);\n      }\n    } catch (error) {\n      if (version === requestVersion.current && error.name !== \"AbortError\") {\n        setError(error);\n      }\n    } finally {\n      if (version === requestVersion.current) {\n        setLoading(false);\n      }\n    }\n  }, 250);\n\n  return () => {\n    clearTimeout(timer);\n    controller.abort();\n  };\n}, [query]);\n```\n\n确定性验证：用可手动解析的 Promise 模拟 `search`，依次输入 `a`、等待其请求启动，再输入 `ab` 并等待其请求启动；先解析 `ab`，后解析或拒绝 `a`。断言最终 `items` 只来自 `ab`、`error` 不受 `a` 影响且 `loading === false`；在 `ab` 尚未结束时解析 `a`，还应断言 `loading` 仍表示 `ab` 的状态。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "1. 每次 Effect 创建 `AbortController`，清理时同时 `clearTimeout(timer)` 和 `controller.abort()`，并将 `signal` 传给 `search`。查询为空时同步重置 `items`、`loading` 和 `error`。\n\n2. 仅取消还不够：用递增请求 ID 或 Effect 内的 `ignore` 标记保护所有状态更新，包括 `items`、`error` 和 `loading`；旧请求的 `catch/finally` 也不得修改当前查询状态。\n\n```jsx\nuseEffect(() => {\n  const controller = new AbortController();\n  let ignore = false;\n\n  if (!query) {\n    setItems([]);\n    setError(null);\n    setLoading(false);\n    return () => controller.abort();\n  }\n\n  setLoading(true);\n\n  const timer = setTimeout(async () => {\n    try {\n      const nextItems = await search(query, { signal: controller.signal });\n      if (!ignore) {\n        setItems(nextItems);\n        setError(null);\n      }\n    } catch (error) {\n      if (!ignore && error.name !== 'AbortError') setError(error);\n    } finally {\n      if (!ignore) setLoading(false);\n    }\n  }, 250);\n\n  return () => {\n    ignore = true;\n    clearTimeout(timer);\n    controller.abort();\n  };\n}, [query]);\n```\n\n确定性验证：使用可手动 resolve/reject 的 Promise 模拟 `search`；推进假计时器依次启动 `a`、`ab`，先 resolve `ab`、再 resolve 或 reject `a`，断言最终 `items/error/loading` 始终只对应 `ab`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R05-r1",
+          "case_id": "R05",
+          "repetition": 1,
+          "purpose": "识别 useSyncExternalStore 不稳定 snapshot 身份",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端组件出现“getSnapshot 的结果应缓存”的警告；store.count 没变化时，父组件一次无关重渲染也会得到新的对象。只指出 1 个机制问题、最小方向和验证方法：\n\nfunction Counter({ store }) {\n  const snapshot = useSyncExternalStore(\n    store.subscribe,\n    () => ({ count: store.count })\n  );\n  return <span>{snapshot.count}</span>;\n}\n\nstore.subscribe 的订阅行为必须保留，count 改变时仍要更新。不要假定框架、服务端渲染或 Compiler。",
+          "hard_criteria": [
+            "指出 getSnapshot 每次创建新对象会在底层 count 未变化时仍产生不同身份，破坏 useSyncExternalStore 对稳定快照的要求",
+            "最小方向是让底层状态未变时返回 Object.is 等价的同一快照；可接受直接返回 primitive count 并同步改为直接消费该 primitive，或在 store 层缓存不可变对象快照，或语义等价方案",
+            "保留 subscribe，且 count 真正变化时仍产生新快照并更新 UI；不能靠停止订阅或固定永不变化的对象解决",
+            "验证同一 store 状态下连续 getSnapshot 的身份稳定、一次 count 变化触发预期更新且无循环警告；不编造耗时收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都同步修改返回形状与消费方式，并保留订阅更新。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；`useSyncExternalStore` 用 `Object.is` 比较快照，因此即使 `count` 未变也会被判定为新快照并警告。\n- **最小修改**：直接返回稳定的原始值，订阅逻辑保持不变：\n\n```jsx\nfunction Counter({ store }) {\n  const count = useSyncExternalStore(\n    store.subscribe,\n    () => store.count\n  );\n  return <span>{count}</span>;\n}\n```\n\n- **验证**：让父组件在 `store.count` 不变时重渲染，确认无警告且 `Counter` 不因快照变化重复更新；随后修改 `store.count` 并触发 store 通知，确认文本正常更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "问题：`getSnapshot` 每次都创建新对象，导致 `Object.is` 比较始终不同，React 无法判定快照稳定并产生缓存警告。\n\n最小修改：直接返回稳定的原始值，同时保留订阅：\n\n```jsx\nfunction Counter({ store }) {\n  const count = useSyncExternalStore(\n    store.subscribe,\n    () => store.count\n  );\n  return <span>{count}</span>;\n}\n```\n\n验证：在 `store.count` 不变时触发父组件重渲染，确认警告消失；随后修改 `count` 并通过原有订阅机制通知，确认界面仍更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R05-r2",
+          "case_id": "R05",
+          "repetition": 2,
+          "purpose": "识别 useSyncExternalStore 不稳定 snapshot 身份",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端组件出现“getSnapshot 的结果应缓存”的警告；store.count 没变化时，父组件一次无关重渲染也会得到新的对象。只指出 1 个机制问题、最小方向和验证方法：\n\nfunction Counter({ store }) {\n  const snapshot = useSyncExternalStore(\n    store.subscribe,\n    () => ({ count: store.count })\n  );\n  return <span>{snapshot.count}</span>;\n}\n\nstore.subscribe 的订阅行为必须保留，count 改变时仍要更新。不要假定框架、服务端渲染或 Compiler。",
+          "hard_criteria": [
+            "指出 getSnapshot 每次创建新对象会在底层 count 未变化时仍产生不同身份，破坏 useSyncExternalStore 对稳定快照的要求",
+            "最小方向是让底层状态未变时返回 Object.is 等价的同一快照；可接受直接返回 primitive count 并同步改为直接消费该 primitive，或在 store 层缓存不可变对象快照，或语义等价方案",
+            "保留 subscribe，且 count 真正变化时仍产生新快照并更新 UI；不能靠停止订阅或固定永不变化的对象解决",
+            "验证同一 store 状态下连续 getSnapshot 的身份稳定、一次 count 变化触发预期更新且无循环警告；不编造耗时收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均满足稳定快照、订阅和更新验证要求。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；即使 `store.count` 未变，`Object.is` 比较仍不同，导致 React 认为快照持续变化并发出缓存警告。\n- **最小方向**：直接返回稳定的原始值，同时保留订阅：\n\n```jsx\nfunction Counter({ store }) {\n  const count = useSyncExternalStore(\n    store.subscribe,\n    () => store.count\n  );\n  return <span>{count}</span>;\n}\n```\n\n- **验证**：让父组件在 `count` 不变时重渲染，确认警告消失且计数显示不变；随后修改 `count` 并触发原有订阅通知，确认组件仍更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；即使 `store.count` 未变，React 用 `Object.is` 比较时仍判定快照改变，因而警告并可能反复渲染。\n- **最小修正**：直接返回稳定的原始值：`() => store.count`，渲染 `{count}`。保留 `store.subscribe`；`count` 改变并触发订阅通知后仍会更新。\n- **验证**：父组件无关重渲染时值相同且不再警告；修改 `store.count` 并通知订阅者时，页面数字随之更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R05-r3",
+          "case_id": "R05",
+          "repetition": 3,
+          "purpose": "识别 useSyncExternalStore 不稳定 snapshot 身份",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端组件出现“getSnapshot 的结果应缓存”的警告；store.count 没变化时，父组件一次无关重渲染也会得到新的对象。只指出 1 个机制问题、最小方向和验证方法：\n\nfunction Counter({ store }) {\n  const snapshot = useSyncExternalStore(\n    store.subscribe,\n    () => ({ count: store.count })\n  );\n  return <span>{snapshot.count}</span>;\n}\n\nstore.subscribe 的订阅行为必须保留，count 改变时仍要更新。不要假定框架、服务端渲染或 Compiler。",
+          "hard_criteria": [
+            "指出 getSnapshot 每次创建新对象会在底层 count 未变化时仍产生不同身份，破坏 useSyncExternalStore 对稳定快照的要求",
+            "最小方向是让底层状态未变时返回 Object.is 等价的同一快照；可接受直接返回 primitive count 并同步改为直接消费该 primitive，或在 store 层缓存不可变对象快照，或语义等价方案",
+            "保留 subscribe，且 count 真正变化时仍产生新快照并更新 UI；不能靠停止订阅或固定永不变化的对象解决",
+            "验证同一 store 状态下连续 getSnapshot 的身份稳定、一次 count 变化触发预期更新且无循环警告；不编造耗时收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "缓存不可变对象与直接返回 primitive 都是正确等价方案。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "- **机制问题**：`getSnapshot` 每次都创建 `{ count }`，即使 `store.count` 未变，`Object.is` 比较仍判定为新快照，可能触发警告及重复渲染。\n- **最小方向**：保留 `store.subscribe`，缓存快照；仅当 `store.count` 改变时创建新对象，未变时返回同一对象引用。\n- **验证方法**：让父组件无关重渲染，确认 `count` 未变时快照引用稳定且警告消失；再修改 `count` 并触发订阅通知，确认组件仍更新为新值。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；即使 `store.count` 未变，React 用 `Object.is` 比较时仍认为快照变化，可能造成重复渲染及该警告。\n- **最小修改**：直接返回稳定的原始值，订阅逻辑保持不变：\n\n```jsx\nfunction Counter({ store }) {\n  const count = useSyncExternalStore(\n    store.subscribe,\n    () => store.count\n  );\n  return <span>{count}</span>;\n}\n```\n\n- **验证**：触发父组件无关重渲染时，确认 `Counter` 不因快照引用变化而持续重渲染、警告消失；随后修改 `store.count` 并触发原有订阅通知，确认显示仍会更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r1",
+          "case_id": "R06",
+          "repetition": 1,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都处理选中、滚动和集合语义，但未明确目标行挂载后的焦点或有效 aria-activedescendant，也未验证焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：表格行虚拟化。** 仅渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。虚拟化层应以稳定行 ID 作为 `key`，按完整数据集维护选中索引；上下键移动后将目标行滚入视口。无障碍语义需保留完整集合信息，例如表格设置 `aria-rowcount=\"10000\"`，每个已渲染行设置基于完整集合的 `aria-rowindex`。\n\n**验证：** 使用相同数据、设备和滚动脚本重新采样，比较首次渲染创建的 `Row` 数量、React Profiler 提交耗时及滚动帧耗时 p95（基线 48ms）；同时验证上下键可连续跨越视窗、选中行会滚动到可见位置、滚动前后行 ID 与选择状态稳定，并用读屏确认行位置和总数播报正确。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "优先做：**行虚拟化（窗口化渲染）**。只挂载可视区域及少量 overscan 的 `Row`，选中项用稳定的数据 ID 保存；上下键可更新到未挂载行，随后按索引滚动使其进入窗口。表格声明完整总数，每个已挂载行声明其在完整集合中的一基位置（如 `aria-rowcount=\"10000\"`、`aria-rowindex`），避免把 DOM 数量误报为总数。\n\n验证方法：用同一数据、视口和滚动脚本重新采集 React Profiler/浏览器 Performance，对比：\n\n- 首次渲染创建的 `Row` 是否从 10,000 降至“可见行 + overscan”；\n- 滚动帧耗时 p95 是否显著低于当前 48ms；\n- 键盘连续越过窗口边界时，选中行是否自动进入视口且身份不跳变；\n- 用目标读屏确认能读出正确的“第 N 行，共 10,000 行”。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r2",
+          "case_id": "R06",
+          "repetition": 2,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者未说明跨窗口后如何把 DOM 焦点落到已挂载目标，验证也没有单独覆盖焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最值得先做：**表格行虚拟化（窗口化渲染）**。只挂载可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。选中状态应存放在列表外并使用稳定的行 ID；上下键可更新任意索引并驱动列表滚到该行。无障碍层保留完整集合语义，例如表格声明 `aria-rowcount=\"10000\"`，每个已渲染行声明其真实 `aria-rowindex`。\n\n验证方法：在相同数据、设备和滚动脚本下前后对比 React Profiler 与浏览器 Performance 录制，确认：\n\n- 首次提交创建的 `Row` 和常驻 DOM 行数降至“可视行数 + 缓冲量”，而非 10,000。\n- 滚动帧耗时 p95 相比当前 48ms 明显下降。\n- 自动化覆盖从可视区边缘连续按上下键：选中项身份不变、目标行被滚入视口，读屏属性报告的行位置及总数仍正确。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：表格行虚拟化。** 只渲染可视区域及少量 overscan 行，避免首次创建全部 10,000 个 `Row`。选择状态按稳定行 ID 保存，而非 DOM 节点或可视索引；上下键仍按完整数据集移动，随后按目标索引滚动到可见区域。为读屏保留完整集合语义，例如表格设置总行数，每个已渲染行提供其在全集中的 1-based 位置。\n\n**验证：** 在相同数据、设备和滚动脚本下重新采集 Profiler，确认首次渲染的 `Row` 数量降至“可视行 + overscan”，并比较滚动帧耗时 p95 与当前 48ms。另做正确性回归：连续按上下键跨越视口、目标行自动滚入视野、滚动前后同一数据保持稳定身份，以及读屏正确播报目标行的位置和总数 10,000。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r3",
+          "case_id": "R06",
+          "repetition": 3,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "滚动并渲染目标行不等于明确恢复焦点；两者也没有验证焦点或有效活动后代关系。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "优先做**行虚拟化（窗口化）**：只渲染可视行及少量 overscan，选中状态按稳定的行 ID 独立保存。上下键可先更新目标索引，再滚动到该索引并渲染对应行；表格标注完整总行数，每个已渲染行提供其在全集中的位置（如 `aria-rowcount=\"10000\"`、正确的 `aria-rowindex`），并以稳定 ID 作为 `key`。\n\n验证时使用同一数据、视口和滚动脚本对比改动前后：\n\n- React Profiler：首次提交创建的 `Row` 应从 10,000 降至“可视行 + overscan”。\n- 浏览器 Performance：重复采样滚动帧耗时，确认 p95 从 48ms 明显下降且无长任务回归。\n- 功能与无障碍检查：连续按上下键跨越窗口边界，确认选中行自动进入视口、行身份不漂移；用读屏核对其播报的行位置与总数。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "优先方向：对表格做行虚拟化，只渲染可视窗口及少量 overscan，避免首次创建全部 10,000 个 `Row`。选中状态应按稳定的行 ID 保存而非 DOM 实例或可视索引；上下键仍按完整数据集移动选中项，并在目标项越过窗口时滚动至可见。容器标注完整的 `aria-rowcount=\"10000\"`，每个已渲染行按其在全集中的位置设置 `aria-rowindex`。\n\n验证：在相同数据、设备和上下键跨窗口操作序列下重新采集 Profiler，确认首次渲染仅创建窗口内行，并比较滚动帧耗时 p95 与当前 48ms；同时检查连续键盘导航、自动滚动、选择身份在行复用后不漂移，以及读屏播报的行位置和总数均正确。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "explicit-requirements-v012",
+      "comparison_id": "react-performance-regression-native-02",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "selected_case_ids": [
+        "V01",
+        "V02"
+      ],
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit for every skill arm; none for baseline",
+      "infrastructure_valid": true,
+      "constraints": {
+        "native_skill_discovery": true,
+        "sandbox_mode": "read-only",
+        "network_access": false,
+        "web_search": "disabled",
+        "isolated_git_root_per_arm": true,
+        "isolated_user_home_per_arm": true,
+        "host_apps_plugins": false,
+        "evaluation_rubric_visible_to_agent": false
+      },
+      "hashes": {
+        "results_sha256": "05148637a8cdf5fb6251f626cd77832e551a837e0fe3d6d851d1cc27535d1455",
+        "frozen_sha256": "14d9295b93ea350538c94faf1020b28457b64b0986b3bce95a1fa4635f8337c6",
+        "summary_sha256": "e99769987b0e79116965a4698d663b8063f5faa77de4b37d8909c9c53a22a921",
+        "blind_packet_sha256": "c71dede5cb032b4585636bf8450564e9cda9593deae3e58ff358ecc68c413d39",
+        "blind_key_sha256": "1e0c5b8cf7ff6c0af7557bc3053043b12474cdffa34696dfa8c2f26cede86f0a",
+        "completed_review_sha256": "d561a3741355bb966c77dfcb7e55441b0bf34265faaf032713d4ba8ecd4c97f2",
+        "scored_review_sha256": "0bce3ccecb5b6e08739aa7f5c91a292d5c7c06b762fbc77a9bd217cee8174163",
+        "spec_sha256": "8930a1f75a859b8a1e09bc249a09902b00f1c39df23f4e5a08bcd3096832aa14",
+        "cases_sha256": "0dbcfcbbe737b53d093e2e6147fad38750cfc42389b7cd582c5be26a4c0611c1"
+      },
+      "reviewer": {
+        "kind": "model-assisted-independent-blind-review"
+      },
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "metrics": {
+            "id": "baseline",
+            "skill": null,
+            "install_mode": "none",
+            "invocation": "none",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1016848,
+            "latency_ms_median": 16058.0,
+            "tokens_total": {
+              "cached": 50432,
+              "completion": 2675,
+              "prompt": 57435,
+              "total": 60110
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "baseline",
+            "skill": null,
+            "outputs": 6,
+            "perfect_outputs": 6,
+            "criteria_passed": 24,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 1.0
+          }
+        },
+        {
+          "arm_id": "old",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+          "metrics": {
+            "id": "old",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1254032,
+            "latency_ms_median": 16583.0,
+            "tokens_total": {
+              "cached": 53248,
+              "completion": 2713,
+              "prompt": 65709,
+              "total": 68422
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "old",
+            "skill": "react-performance-review",
+            "outputs": 6,
+            "perfect_outputs": 6,
+            "criteria_passed": 24,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 1.0
+          }
+        },
+        {
+          "arm_id": "current",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+          "metrics": {
+            "id": "current",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1241096,
+            "latency_ms_median": 16200.5,
+            "tokens_total": {
+              "cached": 53504,
+              "completion": 2548,
+              "prompt": 66441,
+              "total": 68989
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "current",
+            "skill": "react-performance-review",
+            "outputs": 6,
+            "perfect_outputs": 6,
+            "criteria_passed": 24,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 1.0
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "V01-r1",
+          "case_id": "V01",
+          "repetition": 1,
+          "purpose": "stale closure 修复与可控时钟验证",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向，以及一个不真实等待、可重复的验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不要假定框架或 Compiler，不要声称已经运行测试。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证使用 fake timer、可控调度或语义等价方式覆盖 roomId 变化、draft 变化和卸载，不依赖真实等待，也不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者都正确修复 stale closure，保留清理，并用可控虚拟时钟覆盖值变化与卸载。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 的回调闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此切换房间或编辑后仍发送挂载时的数据。\n\n修复方向：React 19.2 可用 `useEffectEvent` 读取最新值，同时让 interval 只创建一次：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const tick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(tick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：使用 fake timers。挂载后更新 `draft`、切换 `roomId`，每次推进 1000ms，断言 `send` 收到当时最新的两项值；同时断言 interval 未因更新而重建。卸载后继续推进计时器，断言 `send` 调用次数不再增加。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖使 Effect 只捕获挂载时的 `roomId` 和 `draft`，形成陈旧闭包；虽然 interval 不再因输入重建，却破坏了发送正确性。\n\n修复方向：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\ninterval 只建立一次，每个 tick 通过 Effect Event 读取当前房间和最新草稿，卸载时仍由清理函数停止。\n\n验证思路：使用假定时器和 `send` mock。挂载为房间 A、草稿 1，重渲染为草稿 2 后推进 1000ms，断言发送 `(A, 2)`；再重渲染为房间 B、草稿 3，推进 1000ms，断言发送 `(B, 3)`；卸载后继续推进时钟，断言调用次数不再增加。全程无需真实等待。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖让 Effect 只捕获首次提交时的 `roomId` 和 `draft`，interval 的闭包永远读取旧值；原依赖方案则会在每次草稿变化时重建定时器。\n\n修复方向：React 19.2 可用 `useEffectEvent` 读取每次 tick 时的最新值，同时只创建一次 interval：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证思路：使用 fake timers 和 `send` spy。挂载为房间 A/草稿 1，重新渲染为房间 B/草稿 2，不实际等待地推进虚拟时间 1000ms，断言只发送 `B, 2`；再次更新 draft 并推进时间，断言发送最新草稿；卸载后继续推进时间，断言调用次数不再增加。此方案可重复且不依赖真实计时。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "V01-r2",
+          "case_id": "V01",
+          "repetition": 2,
+          "purpose": "stale closure 修复与可控时钟验证",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向，以及一个不真实等待、可重复的验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不要假定框架或 Compiler，不要声称已经运行测试。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证使用 fake timer、可控调度或语义等价方式覆盖 roomId 变化、draft 变化和卸载，不依赖真实等待，也不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者均满足四项标准，无实质质量差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 回调永久捕获首次渲染的 `roomId` 和 `draft`，虽避免重建，却产生陈旧闭包。\n\n修复方向：React 19.2 可用 `useEffectEvent` 读取最新值，同时让 interval 仅建立一次：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => send(roomId, draft));\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证思路：使用 fake timers 渲染 Hook，更新 `roomId` 和 `draft` 后推进 1000ms，断言 `send` 收到更新后的值；同时断言 interval 只创建一次。卸载后再次推进时钟，断言没有新增调用。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- 原因：空依赖使 Effect 只捕获挂载时的 `roomId` 和 `draft`，interval 回调产生陈旧闭包；原依赖写法虽正确但会在输入时反复重建定时器。\n\n- 修复方向：React 19.2 使用 `useEffectEvent` 读取最新值，同时让 interval 仅挂载一次：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n- 验证思路：使用 fake timers。挂载后立即连续 rerender 为新 `roomId` 和新 `draft`，一次性推进 1000ms，断言 `send` 只收到最新组合；再次修改草稿并推进一个 tick，断言收到更新值；卸载后继续推进时间，断言调用次数不再增加。无需真实等待。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖使 interval 回调永久捕获首次渲染的 `roomId` 和 `draft`，减少重建却破坏了数据新鲜度。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 interval 仅随挂载建立并在卸载时清理。\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证思路：使用伪时钟渲染 Hook，更新为新的 `roomId` 和 `draft` 后推进 1000ms，断言 `send` 收到最新值，并断言 interval 未因更新而重建；随后卸载并继续推进时钟，断言没有新增发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "V01-r3",
+          "case_id": "V01",
+          "repetition": 3,
+          "purpose": "stale closure 修复与可控时钟验证",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向，以及一个不真实等待、可重复的验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不要假定框架或 Compiler，不要声称已经运行测试。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证使用 fake timer、可控调度或语义等价方式覆盖 roomId 变化、draft 变化和卸载，不依赖真实等待，也不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者均用 Effect Event 保持最新值，并给出不依赖真实等待的重复验证。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 Effect 只在挂载时执行，interval 闭包永久捕获初始 `roomId` 和 `draft`，以减少重建为代价破坏了正确性。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取每次 tick 时的最新值，同时保持 interval 只创建一次：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证思路：使用 fake timers 渲染 Hook，以房间 A/草稿 1 启动并推进 1000ms，断言发送 A/1；重新渲染为房间 B/草稿 2，不重新挂载，推进 1000ms，断言发送 B/2；卸载后再次推进时间，断言没有新增发送。无需真实等待。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "**原因：** 空依赖让 Effect 只在挂载时建立 interval；回调闭包因此一直读取首次渲染的 `roomId` 和 `draft`，形成陈旧闭包。\n\n**修复方向：** React 19.2 中用 `useEffectEvent`读取最新值，同时让 Effect 只负责定时器生命周期：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n**验证思路：** 使用 fake timers 渲染 Hook，更新为新的 `roomId` 和 `draft` 后通过 `act`推进 1000ms，断言只发送最新值；再次更新草稿并推进一个 tick，断言发送再次更新的值。随后卸载、推进若干 tick，断言调用次数不再增加。全程使用虚拟时间，无真实等待。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖使 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此切换房间或修改草稿后仍发送旧值；这属于正确性回归，不是可接受的性能优化。\n\n修复方向：React 19.2 可用 `useEffectEvent`读取最新值，同时保持 interval 只创建一次：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证思路：建议使用 fake timers。挂载为 `room-a / draft-1`，重新渲染为 `room-b / draft-2`，同步推进虚拟时钟 1000ms，断言只调用 `send(\"room-b\", \"draft-2\")`；随后卸载并再次推进时钟，断言调用次数不再增加。同时监视 `setInterval` 和 `clearInterval`，确认挂载期间 interval 仅创建一次、卸载时被清理。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "V02-r1",
+          "case_id": "V02",
+          "repetition": 1,
+          "purpose": "虚拟化中的挂载后焦点交接与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留：上下键跨越当前可视区域移动选中项；键盘焦点必须跟随选中项；把目标行滚动到可见位置；稳定的行身份；读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制，同时保留完整集合的位置与总数语义",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动、实际焦点或有效活动项关系、稳定身份与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者都选择虚拟化，保留稳定身份、完整集合语义，并明确挂载后交接焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "优先方向：对表格做窗口化渲染，只挂载可视区域及少量 overscan 行，而不是首次创建全部 10,000 个 `Row`。\n\n实现时必须保持：\n\n- 用数据主键作为稳定 `key`。\n- 选中项按完整数据集的索引管理；上下键可更新到窗口外。\n- 目标索引变化后先滚动到可见区域，再将焦点交给已挂载的目标行。\n- overscan 至少覆盖临近的键盘移动，避免焦点短暂丢失。\n- 容器暴露完整总数（如 `aria-rowcount=\"10000\"`），每个已渲染行暴露其在全集中的一基位置（如 `aria-rowindex`），而非窗口内序号。\n\n验证方法：使用同一数据、视口和操作脚本，在生产构建中对比改动前后 React Profiler：\n\n1. 首次提交实际创建的 `Row` 数应从 10,000 降至“可见行数 + overscan”。\n2. 重复快速滚动并记录帧耗时，确认 p95 相比当前 48ms 明显下降。\n3. 自动化或人工从窗口边缘连续按上下键，验证选中项、焦点和滚动同步，并用读屏确认播报的是完整集合中的位置及总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：行虚拟化。** 只渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。选择状态仍按完整数据集管理，并使用稳定业务 ID 作为 key；上下键可跨可视区更新选中项，先滚动至目标索引，待目标行挂载后将 DOM 焦点移入该行。容器声明完整 `aria-rowcount`，每个已渲染行声明其真实 `aria-rowindex`，确保读屏获知其在 10,000 行中的位置。\n\n**验证方法：** 在相同 10,000 行数据、设备和操作序列下重新采集 React Profiler 与滚动帧数据，确认首次渲染的 `Row` 数量降至可视行加缓冲行，并比较滚动帧耗时 p95 与原始 48ms。自动化验证连续上下键跨越视口时选中项正确、焦点始终跟随、目标行滚入可见区域、同一数据行身份稳定；再用辅助技术检查首行、中间行和末行播报的位置及总数正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先方向：对 10,000 行实施窗口化渲染，只挂载可视区域及少量缓冲行。行 `key` 必须使用稳定的数据 ID；方向键仍按完整数据集更新选中项，先滚动目标位置，待目标行挂载后再将焦点移入该行。为每行提供其完整集合中的 `aria-rowindex`，表格提供 `aria-rowcount=\"10000\"`。\n\n验证：在相同数据、设备和滚动轨迹下重新采集 Profiler，确认首次渲染仅创建可视区及缓冲区的 Row，并比较滚动帧耗时 p95 与当前 48ms。另用键盘和读屏回归测试跨窗口连续上下移动、选中项自动滚入视野、焦点跟随、行身份稳定，以及播报的位置和总数正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "V02-r2",
+          "case_id": "V02",
+          "repetition": 2,
+          "purpose": "虚拟化中的挂载后焦点交接与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留：上下键跨越当前可视区域移动选中项；键盘焦点必须跟随选中项；把目标行滚动到可见位置；稳定的行身份；读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制，同时保留完整集合的位置与总数语义",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动、实际焦点或有效活动项关系、稳定身份与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者均覆盖相同数据量下的性能复测及键盘、滚动、焦点、身份与读屏验收。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最值得先做：**行虚拟化（windowing）**。只渲染可视区域及少量 overscan，而不是一次创建 10,000 个 `Row`。\n\n实现时必须保持这些语义：\n\n- 使用数据的稳定 ID 作为 `key`。\n- 上下键按完整数据索引更新选中项；若目标行尚未挂载，先滚动到对应索引，待其渲染后再把 DOM 焦点移到该行。\n- 表格设置 `aria-rowcount=\"10000\"`，每个已渲染行设置其在完整集合中的一基位置 `aria-rowindex`，不能使用窗口内索引。\n- overscan 只是减少滚动边缘抖动，不能替代上述“滚动、挂载、聚焦”流程。\n\n验证方法：在相同生产构建、设备、数据和操作脚本下，用 React Profiler 与浏览器性能面板对比改动前后：\n\n1. 首次提交仅创建“可视行 + overscan”，不再创建全部 10,000 行。\n2. 重复固定距离的滚动测试，确认帧耗时 p95 从当前 48ms 明显下降。\n3. 自动化测试从可视区边缘连续按上下键，断言目标行被滚入视口、获得真实 DOM 焦点、稳定 ID 未变化，且辅助功能树中的 `aria-rowindex`/`aria-rowcount` 正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：表格行虚拟化。** 只渲染可视窗口及少量缓冲行，直接减少首次创建 10,000 个 `Row` 和滚动期间的 DOM/渲染工作。选中状态应以稳定行 ID 保存；上下键移动到未挂载行时，先更新目标并滚动至可见，再将焦点交给已挂载的目标行。虚拟化后仍需提供完整集合语义，例如总行数 `aria-rowcount=\"10000\"`，以及每行基于完整数据集的 `aria-rowindex`。\n\n**验证：** 在相同数据、设备和滚动脚本下重新记录 Profiler，确认首次渲染仅创建“可视行＋缓冲行”，并将滚动帧耗时 p95 与当前 48 ms 对比。同时自动化覆盖连续上下键跨越可视区域，断言选中项与焦点一致、目标行进入视口、行 ID 不漂移，并用读屏检查行位置和总数播报正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先方向：对表格行做窗口化，仅挂载可视区及少量缓冲行，避免首次创建全部 10,000 个 `Row`。实现时必须以数据项 ID 保持稳定身份；选中项越过窗口时，先更新选择并滚动目标索引，待目标行挂载后再转移焦点；同时为行提供完整集合中的 `aria-rowindex`，并在表格上提供 `aria-rowcount=\"10000\"`。\n\n验证：在相同数据、视口和连续上下键/滚动操作下重新采集 Profiler，比较首次渲染创建的 `Row` 数量及滚动帧耗时 p95（基线 48ms）；同时逐项确认跨可视区选择、焦点跟随、目标行可见、行身份稳定，以及读屏播报的位置和总数均保持正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "V02-r3",
+          "case_id": "V02",
+          "repetition": 3,
+          "purpose": "虚拟化中的挂载后焦点交接与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留：上下键跨越当前可视区域移动选中项；键盘焦点必须跟随选中项；把目标行滚动到可见位置；稳定的行身份；读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制，同时保留完整集合的位置与总数语义",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动、实际焦点或有效活动项关系、稳定身份与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者均满足四项标准，无实质质量差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**性能方向：行虚拟化（窗口化）。** 仅渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。以上下键移动时，先按完整数据集更新选中索引并滚动目标行；待目标行挂载后将焦点移入。以数据 ID 作为稳定 `key`，在表格容器声明完整 `aria-rowcount`，每个已渲染行声明其真实 `aria-rowindex`，确保读屏获知其在完整集合中的位置。\n\n**验证方法：** 在相同数据、设备和交互脚本下重新采集 Profiler，确认首次渲染仅创建视口与缓冲区中的行，并对比连续滚动帧耗时 p95（基线 48ms）。同时自动化验证上下键可跨越窗口边界、目标行滚入可见区、焦点始终跟随选中项、行 ID 稳定，以及读屏所见行位置与总数正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最值得先做：**行虚拟化（windowing）**。只渲染可视区及少量 overscan，而不是创建全部 10,000 个 `Row`。\n\n实现时必须保持：\n\n- 以数据行的稳定 ID 作为 `key`，选中状态保存完整集合中的逻辑索引/ID。\n- 上下键可更新到任意逻辑行；先按索引滚动并挂载目标行，再将焦点移入该行。\n- 容器标注 `aria-rowcount=\"10000\"`，虚拟行标注其在完整集合中的一基位置 `aria-rowindex`，不能使用窗口内序号。\n\n验证方法：用同一数据、视口、硬件和固定的长距离键盘滚动脚本进行前后对比；在 React Profiler 确认首次渲染及每次滚动只创建/提交窗口内行，并在浏览器 Performance 中重新统计滚动帧耗时 p95。验收同时覆盖跨窗口连续按键、焦点跟随、目标行可见、DOM 节点未错误复用，以及读屏播报的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "**性能方向：表格行窗口化。** 仅挂载可视区及少量缓冲行，避免首次创建全部 10,000 个 `Row`。窗口化必须以数据项 ID 保持行身份；上下键可更新到窗口外的选中项，先滚动并挂载目标行，再将焦点交给它；同时通过 `aria-rowindex` 和表格/网格的 `aria-rowcount=\"10000\"` 保留完整集合的位置与总数语义。\n\n**验证方法：** 在相同数据、设备和连续上下键跨可视区操作下重新采集 Profiler，比较首次挂载的 `Row` 数量、首次渲染耗时及滚动帧耗时 p95（基线 48ms）；并逐项确认选中项身份稳定、目标行正确滚入视口、焦点始终跟随，以及读屏报告正确的“第 N 行，共 10,000 行”。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "natural-prompt-v012",
+      "comparison_id": "react-performance-natural-regression-native-03",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "selected_case_ids": [
+        "R02",
+        "R06"
+      ],
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit for every skill arm; none for baseline",
+      "infrastructure_valid": true,
+      "constraints": {
+        "native_skill_discovery": true,
+        "sandbox_mode": "read-only",
+        "network_access": false,
+        "web_search": "disabled",
+        "isolated_git_root_per_arm": true,
+        "isolated_user_home_per_arm": true,
+        "host_apps_plugins": false,
+        "evaluation_rubric_visible_to_agent": false
+      },
+      "hashes": {
+        "results_sha256": "27450e7bf7e7cf3762bc2d887930127b87476c404d3cb1623d172edd1891e3cb",
+        "frozen_sha256": "b970d100f3f0b9c068f90a3aa762ddee357845915b779941822420ff2dabea3d",
+        "summary_sha256": "2bb84541162fcf5ecb74bcb2920780b941854ca742b143a09ff3acef450ebf94",
+        "blind_packet_sha256": "0110705dc9cd8911e2af9726555ca132b76ecf655f35185960c2cacbe42b07df",
+        "blind_key_sha256": "86825e4c01b4204e13c4f83cf3455240e1b405d3cc93b13b48f22c9a4338f8e4",
+        "completed_review_sha256": "075492a60a9f1ef46236e198d4dc972d4279aad354f6a6c3b091520e47786c7c",
+        "scored_review_sha256": "33a9a30cd14aa1d8ba1600657e7fb03af4a8f49b29aded07b2250e2fbe80cf5a",
+        "spec_sha256": "5cfbbacc691b5b64588d146ff41b11d91ac724d3cce68d5de9a89985762defef",
+        "cases_sha256": "4245bf7a6c0d47973fcb6ee95daf3d6dc49df70760e848e8d65727fcff4f75b1"
+      },
+      "reviewer": {
+        "kind": "model-assisted-independent-blind-review"
+      },
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "metrics": {
+            "id": "baseline",
+            "skill": null,
+            "install_mode": "none",
+            "invocation": "none",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.0941448,
+            "latency_ms_median": 14747.0,
+            "tokens_total": {
+              "cached": 49152,
+              "completion": 1932,
+              "prompt": 58113,
+              "total": 60045
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "baseline",
+            "skill": null,
+            "outputs": 6,
+            "perfect_outputs": 2,
+            "criteria_passed": 17,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.7083
+          }
+        },
+        {
+          "arm_id": "old",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+          "metrics": {
+            "id": "old",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.128688,
+            "latency_ms_median": 14147.5,
+            "tokens_total": {
+              "cached": 64000,
+              "completion": 2547,
+              "prompt": 77037,
+              "total": 79584
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "old",
+            "skill": "react-performance-review",
+            "outputs": 6,
+            "perfect_outputs": 2,
+            "criteria_passed": 18,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.75
+          }
+        },
+        {
+          "arm_id": "current",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+          "metrics": {
+            "id": "current",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1054712,
+            "latency_ms_median": 13079.0,
+            "tokens_total": {
+              "cached": 56448,
+              "completion": 2164,
+              "prompt": 66351,
+              "total": 68515
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "current",
+            "skill": "react-performance-review",
+            "outputs": 6,
+            "perfect_outputs": 4,
+            "criteria_passed": 22,
+            "criteria_total": 24,
+            "preferred_count": 2,
+            "criterion_pass_rate": 0.9167
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "R02-r1",
+          "case_id": "R02",
+          "repetition": 1,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "B 覆盖值变化和卸载，但未提出 fake timer 或等价可控时钟；A 与 C 均完整通过。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖让 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，造成陈旧发送。\n\n修复方向：用 `useEffectEvent` 读取最新值，Effect 仅负责 interval 生命周期：\n\n```jsx\nconst sendLatest = useEffectEvent(() => send(roomId, draft));\n\nuseEffect(() => {\n  const timer = setInterval(sendLatest, 1000);\n  return () => clearInterval(timer);\n}, []);\n```\n\n验证：用可控时钟在修改草稿、切换房间及卸载后推进 tick，确认发送最新 `roomId`/`draft`，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖使 interval 回调形成陈旧闭包，始终读取首次挂载时的 `roomId` 和 `draft`。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 interval 仅创建一次并在卸载时清理：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => send(roomId, draft));\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：输入并切换房间后确认下一次 tick 发送新房间的最新草稿，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖让 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent`读取最新值，同时保持 interval 只创建一次并在卸载时清理。\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：建议用假计时器覆盖“更新草稿、切换房间、触发 tick、卸载后再推进时间”，断言每次仅向当前房间发送最新草稿且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r2",
+          "case_id": "R02",
+          "repetition": 2,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "C 的验证没有可控时钟，未满足第4项；A 与 B 无实质质量差异。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖使 Effect 只在挂载时执行，interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，造成陈旧值。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时保持 interval 只创建一次并在卸载时清理：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => {\n    send(roomId, draft);\n  });\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：用可控定时器依次更新草稿、切换房间并触发 tick，断言每次发送最新参数，卸载后继续推进时间也不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖使 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 封装 `send(roomId, draft)`，interval 仅在挂载时创建并调用该 Effect Event，卸载时 `clearInterval`；这样每次 tick 都读取最新值且不会因输入重建 interval。\n\n验证：用可控时钟切换房间并更新草稿，确认下一 tick 发送最新 `roomId` 和 `draft`，同时确认输入期间 interval 未重建、卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，导致发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 包装发送逻辑，让 interval 只创建一次，但每个 tick 读取最新的 `roomId` 和 `draft`；Effect 仍在卸载时 `clearInterval`。\n\n验证：切换房间并持续输入，确认每个 tick 发送当前房间的最新草稿，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r3",
+          "case_id": "R02",
+          "repetition": 3,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "三者均正确处理 stale closure、最新值、卸载清理和可控计时验证。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖让 interval 回调形成陈旧闭包，永久捕获首次渲染的 `roomId` 和 `draft`。\n\n修复方向：用两个 `ref` 在每次渲染时同步最新值，Effect 仍只负责创建一次 interval 和卸载清理；tick 从 ref 读取当前 `roomId`、`draft`。\n\n验证：用假定时器覆盖输入、切换房间和卸载场景，确认每个 tick 发送最新参数，且卸载后不再调用 `send`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "原因：空依赖使 interval 回调闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此后续发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 Effect 仅负责创建和清理 interval：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => send(roomId, draft));\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：建议用可控计时器在修改草稿、切换房间后推进一个 tick，确认只发送最新 `roomId` 和 `draft`，再卸载并确认后续不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "原因：空依赖使 interval 回调永久捕获首次渲染的 `roomId` 和 `draft`，因此发送陈旧数据。\n\n修复方向：使用 React 19.2 的 `useEffectEvent` 读取最新值，同时让 interval 仅挂载一次并在卸载时清理。\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const sendLatest = useEffectEvent(() => send(roomId, draft));\n\n  useEffect(() => {\n    const timer = setInterval(sendLatest, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：用可控计时器依次更新草稿、切换房间并触发 tick，断言每次发送最新参数，卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r1",
+          "case_id": "R06",
+          "repetition": 1,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "current",
+          "review_notes": "A 明确目标行挂载后聚焦并验证焦点；B、C 只说明滚动和选中，未处理或验证实际焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先做表格行窗口化：只挂载可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。行 `key` 必须基于数据项的稳定 ID；上下键导航仍按完整数据集更新选中项，并先滚动到目标索引、待其挂载后完成聚焦；表格声明 `aria-rowcount=\"10000\"`，每个已挂载行提供其在完整集合中的 `aria-rowindex`。\n\n验证：在相同数据、视口、设备和滚动脚本下重新采集 Profiler，确认首次挂载的 `Row` 数量降至窗口规模，并将滚动帧耗时 p95 与当前 48ms 对比；同时自动化检查上下键跨窗口移动、选中行滚入视口、滚动复用后行身份与选择状态不串行，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最优先方向：实现行虚拟化（窗口化），仅渲染可视区域及少量 overscan，而不是一次创建 10,000 个 `Row`。\n\n实现时需同时保证：\n\n- 用数据的稳定 `row.id` 作为 `key`。\n- 选中状态保存完整集合中的逻辑索引/ID；上下键可更新到窗口外项目，并将其滚动到可见后渲染。\n- 表格声明完整总数，如 `aria-rowcount=\"10000\"`；每个已渲染行声明其在完整集合中的 1-based `aria-rowindex`，不能使用窗口内序号。\n\n验证：在相同数据、设备和滚动脚本下重新采集 React Profiler 与浏览器 Performance。确认首次渲染的 `Row` 数从 10,000 降至“可见行数 + overscan”，并对比滚动帧耗时 p95 是否从 48ms 明显下降；同时手工测试上下键跨窗口、自动滚入视野、选中身份及读屏位置播报。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "优先方向：对表格做行虚拟化，只渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。选中状态按稳定行 ID 保存；上下键仍按完整数据索引移动，目标行不在渲染窗口时先滚动到对应索引。表格设置 `aria-rowcount=\"10000\"`，已渲染行设置基于完整集合的 `aria-rowindex`，并继续使用稳定行 ID 作为 `key`。\n\n验证：在相同数据、视口和连续上下键/滚动操作下重新采集 React Profiler 与帧耗时，确认首次创建的 `Row` 数量降至窗口规模、滚动 p95 相比当前 48ms 下降；同时自动化检查跨可视区选中、目标行滚入视口、滚动后行身份不串位，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r2",
+          "case_id": "R06",
+          "repetition": 2,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "A、B 的方案包含挂载后聚焦，但验证未明确检查实际焦点；C 连方案中的焦点交接也缺失。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "优先方向：对表格行做虚拟化，仅挂载可视区域及少量缓冲行，同时以数据主键保持稳定行身份。选中状态按主键/全局索引管理；上下键可更新到任意索引，并将目标行滚动到可见后聚焦。每个已挂载行应提供其在完整集合中的位置与总数（如 `aria-rowindex`，表格提供 `aria-rowcount=\"10000\"`）。\n\n验证方法：在相同数据、设备和滚动操作下重新采集 Profiler，确认首次渲染创建的 `Row` 数量降至“可视行 + 缓冲行”，并比较滚动帧耗时 p95 是否由 48ms 明显下降；同时自动化测试跨可视区连续上下键导航、选中行滚入视口、行主键不变，以及读屏获得正确的全局行序号和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先引入表格行窗口化，只渲染可视区域及少量缓冲行。以数据项 ID 保持稳定行身份，选择状态独立于已挂载 DOM；上下键仍按完整 10,000 行移动，先滚动到目标索引并在挂载后交接焦点；容器提供 `aria-rowcount=\"10000\"`，行提供基于完整集合的 `aria-rowindex`。\n\n验证：在相同数据、设备和滚动操作下重新采集 Profiler，确认首次渲染仅创建可视行与缓冲行，并比较滚动帧耗时 p95 与当前 48ms；同时自动化检查跨窗口连续按键、选中行滚动可见、排序或滚动后行 ID 不错位，以及读屏报告正确的位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最优先方向：**行虚拟化（窗口化渲染）**，只创建可视区及少量 overscan 的 `Row`，而非同时渲染 10,000 行。\n\n实现时保持：\n\n- 用数据主键作为稳定 `key`。\n- 选中项按行 ID/索引保存在 DOM 之外；上下键可更新到窗口外的行，并通过 `scrollToIndex` 类能力使其可见。\n- 表格设置 `aria-rowcount=\"10000\"`；每个已渲染行用完整集合中的绝对、从 1 开始的位置设置 `aria-rowindex`（若包含表头，按实际 ARIA 行序调整）。\n\n验证：用相同数据、构建模式、视口和固定的连续键盘/滚动脚本，在 React Profiler 与浏览器 Performance 中前后对比：\n\n1. 首次提交创建的 `Row` 数应从 10,000 降至“可视行数 + overscan”。\n2. 同一交互脚本的帧耗时 p95 应显著低于当前 48ms，并检查是否接近产品帧预算。\n3. 自动化验证跨窗口上下键、滚动定位、行 ID 不漂移；再用目标读屏抽查首行、中间行和末行播报的位置与总数。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r3",
+          "case_id": "R06",
+          "repetition": 3,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "current",
+          "review_notes": "C 明确挂载后完成焦点交接，优于 A、B；但三者的验证都没有明确核对实际焦点或有效活动项关系。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "old",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：行虚拟化（窗口化）。** 仅渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`；使用数据中的稳定 ID 作为 key。选择状态按行 ID/索引独立于挂载状态保存，使上下键可跨窗口移动，并在目标行进入渲染窗口后滚动到可见位置。保留完整集合语义，为行提供正确的 `aria-rowindex`，并在表格/网格上提供 `aria-rowcount=\"10000\"`。\n\n**验证：** 在相同设备、生产构建、10,000 行数据和输入序列下重新录制 Profiler：\n\n- 首次渲染创建的 `Row` 数应接近“可视行数 + 缓冲行数”，而非 10,000。\n- 对比滚动帧耗时 p95 与当前 48ms，并检查长任务和提交耗时。\n- 用键盘连续跨越多个可视窗口，确认选中项、自动滚动和稳定行身份正确。\n- 使用读屏或无障碍树确认任意已渲染行都能报告其在 10,000 行中的准确位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "优先方向：实现行虚拟化（windowing），只渲染可视区域及少量 overscan，而不是创建全部 10,000 个 `Row`。选中状态按稳定行 ID/全局索引维护；上下键可更新到窗口外的索引，再调用虚拟列表的滚动定位能力使其可见。容器标注 `aria-rowcount=\"10000\"`，每个已渲染行用完整数据集中的位置设置 `aria-rowindex`，`key` 使用稳定行 ID。\n\n验证方法：在相同数据、视口和滚动脚本下重新录制 Profiler，重点比较首次渲染创建的 `Row` 数量是否降至“可见行 + overscan”，以及滚动帧耗时 p95 是否显著低于当前 48ms；同时手工验证上下键跨窗口选择、自动滚入视口、滚动后行身份不串位，以及读屏播报的位置和总数正确。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "**优先方向：表格行窗口化/虚拟化。** 当前首次渲染挂载全部 10,000 个 `Row`，应只挂载可视区域及少量缓冲行，并按数据项 ID 保持稳定 `key`。实现必须让上下键仍可更新完整集合中的选中索引；目标行未挂载时先滚动至对应位置，挂载后再完成选中/焦点交接；同时为行提供完整集合语义，如 `aria-rowindex` 和表格的 `aria-rowcount=10000`。\n\n**验证方法：** 在相同数据、构建模式、设备和上下键/连续滚动操作序列下重新采集 Profiler 与帧耗时，对比首次挂载的 `Row` 数量及滚动帧耗时 p95（基线 48ms）；并自动或人工检查跨可视区域导航、选中行滚入视口、滚动前后行身份/选择状态，以及读屏播报的行位置与总数均保持正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "focus-v013",
+      "comparison_id": "react-performance-focus-regression-native-04",
+      "planned_repetitions": 3,
+      "executed_repetitions": 3,
+      "selected_case_ids": [
+        "R06"
+      ],
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit for every skill arm; none for baseline",
+      "infrastructure_valid": true,
+      "constraints": {
+        "native_skill_discovery": true,
+        "sandbox_mode": "read-only",
+        "network_access": false,
+        "web_search": "disabled",
+        "isolated_git_root_per_arm": true,
+        "isolated_user_home_per_arm": true,
+        "host_apps_plugins": false,
+        "evaluation_rubric_visible_to_agent": false
+      },
+      "hashes": {
+        "results_sha256": "5b55b9aee70878fb9044712d8cd64f7616c2944b3e06a70edb9e8a67d6fad6c8",
+        "frozen_sha256": "ad9e82cf4a6f3f778a4c4afca81ed28ac4eb38b50d6511bb5281a2b7140d0644",
+        "summary_sha256": "da35745a63b3fc7d904fd6767f31eef01b64c7b66e49dd5f307ebf97dbf5fa4c",
+        "blind_packet_sha256": "218ac95167998bf4fd3919b42b616046f1312df165cda77e515b20910f4d9813",
+        "blind_key_sha256": "e0fb1da3cb97c6d9f06ee320c7c7576b26cd14d8971f5e325c742ea76fc8d971",
+        "completed_review_sha256": "699927799d4ce3082bfe66626110126f3c52016e184a136dcfc459dad8518805",
+        "scored_review_sha256": "8b42c84f75c0c7cb4b73836fff5bf64326774a1027135e8a2bdc4bc88b53c8eb",
+        "spec_sha256": "43552fa92ac07253b67807b2c6a4c21f7090918b271869867a14ae792505ac2f",
+        "cases_sha256": "4245bf7a6c0d47973fcb6ee95daf3d6dc49df70760e848e8d65727fcff4f75b1"
+      },
+      "reviewer": {
+        "kind": "model-assisted-independent-blind-review"
+      },
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "metrics": {
+            "id": "baseline",
+            "skill": null,
+            "install_mode": "none",
+            "invocation": "none",
+            "rows": 3,
+            "promptfoo_passed_rows": 3,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.0794608,
+            "latency_ms_median": 17134.0,
+            "tokens_total": {
+              "cached": 15872,
+              "completion": 1143,
+              "prompt": 28435,
+              "total": 29578
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "baseline",
+            "skill": null,
+            "outputs": 3,
+            "perfect_outputs": 0,
+            "criteria_passed": 8,
+            "criteria_total": 12,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.6667
+          }
+        },
+        {
+          "arm_id": "v011",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+          "metrics": {
+            "id": "v011",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 3,
+            "promptfoo_passed_rows": 3,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.0656112,
+            "latency_ms_median": 16530.0,
+            "tokens_total": {
+              "cached": 23808,
+              "completion": 1014,
+              "prompt": 32760,
+              "total": 33774
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "v011",
+            "skill": "react-performance-review",
+            "outputs": 3,
+            "perfect_outputs": 0,
+            "criteria_passed": 7,
+            "criteria_total": 12,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.5833
+          }
+        },
+        {
+          "arm_id": "v012",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+          "metrics": {
+            "id": "v012",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 3,
+            "promptfoo_passed_rows": 3,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.0542808,
+            "latency_ms_median": 15339.0,
+            "tokens_total": {
+              "cached": 26752,
+              "completion": 903,
+              "prompt": 33132,
+              "total": 34035
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "v012",
+            "skill": "react-performance-review",
+            "outputs": 3,
+            "perfect_outputs": 0,
+            "criteria_passed": 9,
+            "criteria_total": 12,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.75
+          }
+        },
+        {
+          "arm_id": "current",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+          "metrics": {
+            "id": "current",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 3,
+            "promptfoo_passed_rows": 3,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.0477424,
+            "latency_ms_median": 13449.0,
+            "tokens_total": {
+              "cached": 29696,
+              "completion": 1085,
+              "prompt": 33237,
+              "total": 34322
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "current",
+            "skill": "react-performance-review",
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "preferred_count": 3,
+            "criterion_pass_rate": 1.0
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "R06-r1",
+          "case_id": "R06",
+          "repetition": 1,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "current",
+          "review_notes": "A 明确等待目标行挂载后交接焦点或有效活动项，并在验证中检查焦点关系；B、C 未验证焦点，D 还未明确确保挂载后再聚焦。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "优先方向：对表格行做窗口化，只挂载可视区及少量缓冲区，而不是首次创建全部 10,000 个 `Row`。行 `key` 必须基于稳定的数据 ID；上下键导航仍按完整数据索引更新选中项，并先滚动至目标索引、待目标行挂载后再交接实际焦点或更新有效的 `aria-activedescendant`。每个已挂载行应通过 `aria-rowindex` 表达其在完整集合中的位置，表格通过 `aria-rowcount={10000}` 表达总数。\n\n验证：在相同数据、视口和上下键跨可视区操作序列下重新采集 Profiler，确认首次渲染创建的 `Row` 数量接近窗口与缓冲区大小，并比较滚动帧耗时 p95 是否低于当前 48ms；同时自动化检查稳定行身份、目标行滚动可见、选择与焦点/活动项一致，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "v012",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先方向：对 10,000 行进行窗口化，仅挂载可视区及少量缓冲行。行 `key` 必须使用稳定的数据 ID；选中项按 ID/全局索引管理。上下键移动到窗口外时，先滚动并挂载目标行，再完成选中/焦点交接；容器设置 `aria-rowcount=\"10000\"`，每行设置基于完整集合的 `aria-rowindex`。\n\n验证：在相同数据、视口和滚动操作下重新采集 Profiler，比较首次渲染创建的 Row 数量及滚动帧耗时 p95（基线 10,000、48ms）；同时自动化检查跨窗口连续按键、目标行可见、排序或复用后身份不漂移，以及读屏获得正确的全局行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "v011",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "优先做**行虚拟化（窗口化）**：仅渲染可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。虚拟化实现必须：\n\n- 使用数据的稳定 ID 作为 `key`；\n- 选择状态独立于组件是否挂载；\n- 上下键可更新到任意索引，并将目标行滚动到可见后聚焦；\n- 表格标注 `aria-rowcount=\"10000\"`，每个已渲染行设置其在完整集合中的 `aria-rowindex`。\n\n验证：在相同数据、设备和滚动脚本下重新记录 Profiler，确认首次渲染的 `Row` 数量降至窗口规模，并比较滚动帧耗时 p95 与当前 48ms；同时测试上下键跨越窗口边界、自动滚动、选择身份稳定，以及读屏播报的行位置和总数均正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "D",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最优先方向：引入**行虚拟化（窗口化）**，只渲染可视行及少量 overscan，而非 10,000 个 `Row`。\n\n实现时需同时保证：\n\n- `key` 使用稳定的数据 ID，选中状态存于表格层，不能依赖已挂载的 `Row`。\n- 上下键更新完整数据集中的逻辑索引；目标在窗口外时先调用虚拟列表的 `scrollToIndex`，再聚焦对应行。\n- 表格标注 `aria-rowcount=\"10000\"`，每个已渲染行按其完整集合位置设置 `aria-rowindex`（从 1 开始，若有表头需正确计入）。\n\n验证方法：用相同数据、构建模式、滚动脚本和设备，对改动前后分别采集 React Profiler 与浏览器性能轨迹；确认首次提交只创建窗口内行，并比较滚动帧耗时 p95 是否从 48ms 明显下降。同时自动化测试跨窗口键盘移动、滚动定位、稳定选中身份以及 `aria-rowindex`/`aria-rowcount`。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r2",
+          "case_id": "R06",
+          "repetition": 2,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "C",
+          "preferred_arm": "current",
+          "review_notes": "C 同时给出挂载后焦点或有效活动项机制，并明确验证焦点关系；A、B 只在方案中处理焦点，D 未处理焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "优先方向：实现表格行虚拟化（windowing），只渲染可视区域及少量 overscan，而非一次创建 10,000 个 `Row`。\n\n实现时必须同时保留：\n\n- 用数据的稳定 ID 作为 `key`，选中状态也按 ID/索引保存，不依赖组件是否挂载。\n- 上下键更新逻辑选中索引；目标在窗口外时先滚动到对应索引，再将焦点或活动项同步过去。\n- 表格声明完整集合大小（如 `aria-rowcount=\"10000\"`），每个已渲染行声明其在全集中的一基位置（`aria-rowindex`）；若采用活动后代模式，确保活动行对应元素已挂载且 ID 稳定。\n\n验证方法：用同一数据、视口、浏览器和滚动脚本重新录制 React Profiler 与 Performance trace，对比首次渲染实际创建的 `Row` 数量以及滚动帧耗时 p95；同时自动或人工测试上下键跨越窗口边界、选中行自动滚入视口、滚动后行身份不串位，并用读屏确认行序号和总行数仍正确播报。目标是挂载行数随视口大小变化，而不是随 10,000 总行数变化，并确认 p95 相比当前 48ms 明显下降。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "v012",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先方向：对 10,000 行进行窗口化，仅渲染可视区域及少量缓冲行。以数据项 ID 作为稳定 `key`，选择状态按 ID/索引独立于已挂载 DOM；上下键移动到窗口外时，先滚动至目标索引并在目标行挂载后交接焦点。表格提供完整集合的 `aria-rowcount=\"10000\"`，每行提供其真实 `aria-rowindex`。\n\n验证：在相同数据和滚动轨迹下重新采集 Profiler，比较首次渲染创建的 `Row` 数量及滚动帧耗时 p95（基线 48ms）；同时自动化检查上下键跨窗口移动、目标行滚动可见、选择与行 ID 始终对应，并用无障碍树或读屏确认行位置及总数正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "**优先方向：表格行窗口化。** 当前首次渲染挂载全部 10,000 个 `Row`，应只渲染可视区及少量 overscan。窗口变化时按数据项 ID 保持稳定 `key`；上下键仍基于完整数据集更新选中项并滚动至对应索引，目标行挂载后交接真实焦点或有效的 `aria-activedescendant`。同时用 `aria-rowindex` 与表格/网格上的 `aria-rowcount=\"10000\"` 保留完整集合的位置和总数语义。\n\n**验证：** 在相同数据、视口、设备和滚动脚本下重新采集 Profiler，比较首次渲染创建的 `Row` 数量及滚动帧耗时 p95（基线 10,000 行、48ms）。另做边界测试：连续上下键跨出可视区后，选中行会滚入视口、焦点关系正确、行 ID 不错位，并由读屏正确播报其在 10,000 行中的位置。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "D",
+              "arm_id": "v011",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "优先方向：对表格行做窗口化渲染，只挂载可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。选中项应按稳定的行 ID 独立于挂载状态保存；上下键可跨窗口更新选中项，并将目标行滚动到可视区域。容器标注完整集合总数（如 `aria-rowcount=10000`），每个已渲染行标注其在全集中的一基位置（`aria-rowindex`），行 `key` 使用稳定 ID。\n\n验证：在相同数据、设备和交互脚本下重新采集 Profiler，确认首次渲染创建的 `Row` 数量降至窗口大小附近，并比较滚动帧耗时 p95 是否低于当前 48ms；同时自动化检查连续上下键越过可视边界后选中项正确且自动滚入视野、滚动前后同一 ID 保持身份，并用目标读屏核验其能读出“第 N 行，共 10,000 行”。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r3",
+          "case_id": "R06",
+          "repetition": 3,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "current",
+          "review_notes": "A 的方案与验证都明确覆盖实际焦点或有效活动项关系；B、C 未在验证中检查焦点，D 的方案和验证均缺焦点机制。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "current",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "优先方向：对 10,000 行进行窗口化，仅渲染可视区域及少量缓冲行，直接减少首次挂载和滚动期间的 DOM/React 工作。必须以数据项 ID 保持稳定身份；上下键按完整数据集移动选中项，先滚动并挂载目标行，再交接真实焦点或更新有效的 `aria-activedescendant`；表格设置 `aria-rowcount=\"10000\"`，每行按完整集合设置 `aria-rowindex`。\n\n验证：在相同数据、视口和滚动操作下重新采集 Profiler，比较首次渲染创建的 Row 数量及滚动帧耗时 p95（基线 10,000 行、48ms）。同时自动化检查跨可视区连续按上下键时选中项正确、目标滚入可见区域、焦点/活动项关系有效、行 ID 稳定，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最值得先做：**行虚拟化（windowing）**。只渲染可视区域及少量 overscan 行，避免首次创建全部 10,000 个 `Row`。\n\n实施时必须保留这些语义：\n\n- 选中状态按稳定行 ID 存储，`key` 使用该 ID，不使用可视位置索引。\n- 上下键更新完整数据集中的选中索引；若目标不在窗口内，先滚动到对应索引，再渲染/聚焦该行。\n- 表格标注完整总数（如 `aria-rowcount=\"10000\"`），每个已渲染行标注其在全集中的一基位置（`aria-rowindex`）。\n- 设置适量 overscan，减少滚动边界处的挂载抖动。\n\n验证方法：用相同数据、构建模式、设备和固定滚动脚本做优化前后 Profiler 对比；确认首次提交仅创建“可视行 + overscan”，并以多次运行的滚动帧耗时 **p95 是否从 48ms 明显下降**作为主要性能指标。同时自动化验证跨窗口上下键移动、自动滚动、稳定选中身份，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "C",
+              "arm_id": "v012",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "aa85658bfa3905fed60127013b7a21150aeeef175539e09097d06bd798ee3496",
+              "output": "优先方向：对表格行做窗口化/虚拟化，只挂载可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。实现时必须以数据项 ID 保持稳定行身份；选择索引仍基于完整集合，上下键可跨窗口移动，并先滚动到目标位置、待目标行挂载后完成焦点交接；为行提供完整集合中的 `aria-rowindex`，表格提供 `aria-rowcount=\"10000\"`。\n\n验证方法：在相同数据、视口、设备和上下键/连续滚动脚本下重新采集 Profiler 与帧耗时，确认首次挂载的 `Row` 数量降至“可视行＋缓冲行”，并比较滚动帧耗时 p95 与当前 48ms。同步回归首尾及跨窗口键盘导航、选中行自动滚入视野、滚动后行身份/选择不串行，以及读屏报告的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "D",
+              "arm_id": "v011",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "8ce9d88b07c40e62405b978ed1c21f272f27c14b8c6d311531ac7b23bf5369d0",
+              "output": "**优先方向：行虚拟化。** 仅渲染可视区域及少量 overscan，将选中项与完整 10,000 行数据的逻辑索引独立于已挂载 DOM；上下键可跨窗口更新选中项，并调用滚动定位使其可见。继续使用数据中的稳定行 ID 作为 key，在表格/网格上设置 `aria-rowcount=\"10000\"`，为已渲染行设置基于完整集合的 `aria-rowindex`。\n\n**验证：** 用相同数据、设备和滚动/键盘操作重新采集 Profiler，确认首次渲染创建的 `Row` 数量受视口与 overscan 限制，并比较滚动帧耗时 p95（基线 48ms）。同时自动化检查连续上下键跨越视口后选中 ID 正确、目标行已滚入可见区域、滚动前后行 key/身份稳定，以及读屏可获知行的完整集合位置与总数。",
+              "criteria_pass": [
+                true,
+                true,
+                false,
+                false
+              ],
+              "passed": 2,
+              "total": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "broad-v013-one-repetition",
+      "comparison_id": "react-performance-native-blind-01",
+      "planned_repetitions": 3,
+      "executed_repetitions": 1,
+      "selected_case_ids": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06"
+      ],
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "promptfoo_version": "0.123.0",
+      "invocation": "explicit for every skill arm; none for baseline",
+      "infrastructure_valid": true,
+      "constraints": {
+        "native_skill_discovery": true,
+        "sandbox_mode": "read-only",
+        "network_access": false,
+        "web_search": "disabled",
+        "isolated_git_root_per_arm": true,
+        "isolated_user_home_per_arm": true,
+        "host_apps_plugins": false,
+        "evaluation_rubric_visible_to_agent": false
+      },
+      "hashes": {
+        "results_sha256": "33f686888cd6f06d07a4d85dc7c16f886865b7e1cf13aa92d5256ea4efd78376",
+        "frozen_sha256": "40c4f743ab7a1a1c9d0e75b39b3698bc7e83ac747dc6968d2acc0c9d931d5129",
+        "summary_sha256": "3dd7d0376c46a6ac88368b82802db3d867a704b0fdeaa1cca354ebd9435f440a",
+        "blind_packet_sha256": "cc9692174acf996e9d0bdbddd07b20fc8392087b929d4e7104166b3bb54982b3",
+        "blind_key_sha256": "b2f0ef9953291675c50e616c614b79ee34d1cfe2c511afd0eacc767333003282",
+        "completed_review_sha256": "3f6c6a8a2bcae820c1abdb5250fb3123cc7a7cb357d61ea3f00a3a434bccdeae",
+        "scored_review_sha256": "031f2a9bf3d647a88360e24ee440a642d225ac4a8643b457bf7ba8ba0b893a26",
+        "spec_sha256": "d54427ab46f51b6abd00cc0c532f01ea0fbbee13d43ba1763c2bfafa1af5880f",
+        "cases_sha256": "4245bf7a6c0d47973fcb6ee95daf3d6dc49df70760e848e8d65727fcff4f75b1"
+      },
+      "reviewer": {
+        "kind": "model-assisted-independent-blind-review"
+      },
+      "arms": [
+        {
+          "arm_id": "baseline",
+          "skill": null,
+          "skill_package_sha256": null,
+          "metrics": {
+            "id": "baseline",
+            "skill": null,
+            "install_mode": "none",
+            "invocation": "none",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1050024,
+            "latency_ms_median": 15166.0,
+            "tokens_total": {
+              "cached": 47616,
+              "completion": 2470,
+              "prompt": 56755,
+              "total": 59225
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "baseline",
+            "skill": null,
+            "outputs": 6,
+            "perfect_outputs": 4,
+            "criteria_passed": 22,
+            "criteria_total": 24,
+            "preferred_count": 0,
+            "criterion_pass_rate": 0.9167
+          }
+        },
+        {
+          "arm_id": "ours",
+          "skill": "react-performance-review",
+          "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+          "metrics": {
+            "id": "ours",
+            "skill": "react-performance-review",
+            "install_mode": "project",
+            "invocation": "explicit",
+            "rows": 6,
+            "promptfoo_passed_rows": 6,
+            "provider_errors": 0,
+            "forbidden_tool_rows": 0,
+            "cost_total": 0.1398264,
+            "latency_ms_median": 15026.5,
+            "tokens_total": {
+              "cached": 47616,
+              "completion": 2512,
+              "prompt": 65251,
+              "total": 67763
+            }
+          },
+          "strict_blind_review": {
+            "arm_id": "ours",
+            "skill": "react-performance-review",
+            "outputs": 6,
+            "perfect_outputs": 5,
+            "criteria_passed": 23,
+            "criteria_total": 24,
+            "preferred_count": 1,
+            "criterion_pass_rate": 0.9583
+          }
+        }
+      ],
+      "items": [
+        {
+          "review_id": "R01-r1",
+          "case_id": "R01",
+          "repetition": 1,
+          "purpose": "按实测定位 Context value 身份导致的大范围重渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端页面没有启用 React Compiler。只给最值得处理的 1 项发现和验证方法。Grid 和 Cell 已用 memo 隔离，传给 Grid 的 props 在 filter 更新前后保持稳定；Cell 只读取 ThemeContext。Profiler 的同一次合成跟踪显示：只修改 filter 时，App 重新渲染，theme 没变，但 120 个 Cell 都重新渲染，该次 commit 为 74ms；真正切换 theme 时这些 Cell 本来就应该更新。代码如下：\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  const [filter, setFilter] = useState('all');\n  const themeValue = { theme, setTheme };\n  return (\n    <ThemeContext.Provider value={themeValue}>\n      <Filter value={filter} onChange={setFilter} />\n      <Grid />\n    </ThemeContext.Provider>\n  );\n}\n\n不要声称已经优化，也不要给虚构收益。",
+          "hard_criteria": [
+            "把 filter 更新时重新创建 ThemeContext value 的对象身份与 120 个消费者重渲染、74ms commit 联系起来，并把它列为唯一发现",
+            "提出只在实际依赖变化时保持 value 身份稳定的最小方向；可接受按 theme 构造稳定 value、按读写用途拆分 context 或语义等价做法，不限定固定 API",
+            "明确保留 theme 与 setTheme 行为，真正的 theme 变化仍应通知相关消费者",
+            "建议用相同 filter 更新和 theme 切换复测消费者渲染数或 commit，并核对主题行为；不编造已获得的下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均准确定位 Context value 身份，保留主题更新，并给出同条件复测。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "**发现：`ThemeContext.Provider` 的 value 每次渲染都会创建新对象。**  \n更新 `filter` 会使 `App` 重渲染，`themeValue` 引用随之变化，导致 120 个 `Cell` 作为 Context 消费者全部重渲染；`memo` 无法阻止 Context 更新。该机制与 74ms 的 Profiler 记录吻合。\n\n最小改动：\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证：** 用相同 Profiler 跟踪重复修改 `filter`，确认 120 个 `Cell` 不再因此重渲染，并比较该 commit 耗时；随后切换 `theme`，确认所有 `Cell` 仍会重渲染且主题显示正确。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "**发现：`ThemeContext.Provider` 的 `value` 每次渲染都会产生新对象。**\n\n修改 `filter` 会让 `App` 重新渲染，`{ theme, setTheme }` 的引用随之变化。React 会将其视为 Context 值更新，因此绕过 `memo`，通知全部 120 个 `Cell` 重新渲染。\n\n可稳定该引用：\n\n```jsx\nconst themeValue = useMemo(\n  () => ({ theme, setTheme }),\n  [theme]\n);\n```\n\n**验证方法：**修改后用同样的 Profiler 场景分别跟踪：\n\n1. 只修改 `filter`：确认 `Cell` 不再出现在本次渲染的组件中。\n2. 切换 `theme`：确认全部 `Cell` 仍然重新渲染。\n\n比较修改前后的 commit 时长可评估实际收益；在重新测量前不应预设改善幅度。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R02-r1",
+          "case_id": "R02",
+          "repetition": 1,
+          "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+          "hard_criteria": [
+            "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+            "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+            "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+            "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均修复 stale closure、保留卸载清理，并用可控计时器覆盖值变化。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "原因：空依赖使 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此发送陈旧数据。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 封装 `send(roomId, draft)`，空依赖 Effect 只负责创建 interval 并在卸载时清理，每个 tick 调用该 Effect Event 读取最新值。\n\n验证：用可控计时器模拟输入和切换房间，断言每次 tick 发送当前 `roomId` 与最新 `draft`，且卸载后不再发送。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "原因：空依赖使 Effect 的 interval 闭包永久捕获首次渲染的 `roomId` 和 `draft`，因此产生陈旧值。\n\n修复方向：用 React 19.2 的 `useEffectEvent` 读取最新值，同时仅在挂载时创建 interval：\n\n```jsx\nfunction useAutosend(roomId, draft) {\n  const onTick = useEffectEvent(() => send(roomId, draft));\n\n  useEffect(() => {\n    const timer = setInterval(onTick, 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n```\n\n验证：用假定时器确认更新草稿、切换房间后下一 tick 发送最新 `(roomId, draft)`，且卸载后不再调用 `send`。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R03-r1",
+          "case_id": "R03",
+          "repetition": 1,
+          "purpose": "区分受控输入的紧急状态与可延后的昂贵结果渲染",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端搜索页的 ResultPanel 渲染一次约 95ms，结果内容必须对应最新输入。当前写法让输入值立即更新，只把结果查询条件标成非紧急更新：\n\nconst [query, setQuery] = useState('');\nconst [resultsQuery, setResultsQuery] = useState('');\nconst [isPending, startTransition] = useTransition();\nfunction handleChange(e) {\n  const next = e.target.value;\n  setQuery(next);\n  startTransition(() => setResultsQuery(next));\n}\nreturn <>\n  <input value={query} onChange={handleChange} />\n  <ResultPanel query={resultsQuery} />\n</>;\n\n同事建议把 setQuery 也移进 startTransition，并声称这样会把 95ms 计算降下来。请判断这项建议，最多 2 段，并给验证思路。不要声称已经测过修改后结果。",
+          "hard_criteria": [
+            "拒绝把控制 input value 的 setQuery 一并移入 transition，说明受控输入的直接状态应保持紧急更新",
+            "允许保留当前把结果面板更新标成非紧急的边界，并明确 transition 改变调度或响应方式，不会让一次完整 ResultPanel 计算自动变便宜；可以说明过时渲染可能被中断或放弃",
+            "保持最终 ResultPanel 对应最新 query，并在提到 pending 或中间旧结果时不把它误写成最终结果可以陈旧",
+            "验证建议覆盖快速连续输入时输入框即时性、最终结果正确性以及同口径的响应或 commit 指标；不编造下降幅度"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均正确区分受控输入紧急更新、transition 调度和单次计算成本，并验证最终结果。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "不建议。受控输入的 `setQuery` 应保持紧急更新；移入 `startTransition` 不适合控制文本输入，还可能使输入显示滞后。Transition 只改变更新的调度优先级，不会把 `ResultPanel` 本身约 95ms 的渲染计算“降下来”。当前拆分能让输入立即更新，并允许 React 中断过时的结果渲染，最终提交最新的 `resultsQuery`。\n\n建议用 React Profiler 在相同设备、构建模式和快速输入序列下，对比输入响应延迟、`ResultPanel` 的实际渲染时长与提交次数；同时验证每次按键后输入框立即显示最新值，并在更新稳定后断言 `ResultPanel` 的 `query` 等于最后一次输入。若要降低 95ms，需再定位 `ResultPanel` 内的昂贵计算，而不是仅调整 Transition。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "不建议。`setQuery` 控制文本框，移入 `startTransition` 会把输入更新也延迟；React 明确不建议用 Transition 控制文本输入。Transition 只改变调度优先级，不会把 `ResultPanel` 的 95ms 计算“降下来”。另外，当前同步更新 `query` 会令父组件重渲染；若 `ResultPanel` 未被 `memo`，即使 `resultsQuery` 未变，它仍可能同步执行一次昂贵渲染。可将结果区拆成 `memo(ResultPanel)`，或用 `useDeferredValue(query)` 驱动结果区。Transition 可中断过时渲染，保证最终提交最新条件，但等待期间仍可能短暂显示旧结果；若要求画面始终与输入严格一致，就不能接受这种延后，只能优化/拆分那 95ms。\n\n验证时分别记录基线、同事方案以及“同步输入 + memo/Deferred Value”方案：用 React DevTools Profiler 查看每次按键的 render/commit、`ResultPanel` 是否在同步输入阶段重复渲染，并用浏览器 Performance 观察输入事件到输入框更新的延迟。快速连续输入不同字符串，给面板标记其实际 `query`，确认旧 Transition 被中断、最终提交值始终等于最新输入；同时检查等待期间是否出现业务不可接受的旧结果。这里只是验证方案，并未实际测量。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R04-r1",
+          "case_id": "R04",
+          "repetition": 1,
+          "purpose": "区分 debounce 减少启动次数与迟到响应竞态",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\n审查这个 React 19.2 客户端搜索 Effect。250ms debounce 已减少快速输入时启动的请求，但一旦请求发出就不会取消；合成测试中 search('a') 比后发的 search('ab') 更晚返回，旧结果最终覆盖了新结果。最新查询的 loading、error 和 items 必须保持一致。最多给 2 项修复要点和一个确定性验证方法。\n\nuseEffect(() => {\n  if (!query) {\n    setItems([]);\n    return;\n  }\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    try {\n      setItems(await search(query));\n      setError(null);\n    } catch (error) {\n      setError(error);\n    } finally {\n      setLoading(false);\n    }\n  }, 250);\n  return () => clearTimeout(timer);\n}, [query]);\n\n不要声称已经运行测试。",
+          "hard_criteria": [
+            "区分 debounce 对尚未启动请求的作用与已启动请求的迟到竞态，明确当前清 timer 不能阻止旧响应覆盖新状态",
+            "提出让旧请求不能提交状态的方案；可接受 AbortController 配合 search、查询或代次身份检查，或语义等价取消与提交门禁",
+            "方案同时约束 items、error 和 loading 属于最新查询，并正确处理清理或取消；不能只保护 items 而允许旧 finally 清掉新请求的 loading",
+            "用可控 Promise 或等价方法让 a 晚于 ab 返回，验证最终三类状态都属于 ab，且不把取消当普通失败展示"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者都给出正确的取消与代次门禁，但均未明确说明 debounce/clearTimeout 只作用于尚未启动请求、不能阻止已启动旧响应。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "- 在 Effect 中使用递增的请求序号（或 `active` 标记），清理时立即使旧请求失效；`setItems`、`setError` 和 `setLoading(false)` 都必须先确认该请求仍对应最新 `query`。仅保护 `setItems` 不够，否则旧请求的 `catch/finally` 仍会污染最新查询状态。\n- 若 `search` 支持 `AbortSignal`，同时用 `AbortController` 在清理函数中取消旧请求，但仍保留序号校验以防取消过晚或请求忽略信号。切换查询及空查询时同步初始化一致状态，例如空查询设置 `items=[]`、`error=null`、`loading=false`。\n\n确定性验证：使用假计时器推进 250ms，并用两个可手动 resolve/reject 的 Promise 模拟 `search('a')` 和 `search('ab')`；先启动 `a`，再启动并完成 `ab`，最后才完成或拒绝 `a`。断言最终 `items`、`error`、`loading` 始终只反映 `ab`，旧请求完成后不再发生状态变化。",
+              "criteria_pass": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "1. 为每次 Effect 分配递增的请求编号，只允许最新编号更新 `loading`、`error` 和 `items`；空查询也要使旧请求失效并重置完整状态。\n\n2. 同时用 `AbortController` 取消已发出的请求（需 `search(query, { signal })` 支持）；编号校验仍需保留，因为取消可能发生得太晚。\n\n```jsx\nconst requestIdRef = useRef(0);\n\nuseEffect(() => {\n  const requestId = ++requestIdRef.current;\n\n  if (!query) {\n    setItems([]);\n    setError(null);\n    setLoading(false);\n    return;\n  }\n\n  const controller = new AbortController();\n\n  const timer = setTimeout(async () => {\n    if (requestId !== requestIdRef.current) return;\n\n    setLoading(true);\n    setError(null);\n    setItems([]);\n\n    try {\n      const result = await search(query, { signal: controller.signal });\n      if (requestId === requestIdRef.current) {\n        setItems(result);\n      }\n    } catch (error) {\n      if (\n        requestId === requestIdRef.current &&\n        error.name !== \"AbortError\"\n      ) {\n        setError(error);\n      }\n    } finally {\n      if (requestId === requestIdRef.current) {\n        setLoading(false);\n      }\n    }\n  }, 250);\n\n  return () => {\n    clearTimeout(timer);\n    controller.abort();\n  };\n}, [query]);\n```\n\n确定性验证：使用假定时器和两个可手动 resolve/reject 的 Promise；先输入 `a` 并推进 250ms，再输入 `ab` 并推进 250ms，先 resolve `ab`、后 resolve 或 reject `a`。最终应始终只有 `ab` 的 `items/error`，且 `loading === false`，旧请求的完成不能改变任何状态。",
+              "criteria_pass": [
+                false,
+                true,
+                true,
+                true
+              ],
+              "passed": 3,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R05-r1",
+          "case_id": "R05",
+          "repetition": 1,
+          "purpose": "识别 useSyncExternalStore 不稳定 snapshot 身份",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端组件出现“getSnapshot 的结果应缓存”的警告；store.count 没变化时，父组件一次无关重渲染也会得到新的对象。只指出 1 个机制问题、最小方向和验证方法：\n\nfunction Counter({ store }) {\n  const snapshot = useSyncExternalStore(\n    store.subscribe,\n    () => ({ count: store.count })\n  );\n  return <span>{snapshot.count}</span>;\n}\n\nstore.subscribe 的订阅行为必须保留，count 改变时仍要更新。不要假定框架、服务端渲染或 Compiler。",
+          "hard_criteria": [
+            "指出 getSnapshot 每次创建新对象会在底层 count 未变化时仍产生不同身份，破坏 useSyncExternalStore 对稳定快照的要求",
+            "最小方向是让底层状态未变时返回 Object.is 等价的同一快照；可接受直接返回 primitive count 并同步改为直接消费该 primitive，或在 store 层缓存不可变对象快照，或语义等价方案",
+            "保留 subscribe，且 count 真正变化时仍产生新快照并更新 UI；不能靠停止订阅或固定永不变化的对象解决",
+            "验证同一 store 状态下连续 getSnapshot 的身份稳定、一次 count 变化触发预期更新且无循环警告；不编造耗时收益"
+          ],
+          "preferred_candidate": null,
+          "preferred_arm": null,
+          "review_notes": "两者均同步修改快照返回形状和消费方式，保留订阅与状态变化更新。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；即使 `store.count` 未变，`Object.is` 比较仍判定快照变化，从而触发警告及不必要的重复渲染。\n- **最小方向**：返回稳定的原始值：`useSyncExternalStore(store.subscribe, () => store.count)`，并渲染 `{snapshot}`。保留 `subscribe`，`count` 改变时仍会更新。\n- **验证方法**：让父组件进行一次无关重渲染，确认无警告且 Counter 不因快照身份变化重复提交；随后修改 `store.count` 并通知订阅者，确认显示值更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "- **机制问题**：`getSnapshot` 每次都创建新对象；即使 `store.count` 未变，React 用 `Object.is` 比较时也会认为快照改变。\n- **最小修改**：直接返回稳定的原始值，同时保留订阅：\n\n```jsx\nfunction Counter({ store }) {\n  const count = useSyncExternalStore(\n    store.subscribe,\n    () => store.count\n  );\n  return <span>{count}</span>;\n}\n```\n\n- **验证**：让父组件在 `count` 不变时重渲染，警告应消失且 `Counter` 不会因新快照反复更新；随后修改 `store.count` 并触发原有订阅通知，界面仍应更新。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            }
+          ]
+        },
+        {
+          "review_id": "R06-r1",
+          "case_id": "R06",
+          "repetition": 1,
+          "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+          "task": "请审查下方合成 React 材料。此会话不使用工具、不修改文件、不运行应用或 profiler，也不声称完成了外部操作或测量。若系统发现了适用技能，可按其说明辅助审查；用户给出的范围、正确性要求和格式优先。\n\nReact 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+          "hard_criteria": [
+            "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+            "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+            "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+            "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+          ],
+          "preferred_candidate": "A",
+          "preferred_arm": "ours",
+          "review_notes": "A 的方案与验证均覆盖挂载后焦点或有效活动项关系；B 的方案正确，但验证只检查导航、滚动、身份和读屏，未检查实际焦点。",
+          "candidates": [
+            {
+              "candidate_id": "A",
+              "arm_id": "ours",
+              "skill": "react-performance-review",
+              "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+              "output": "**优先方向：表格行窗口化。** 仅挂载可视区域及少量缓冲行，避免首次创建全部 10,000 个 `Row`。窗口变化时继续以数据行 ID 作为稳定 `key`；上下键按完整数据索引更新选中项并滚动至目标行，待目标挂载后交接真实焦点或更新有效的 `aria-activedescendant`。容器提供完整集合的 `aria-rowcount=\"10000\"`，每个已挂载行设置其真实 `aria-rowindex`。\n\n**验证：** 在相同数据、设备和上下键/滚动操作序列下重新采集 Profiler，比较首次渲染创建的 `Row` 数量及滚动帧耗时 p95（基线 48ms）；同时自动化检查跨窗口连续导航、目标滚动可见、稳定行身份与选择状态、焦点或活动项关系，以及读屏可获得正确的行位置和总数。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                true
+              ],
+              "passed": 4,
+              "total": 4
+            },
+            {
+              "candidate_id": "B",
+              "arm_id": "baseline",
+              "skill": null,
+              "skill_package_sha256": null,
+              "output": "最优先方向：实现表格行虚拟化（窗口化），只渲染可视区域及少量缓冲行，而不是一次创建 10,000 个 `Row`。\n\n实现时需保证：\n\n- 使用数据的稳定唯一 ID 作为 `key`，选中状态也按 ID 管理。\n- 上下键仍可更新完整数据集中的选中索引；目标不在窗口内时，先滚动到对应位置，再渲染并聚焦该行。\n- 表格声明完整总数（如 `aria-rowcount=\"10000\"`），每个已渲染行通过 `aria-rowindex` 报告其在完整集合中的 1-based 位置。\n\n验证方法：用同一数据、视口和滚动脚本前后对比 Profiler；确认首次渲染创建的 `Row` 数量从 10,000 降至“可见行 + 缓冲行”，并重新测量滚动帧耗时 p95，目标应由产品性能预算决定。同时手工或自动验证跨窗口上下键导航、自动滚入可见区域、选中项身份稳定及读屏位置播报。",
+              "criteria_pass": [
+                true,
+                true,
+                true,
+                false
+              ],
+              "passed": 3,
+              "total": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conclusions": [
+    "The first frozen strict review favored baseline 66/72 to 64/72, but the post-run visible-task calibration was 72/72 for both arms; neither score was rewritten.",
+    "When controllable timing and focus were explicit, baseline, 0.1.1, and 0.1.2 all reached 24/24, so that ceiling run does not prove a skill-version gain.",
+    "On the original natural prompts, 0.1.2 reached 22/24 versus 18/24 for 0.1.1 and 17/24 for baseline, with the remaining misses limited to explicit focus verification.",
+    "On the exact original focus case, 0.1.3 reached 12/12 and was preferred 3/3; 0.1.2 reached 9/12, 0.1.1 7/12, and baseline 8/12.",
+    "A one-repetition six-case current-package regression scored 23/24 versus baseline 22/24. Both missed an explicit restatement of the debounce-versus-in-flight distinction; no new regression was observed.",
+    "These are synthetic static-review outputs with model-assisted blind scoring. No React application, browser performance trace, screen reader, or implicit skill routing was verified."
+  ],
+  "publication_note": "This publication copy contains only synthetic tasks, model outputs, frozen criteria, aggregate metrics, and hashes. Authentication material, absolute home paths, raw provider events, and Codex task identifiers are excluded. Hashes bind the ignored local run artifacts."
+}

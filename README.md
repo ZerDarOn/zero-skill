@@ -2,10 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第九轮硬长度上限与证据指纹打磨**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`prose-polish` 0.1.3 在 P05/P06 各三次的当前包回归中为24/24、6/6完整通过，0.1.1为23/24、无 Skill为22/24；四题单次一般化复跑三组均为15/16，未证明一般性写作优势。全部待提交文本已统一 LF，校验器会拒绝影响包指纹的 CRLF。当前仍是显式调用与模型辅助评审；隐式发现链路在当前宿主尚未完成。人物分析的平衡证据复查也未支持继续升版。
+当前阶段：**第十轮 React 原生盲测与虚拟焦点打磨**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`react-performance-review` 已升至0.1.3；第一次六题三次重复没有证明0.1.1优于无 Skill，运行后语义校准为两组核心任务均72/72。共同漏掉的虚拟焦点边界经两次窄修后，0.1.3在同一焦点题三次达到12/12、3/3完整通过，0.1.2为9/12、0.1.1为7/12、无 Skill为8/12。当前包六题单次回归为23/24，未观察到明显退化。全部仍是显式调用与模型辅助评审；没有真实 React/浏览器/读屏验收，隐式发现链路也尚未完成。
 
 ## 从这里开始
 
+- [第十轮质量打磨：React 原生盲测与虚拟焦点](docs/quality-polish-round-10.md)
+- [React 性能审查脱敏诊断证据](evaluations/reports/react-performance-quality-round-10-diagnostic.json)
 - [第九轮质量打磨：硬长度上限与跨平台指纹](docs/quality-polish-round-09.md)
 - [prose-polish 0.1.3 脱敏诊断证据](evaluations/reports/prose-output-limits-0.1.3-promptfoo-diagnostic.json)
 - [第八轮质量检查：人物证据分析原生盲测 pilot](docs/quality-evaluation-round-08.md)

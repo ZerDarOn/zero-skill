@@ -1,0 +1,68 @@
+[
+  {
+    "id": "R01",
+    "purpose": "按实测定位 Context value 身份导致的大范围重渲染",
+    "prompt": "React 19.2 客户端页面没有启用 React Compiler。只给最值得处理的 1 项发现和验证方法。Grid 和 Cell 已用 memo 隔离，传给 Grid 的 props 在 filter 更新前后保持稳定；Cell 只读取 ThemeContext。Profiler 的同一次合成跟踪显示：只修改 filter 时，App 重新渲染，theme 没变，但 120 个 Cell 都重新渲染，该次 commit 为 74ms；真正切换 theme 时这些 Cell 本来就应该更新。代码如下：\n\nfunction App() {\n  const [theme, setTheme] = useState('light');\n  const [filter, setFilter] = useState('all');\n  const themeValue = { theme, setTheme };\n  return (\n    <ThemeContext.Provider value={themeValue}>\n      <Filter value={filter} onChange={setFilter} />\n      <Grid />\n    </ThemeContext.Provider>\n  );\n}\n\n不要声称已经优化，也不要给虚构收益。",
+    "hard_criteria": [
+      "把 filter 更新时重新创建 ThemeContext value 的对象身份与 120 个消费者重渲染、74ms commit 联系起来，并把它列为唯一发现",
+      "提出只在实际依赖变化时保持 value 身份稳定的最小方向；可接受按 theme 构造稳定 value、按读写用途拆分 context 或语义等价做法，不限定固定 API",
+      "明确保留 theme 与 setTheme 行为，真正的 theme 变化仍应通知相关消费者",
+      "建议用相同 filter 更新和 theme 切换复测消费者渲染数或 commit，并核对主题行为；不编造已获得的下降幅度"
+    ]
+  },
+  {
+    "id": "R02",
+    "purpose": "拒绝用空依赖换取少重启而造成 stale closure",
+    "prompt": "审查这个 React 19.2 客户端 Hook 的性能修订，只给原因、一个修复方向和一句验证思路。原实现把 roomId、draft 放在 Effect 依赖中，输入时 interval 会重建；同事为减少重建改成了空依赖。现在切换房间后仍会向旧 roomId 发送，draft 也停在挂载时的内容。正确行为是每个 tick 只发送当前房间的最新草稿，卸载后停止。\n\nfunction useAutosend(roomId, draft) {\n  useEffect(() => {\n    const timer = setInterval(() => send(roomId, draft), 1000);\n    return () => clearInterval(timer);\n  }, []);\n}\n\n不必运行代码，不要假定框架或 Compiler。",
+    "hard_criteria": [
+      "指出空依赖使 interval 回调捕获挂载时 roomId 与 draft，当前少重建不能算作正确的性能修复",
+      "修复方向必须恢复值变化后的正确性；可接受声明真实依赖，或把 interval 生命周期与最新值读取安全分开，例如 Effect Event、持续更新的 ref 或语义等价方案",
+      "保留卸载清理，并保证切换房间和修改草稿后只发送当前值；不以删除依赖或清理来减少工作",
+      "验证建议覆盖 fake timer 或等价可控时钟下的 roomId 变化、draft 变化和卸载，不编造性能收益"
+    ]
+  },
+  {
+    "id": "R03",
+    "purpose": "区分受控输入的紧急状态与可延后的昂贵结果渲染",
+    "prompt": "React 19.2 客户端搜索页的 ResultPanel 渲染一次约 95ms，结果内容必须对应最新输入。当前写法让输入值立即更新，只把结果查询条件标成非紧急更新：\n\nconst [query, setQuery] = useState('');\nconst [resultsQuery, setResultsQuery] = useState('');\nconst [isPending, startTransition] = useTransition();\nfunction handleChange(e) {\n  const next = e.target.value;\n  setQuery(next);\n  startTransition(() => setResultsQuery(next));\n}\nreturn <>\n  <input value={query} onChange={handleChange} />\n  <ResultPanel query={resultsQuery} />\n</>;\n\n同事建议把 setQuery 也移进 startTransition，并声称这样会把 95ms 计算降下来。请判断这项建议，最多 2 段，并给验证思路。不要声称已经测过修改后结果。",
+    "hard_criteria": [
+      "拒绝把控制 input value 的 setQuery 一并移入 transition，说明受控输入的直接状态应保持紧急更新",
+      "允许保留当前把结果面板更新标成非紧急的边界，并明确 transition 改变调度或响应方式，不会让一次完整 ResultPanel 计算自动变便宜；可以说明过时渲染可能被中断或放弃",
+      "保持最终 ResultPanel 对应最新 query，并在提到 pending 或中间旧结果时不把它误写成最终结果可以陈旧",
+      "验证建议覆盖快速连续输入时输入框即时性、最终结果正确性以及同口径的响应或 commit 指标；不编造下降幅度"
+    ]
+  },
+  {
+    "id": "R04",
+    "purpose": "区分 debounce 减少启动次数与迟到响应竞态",
+    "prompt": "审查这个 React 19.2 客户端搜索 Effect。250ms debounce 已减少快速输入时启动的请求，但一旦请求发出就不会取消；合成测试中 search('a') 比后发的 search('ab') 更晚返回，旧结果最终覆盖了新结果。最新查询的 loading、error 和 items 必须保持一致。最多给 2 项修复要点和一个确定性验证方法。\n\nuseEffect(() => {\n  if (!query) {\n    setItems([]);\n    return;\n  }\n  const timer = setTimeout(async () => {\n    setLoading(true);\n    try {\n      setItems(await search(query));\n      setError(null);\n    } catch (error) {\n      setError(error);\n    } finally {\n      setLoading(false);\n    }\n  }, 250);\n  return () => clearTimeout(timer);\n}, [query]);\n\n不要声称已经运行测试。",
+    "hard_criteria": [
+      "区分 debounce 对尚未启动请求的作用与已启动请求的迟到竞态，明确当前清 timer 不能阻止旧响应覆盖新状态",
+      "提出让旧请求不能提交状态的方案；可接受 AbortController 配合 search、查询或代次身份检查，或语义等价取消与提交门禁",
+      "方案同时约束 items、error 和 loading 属于最新查询，并正确处理清理或取消；不能只保护 items 而允许旧 finally 清掉新请求的 loading",
+      "用可控 Promise 或等价方法让 a 晚于 ab 返回，验证最终三类状态都属于 ab，且不把取消当普通失败展示"
+    ]
+  },
+  {
+    "id": "R05",
+    "purpose": "识别 useSyncExternalStore 不稳定 snapshot 身份",
+    "prompt": "React 19.2 客户端组件出现“getSnapshot 的结果应缓存”的警告；store.count 没变化时，父组件一次无关重渲染也会得到新的对象。只指出 1 个机制问题、最小方向和验证方法：\n\nfunction Counter({ store }) {\n  const snapshot = useSyncExternalStore(\n    store.subscribe,\n    () => ({ count: store.count })\n  );\n  return <span>{snapshot.count}</span>;\n}\n\nstore.subscribe 的订阅行为必须保留，count 改变时仍要更新。不要假定框架、服务端渲染或 Compiler。",
+    "hard_criteria": [
+      "指出 getSnapshot 每次创建新对象会在底层 count 未变化时仍产生不同身份，破坏 useSyncExternalStore 对稳定快照的要求",
+      "最小方向是让底层状态未变时返回 Object.is 等价的同一快照；可接受直接返回 primitive count 并同步改为直接消费该 primitive，或在 store 层缓存不可变对象快照，或语义等价方案",
+      "保留 subscribe，且 count 真正变化时仍产生新快照并更新 UI；不能靠停止订阅或固定永不变化的对象解决",
+      "验证同一 store 状态下连续 getSnapshot 的身份稳定、一次 count 变化触发预期更新且无循环警告；不编造耗时收益"
+    ]
+  },
+  {
+    "id": "R06",
+    "purpose": "大列表虚拟化同时保留键盘焦点与集合语义",
+    "prompt": "React 19.2 客户端表格有 10,000 行，Profiler 显示首次渲染创建全部 10,000 个 Row，滚动交互的帧耗时 p95 为 48ms。产品要求保留上下键跨越当前可视区域移动选中项、把选中行滚动到可见位置、稳定的行身份，以及读屏能获知每行在完整集合中的位置和总数。只给最值得先做的 1 个性能方向和验证方法；不要指定项目未使用的框架或声称已经优化。",
+    "hard_criteria": [
+      "把已测的 10,000 个 Row 与 48ms 滚动帧作为优先依据，提出窗口化或虚拟化这一个主要方向，而非先做零散 memo 或微优化",
+      "方向必须保留基于数据项的稳定行身份、完整数据集合和选中状态，不能把简单 slice 或数组索引 key 当成完整方案",
+      "明确处理选中项移出窗口后的键盘与焦点行为：先滚动并确保目标行已挂载后再聚焦，或仅在目标行已挂载且由控件拥有时更新 aria-activedescendant；也接受保证活动项始终挂载的等价机制。同时保留完整集合中的位置与总数语义，不限定固定 ARIA 角色",
+      "用相同数据量和交互复测渲染节点数或帧指标，同时验证跨窗口上下键、滚动到选中项、焦点与读屏集合信息；不编造已获得的收益"
+    ]
+  }
+]

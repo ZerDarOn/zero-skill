@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "claim-quantitative-preservation-forward-12",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "claim-evidence-review",
+        "source": "../../../skills/research/claim-evidence-review",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

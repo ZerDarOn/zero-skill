@@ -24,6 +24,15 @@ UPSTREAM = (
     / "1e391e26fd1c1bfee06e4daa9b439086a098a49b"
 )
 
+ROUND_14_SKILL = (
+    Path(__file__).resolve().parents[1]
+    / "evaluations"
+    / "comparisons"
+    / "relationship-boundary-regression-06"
+    / "packages"
+    / "relationship-review-0.1.1"
+)
+
 
 class RelationshipComparisonTests(unittest.TestCase):
     def test_prompt_includes_complete_package_without_frozen_rubric(self):
@@ -160,12 +169,7 @@ class RelationshipComparisonTests(unittest.TestCase):
                 totals,
                 {key: published[key] for key in totals},
             )
-        ours_folder = (
-            Path(__file__).resolve().parents[1]
-            / "skills"
-            / "relationships"
-            / "relationship-review"
-        )
+        ours_folder = ROUND_14_SKILL
         validator = runpy.run_path(
             str(Path(__file__).resolve().parents[1] / "scripts" / "validate_collection.py")
         )

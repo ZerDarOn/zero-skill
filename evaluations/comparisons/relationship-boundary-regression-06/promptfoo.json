@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "relationship-boundary-regression-06",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方合成人际沟通任务。只使用题目中的信息，不调用工具，不补充外部事实，不声称已联系任何人。按用户要求的长度和形状直接回答。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "previous",
+      "skill": {
+        "id": "relationship-review",
+        "source": "packages/relationship-review-0.1.1",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "candidate",
+      "skill": {
+        "id": "relationship-review",
+        "source": "../../../skills/relationships/relationship-review",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "relationship-three-arm-04",
+  "date": "2026-09-11",
+  "base_commit": "e87dadabac5df0fd4aa34cb496bafdde7eb9fb05",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "arms": ["baseline", "ours", "upstream"],
+  "repetitions": 1,
+  "run_order_seed": 91104,
+  "method": "Six new synthetic romantic-communication tasks; identical task text across arms; explicit complete-package inline injection for skill arms; independent ephemeral Codex CLI sessions; read-only sandbox; no tools, retries, or skill edits during the pilot. Preserve failures and blind-score frozen criteria before revealing arm mappings.",
+  "common_prompt": "请完成下方合成恋爱沟通任务。若提供了技能资料，其全部文件内容已经内联在当前消息中；按入口文件和包内引用使用它，不调用工具或读取本机文件。用户明确的范围、长度、语气和边界优先。不要声称已经发送消息、联系他人或验证现实情况。只返回最终回答。",
+  "loading": "baseline receives no package; ours receives every file in relationship-review 0.1.1; upstream receives the unmodified LoveHelper relationship-copilot entrypoint, its default playbook, and the relationship-stage-assessor entrypoint from commit 1e391e26fd1c1bfee06e4daa9b439086a098a49b. Licenses and provenance stay outside the model prompt.",
+  "review": "Score anonymized candidates criterion by criterion before opening blind-review-key.json. Semantic equivalents pass. Select one preferred candidate only when it is materially more useful; ties may use null. This pilot is model-assisted unless a human reviewer fills the form.",
+  "limitations": [
+    "One repetition per case is an exploratory pilot, not a stable ranking.",
+    "Explicit inline loading measures instruction usefulness, not native or implicit routing.",
+    "LoveHelper had 3 GitHub stars when refreshed on 2026-09-11; it is a close-domain comparator, not a high-star quality proxy.",
+    "The upstream bundle omits OCR, a public-person style layer, executable scoring, and a long reference because the tasks are already text and do not require those features.",
+    "No real chats, accounts, screenshots, or private relationship data are used."
+  ]
+}

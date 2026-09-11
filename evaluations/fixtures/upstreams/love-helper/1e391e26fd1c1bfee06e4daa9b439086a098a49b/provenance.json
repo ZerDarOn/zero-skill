@@ -1,0 +1,38 @@
+{
+  "repository": "https://github.com/Mowon0303/LoveHelper.skill",
+  "commit": "1e391e26fd1c1bfee06e4daa9b439086a098a49b",
+  "tree": "f8606113048c36ffad468670a984bc937dd08add",
+  "license": "MIT",
+  "purpose": "Explicit inline-package relationship quality evaluation fixture; not installed or registered as a local skill",
+  "retrieved_at": "2026-09-11T04:45:00+00:00",
+  "observed_stars": 3,
+  "modifications": "None; included files retain their original paths and bytes. The evaluation harness may present the three instruction files inline so the isolated model does not need filesystem reads.",
+  "not_included": [
+    "wechat-chat-ocr and scripts because every frozen input is already text",
+    "tong-jincheng-perspective because no frozen task requests a public-person style",
+    "relationship-stage-assessor scripts and long stage-distillation reference because its SKILL.md states the daily core is self-contained",
+    "repository README files because they are not runtime instructions"
+  ],
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/Mowon0303/LoveHelper.skill/1e391e26fd1c1bfee06e4daa9b439086a098a49b/LICENSE",
+      "sha256": "0ed684b53dde1aa88f3758b9c2faaa8ef4acdf19d4ecc6b5a4e41a0b308c1317"
+    },
+    "ATTRIBUTION.md": {
+      "url": "https://raw.githubusercontent.com/Mowon0303/LoveHelper.skill/1e391e26fd1c1bfee06e4daa9b439086a098a49b/ATTRIBUTION.md",
+      "sha256": "e01fed58a9ef3f2231a2ba145ab99c644e21a94465c48f2887f98ee7e6dc7b98"
+    },
+    "relationship-copilot/SKILL.md": {
+      "url": "https://raw.githubusercontent.com/Mowon0303/LoveHelper.skill/1e391e26fd1c1bfee06e4daa9b439086a098a49b/relationship-copilot/SKILL.md",
+      "sha256": "d6e6671607133c5e7e57801f48b3b8034269943121e5d083bcd5c8f441ddb863"
+    },
+    "relationship-copilot/references/human-progression-playbook.md": {
+      "url": "https://raw.githubusercontent.com/Mowon0303/LoveHelper.skill/1e391e26fd1c1bfee06e4daa9b439086a098a49b/relationship-copilot/references/human-progression-playbook.md",
+      "sha256": "ae977de196442149df516b3a1962b6267499aea4602065fcf5953785bb092ec9"
+    },
+    "relationship-stage-assessor/SKILL.md": {
+      "url": "https://raw.githubusercontent.com/Mowon0303/LoveHelper.skill/1e391e26fd1c1bfee06e4daa9b439086a098a49b/relationship-stage-assessor/SKILL.md",
+      "sha256": "e767a26c1258595ad9a91f21e5488eedbc9fe7ab4879e0131f8b152a88bc009a"
+    }
+  }
+}

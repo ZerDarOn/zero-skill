@@ -92,6 +92,11 @@ Promptfoo 准备器现在为隐式技能臂加入 `skill-used`、为基线加入
 
 另建两个合成Python项目，每组每题两次，共12个实验、24次正式生成。无技能、debug-evidence-triage、Superpowers的代码验收均4/4；上游一份原版回归超时，原记录保留，额外逐项诊断确认仍含有效回归。使用模型补丁与运行器实际测试的受控流程，未验证模型自主工具操作。没有观察到修复成功率增益，也未改技能包或原94项活动用例。见[报告](../docs/engineering-three-arm-01-report.md)、[冻结协议与项目](comparisons/engineering-three-arm-01/README.md)和[完整证据](reports/engineering-three-arm-01-diagnostic.json)。
 
+## 关系沟通三方对照 pilot
+
+`comparisons/relationship-three-arm-04/` 冻结六个新的恋爱沟通任务，对比无 Skill、`relationship-review` 0.1.1 与 LoveHelper 固定提交。两组 Skill 都以完整指令包显式内联，隔离会话不调用工具；因此只测指令帮助，不测隐式路由。LoveHelper 是任务贴近且许可清楚的领域对照，刷新时只有 3 Star，不作为高热度或一般质量代理。
+
+运行前校验上游原字节哈希，运行后先生成匿名候选和空白评分表。评分者须逐标准盲评后再由通用计分器揭盲；一次六题 pilot 只支持发现具体缺口，不能据此给出稳定排名或把 Skill 升为 verified。
 ## 运行方法
 
 1. 记录技能版本和包指纹、宿主版本、模型与配置、日期。材料固定为同一份合成输入。

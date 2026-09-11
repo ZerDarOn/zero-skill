@@ -69,15 +69,15 @@
     {
       "id": "love-helper",
       "url": "https://github.com/Mowon0303/LoveHelper.skill",
-      "observed_on": "2026-09-08",
+      "observed_on": "2026-09-11",
       "stars_display": "3",
       "license_declared": "MIT",
       "review_level": "entrypoint-reviewed",
       "evidence_url": "https://github.com/Mowon0303/LoveHelper.skill/blob/1e391e26fd1c1bfee06e4daa9b439086a098a49b/relationship-copilot/SKILL.md",
       "revision": "1e391e26fd1c1bfee06e4daa9b439086a098a49b",
       "imported": false,
-      "adopt": "输入整理、阶段分析、表达建议拆分",
-      "caveat": "阶段分数不能当作感情概率"
+      "adopt": "先给可发送回复、引用具体对话并把建议落成下一步",
+      "caveat": "阶段分数和进攻性框架不能当作感情概率或越过明确拒绝"
     },
     {
       "id": "crush",

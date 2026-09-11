@@ -21,10 +21,15 @@ def sha256(data):
 
 
 def fixture_files():
-    return [
-        path for path in sorted((BASE / "fixtures").rglob("*"))
-        if path.is_file() and "__pycache__" not in path.parts
-    ]
+    root = BASE / "fixtures"
+    return sorted(
+        (
+            path
+            for path in root.rglob("*")
+            if path.is_file() and "__pycache__" not in path.parts
+        ),
+        key=lambda path: path.relative_to(root).as_posix(),
+    )
 
 
 def fixture_fingerprint():

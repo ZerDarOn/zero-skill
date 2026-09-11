@@ -101,14 +101,20 @@
   "ci": {
     "configured": true,
     "environment": "ubuntu-latest with Playwright Chromium",
-    "status": "not-run-remotely"
+    "status": "passed",
+    "workflow_run_id": 34558034912,
+    "workflow_run_url": "https://github.com/ZerDarOn/zero-skill/actions/runs/34558034912",
+    "job_id": 103134805400,
+    "job_url": "https://github.com/ZerDarOn/zero-skill/actions/runs/34558034912/job/103134805400",
+    "workflow_conclusion": "failure",
+    "workflow_failure": "A separate Ubuntu Python matrix job exposed host-dependent fixture-tree ordering; the React runtime job completed successfully."
   },
   "limitations": [
     "This run does not evaluate implicit Skill discovery or model answer quality.",
     "This run does not prove a performance improvement or a production behavior.",
     "This run does not use a real screen reader.",
     "The isolated 8-of-9 stress failure remains unassigned because later reproduction attempts passed.",
-    "Ubuntu Chromium CI has not run yet."
+    "The first remote workflow was overall red because of a separate cross-platform fixture-fingerprint test; the React runtime job itself passed."
   ],
   "catalog_decision": {
     "status": "experimental",

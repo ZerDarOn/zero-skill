@@ -12,7 +12,7 @@
 - 虚拟窗口跨界后，键盘焦点必须转移到新挂载的目标，并保留完整集合位置语义；
 - 筛选值在渲染阶段派生时，结果和必要的 analytics 外部同步保持正确，同时由 React Profiler 记录实际提交。
 
-本地 Edge 验收最终为 3 个场景各重复 3 次，`9/9` 通过；TypeScript 检查、collection 结构检查和原有 Python 回归也通过。技能仍为 `experimental`，catalog 的 `evidence` 仍为 `null`，因为这份夹具只验证实现边界，不能证明模型总会给出正确建议，也没有完成隐式路由和真实读屏验收。
+本地 Edge 验收最终为 3 个场景各重复 3 次，`9/9` 通过；远端 Ubuntu Playwright Chromium job 也通过了类型检查与 `3/3` 浏览器验收。collection 结构检查和原有 Python 回归同样通过。技能仍为 `experimental`，catalog 的 `evidence` 仍为 `null`，因为这份夹具只验证实现边界，不能证明模型总会给出正确建议，也没有完成隐式路由和真实读屏验收。
 
 ## 夹具与冻结边界
 
@@ -42,7 +42,8 @@ Profiler 的 `actualDuration` 只证明回调真实执行，不设性能阈值�
 - `npm run typecheck`：通过；
 - `npm test -- --repeat-each=3 --workers=3`：`9/9` 通过；
 - `python scripts/validate_collection.py`：通过；
-- `python -m unittest discover -s tests -v`：54 通过，1 个既有 Windows 符号链接权限用例跳过。
+- `python -m unittest discover -s tests -v`：54 通过，1 个既有 Windows 符号链接权限用例跳过；`15e5c7c` 的 Ubuntu 首跑随后暴露了工程夹具树指纹的平台排序问题，该问题由独立回归测试覆盖并修正。
+- [GitHub Actions React runtime job](https://github.com/ZerDarOn/zero-skill/actions/runs/34558034912/job/103134805400)：Ubuntu Playwright Chromium 类型检查与 `3/3` 浏览器验收通过。
 
 机器可读记录见 `evaluations/reports/react-performance-runtime-round-11-diagnostic.json`。
 
@@ -59,7 +60,7 @@ Profiler 的 `actualDuration` 只证明回调真实执行，不设性能阈值�
 
 ## 持续检查
 
-`.github/workflows/validate.yml` 新增独立 `react-runtime` job：在 Ubuntu 上安装锁定依赖和 Playwright Chromium，执行类型检查与三项浏览器验收。该 job 尚未在远端运行，本地通过不能替代 Linux CI 结果。
+`.github/workflows/validate.yml` 的独立 `react-runtime` job 已在 Ubuntu 上安装锁定依赖和 Playwright Chromium，并通过类型检查与三项浏览器验收。对应运行是 [GitHub Actions run 34558034912](https://github.com/ZerDarOn/zero-skill/actions/runs/34558034912)，React job 成功。该次工作流整体为失败，是同一提交中另一项 Ubuntu Python 测试暴露了工程夹具树指纹按宿主 `Path` 语义排序的问题；这不改变 React job 的通过结论。
 
 ## 尚未覆盖
 
@@ -70,6 +71,5 @@ Profiler 的 `actualDuration` 只证明回调真实执行，不设性能阈值�
 - 真实业务应用、生产数据或性能收益；
 - NVDA、JAWS、VoiceOver 等真实读屏器；
 - Firefox、WebKit、移动设备和 React 19.3；
-- CI 中的 Ubuntu Chromium 结果。
 
 这些边界决定了当前状态继续保持 `experimental`。

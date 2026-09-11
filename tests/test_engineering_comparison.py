@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 import runpy
@@ -9,6 +10,20 @@ VERIFIER = runpy.run_path(str(BASE / "verify_fixtures.py"))
 
 
 class EngineeringComparisonTests(unittest.TestCase):
+    def test_fixture_fingerprint_uses_posix_relative_path_order(self):
+        digest = hashlib.sha256()
+        files = sorted(
+            VERIFIER["fixture_files"](),
+            key=lambda path: path.relative_to(BASE / "fixtures").as_posix(),
+        )
+        for path in files:
+            relative = path.relative_to(BASE / "fixtures").as_posix().encode("utf-8")
+            for data in (relative, path.read_bytes()):
+                digest.update(len(data).to_bytes(8, "big"))
+                digest.update(data)
+
+        self.assertEqual(VERIFIER["fixture_fingerprint"](), digest.hexdigest())
+
     def test_rejects_paths_and_invalid_source_before_application(self):
         parse = RUNNER["parse_submission"]
         self.assertEqual(

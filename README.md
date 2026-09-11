@@ -2,10 +2,13 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十轮 React 原生盲测与虚拟焦点打磨**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`react-performance-review` 已升至0.1.3；第一次六题三次重复没有证明0.1.1优于无 Skill，运行后语义校准为两组核心任务均72/72。共同漏掉的虚拟焦点边界经两次窄修后，0.1.3在同一焦点题三次达到12/12、3/3完整通过，0.1.2为9/12、0.1.1为7/12、无 Skill为8/12。当前包六题单次回归为23/24，未观察到明显退化。全部仍是显式调用与模型辅助评审；没有真实 React/浏览器/读屏验收，隐式发现链路也尚未完成。
+当前阶段：**第十一轮 React 浏览器运行验收基建**。已有十六个可试用的 `experimental` 技能，活动用例共96项。`react-performance-review` 保持0.1.3；新增 React 19.2 + Playwright 合成夹具，在本机 Edge 上验证迟到响应、虚拟焦点交接和 Profiler/外部同步三个运行边界，最终三场景各重复三次为9/9。技能仍未完成隐式发现、真实读屏和生产应用验收，因此不升级状态。
 
 ## 从这里开始
 
+- [第十一轮质量打磨：React 浏览器运行验收](docs/quality-polish-round-11.md)
+- [React 浏览器运行夹具](evaluations/runtime/react-performance-review/README.md)
+- [React 浏览器运行诊断证据](evaluations/reports/react-performance-runtime-round-11-diagnostic.json)
 - [第十轮质量打磨：React 原生盲测与虚拟焦点](docs/quality-polish-round-10.md)
 - [React 性能审查脱敏诊断证据](evaluations/reports/react-performance-quality-round-10-diagnostic.json)
 - [第九轮质量打磨：硬长度上限与跨平台指纹](docs/quality-polish-round-09.md)
@@ -86,6 +89,17 @@ python -m unittest discover -s tests -v
 ```
 
 校验只读取仓库；不联网、不安装技能、不读取聊天软件。通过结构校验不等于通过行为评测。
+
+## React 浏览器验收
+
+React 运行夹具是独立的可选检查，不改变上面两条基础命令。Windows 默认使用已安装的 Microsoft Edge；其他系统需先安装 Playwright Chromium。
+
+~~~sh
+cd evaluations/runtime/react-performance-review
+npm ci
+npm run typecheck
+npm test
+~~~
 
 ## 目录职责
 

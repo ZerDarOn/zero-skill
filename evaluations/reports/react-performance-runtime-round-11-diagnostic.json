@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "report_id": "react-performance-runtime-round-11",
+  "run_date": "2026-09-11",
+  "skill_id": "react-performance-review",
+  "skill_version": "0.1.3",
+  "status": "diagnostic",
+  "environment": {
+    "os": "Windows",
+    "browser": "Microsoft Edge 152.0.4191.66",
+    "node": "24.19.0",
+    "react": "19.2.0",
+    "react_dom": "19.2.0",
+    "playwright": "1.63.0"
+  },
+  "artifacts": {
+    "skill_package_sha256": "66411b82b4075b8ad839cb75fce155ead7beff2170816591a6dab642116e05c6",
+    "package_lock_sha256": "a11c45e06608e63169e295ce4831d2fb7cd5d531d812b57ad3bb12eb4bd47f13",
+    "app_sha256": "a624578677312d544dd51e71c2f9cec7f242ee3f2ff2049543c33559bfd59990",
+    "test_spec_sha256": "24dbd0daa3b73d228dc73f05750fe34140b4bd894d13345b4bcd7ee99d482ffa"
+  },
+  "red_phase": {
+    "infrastructure_attempt": {
+      "status": "invalid",
+      "reason": "Playwright 1.63 expected Chromium 1243 while the host cache contained Chromium 1234; no behavior assertion executed."
+    },
+    "behavior_attempt": {
+      "status": "failed-as-expected",
+      "passed": 0,
+      "failed": 3,
+      "reason": "The skeleton page did not contain any of the three acceptance scenarios."
+    }
+  },
+  "green_phase": {
+    "typecheck": "passed",
+    "standard_run": {
+      "passed": 3,
+      "failed": 0
+    },
+    "first_stress_run": {
+      "workers": 6,
+      "repeat_each": 3,
+      "passed": 8,
+      "failed": 1,
+      "failure": "One run did not find the virtual list; root cause was not reproduced."
+    },
+    "diagnostic_reruns": [
+      {
+        "scope": "focus scenario",
+        "workers": 1,
+        "repeat_each": 10,
+        "passed": 10,
+        "failed": 0
+      },
+      {
+        "scope": "focus scenario",
+        "workers": 6,
+        "repeat_each": 10,
+        "passed": 10,
+        "failed": 0
+      },
+      {
+        "scope": "all three scenarios",
+        "workers": 6,
+        "repeat_each": 10,
+        "passed": 30,
+        "failed": 0
+      }
+    ],
+    "final_run": {
+      "workers": 3,
+      "repeat_each": 3,
+      "passed": 9,
+      "failed": 0,
+      "readiness_assertion": "HTTP response is successful and the application heading is visible before scenario actions."
+    },
+    "repository_checks": {
+      "collection_validation": "passed",
+      "python_tests_passed": 54,
+      "python_tests_skipped": 1,
+      "skip_reason": "Existing Windows symlink privilege limitation."
+    }
+  },
+  "scenarios": [
+    {
+      "id": "late-response",
+      "result": "passed",
+      "assertion": "An older response resolved after the newest response cannot replace the newest result."
+    },
+    {
+      "id": "virtual-focus",
+      "result": "passed",
+      "assertion": "Cross-window ArrowDown mounts Item 6, transfers DOM focus, and preserves 6-of-100 semantics."
+    },
+    {
+      "id": "profiler-derived-state",
+      "result": "passed",
+      "assertion": "Render-derived filtering preserves ordered results and analytics synchronization while Profiler records commits."
+    }
+  ],
+  "ci": {
+    "configured": true,
+    "environment": "ubuntu-latest with Playwright Chromium",
+    "status": "not-run-remotely"
+  },
+  "limitations": [
+    "This run does not evaluate implicit Skill discovery or model answer quality.",
+    "This run does not prove a performance improvement or a production behavior.",
+    "This run does not use a real screen reader.",
+    "The isolated 8-of-9 stress failure remains unassigned because later reproduction attempts passed.",
+    "Ubuntu Chromium CI has not run yet."
+  ],
+  "catalog_decision": {
+    "status": "experimental",
+    "evidence": null,
+    "reason": "The runtime fixture validates three implementation boundaries but is insufficient for verified Skill status."
+  }
+}

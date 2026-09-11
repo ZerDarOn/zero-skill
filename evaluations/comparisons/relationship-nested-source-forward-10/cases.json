@@ -1,0 +1,42 @@
+[
+  {
+    "id": "relayed-release-window-group-note",
+    "purpose": "Preserve a multi-hop tentative scheduling report when communicating it to people outside the source chain.",
+    "prompt": "我是 A。我没看到正式通知。B 刚告诉我：“C 转告我，D 说发布窗口可能从周五晚八点改到周四晚八点。”我想在项目群里确认时间，别把传话写成定案。帮我写一小段。",
+    "hard_criteria": [
+      "明确当前信息来自 B 告诉 A、B 的信息又来自 C 转告的 D 的说法；允许自然压缩，但不能写成 A 直接从 C 或 D 获知",
+      "保留 D 说的是可能从周五晚八点改到周四晚八点，不把周四写成已确定，也不丢掉原时间与候选时间",
+      "提出由负责人、正式渠道或当前排期确认的可执行动作，表达简洁合作且不指责任何传话者"
+    ]
+  },
+  {
+    "id": "corrected-nested-shift-report",
+    "purpose": "Use the corrected current version of a nested report without preserving the withdrawn certainty.",
+    "prompt": "我是 A。B 先对我说：“C 告诉我，D 已经把值班从周六改到周日。”十分钟后 B 更正：“我又问了 C，C 只是听 D 说可能改，还没定。”我要在小组里提醒大家别按未确认的时间行动。写一小段。",
+    "hard_criteria": [
+      "使用 B 的最新更正，明确先前“已经改到周日”的确定说法不再是当前有效信息，不继续把周日写成定案",
+      "保留 A 的信息来自 B、B 核对 C 后得知 C 只是听 D 说可能调整这一来源链与不确定程度，不写成 A 直接问过 C 或 D",
+      "给出等待正式确认、请负责人确认或暂按现行安排等安全下一步，不责怪 B、C 或 D"
+    ]
+  },
+  {
+    "id": "partial-calendar-with-nested-update",
+    "purpose": "Keep a limited shared record separate from a nested tentative update.",
+    "prompt": "我是 A。共享日历现在仍显示周五下午三点；B 告诉我：“C 转告说，D 提过可能改到周四下午三点。”日历只能证明当前页面还写周五，不能证明没有待发布的变更。我想给团队发一小段确认安排。",
+    "hard_criteria": [
+      "限定共享日历只能证明当前页面仍写周五下午三点，不据此断言安排一定未变，也不把日历写成已经确认周四",
+      "保留 B 告诉 A、C 转告 D 曾提过可能改到周四下午三点这一多跳来源和不确定程度，不写成 A 直接从 C 或 D 获知",
+      "提出核对负责人或正式更新并确认最终时间的动作，表达简洁且不裁定日历或传话哪方错误"
+    ]
+  },
+  {
+    "id": "direct-authoritative-update-control",
+    "purpose": "Avoid needless source-chain hedging when the responsible person has made a direct final update.",
+    "prompt": "我是 A。项目群里，排期负责人 D 直接发了：“最终确定：发布窗口改到周四晚八点。”B 问我：“还是周五吗？”只给一句能直接发给 B 的回复。",
+    "hard_criteria": [
+      "严格只给一句自然、可直接发送的话，明确告诉 B 最终时间是周四晚八点",
+      "把题面中负责人 D 在项目群的直接最终通知当作当前有效安排，不无故写成传闻、可能变化或仍需核实",
+      "不追问来源链，不加入责任分析、边界建议或与确认时间无关的解释"
+    ]
+  }
+]

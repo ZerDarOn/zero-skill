@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第十三轮隐式路由证据门禁**。已有十六个可试用的 `experimental` 技能，活动用例共96项。Promptfoo 原生评测现在要求隐式技能臂出现成功 `SKILL.md` 读取轨迹，缺失时以 `routing-failed` 停止质量结论。当前宿主的合成 canary 仍未通过，因此没有把第十二轮会议技能的显式收益外推为自动路由能力。
+当前阶段：**第十四轮关系沟通三方盲测**。已有十六个可试用的 `experimental` 技能，活动用例共96项。六个新合成任务的显式完整包对照中，无 Skill 与 `relationship-review` 0.1.1 都为19/19，LoveHelper 为16/19；本地 Skill 获得仅有的两次偏好，但没有严格分净增益，因此不改包、不升成熟度。隐式路由门禁仍未通过。
 
 ## 从这里开始
+
+- [第十四轮质量检查：关系沟通三方盲测](docs/quality-polish-round-14.md)
+- [关系沟通三方盲测机器诊断](evaluations/reports/relationship-three-arm-round-14-diagnostic.json)
 
 - [第十三轮质量打磨：隐式路由证据门禁](docs/quality-polish-round-13.md)
 

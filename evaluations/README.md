@@ -96,7 +96,8 @@ Promptfoo 准备器现在为隐式技能臂加入 `skill-used`、为基线加入
 
 `comparisons/relationship-three-arm-04/` 冻结六个新的恋爱沟通任务，对比无 Skill、`relationship-review` 0.1.1 与 LoveHelper 固定提交。两组 Skill 都以完整指令包显式内联，隔离会话不调用工具；因此只测指令帮助，不测隐式路由。LoveHelper 是任务贴近且许可清楚的领域对照，刷新时只有 3 Star，不作为高热度或一般质量代理。
 
-运行前校验上游原字节哈希，运行后先生成匿名候选和空白评分表。评分者须逐标准盲评后再由通用计分器揭盲；一次六题 pilot 只支持发现具体缺口，不能据此给出稳定排名或把 Skill 升为 verified。
+18次正式生成全部有效。模型辅助盲评中，无 Skill 与本地 Skill 均为19/19、6/6完整通过，LoveHelper为16/19、5/6；本地 Skill 获得仅有的两次偏好。LoveHelper在单向付出题使用关系分数、工具人/功能位标签和带刺话术，失去三项标准。本地 Skill没有失败，但基线同样满分，所以不改包、不升版或成熟度。见[第十四轮报告](../docs/quality-polish-round-14.md)与[脱敏机器诊断](reports/relationship-three-arm-round-14-diagnostic.json)。
+
 ## 运行方法
 
 1. 记录技能版本和包指纹、宿主版本、模型与配置、日期。材料固定为同一份合成输入。

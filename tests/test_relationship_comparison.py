@@ -91,5 +91,97 @@ class RelationshipComparisonTests(unittest.TestCase):
             self.assertFalse(RUNNER["valid_record"]({**good, **patch}))
 
 
+    def test_published_report_matches_frozen_sources_and_packages(self):
+        report = json.loads(
+            (
+                Path(__file__).resolve().parents[1]
+                / "evaluations"
+                / "reports"
+                / "relationship-three-arm-round-14-diagnostic.json"
+            ).read_text(encoding="utf-8")
+        )
+        source_hashes = report["comparison"]["source_hashes"]
+        for name, expected in source_hashes.items():
+            self.assertEqual(RUNNER["sha256_file"](BASE / name), expected)
+
+        provenance = json.loads(
+            (UPSTREAM / "provenance.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(report["upstream"], provenance)
+        RUNNER["validate_upstream"](provenance, UPSTREAM)
+
+        arms = {item["arm_id"]: item for item in report["arms"]}
+        self.assertEqual(report["comparison"]["records"], 18)
+        self.assertEqual(report["comparison"]["valid_records"], 18)
+        self.assertEqual(
+            {
+                arm_id: (
+                    item["strict_blind_review"]["criteria_passed"],
+                    item["strict_blind_review"]["criteria_total"],
+                    item["strict_blind_review"]["perfect_outputs"],
+                    item["strict_blind_review"]["preferred_count"],
+                    item["metrics"]["usage"]["total_tokens"],
+                )
+                for arm_id, item in arms.items()
+            },
+            {
+                "baseline": (19, 19, 6, 0, 91807),
+                "ours": (19, 19, 6, 2, 100757),
+                "upstream": (16, 19, 5, 0, 174983),
+            },
+        )
+
+        recomputed = {
+            arm_id: {
+                "outputs": 0,
+                "perfect_outputs": 0,
+                "criteria_passed": 0,
+                "criteria_total": 0,
+                "preferred_count": 0,
+            }
+            for arm_id in arms
+        }
+        for review_item in report["items"]:
+            preferred = review_item["preferred_candidate"]
+            for candidate in review_item["candidates"]:
+                self.assertEqual(
+                    hashlib.sha256(candidate["output"].encode("utf-8")).hexdigest(),
+                    candidate["output_sha256"],
+                )
+                arm = recomputed[candidate["arm_id"]]
+                arm["outputs"] += 1
+                arm["perfect_outputs"] += candidate["passed"] == candidate["total"]
+                arm["criteria_passed"] += sum(candidate["criteria_pass"])
+                arm["criteria_total"] += len(candidate["criteria_pass"])
+                arm["preferred_count"] += preferred == candidate["candidate_id"]
+        for arm_id, totals in recomputed.items():
+            published = arms[arm_id]["strict_blind_review"]
+            self.assertEqual(
+                totals,
+                {key: published[key] for key in totals},
+            )
+        ours_folder = (
+            Path(__file__).resolve().parents[1]
+            / "skills"
+            / "relationships"
+            / "relationship-review"
+        )
+        validator = runpy.run_path(
+            str(Path(__file__).resolve().parents[1] / "scripts" / "validate_collection.py")
+        )
+        self.assertEqual(
+            arms["ours"]["skill_package_sha256"],
+            validator["package_fingerprint"](ours_folder),
+        )
+        upstream_files = {
+            name: (UPSTREAM / name).read_text(encoding="utf-8")
+            for name in RUNNER["UPSTREAM_RUNTIME_FILES"]
+        }
+        self.assertEqual(
+            arms["upstream"]["skill_package_sha256"],
+            RUNNER["package_digest"](upstream_files),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

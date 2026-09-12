@@ -481,6 +481,10 @@ def summarize_comparison(run_dir: Path) -> dict[str, object]:
         raise ValueError("results hash does not match run metadata")
     if not str(run_meta.get("status", "")).startswith("completed"):
         raise ValueError("run metadata does not describe a completed evaluation")
+    if frozen.get("comparison_kind", "quality") == "operational":
+        raise ValueError(
+            "operational comparisons require the dedicated invocation analyzer"
+        )
     executed_repetitions = run_meta.get("repeat")
     if (
         not isinstance(executed_repetitions, int)

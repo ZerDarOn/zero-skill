@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "conversation-explicit-operational-19",
+  "comparison_kind": "operational",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 10,
+  "common_prompt": "请完成下方用户任务。所有姓名、记录和情境内容均为合成测试材料；这只用于隐私保护，不改变题面所声明的现实对象或虚构角色类别。不使用工具，不联系任何人，不声称已经发送或执行。回答使用自然、简洁的中文。",
+  "native_resume": {
+    "adapter": "../../../native_resume/run_native_resume.py",
+    "analyzer": "../../../native_resume/analyze_invocation_reliability.py",
+    "session_mode": "explicit-thread-id",
+    "forbid_last": true,
+    "forbid_ephemeral": true,
+    "max_workers": 4,
+    "timeout_seconds_per_turn": 240,
+    "job_order_seed": 260913
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "conversation-rehearsal",
+        "source": "../../../../skills/relationships/conversation-rehearsal",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

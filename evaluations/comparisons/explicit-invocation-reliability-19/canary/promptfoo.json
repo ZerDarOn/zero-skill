@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "explicit-invocation-canary-operational-19",
+  "comparison_kind": "operational",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 10,
+  "common_prompt": "这是隔离环境中的合成 Skill 调用探针。不使用工具，不解释加载过程，只返回任务要求的结果。",
+  "native_resume": {
+    "adapter": "../../../native_resume/run_native_resume.py",
+    "analyzer": "../../../native_resume/analyze_invocation_reliability.py",
+    "session_mode": "explicit-thread-id",
+    "forbid_last": true,
+    "forbid_ephemeral": true,
+    "max_workers": 4,
+    "timeout_seconds_per_turn": 240,
+    "job_order_seed": 260913
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "probe",
+      "skill": {
+        "id": "explicit-invocation-probe",
+        "source": "../fixtures/explicit-invocation-probe",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

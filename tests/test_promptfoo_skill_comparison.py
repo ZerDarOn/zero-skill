@@ -260,6 +260,7 @@ class PromptfooSkillComparisonTests(unittest.TestCase):
         self.assertEqual(tests[0]["vars"]["prompt"], tests[1]["vars"]["prompt"])
         self.assertNotIn("$ours", tests[1]["vars"]["prompt"])
         self.assertEqual(tests[1]["metadata"]["invocation"], "implicit")
+
         self.assertTrue(
             all(
                 provider["config"]["sandbox_mode"] == "workspace-write"
@@ -282,6 +283,21 @@ class PromptfooSkillComparisonTests(unittest.TestCase):
             ],
         )
         self.assertTrue(frozen["constraints"]["implicit_skill_trace_assertions"])
+
+    def test_operational_comparison_kind_is_preserved(self):
+        spec = json.loads(self.spec_path.read_text(encoding="utf-8"))
+        spec["comparison_kind"] = "operational"
+        self.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+        output = self.root / "operational-run"
+
+        self.module["prepare_comparison"](
+            repo_root=self.root,
+            spec_path=self.spec_path,
+            output_dir=output,
+        )
+
+        frozen = json.loads((output / "frozen.json").read_text(encoding="utf-8"))
+        self.assertEqual(frozen["comparison_kind"], "operational")
 
     def test_rejects_invalid_sandbox_mode(self):
         spec = json.loads(self.spec_path.read_text(encoding="utf-8"))

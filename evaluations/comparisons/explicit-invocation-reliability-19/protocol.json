@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "explicit-invocation-reliability-19",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 10,
+  "job_order_seed": 260913,
+  "infrastructure": {
+    "preparer": {
+      "path": "evaluations/promptfoo/prepare_skill_comparison.py",
+      "sha256": "4eca5a4c2caeffbeca6663ecf49ce8f9e293f86372593abfb3d794ea1d1b788b"
+    },
+    "runner": {
+      "path": "evaluations/native_resume/run_native_resume.py",
+      "sha256": "cac3e238d717f7a268d9b6800bec11002eaa5d3e54ddf2458f65a2983e9912b5"
+    },
+    "normalizer": {
+      "path": "evaluations/native_resume/summarize_native_resume.py",
+      "sha256": "91c336bc71b409adabe8c39668cbbb98b72fcb6bafcfc05c21faf899455daa9d"
+    },
+    "analyzer": {
+      "path": "evaluations/native_resume/analyze_invocation_reliability.py",
+      "sha256": "e384a6bab11e8c52600d60de0776fb3368c12fc4ff9b9ce67e50835c95c8c953"
+    }
+  },
+  "cohorts": [
+    {
+      "id": "canary",
+      "role": "canary",
+      "comparison_id": "explicit-invocation-canary-operational-19",
+      "spec": "evaluations/comparisons/explicit-invocation-reliability-19/canary/promptfoo.json",
+      "spec_sha256": "26f9c9ead1ae6fe65cce2a399708dfa2a8f241d2acc99e3708acfe11a1865197",
+      "baseline_arm": "baseline",
+      "skill_arm": "probe",
+      "skill_package_sha256": "0d77227b068fd544342082d48d852a7549252058cf2c266ebce61c43e95aeb06",
+      "expected_output_by_case": {
+        "main-token-direct": "EMBER-QUARTZ-260913",
+        "secondary-token-rephrased": "TIDAL-COPPER-260913"
+      }
+    },
+    {
+      "id": "business",
+      "role": "business",
+      "comparison_id": "conversation-explicit-operational-19",
+      "spec": "evaluations/comparisons/explicit-invocation-reliability-19/business/promptfoo.json",
+      "spec_sha256": "d7ebcfafe6508be11c178cba364e07c3eb4a2cf915fb430e0db3bc614cd58ae1",
+      "baseline_arm": "baseline",
+      "skill_arm": "ours",
+      "skill_package_sha256": "b09fcd8955cce840d3ab9fb9acc19f29d6bff371d66b4b7ccfabb3d9f53e3ff9"
+    }
+  ],
+  "gate": {
+    "require_full_repetitions": true,
+    "max_baseline_technical_failures": 0,
+    "max_canary_skill_failures": 0,
+    "max_canary_secret_leaks": 0,
+    "max_business_skill_failures": 0,
+    "quality_scoring": false,
+    "skill_change_authorized": false
+  }
+}

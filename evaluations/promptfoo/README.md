@@ -40,6 +40,8 @@ python evaluations/promptfoo/summarize_skill_comparison.py --run <同一目录>
 
 Promptfoo 的 `skillCalls` 是根据成功读取 `SKILL.md` 的命令推断出的启发式信号。隐式评测缺少该信号时，本仓库将其记为未证明路由，并以 `routing-failed` 停止质量结论。原生显式 `$skill-id` 可能由运行时直接加载正文而没有命令轨迹，因此显式评测不强制这项断言。
 
+`comparison_kind: "operational"` 用于重复测量显式调用、事件绑定和加载探针。准备器只负责冻结这类实验；通用 Promptfoo 摘要器会明确拒绝把它转成质量盲评，必须使用协议指定的专用 analyzer。操作失败是待分析数据，不能因质量评测的整批有效门禁而被丢弃或改成回答质量分。
+
 ## 三方质量评测
 
 `evaluations/comparisons/prose-three-arm-01/promptfoo.json` 比较：

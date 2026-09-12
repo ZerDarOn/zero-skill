@@ -331,6 +331,18 @@ class NativeResumeComparisonTests(unittest.TestCase):
             self.assertNotIn("--ephemeral", command)
             self.assertIn('sandbox_mode="read-only"', command)
 
+    def test_seeded_job_order_is_repeatable_and_complete(self):
+        jobs = list(range(20))
+        first = RUNNER["ordered_jobs"](jobs, 260913)
+        second = RUNNER["ordered_jobs"](jobs, 260913)
+
+        self.assertEqual(first, second)
+        self.assertCountEqual(first, jobs)
+        self.assertNotEqual(first, jobs)
+        self.assertEqual(RUNNER["ordered_jobs"](jobs, None), jobs)
+        with self.assertRaisesRegex(ValueError, "job_order_seed"):
+            RUNNER["ordered_jobs"](jobs, True)
+
     def test_rejects_injected_baseline_fixture_file(self):
         injected = self.run_dir / "prepared" / "fixtures" / "baseline" / "injected.txt"
         injected.write_text("not allowed", encoding="utf-8")
@@ -641,4 +653,3 @@ class NativeResumeComparisonTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

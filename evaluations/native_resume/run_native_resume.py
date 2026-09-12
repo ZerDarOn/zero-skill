@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import random
 import shutil
 import subprocess
 import sys
@@ -66,6 +67,16 @@ def sha256_bytes(value: bytes) -> str:
 
 def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
+
+
+def ordered_jobs(jobs: list[object], seed: int | None) -> list[object]:
+    ordered = list(jobs)
+    if seed is None:
+        return ordered
+    if not isinstance(seed, int) or isinstance(seed, bool):
+        raise ValueError("job_order_seed must be an integer")
+    random.Random(seed).shuffle(ordered)
+    return ordered
 
 
 def read_object(path: Path, label: str) -> dict[str, object]:
@@ -675,6 +686,12 @@ def run_native_resume(
         for arm in frozen["arms"]
         for repetition in range(1, effective_repeat + 1)
     ]
+    job_order_seed = native.get("job_order_seed")
+    jobs = ordered_jobs(jobs, job_order_seed)
+    job_order = [
+        f"{case['id']}--{arm['id']}--r{repetition}"
+        for case, arm, repetition in jobs
+    ]
     expected_turns = sum(len(case["turns"]) for case, _, _ in jobs)
     metadata: dict[str, object] = {
         "schema_version": SCHEMA_VERSION,
@@ -698,6 +715,9 @@ def run_native_resume(
         "environment_policy": "allowlisted-host-variables-plus-isolated-home",
         "expected_trajectories": len(jobs),
         "expected_turns": expected_turns,
+        "job_order_seed": job_order_seed,
+        "job_order": job_order,
+        "job_order_sha256": sha256_bytes(json_bytes(job_order)),
         "results_sha256": None,
     }
     write_json(run_dir / "run-meta.json", metadata)
@@ -811,4 +831,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

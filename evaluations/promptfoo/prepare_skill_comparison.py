@@ -21,7 +21,7 @@ ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REASONING_LEVELS = {"minimal", "low", "medium", "high", "xhigh", "max"}
 INSTALL_MODES = {"project", "home", "both"}
 INVOCATION_MODES = {"implicit", "explicit"}
-COMPARISON_KINDS = {"quality", "discovery"}
+COMPARISON_KINDS = {"quality", "discovery", "operational"}
 SANDBOX_MODES = {"read-only", "workspace-write"}
 DIRECTORY_REPLACE_RETRY_DELAYS = (0.05, 0.1, 0.2, 0.4, 0.8)
 
@@ -115,7 +115,7 @@ def validate_spec(spec: dict[str, object]) -> None:
     if not isinstance(comparison_id, str) or not ID_PATTERN.fullmatch(comparison_id):
         raise ValueError("comparison id must use lowercase letters, digits, and hyphens")
     if spec.get("comparison_kind", "quality") not in COMPARISON_KINDS:
-        raise ValueError("comparison_kind must be quality or discovery")
+        raise ValueError("comparison_kind must be quality, discovery, or operational")
     if not isinstance(spec.get("model"), str) or not spec["model"].strip():
         raise ValueError("model must be a non-empty string")
     if spec.get("reasoning_effort") not in REASONING_LEVELS:

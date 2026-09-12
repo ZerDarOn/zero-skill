@@ -129,6 +129,27 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
         self.assertEqual(baseline["provider_errors"], 0)
         self.assertFalse((self.run_dir / "blind-review.json").exists())
 
+    def test_operational_run_requires_the_dedicated_analyzer(self):
+        arms = [
+            {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},
+            {
+                "id": "probe",
+                "skill": "probe",
+                "install_mode": "project",
+                "invocation": "explicit",
+            },
+        ]
+        self.write_run(
+            "operational",
+            arms,
+            [self.row("baseline", "plain"), self.row("probe", "token")],
+        )
+
+        with self.assertRaisesRegex(ValueError, "dedicated invocation analyzer"):
+            self.module["summarize_comparison"](self.run_dir)
+
+        self.assertFalse((self.run_dir / "blind-review.json").exists())
+
     def test_implicit_discovery_gate_requires_confirmed_skill_read(self):
         arms = [
             {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},

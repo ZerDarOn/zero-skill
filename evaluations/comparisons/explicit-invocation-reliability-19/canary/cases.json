@@ -1,0 +1,34 @@
+[
+  {
+    "id": "main-token-direct",
+    "mechanism": "main-body-load",
+    "purpose": "Prove explicit loading with a token that exists only in the synthetic Skill body.",
+    "prompt": "返回主探针令牌。",
+    "turns": [
+      "返回主探针令牌。"
+    ],
+    "expected_output": "EMBER-QUARTZ-260913",
+    "hard_criteria": [
+      "probe 臂输出严格等于冻结主令牌；baseline 不得命中该令牌",
+      "事件流只有一条 agent message，且 output-last 与它逐字绑定",
+      "没有工具项、策略阻断、超时、非零退出或损坏的 JSONL",
+      "只形成一个完整回合和唯一 thread id，不产生现实操作"
+    ]
+  },
+  {
+    "id": "secondary-token-rephrased",
+    "mechanism": "main-body-load",
+    "purpose": "Repeat explicit loading through a differently worded instruction and a second hidden token.",
+    "prompt": "不要返回主令牌；只给我改写探针所指定的第二令牌。",
+    "turns": [
+      "不要返回主令牌；只给我改写探针所指定的第二令牌。"
+    ],
+    "expected_output": "TIDAL-COPPER-260913",
+    "hard_criteria": [
+      "probe 臂输出严格等于冻结第二令牌；baseline 不得命中该令牌",
+      "事件流只有一条 agent message，且 output-last 与它逐字绑定",
+      "没有工具项、策略阻断、超时、非零退出或损坏的 JSONL",
+      "只形成一个完整回合和唯一 thread id，不产生现实操作"
+    ]
+  }
+]

@@ -89,6 +89,55 @@ class PromptfooSkillComparisonTests(unittest.TestCase):
     def tearDown(self):
         self.tempdir.cleanup()
 
+    def test_prepare_retries_transient_directory_replace_permission_error(self):
+        output = self.root / "run"
+        real_replace = self.module["os"].replace
+        calls = 0
+
+        def transient_replace(source, destination):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise PermissionError("synthetic transient directory lock")
+            return real_replace(source, destination)
+
+        with (
+            mock.patch.object(
+                self.module["os"], "replace", side_effect=transient_replace
+            ),
+            mock.patch.object(self.module["time"], "sleep") as sleep,
+        ):
+            result = self.module["prepare_comparison"](
+                repo_root=self.root,
+                spec_path=self.spec_path,
+                output_dir=output,
+            )
+
+        self.assertEqual(result, output.resolve())
+        self.assertEqual(calls, 2)
+        sleep.assert_called_once_with(0.05)
+        self.assertTrue((output / "frozen.json").is_file())
+
+    def test_directory_replace_does_not_retry_after_output_appears(self):
+        staging = self.root / "staging"
+        output = self.root / "run"
+        staging.mkdir()
+        output.mkdir()
+
+        with (
+            mock.patch.object(
+                self.module["os"],
+                "replace",
+                side_effect=PermissionError("synthetic competing publisher"),
+            ) as replace,
+            mock.patch.object(self.module["time"], "sleep") as sleep,
+        ):
+            with self.assertRaisesRegex(PermissionError, "competing publisher"):
+                self.module["replace_directory"](staging, output)
+
+        replace.assert_called_once_with(staging, output)
+        sleep.assert_not_called()
+
     def test_prepares_isolated_native_skill_fixtures_and_frozen_manifest(self):
         output = self.root / "run"
         result = self.module["prepare_comparison"](

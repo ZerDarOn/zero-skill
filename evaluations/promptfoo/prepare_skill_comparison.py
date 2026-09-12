@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import time
 import uuid
 
 
@@ -22,12 +23,25 @@ INSTALL_MODES = {"project", "home", "both"}
 INVOCATION_MODES = {"implicit", "explicit"}
 COMPARISON_KINDS = {"quality", "discovery"}
 SANDBOX_MODES = {"read-only", "workspace-write"}
+DIRECTORY_REPLACE_RETRY_DELAYS = (0.05, 0.1, 0.2, 0.4, 0.8)
 
 
 def write_json(path: Path, value: object) -> None:
     path.write_text(
         json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+
+
+def replace_directory(staging: Path, output_dir: Path) -> None:
+    """Publish a prepared directory despite short-lived Windows file locks."""
+    for delay in (*DIRECTORY_REPLACE_RETRY_DELAYS, None):
+        try:
+            os.replace(staging, output_dir)
+            return
+        except PermissionError:
+            if delay is None or output_dir.exists():
+                raise
+            time.sleep(delay)
 
 
 def sha256_file(path: Path) -> str:
@@ -385,7 +399,7 @@ def prepare_comparison(
             },
         }
         write_json(staging / "frozen.json", frozen)
-        os.replace(staging, output_dir)
+        replace_directory(staging, output_dir)
     except BaseException:
         shutil.rmtree(staging, ignore_errors=True)
         raise

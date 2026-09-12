@@ -186,3 +186,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第二十二轮质量打磨
 
 第二十二轮用七个新合成故障题复测 `debug-evidence-triage` 0.1.1，每臂各重复三次。42份输出全部有效；原匿名评阅为无 Skill 68/84、当前包69/84，完整输出均11/21，偏好各3次，另有15次持平。计分后独立复核确认超时幂等题六份答案已用条件分支满足核心标准，原判属于语义评分错误；保留原评阅并另列校准后71/84与72/84、完整输出均13/21。原始和校准口径都未达到同机制两题重复退化的候选门槛，故保持0.1.1。七题加入活动回归，故障证据排查从6例增至13例，全仓增至132例。详见[第二十二轮报告](../docs/quality-polish-round-22.md)与[自包含机器诊断](reports/debug-evidence-boundaries-round-22-diagnostic.json)。
+
+## 第二十三轮质量打磨
+
+第二十三轮用六个新合成窄编辑任务比较无 Skill、`obsidian-note-edit` 0.1.0 和 Obsidian Skills 固定提交的 `obsidian-markdown`，每臂各重复三次。54份提交的 Markdown 制品全部与冻结期望逐字一致；无 Skill 与当前包均为72/72、18/18完整，上游为71/72、17/18完整，18项均无唯一偏好，其中17项三方并列、1项baseline与ours并列最佳。上游唯一扣分是一次 `message` 未明确区分已确认重命名与仍属计划的目标，揭盲复核不改分。六题三臂的制品核心失败均为0/3，未触发本地候选门槛，故保持0.1.0。六题加入活动回归，Obsidian编辑从4例增至10例，全仓增至138例。当前包相对baseline总token增加87.3%、记录成本增加116.9%、中位延迟增加67.7%；结果只覆盖只读会话返回的合成文本制品，不构成真实vault编辑、应用渲染、隐式路由或 `verified` 证据。详见[第二十三轮报告](../docs/quality-polish-round-23.md)与[自包含机器诊断](reports/obsidian-artifact-preservation-round-23-diagnostic.json)。

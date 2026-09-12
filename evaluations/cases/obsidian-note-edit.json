@@ -92,6 +92,142 @@
         "安装插件、执行命令、修改文件或声称已经完成这些操作",
         "凭空添加日期、负责人或完成状态"
       ]
+    },
+    {
+      "id": "resize-one-visible-embed-only",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把正文“当前展示”这一处可见图片 embed 的宽度从 320 改为 480；保留文件目标 `架构图.png`。frontmatter、Obsidian 注释、代码块、普通正文、空行和块 ID 都必须逐字保留。\n\n原笔记开始\n---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|320]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n原笔记结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "protected-bytes",
+        "edit": "visible-embed-width-only"
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "只把正文可见embed改为![[架构图.png|480]]并保留目标",
+        "逐字保留frontmatter、注释、代码块、正文、空行和块ID",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "修改注释或代码块中的embed",
+        "改写链接目标、语法或其他字节",
+        "声称扫描、保存、打开、确认附件存在或验证渲染",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
+    },
+    {
+      "id": "change-one-frontmatter-scalar",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把 frontmatter 的顶层 `score` 从数字 3 改成数字 4。其他属性的顺序、引号、列表形式和值，以及正文、代码块和空行都必须逐字保留。\n\n原笔记开始\n---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 3\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n原笔记结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "protected-bytes",
+        "edit": "frontmatter-scalar-only"
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "只把frontmatter顶层score数字3改为数字4",
+        "逐字保留其他属性形式、顺序、正文、代码块和空行",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "给score加引号或误改代码块中的score",
+        "重排tags、related、code或其他内容",
+        "声称保存文件或验证渲染",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
+    },
+    {
+      "id": "plain-markdown-date-local-edit",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n这是普通 Markdown，不是 Obsidian 笔记。只把正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块里的“下周一”保持不变。不要添加 frontmatter、wikilink、callout、标签或其他结构。\n\n原文开始\n# 发布说明\n\n会议决定：下周一复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n原文结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "format-scope",
+        "format": "plain-markdown"
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "只把正文会议决定中的下周一改为下周二",
+        "逐字保留URL参数、代码块、标题和空行",
+        "保持普通Markdown格式",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "修改URL或代码块中的下周一",
+        "添加frontmatter、wikilink、callout、标签或其他结构",
+        "声称修改实际文件或验证应用渲染",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
+    },
+    {
+      "id": "convert-one-line-to-warning-callout",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把“> 注意：周五前确认字段。”这一行改成两行 Obsidian warning callout，标题固定为“截止提醒”，正文固定为“周五前确认字段。”。不要添加 frontmatter、标签或其他 callout；其余内容与空行逐字保留。\n\n原笔记开始\n# 项目状态\n\n背景段落保持原样。\n\n> 注意：周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n原笔记结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "format-scope",
+        "edit": "one-warning-callout"
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "只把指定行转换为标题为截止提醒的warning callout",
+        "callout正文保持周五前确认字段。",
+        "逐字保留其余内容和空行",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "新增frontmatter、标签、额外callout或完成状态",
+        "改写背景、记录列表或未确认状态",
+        "声称已在Obsidian中验证",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
+    },
+    {
+      "id": "leave-unverified-target-unlinked",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 清单只有 `项目北斗` 和 `会议索引`。有人建议把正文“临时方案”改成 wikilink，但该目标是否存在尚未验证；本任务规定只有清单中已确认的目标才能落链接。若不能确认，就保持笔记逐字不变，并在 message 里简短说明未应用链接及原因。\n\n原笔记开始\n# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n原笔记结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "target-state",
+        "known_note_names": [
+          "项目北斗",
+          "会议索引"
+        ]
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "保持原笔记逐字不变并保留[[项目北斗]]",
+        "说明临时方案不在已确认清单或存在性未验证",
+        "明确未应用该链接",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "创建[[临时方案]]或替代链接",
+        "把未验证误写成目标不存在",
+        "声称扫描vault、保存文件或验证渲染",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
+    },
+    {
+      "id": "retarget-existing-not-planned-note",
+      "prompt": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 中 `旧路线图` 已改名为 `路线图`；`季度复盘` 只是计划以后新建，目前没有该笔记。只修复正文中现有入口的 wikilink 目标并保留显示文字；计划项继续保持纯文本。frontmatter、代码块与其他内容逐字保留。\n\n原笔记开始\n---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[旧路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n原笔记结束",
+      "input": {
+        "kind": "synthetic",
+        "mechanism": "target-state",
+        "confirmed_mapping": {
+          "旧路线图": "路线图"
+        },
+        "planned_note": "季度复盘"
+      },
+      "expected_route": "obsidian-note-edit",
+      "must_include": [
+        "只把正文入口改为[[路线图|路线图]]并保留显示文字",
+        "季度复盘继续保持纯文本计划",
+        "逐字保留frontmatter、代码块、空行和其他正文",
+        "以固定note和message两字段JSON返回完整最终笔记与简短真实说明"
+      ],
+      "must_avoid": [
+        "创建季度复盘的wikilink、嵌入或声称它已存在",
+        "修改代码块中的旧链接或季度复盘字符串",
+        "声称扫描vault、保存文件或验证渲染",
+        "输出JSON代码围栏、额外文字或虚构已执行的文件及应用操作"
+      ]
     }
   ]
 }

@@ -1,0 +1,2434 @@
+{
+  "schema_version": 1,
+  "report_id": "obsidian-artifact-preservation-round-23-diagnostic",
+  "generated_at": "2026-09-12T19:58:46.068027+00:00",
+  "scope": {
+    "skill_id": "obsidian-note-edit",
+    "version": "0.1.0",
+    "catalog_status": "experimental",
+    "active_case_count": 10,
+    "collection_active_case_count": 138,
+    "formal_outputs": 54,
+    "blind_review_items": 18,
+    "criterion_booleans": 216
+  },
+  "experiment": {
+    "comparison_id": "obsidian-artifact-preservation-three-arm-16",
+    "run_id": "obsidian-artifact-preservation-three-arm-16-promptfoo-20260912T194215Z-5dd7a2",
+    "freeze_commit": "4f0581582d6132b30b808d929a57a76eaf37dfe2",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "f52329b9038eca759ea7485637bc51d77892ad202808453e6171896fedac3086",
+      "cases.json": "cbb0c7a10700ba7d05240ccfd29386230ce125ab84110389874393e42008be66"
+    },
+    "prepared_hashes": {
+      "config": "416537256f373cad15d3daff2c7750d02aa528ac4c947337613b0828a5edee99",
+      "tests": "54b1cbea1b778138a174f80a84784de3cadcac466029a88fdf7433708786a45a"
+    },
+    "artifact_hashes": {
+      "frozen.json": "6cd66c11d5a8b4de52bc1a51ad3476f798506774a4357683a9bb0a71d8efa5c9",
+      "run-meta.json": "ca2240d9c3abc08eafa0a24b675427d5bbf3b00119002df32cbde1f905a25eb1",
+      "results.json": "76c23b0b332d95c12779c5ca1cdb79da70bf337e5915c3f05e3c0833ba485ae0",
+      "summary.json": "858093ec9701be94af455933540fb0c41994044feea0efd2c612e2118fa7b844",
+      "blind-review.json": "00db3a3b88e8463f774365f1b492019e56f6856ff4e9732c7cf50d5bb3eb4c6f",
+      "blind-review-key.json": "d7be473e0f7bd469582e8672810f805c53854ec17ef2bfd1193b1265360aa669",
+      "blind-review-form.json": "4cde28e9e6fd99008e047daf5ec5ea503455a22ec9cae9c2bf562e8c3285553e",
+      "artifact-checks.json": "9bd15a4a7f7c8062c740879caf6c2168117c666bece89b2ac20c749bb4d028e8",
+      "blind-review-form-artifact-prefilled.json": "8acc6562cea89201bb9aceb83c1fbd1d5770295447a0eba04967226f5b2d5d19",
+      "blind-review-completed-independent.json": "f86bde70fef65e6cb8079fd32831adc73e09a5d3da669a106bb4d996a5cf85ac",
+      "review-result-blind-review-completed-independent.json": "c138a272e017d1a560117337979562c2502412a394a49ec517f4a5e5471dd8cf",
+      "blind-review-completed-independent-metadata-corrected.json": "37a6d995c46f3eb6cd3ed2d63829e7806fb4a5f63afa040a68b7200e1a68d609",
+      "review-result-blind-review-completed-independent-metadata-corrected.json": "00d4f4ae56ca3b5fda069c7deccc6576b0b28b0145448c01fd94bcf934834de0"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "bbd452fbebd00e674c0bdce0bb55b61d78f711964415269f4ddc4422ca306200",
+      "prefreeze-rereview-independent.md": "59a918f921c081c68f947b007266dda778d629a2eef59b4b937c4224a1322895",
+      "prefreeze-rereview-2-independent.md": "599198da0bc2647ced88c42c7616ccfae2a73471f8951121fd73633f33c35429",
+      "postscore-decision-review-independent.md": "2c166550e25ab364d3395a2a464f6084cd78544e5a146bbf8a06a54b7d842fae"
+    },
+    "upstream_provenance": {
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "commit": "a1dc48e68138490d522c04cbf5822214c6eb1202",
+      "license": "MIT",
+      "provenance_sha256": "03f20fd80de3478e1a8c167687e2aadddd5a541e60f9941be0ef8413850de9e5",
+      "package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+      "package_license_included": true,
+      "source_bytes_modified": false
+    },
+    "metadata_correction": {
+      "reason": "The original blind-review file self-reported gpt-6-astra/high although orchestration assigned gpt-5.6-sol/medium.",
+      "post_reveal_metadata_only_correction": true,
+      "original_review_sha256": "f86bde70fef65e6cb8079fd32831adc73e09a5d3da669a106bb4d996a5cf85ac",
+      "corrected_review_sha256": "37a6d995c46f3eb6cd3ed2d63829e7806fb4a5f63afa040a68b7200e1a68d609",
+      "original_reviews_projection_sha256": "47456d53dc9ba88272bde547c532d6f279f748f869436a5bffc76c9f9a7c3c25",
+      "corrected_reviews_projection_sha256": "47456d53dc9ba88272bde547c532d6f279f748f869436a5bffc76c9f9a7c3c25",
+      "reviews_identical": true,
+      "score_content_identical": true,
+      "scores_or_preferences_changed": false,
+      "original_reviewer_declaration": {
+        "kind": "independent_blind_semantic_review",
+        "task_name": "/root/round23_blind_review",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "high",
+        "blind_file_boundary_clean": true
+      },
+      "corrected_reviewer_declaration": {
+        "kind": "independent_blind_semantic_review",
+        "task_name": "/root/round23_blind_review",
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "medium",
+        "blind_file_boundary_clean": true,
+        "blind_to_arm_mapping": true,
+        "prior_protocol_exposure": false,
+        "prior_skill_revision_exposure": false,
+        "allowed_files": [
+          "blind-review.json",
+          "blind-review-form-artifact-prefilled.json"
+        ],
+        "unexpected_files_read": [],
+        "independent_human": false,
+        "note": "这是同一份预揭盲评分的元数据更正。"
+      }
+    },
+    "blind_reviewer": {
+      "kind": "independent_blind_semantic_review",
+      "task_name": "/root/round23_blind_review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "blind_file_boundary_clean": true,
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": false,
+      "prior_skill_revision_exposure": false,
+      "allowed_files": [
+        "blind-review.json",
+        "blind-review-form-artifact-prefilled.json"
+      ],
+      "unexpected_files_read": [],
+      "independent_human": false,
+      "note": "这是同一份预揭盲评分的元数据更正。"
+    },
+    "postscore_review": {
+      "kind": "model-assisted-independent-subagent",
+      "task_name": "round23_prefreeze_review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "blind": false,
+      "corrections": 0,
+      "finding": "The single upstream criterion-4 failure matches the frozen wording; no score changes are warranted.",
+      "review_sha256": "2c166550e25ab364d3395a2a464f6084cd78544e5a146bbf8a06a54b7d842fae"
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.1887336,
+          "latency_ms_median": 7158.0,
+          "tokens_total": {
+            "cached": 151424,
+            "completion": 1912,
+            "prompt": 173905,
+            "total": 175817
+          }
+        },
+        "blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 1.0
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "obsidian-note-edit",
+        "package_evidence_path": "skills/productivity/obsidian-note-edit",
+        "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+        "runtime": {
+          "id": "ours",
+          "skill": "obsidian-note-edit",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.40936,
+          "latency_ms_median": 12001.0,
+          "tokens_total": {
+            "cached": 280960,
+            "completion": 6484,
+            "prompt": 322784,
+            "total": 329268
+          }
+        },
+        "blind_review": {
+          "arm_id": "ours",
+          "skill": "obsidian-note-edit",
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 1.0
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "obsidian-markdown",
+        "package_evidence_path": "evaluations/fixtures/upstreams/obsidian-skills/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown",
+        "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+        "runtime": {
+          "id": "upstream",
+          "skill": "obsidian-markdown",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.3921712,
+          "latency_ms_median": 9917.5,
+          "tokens_total": {
+            "cached": 211328,
+            "completion": 5143,
+            "prompt": 262523,
+            "total": 267666
+          }
+        },
+        "blind_review": {
+          "arm_id": "upstream",
+          "skill": "obsidian-markdown",
+          "outputs": 18,
+          "perfect_outputs": 17,
+          "criteria_passed": 71,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9861
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "change-one-frontmatter-scalar-r1",
+        "case_id": "change-one-frontmatter-scalar",
+        "repetition": 1,
+        "mechanism": "protected-bytes",
+        "purpose": "Change one YAML scalar without reformatting other property types, body text, or code examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把 frontmatter 的顶层 `score` 从数字 3 改成数字 4。其他属性的顺序、引号、列表形式和值，以及正文、代码块和空行都必须逐字保留。\n\n原笔记开始\n---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 3\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n",
+        "expected_note_sha256": "8f7adf8831ec1e53b289bf6013e88fd9e936c9a17fb59b2326ba5db7213bfe86",
+        "hard_criteria": [
+          "JSON的note字段只把frontmatter顶层score: 3改为score: 4，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "score仍为YAML数字标量，不加引号、不改名，也不误改代码块里的score: 3",
+          "tags列表、related的带引号wikilink、code字符串008、属性顺序、正文和空行逐字保留",
+          "返回可解析的固定两字段JSON；message只报告这一项文本编辑，不声称保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 均保持数字标量、受保护内容与固定两字段 JSON，message 也都只报告指定编辑，语义并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4，其余内容保持不变。\"}",
+            "output_sha256": "2c2943f2f64191fb713c066ee5f567e15c1a87656740c22af30e041a713267c8",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4，其余内容保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "change-one-frontmatter-scalar-r2",
+        "case_id": "change-one-frontmatter-scalar",
+        "repetition": 2,
+        "mechanism": "protected-bytes",
+        "purpose": "Change one YAML scalar without reformatting other property types, body text, or code examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把 frontmatter 的顶层 `score` 从数字 3 改成数字 4。其他属性的顺序、引号、列表形式和值，以及正文、代码块和空行都必须逐字保留。\n\n原笔记开始\n---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 3\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n",
+        "expected_note_sha256": "8f7adf8831ec1e53b289bf6013e88fd9e936c9a17fb59b2326ba5db7213bfe86",
+        "hard_criteria": [
+          "JSON的note字段只把frontmatter顶层score: 3改为score: 4，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "score仍为YAML数字标量，不加引号、不改名，也不误改代码块里的score: 3",
+          "tags列表、related的带引号wikilink、code字符串008、属性顺序、正文和空行逐字保留",
+          "返回可解析的固定两字段JSON；message只报告这一项文本编辑，不声称保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者都只修改顶层 score，代码块和其他属性未受影响，说明文字合规，无可区分优胜者。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "change-one-frontmatter-scalar-r3",
+        "case_id": "change-one-frontmatter-scalar",
+        "repetition": 3,
+        "mechanism": "protected-bytes",
+        "purpose": "Change one YAML scalar without reformatting other property types, body text, or code examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把 frontmatter 的顶层 `score` 从数字 3 改成数字 4。其他属性的顺序、引号、列表形式和值，以及正文、代码块和空行都必须逐字保留。\n\n原笔记开始\n---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 3\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n",
+        "expected_note_sha256": "8f7adf8831ec1e53b289bf6013e88fd9e936c9a17fb59b2326ba5db7213bfe86",
+        "hard_criteria": [
+          "JSON的note字段只把frontmatter顶层score: 3改为score: 4，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "score仍为YAML数字标量，不加引号、不改名，也不误改代码块里的score: 3",
+          "tags列表、related的带引号wikilink、code字符串008、属性顺序、正文和空行逐字保留",
+          "返回可解析的固定两字段JSON；message只报告这一项文本编辑，不声称保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 对数值类型、代码示例及其余原文的保留一致，message 均未越界，判为并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 质量记录\\ntags:\\n  - work\\n  - review\\nscore: 4\\nrelated: \\\"[[项目北斗]]\\\"\\ncode: \\\"008\\\"\\n---\\n\\n# 质量记录\\n\\n当前评分待复核。\\n\\n```yaml\\nscore: 3\\n```\",\"message\":\"仅将 frontmatter 顶层 score 从数字 3 改为数字 4。\"}",
+            "output_sha256": "4e88230520405bff8c9fa51f873e840bcfdf3eb54dbf19e388f229060fbce7e7",
+            "submission": {
+              "note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```",
+              "message": "仅将 frontmatter 顶层 score 从数字 3 改为数字 4。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "57b076f31864fbc7b43219418b076e44d450f78a2b34f44dbbb04224eee312ff"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "convert-one-line-to-warning-callout-r1",
+        "case_id": "convert-one-line-to-warning-callout",
+        "repetition": 1,
+        "mechanism": "format-scope",
+        "purpose": "Introduce exactly one requested Obsidian callout without templating or restructuring the rest of the note.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把“> 注意：周五前确认字段。”这一行改成两行 Obsidian warning callout，标题固定为“截止提醒”，正文固定为“周五前确认字段。”。不要添加 frontmatter、标签或其他 callout；其余内容与空行逐字保留。\n\n原笔记开始\n# 项目状态\n\n背景段落保持原样。\n\n> 注意：周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n原笔记结束",
+        "expected_note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n",
+        "expected_note_sha256": "8cad9c51a6205e95f13033a58b9f7b3d92f90aee69e7014d82b5ae53ffcb72e4",
+        "hard_criteria": [
+          "JSON的note字段只把指定行改成冻结要求的两行warning callout，除整份note末尾换行差异外与expected_note逐字一致",
+          "callout使用> [!warning] 截止提醒及下一行> 周五前确认字段。的有效结构",
+          "背景、记录列表、未确认状态、标题与空行逐字保留，不新增frontmatter、标签、额外callout或完成状态",
+          "返回可解析的固定两字段JSON；message只报告文本转换，不声称已在Obsidian中验证"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者都生成正确的两行 warning callout，保留其余结构且未声称应用内验证，仅措辞细微不同，语义并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 Obsidian warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "f62e892bf64f7c3e8a071abb979111737c95d1a1d6a72908d5f041e8a1a6895a",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 Obsidian warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "convert-one-line-to-warning-callout-r2",
+        "case_id": "convert-one-line-to-warning-callout",
+        "repetition": 2,
+        "mechanism": "format-scope",
+        "purpose": "Introduce exactly one requested Obsidian callout without templating or restructuring the rest of the note.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把“> 注意：周五前确认字段。”这一行改成两行 Obsidian warning callout，标题固定为“截止提醒”，正文固定为“周五前确认字段。”。不要添加 frontmatter、标签或其他 callout；其余内容与空行逐字保留。\n\n原笔记开始\n# 项目状态\n\n背景段落保持原样。\n\n> 注意：周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n原笔记结束",
+        "expected_note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n",
+        "expected_note_sha256": "8cad9c51a6205e95f13033a58b9f7b3d92f90aee69e7014d82b5ae53ffcb72e4",
+        "hard_criteria": [
+          "JSON的note字段只把指定行改成冻结要求的两行warning callout，除整份note末尾换行差异外与expected_note逐字一致",
+          "callout使用> [!warning] 截止提醒及下一行> 周五前确认字段。的有效结构",
+          "背景、记录列表、未确认状态、标题与空行逐字保留，不新增frontmatter、标签、额外callout或完成状态",
+          "返回可解析的固定两字段JSON；message只报告文本转换，不声称已在Obsidian中验证"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 的 callout 语法、标题、正文及受保护内容完全满足要求，message 均合规，无法偏好其一。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "convert-one-line-to-warning-callout-r3",
+        "case_id": "convert-one-line-to-warning-callout",
+        "repetition": 3,
+        "mechanism": "format-scope",
+        "purpose": "Introduce exactly one requested Obsidian callout without templating or restructuring the rest of the note.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把“> 注意：周五前确认字段。”这一行改成两行 Obsidian warning callout，标题固定为“截止提醒”，正文固定为“周五前确认字段。”。不要添加 frontmatter、标签或其他 callout；其余内容与空行逐字保留。\n\n原笔记开始\n# 项目状态\n\n背景段落保持原样。\n\n> 注意：周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n原笔记结束",
+        "expected_note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n",
+        "expected_note_sha256": "8cad9c51a6205e95f13033a58b9f7b3d92f90aee69e7014d82b5ae53ffcb72e4",
+        "hard_criteria": [
+          "JSON的note字段只把指定行改成冻结要求的两行warning callout，除整份note末尾换行差异外与expected_note逐字一致",
+          "callout使用> [!warning] 截止提醒及下一行> 周五前确认字段。的有效结构",
+          "背景、记录列表、未确认状态、标题与空行逐字保留，不新增frontmatter、标签、额外callout或完成状态",
+          "返回可解析的固定两字段JSON；message只报告文本转换，不声称已在Obsidian中验证"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者均只完成指定行转换，没有新增结构或完成状态，说明文字均局限于文本转换，判为并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 Obsidian warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "f62e892bf64f7c3e8a071abb979111737c95d1a1d6a72908d5f041e8a1a6895a",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 Obsidian warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 项目状态\\n\\n背景段落保持原样。\\n\\n> [!warning] 截止提醒\\n> 周五前确认字段。\\n\\n## 记录\\n\\n- 字段表已整理\\n- 运营尚未确认\",\"message\":\"已将指定行改为两行 warning callout，其余内容与空行保持不变。\"}",
+            "output_sha256": "a05a441e4e1bc3c9159b66e68cddae4fd0c383e0c9fe51c22d1264734c161812",
+            "submission": {
+              "note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认",
+              "message": "已将指定行改为两行 warning callout，其余内容与空行保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "0757c7b4a8a600104dfc29cfe75d7b6b1ed910e58f2f223cb766b0e7daf89d99"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "leave-unverified-target-unlinked-r1",
+        "case_id": "leave-unverified-target-unlinked",
+        "repetition": 1,
+        "mechanism": "target-state",
+        "purpose": "Leave an unverified target as plain text and explain the bounded no-op instead of inventing a valid vault link.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 清单只有 `项目北斗` 和 `会议索引`。有人建议把正文“临时方案”改成 wikilink，但该目标是否存在尚未验证；本任务规定只有清单中已确认的目标才能落链接。若不能确认，就保持笔记逐字不变，并在 message 里简短说明未应用链接及原因。\n\n原笔记开始\n# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n原笔记结束",
+        "expected_note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n",
+        "expected_note_sha256": "6c03270044b0ec9be5a53a3652c8c937aa946c66d1a3d5a59e822ede0d600c83",
+        "hard_criteria": [
+          "JSON的note字段保持原笔记不变，除整份note末尾换行差异外与冻结expected_note逐字一致，不创建[[临时方案]]或任何替代链接",
+          "保留已经确认的[[项目北斗]]链接且不重写标题、段落或格式",
+          "message明确说明临时方案不在已确认清单或存在性未验证，所以未应用链接；不能反过来宣称目标不存在",
+          "返回可解析的固定两字段JSON，不声称扫描vault、保存文件或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 都保留已确认链接和完整原文，并以未在已确认清单或未验证为由不加链接，没有断言目标不存在，语义并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接：“临时方案”不在已确认的 vault 清单中，因此保持原笔记不变。\"}",
+            "output_sha256": "4c74638a3159c2be5a7d84af11733fa1249141303a62b9bc6fffb98538b4468c",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接：“临时方案”不在已确认的 vault 清单中，因此保持原笔记不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接：vault 清单中未确认存在“临时方案”，因此保持笔记逐字不变。\"}",
+            "output_sha256": "33dc0042477f68ec5c38eb3a84ebd8a162bc6fdd12779b7c3172212beeb1633f",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接：vault 清单中未确认存在“临时方案”，因此保持笔记逐字不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接，因为“临时方案”不在已确认的 vault 清单中。\"}",
+            "output_sha256": "435b8166075c587f2c1e29d5ed6af84e6f937d262d15a988e8581d808682b1e4",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接，因为“临时方案”不在已确认的 vault 清单中。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "leave-unverified-target-unlinked-r2",
+        "case_id": "leave-unverified-target-unlinked",
+        "repetition": 2,
+        "mechanism": "target-state",
+        "purpose": "Leave an unverified target as plain text and explain the bounded no-op instead of inventing a valid vault link.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 清单只有 `项目北斗` 和 `会议索引`。有人建议把正文“临时方案”改成 wikilink，但该目标是否存在尚未验证；本任务规定只有清单中已确认的目标才能落链接。若不能确认，就保持笔记逐字不变，并在 message 里简短说明未应用链接及原因。\n\n原笔记开始\n# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n原笔记结束",
+        "expected_note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n",
+        "expected_note_sha256": "6c03270044b0ec9be5a53a3652c8c937aa946c66d1a3d5a59e822ede0d600c83",
+        "hard_criteria": [
+          "JSON的note字段保持原笔记不变，除整份note末尾换行差异外与冻结expected_note逐字一致，不创建[[临时方案]]或任何替代链接",
+          "保留已经确认的[[项目北斗]]链接且不重写标题、段落或格式",
+          "message明确说明临时方案不在已确认清单或存在性未验证，所以未应用链接；不能反过来宣称目标不存在",
+          "返回可解析的固定两字段JSON，不声称扫描vault、保存文件或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者均维持 bounded no-op，保留项目北斗链接，并准确表达临时方案尚未被清单确认，未出现越界声称。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接；“临时方案”不在已确认的 vault 清单中。\"}",
+            "output_sha256": "83285650ad59a72e779f360c49a70d5baf1f56af5c36d0e05ba1c991836f7721",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接；“临时方案”不在已确认的 vault 清单中。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未将“临时方案”改为 wikilink，因为它不在已确认的 vault 清单中；笔记保持逐字不变。\"}",
+            "output_sha256": "95934792866d3156c31108a51814c395705928bab647d7c30c6790366a6f3cbf",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未将“临时方案”改为 wikilink，因为它不在已确认的 vault 清单中；笔记保持逐字不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接，因为清单中未确认存在“临时方案”。\"}",
+            "output_sha256": "cf2eccdd88d919c46e0dbe0669a8461f7c208c2583f736bfe8f7d6cce001754d",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接，因为清单中未确认存在“临时方案”。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "leave-unverified-target-unlinked-r3",
+        "case_id": "leave-unverified-target-unlinked",
+        "repetition": 3,
+        "mechanism": "target-state",
+        "purpose": "Leave an unverified target as plain text and explain the bounded no-op instead of inventing a valid vault link.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 清单只有 `项目北斗` 和 `会议索引`。有人建议把正文“临时方案”改成 wikilink，但该目标是否存在尚未验证；本任务规定只有清单中已确认的目标才能落链接。若不能确认，就保持笔记逐字不变，并在 message 里简短说明未应用链接及原因。\n\n原笔记开始\n# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n原笔记结束",
+        "expected_note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n",
+        "expected_note_sha256": "6c03270044b0ec9be5a53a3652c8c937aa946c66d1a3d5a59e822ede0d600c83",
+        "hard_criteria": [
+          "JSON的note字段保持原笔记不变，除整份note末尾换行差异外与冻结expected_note逐字一致，不创建[[临时方案]]或任何替代链接",
+          "保留已经确认的[[项目北斗]]链接且不重写标题、段落或格式",
+          "message明确说明临时方案不在已确认清单或存在性未验证，所以未应用链接；不能反过来宣称目标不存在",
+          "返回可解析的固定两字段JSON，不声称扫描vault、保存文件或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 都没有创建替代链接，原文和既有链接完整；各 message 只说明缺少已确认依据，因此并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接：vault 清单中没有已确认的“临时方案”，因此保持笔记逐字不变。\"}",
+            "output_sha256": "fa7ca3ac3a9fe3e9338444dd0c7ac865df2755c59ff877b8fad580d2cdea4a77",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接：vault 清单中没有已确认的“临时方案”，因此保持笔记逐字不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接，因为“临时方案”不在已确认的 vault 清单中。\"}",
+            "output_sha256": "435b8166075c587f2c1e29d5ed6af84e6f937d262d15a988e8581d808682b1e4",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接，因为“临时方案”不在已确认的 vault 清单中。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 方案记录\\n\\n候选方案：临时方案\\n\\n已确认参考：[[项目北斗]]\",\"message\":\"未应用链接：“临时方案”不在已确认的 vault 清单中，因此笔记保持逐字不变。\"}",
+            "output_sha256": "bb50c7e7d169b32a8e458d24ad6e969525d149fb411e206ef18d2c67fb557eb5",
+            "submission": {
+              "note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]",
+              "message": "未应用链接：“临时方案”不在已确认的 vault 清单中，因此笔记保持逐字不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "f61a20741a7c8d013160e97e72bdcf86e79319bd25c307c15b0e5003cfe2c6f1"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "plain-markdown-date-local-edit-r1",
+        "case_id": "plain-markdown-date-local-edit",
+        "repetition": 1,
+        "mechanism": "format-scope",
+        "purpose": "Honor a plain-Markdown local edit without injecting Obsidian syntax or changing protected URL and fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n这是普通 Markdown，不是 Obsidian 笔记。只把正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块里的“下周一”保持不变。不要添加 frontmatter、wikilink、callout、标签或其他结构。\n\n原文开始\n# 发布说明\n\n会议决定：下周一复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n原文结束",
+        "expected_note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n",
+        "expected_note_sha256": "8d84ccdd28396feefd2602f41ae6a8ecc8b9929d96369cfae91f076733f246fc",
+        "hard_criteria": [
+          "JSON的note字段只修改正文会议决定的日期，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "正文目标句变为下周二复查导入结果且不改变决定语义",
+          "URL参数、text代码块、标题与空行逐字保留，并且不新增任何Obsidian专用语法或frontmatter",
+          "返回可解析的固定两字段JSON；message不声称修改实际文件或验证任何应用渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者均仅将正文决定日期改为下周二，URL、代码块与普通 Markdown 结构保持不变，message 都未声称实际文件操作。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "8c2b49574576e27b9fcf79f06ef377661c37e120a320443c5731c456cb05ad4f",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "bcc7f49838eaaa0d7209b32abecb353cf535b6520a2df2ac93d06e897640ea31",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”。\"}",
+            "output_sha256": "e815fb54546f76324b32714f9af427cdfba028ae44919bb65964f473646708ef",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "plain-markdown-date-local-edit-r2",
+        "case_id": "plain-markdown-date-local-edit",
+        "repetition": 2,
+        "mechanism": "format-scope",
+        "purpose": "Honor a plain-Markdown local edit without injecting Obsidian syntax or changing protected URL and fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n这是普通 Markdown，不是 Obsidian 笔记。只把正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块里的“下周一”保持不变。不要添加 frontmatter、wikilink、callout、标签或其他结构。\n\n原文开始\n# 发布说明\n\n会议决定：下周一复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n原文结束",
+        "expected_note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n",
+        "expected_note_sha256": "8d84ccdd28396feefd2602f41ae6a8ecc8b9929d96369cfae91f076733f246fc",
+        "hard_criteria": [
+          "JSON的note字段只修改正文会议决定的日期，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "正文目标句变为下周二复查导入结果且不改变决定语义",
+          "URL参数、text代码块、标题与空行逐字保留，并且不新增任何Obsidian专用语法或frontmatter",
+          "返回可解析的固定两字段JSON；message不声称修改实际文件或验证任何应用渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 的局部日期编辑及保护范围一致，说明文字仅有标点差异，全部通过且并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "8c2b49574576e27b9fcf79f06ef377661c37e120a320443c5731c456cb05ad4f",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "bcc7f49838eaaa0d7209b32abecb353cf535b6520a2df2ac93d06e897640ea31",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "8c2b49574576e27b9fcf79f06ef377661c37e120a320443c5731c456cb05ad4f",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "plain-markdown-date-local-edit-r3",
+        "case_id": "plain-markdown-date-local-edit",
+        "repetition": 3,
+        "mechanism": "format-scope",
+        "purpose": "Honor a plain-Markdown local edit without injecting Obsidian syntax or changing protected URL and fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n这是普通 Markdown，不是 Obsidian 笔记。只把正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块里的“下周一”保持不变。不要添加 frontmatter、wikilink、callout、标签或其他结构。\n\n原文开始\n# 发布说明\n\n会议决定：下周一复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n原文结束",
+        "expected_note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n",
+        "expected_note_sha256": "8d84ccdd28396feefd2602f41ae6a8ecc8b9929d96369cfae91f076733f246fc",
+        "hard_criteria": [
+          "JSON的note字段只修改正文会议决定的日期，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "正文目标句变为下周二复查导入结果且不改变决定语义",
+          "URL参数、text代码块、标题与空行逐字保留，并且不新增任何Obsidian专用语法或frontmatter",
+          "返回可解析的固定两字段JSON；message不声称修改实际文件或验证任何应用渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者都保持 URL 参数和 fenced 示例中的下周一，仅修改目标正文并给出合规 message，无语义优劣。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "8c2b49574576e27b9fcf79f06ef377661c37e120a320443c5731c456cb05ad4f",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "bcc7f49838eaaa0d7209b32abecb353cf535b6520a2df2ac93d06e897640ea31",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"# 发布说明\\n\\n会议决定：下周二复查导入结果。\\n\\n参考：https://example.test/a?next=下周一\\n\\n```text\\n下周一复查导入结果\\n```\",\"message\":\"仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。\"}",
+            "output_sha256": "8c2b49574576e27b9fcf79f06ef377661c37e120a320443c5731c456cb05ad4f",
+            "submission": {
+              "note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```",
+              "message": "仅将正文会议决定中的“下周一”改为“下周二”，URL 查询参数和代码块保持不变。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "bec00f8432ccfd08fed5769dc469596441ec3d563572fa3f6546726ad8b8f1ce"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "resize-one-visible-embed-only-r1",
+        "case_id": "resize-one-visible-embed-only",
+        "repetition": 1,
+        "mechanism": "protected-bytes",
+        "purpose": "Resize one visible image embed while preserving its target and every protected frontmatter, comment, fenced example, and block identifier.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把正文“当前展示”这一处可见图片 embed 的宽度从 320 改为 480；保留文件目标 `架构图.png`。frontmatter、Obsidian 注释、代码块、普通正文、空行和块 ID 都必须逐字保留。\n\n原笔记开始\n---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|320]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n原笔记结束",
+        "expected_note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n",
+        "expected_note_sha256": "ec688e5b2fc81cf18ed37a1f6d82ca8b2d29718ef4acaa8546cd5253246a634e",
+        "hard_criteria": [
+          "JSON的note字段仅把正文可见embed改为![[架构图.png|480]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "保持Obsidian图片embed语法和目标架构图.png，不改成wikilink、Markdown图片或其他尺寸形式",
+          "frontmatter、cover值、普通文本、Obsidian注释、text代码块、空行和^diagram-note均保持原字节内容",
+          "返回可解析的固定两字段JSON；message不声称扫描、保存、打开、确认附件存在或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 均只调整可见 embed 的宽度，目标、frontmatter、注释、代码块和块 ID 全部保留，message 合规，判为并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”处的图片宽度从 320 改为 480。\"}",
+            "output_sha256": "37ccf8f8b8b779d263489a3d79546819c167c19ebfc0454d8e18f7fb500db12d",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”处的图片宽度从 320 改为 480。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”处的图片嵌入宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "63c6c13902661138482db623bb5f11212412cb70ffb1ddf7123384f2ddac301d",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”处的图片嵌入宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将正文“当前展示”处的图片宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "6d6b190dd7b442b1c62aeac5493514ee2c6a9fc688ead39951021035aac1ea15",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将正文“当前展示”处的图片宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "resize-one-visible-embed-only-r2",
+        "case_id": "resize-one-visible-embed-only",
+        "repetition": 2,
+        "mechanism": "protected-bytes",
+        "purpose": "Resize one visible image embed while preserving its target and every protected frontmatter, comment, fenced example, and block identifier.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把正文“当前展示”这一处可见图片 embed 的宽度从 320 改为 480；保留文件目标 `架构图.png`。frontmatter、Obsidian 注释、代码块、普通正文、空行和块 ID 都必须逐字保留。\n\n原笔记开始\n---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|320]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n原笔记结束",
+        "expected_note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n",
+        "expected_note_sha256": "ec688e5b2fc81cf18ed37a1f6d82ca8b2d29718ef4acaa8546cd5253246a634e",
+        "hard_criteria": [
+          "JSON的note字段仅把正文可见embed改为![[架构图.png|480]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "保持Obsidian图片embed语法和目标架构图.png，不改成wikilink、Markdown图片或其他尺寸形式",
+          "frontmatter、cover值、普通文本、Obsidian注释、text代码块、空行和^diagram-note均保持原字节内容",
+          "返回可解析的固定两字段JSON；message不声称扫描、保存、打开、确认附件存在或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者都使用正确的 Obsidian 图片 embed 语法和 480 宽度，受保护内容未变，说明文字未作外部验证声称。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将正文“当前展示”处的图片 embed 宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "541c66e37ac1a42a175eee1b558d2ad5f07e3f94f3918270545393a130809d58",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将正文“当前展示”处的图片 embed 宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”的图片宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "238485d8c9ce90a374aed6d9db7137b877f584b17eee7e76e80f47a10096a83c",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”的图片宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”处的图片嵌入宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "63c6c13902661138482db623bb5f11212412cb70ffb1ddf7123384f2ddac301d",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”处的图片嵌入宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "resize-one-visible-embed-only-r3",
+        "case_id": "resize-one-visible-embed-only",
+        "repetition": 3,
+        "mechanism": "protected-bytes",
+        "purpose": "Resize one visible image embed while preserving its target and every protected frontmatter, comment, fenced example, and block identifier.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n只把正文“当前展示”这一处可见图片 embed 的宽度从 320 改为 480；保留文件目标 `架构图.png`。frontmatter、Obsidian 注释、代码块、普通正文、空行和块 ID 都必须逐字保留。\n\n原笔记开始\n---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|320]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n原笔记结束",
+        "expected_note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n",
+        "expected_note_sha256": "ec688e5b2fc81cf18ed37a1f6d82ca8b2d29718ef4acaa8546cd5253246a634e",
+        "hard_criteria": [
+          "JSON的note字段仅把正文可见embed改为![[架构图.png|480]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "保持Obsidian图片embed语法和目标架构图.png，不改成wikilink、Markdown图片或其他尺寸形式",
+          "frontmatter、cover值、普通文本、Obsidian注释、text代码块、空行和^diagram-note均保持原字节内容",
+          "返回可解析的固定两字段JSON；message不声称扫描、保存、打开、确认附件存在或验证Obsidian渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 的最终笔记均准确隔离可见 embed 修改，其他 320 示例保留，message 差异不足以形成偏好。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”处的图片宽度从 320 改为 480。\"}",
+            "output_sha256": "37ccf8f8b8b779d263489a3d79546819c167c19ebfc0454d8e18f7fb500db12d",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”处的图片宽度从 320 改为 480。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将正文“当前展示”处的可见图片 embed 宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "246c1a4b2c7d3ee9ad6c97cfbab84c18074bff119f1a252bd8ca2c80644b1787",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将正文“当前展示”处的可见图片 embed 宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 架构图说明\\ncover: \\\"[[封面.png]]\\\"\\n---\\n\\n# 架构图说明\\n\\n当前展示：![[架构图.png|480]]\\n\\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\\n\\n```text\\n![[架构图.png|320]]\\n```\\n\\n图注保持原样。 ^diagram-note\",\"message\":\"仅将“当前展示”处的可见图片 embed 宽度从 320 改为 480，其余内容逐字保留。\"}",
+            "output_sha256": "695e2864013cab05a1cb9864cc1e29ff026edef7d2f9e4f9b7d8b6d44241d27e",
+            "submission": {
+              "note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note",
+              "message": "仅将“当前展示”处的可见图片 embed 宽度从 320 改为 480，其余内容逐字保留。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "d1941a2e369401e381a71a490013758a496bdd48f30df654e323ff464f179d9c"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retarget-existing-not-planned-note-r1",
+        "case_id": "retarget-existing-not-planned-note",
+        "repetition": 1,
+        "mechanism": "target-state",
+        "purpose": "Apply a confirmed rename while keeping a merely planned note as plain text and preserving fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 中 `旧路线图` 已改名为 `路线图`；`季度复盘` 只是计划以后新建，目前没有该笔记。只修复正文中现有入口的 wikilink 目标并保留显示文字；计划项继续保持纯文本。frontmatter、代码块与其他内容逐字保留。\n\n原笔记开始\n---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[旧路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n",
+        "expected_note_sha256": "6c7135dce5f7ffa6efc7b308ae8c77e9445997b33cc4489887d02a767e9297ea",
+        "hard_criteria": [
+          "JSON的note字段只把正文现有入口改为[[路线图|路线图]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "季度复盘仍是纯文本计划，不创建wikilink、嵌入或声称它已存在",
+          "保留显示文字路线图、frontmatter、text代码块中的旧链接与季度复盘字符串、空行和其他正文",
+          "返回可解析的固定两字段JSON；message区分已确认重命名与计划目标，不声称扫描、保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "三者都修复正文现有入口并保留显示文字、计划纯文本与代码块；message 均区分实际链接改动和未改计划项，语义并列。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"仅将正文现有入口的链接目标由“旧路线图”改为“路线图”，保留显示文字；计划项、代码块及其他内容未改。\"}",
+            "output_sha256": "c23df080929866c330695b6950f8ec47cb6da56c08ae733a3daf7a68fe4f1e12",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "仅将正文现有入口的链接目标由“旧路线图”改为“路线图”，保留显示文字；计划项、代码块及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已将正文现有入口的目标更新为“路线图”，保留显示文字；计划项、代码块及其他内容未改。\"}",
+            "output_sha256": "295e502653b5dd0395aff648b86a9ec84000e4d429d4bfb40a88dc274185a84b",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已将正文现有入口的目标更新为“路线图”，保留显示文字；计划项、代码块及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已将正文中现有入口的目标由“旧路线图”改为“路线图”，保留显示文字；代码块及计划项未改。\"}",
+            "output_sha256": "8e3d1e5bb67b89bf8187d88dd965ca2758f49c3cd417c6cef84ecde3fc81717d",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已将正文中现有入口的目标由“旧路线图”改为“路线图”，保留显示文字；代码块及计划项未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retarget-existing-not-planned-note-r2",
+        "case_id": "retarget-existing-not-planned-note",
+        "repetition": 2,
+        "mechanism": "target-state",
+        "purpose": "Apply a confirmed rename while keeping a merely planned note as plain text and preserving fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 中 `旧路线图` 已改名为 `路线图`；`季度复盘` 只是计划以后新建，目前没有该笔记。只修复正文中现有入口的 wikilink 目标并保留显示文字；计划项继续保持纯文本。frontmatter、代码块与其他内容逐字保留。\n\n原笔记开始\n---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[旧路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n",
+        "expected_note_sha256": "6c7135dce5f7ffa6efc7b308ae8c77e9445997b33cc4489887d02a767e9297ea",
+        "hard_criteria": [
+          "JSON的note字段只把正文现有入口改为[[路线图|路线图]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "季度复盘仍是纯文本计划，不创建wikilink、嵌入或声称它已存在",
+          "保留显示文字路线图、frontmatter、text代码块中的旧链接与季度复盘字符串、空行和其他正文",
+          "返回可解析的固定两字段JSON；message区分已确认重命名与计划目标，不声称扫描、保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A 与 B 均在 message 中交代现有入口已修复且计划项未改，二者并列；C 的 note 本身正确，但 message 只笼统称其他内容未改，没有区分计划目标，criterion 4 失败。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已将正文中的现有入口目标由“旧路线图”改为“路线图”，保留显示文字；计划项、代码块、frontmatter 与其他内容未改。\"}",
+            "output_sha256": "fe4085f7d61d752b97d2c4e11bcb421ac8bd0734e91e62c6af19db260a6d78e0",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已将正文中的现有入口目标由“旧路线图”改为“路线图”，保留显示文字；计划项、代码块、frontmatter 与其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已仅修复正文中现有入口的链接目标，并保留显示文字；计划项、代码块及其他内容未改。\"}",
+            "output_sha256": "851531bb5c6e2d46ebb4fc4772d2b6035d1769928db5e7f9d401e3a49fc45345",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已仅修复正文中现有入口的链接目标，并保留显示文字；计划项、代码块及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已将正文中的现有入口目标改为“路线图”，保留显示文字；代码块及其他内容未改。\"}",
+            "output_sha256": "e0bde951ad4d9fa648b51c3cd23cf7a3d84f5fa5597f88f650dc73fb411cca00",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已将正文中的现有入口目标改为“路线图”，保留显示文字；代码块及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retarget-existing-not-planned-note-r3",
+        "case_id": "retarget-existing-not-planned-note",
+        "repetition": 3,
+        "mechanism": "target-state",
+        "purpose": "Apply a confirmed rename while keeping a merely planned note as plain text and preserving fenced examples.",
+        "task": "请完成下方用户任务。所有笔记与 vault 清单均为合成材料，不使用工具，不补充外部资料。只返回一个可被 JSON 解析的对象，不加代码围栏或额外文字，结构固定为 {\"note\":\"编辑后的完整 Markdown\",\"message\":\"简短说明实际改动或未改原因\"}。note 必须包含完整最终笔记；不要声称已经保存、打开、扫描或在 Obsidian 中验证渲染。\n\n已确认 vault 中 `旧路线图` 已改名为 `路线图`；`季度复盘` 只是计划以后新建，目前没有该笔记。只修复正文中现有入口的 wikilink 目标并保留显示文字；计划项继续保持纯文本。frontmatter、代码块与其他内容逐字保留。\n\n原笔记开始\n---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[旧路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n原笔记结束",
+        "expected_note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n",
+        "expected_note_sha256": "6c7135dce5f7ffa6efc7b308ae8c77e9445997b33cc4489887d02a767e9297ea",
+        "hard_criteria": [
+          "JSON的note字段只把正文现有入口改为[[路线图|路线图]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+          "季度复盘仍是纯文本计划，不创建wikilink、嵌入或声称它已存在",
+          "保留显示文字路线图、frontmatter、text代码块中的旧链接与季度复盘字符串、空行和其他正文",
+          "返回可解析的固定两字段JSON；message区分已确认重命名与计划目标，不声称扫描、保存或验证渲染"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B、C 均保留计划项为纯文本和代码块旧链接，message 也分别提到计划项未改，没有可判定的语义优胜者。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "obsidian-note-edit",
+            "skill_package_sha256": "552b3dfeb25608e6a19b8bc7157f849a77b4ba6cccf9b6ea9155badcf8357077",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已仅修复正文中现有入口的链接目标并保留显示文字；计划项、代码块及其他内容未改。\"}",
+            "output_sha256": "7a32844768bb3af8a2027713352aea00b7a47618e2f2a562ad5d9ed8f36d7373",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已仅修复正文中现有入口的链接目标并保留显示文字；计划项、代码块及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已将正文中的现有入口目标由“旧路线图”改为“路线图”，保留显示文字；计划项和代码块未改动。\"}",
+            "output_sha256": "e752bda561e0e67e8bf7f713d21866c9675b4a45b39bd7e901aac3477a7b5ad5",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已将正文中的现有入口目标由“旧路线图”改为“路线图”，保留显示文字；计划项和代码块未改动。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "skill": "obsidian-markdown",
+            "skill_package_sha256": "10cb0e8330cdc4860287760fec3f866e5934773e3a1e62df8cb08ea83efe4b50",
+            "output": "{\"note\":\"---\\ntitle: 导航更新\\n---\\n\\n# 导航更新\\n\\n现有入口：[[路线图|路线图]]\\n\\n后续可能建立季度复盘，当前只是计划。\\n\\n```text\\n[[旧路线图|路线图]]\\n季度复盘\\n```\",\"message\":\"已修复正文中的路线图链接目标并保留显示文字；代码块、计划项及其他内容未改。\"}",
+            "output_sha256": "af11b2719849096fff84c859db0ee1121d2e1c809935120d9608c37ca86f79b1",
+            "submission": {
+              "note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```",
+              "message": "已修复正文中的路线图链接目标并保留显示文字；代码块、计划项及其他内容未改。",
+              "parse_valid": true,
+              "schema_valid": true,
+              "parse_error": null,
+              "actual_note_sha256": "6c148f08ff13b6a479a39f115ef396d5367574548a2f77149c4e382436a8177b"
+            },
+            "artifact_exact": true,
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "preferred": false
+          }
+        ]
+      }
+    ],
+    "review_process": {
+      "pre_review_summary_status": "awaiting-human-review",
+      "artifact_criterion_source": "artifact-checks.json and the artifact-prefilled anonymous form",
+      "semantic_review_source": "blind-review-completed-independent-metadata-corrected.json",
+      "scored_source": "review-result-blind-review-completed-independent-metadata-corrected.json",
+      "note": "Criterion 1 was filled deterministically before reveal. Criteria 2-4 and preferences were completed blind. A post-reveal correction changed reviewer metadata only; original scoring artifacts remain preserved."
+    },
+    "evidence_projection": {
+      "schema": "round23-artifact-evidence-v1",
+      "canonicalization": "UTF-8 JSON with sorted keys and compact separators",
+      "sha256": "55279e2d054664e3f9f137e7b705e6fd00f43fac407ab5383a2a504386a54930",
+      "scope": "freeze/source/prepared/run/review/provenance hashes; reviewer correction; all outputs, expected artifacts, item criteria, preferences, aggregate analysis, candidate gate, and decision"
+    }
+  },
+  "analysis": {
+    "overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 1.0
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "obsidian-note-edit",
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 1.0
+      },
+      "upstream": {
+        "arm_id": "upstream",
+        "skill": "obsidian-markdown",
+        "outputs": 18,
+        "perfect_outputs": 17,
+        "criteria_passed": 71,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.9861
+      },
+      "no_unique_preference_count": 18,
+      "three_way_equal_items": 17,
+      "two_way_best_tie_items": 1
+    },
+    "artifact_checks": {
+      "parse_valid": 54,
+      "schema_valid": 54,
+      "artifact_exact": 54,
+      "total": 54
+    },
+    "by_case": {
+      "resize-one-visible-embed-only": {
+        "mechanism": "protected-bytes",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      },
+      "change-one-frontmatter-scalar": {
+        "mechanism": "protected-bytes",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      },
+      "plain-markdown-date-local-edit": {
+        "mechanism": "format-scope",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      },
+      "convert-one-line-to-warning-callout": {
+        "mechanism": "format-scope",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      },
+      "leave-unverified-target-unlinked": {
+        "mechanism": "target-state",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      },
+      "retarget-existing-not-planned-note": {
+        "mechanism": "target-state",
+        "arms": {
+          "baseline": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "ours": {
+            "outputs": 3,
+            "perfect_outputs": 3,
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          },
+          "upstream": {
+            "outputs": 3,
+            "perfect_outputs": 2,
+            "criteria_passed": 11,
+            "criteria_total": 12,
+            "artifact_core_failures": 0,
+            "preferred_count": 0
+          }
+        }
+      }
+    },
+    "by_mechanism": {
+      "format-scope": {
+        "baseline": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "ours": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "upstream": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        }
+      },
+      "protected-bytes": {
+        "baseline": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "ours": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "upstream": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        }
+      },
+      "target-state": {
+        "baseline": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "ours": {
+          "outputs": 6,
+          "perfect_outputs": 6,
+          "criteria_passed": 24,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        },
+        "upstream": {
+          "outputs": 6,
+          "perfect_outputs": 5,
+          "criteria_passed": 23,
+          "criteria_total": 24,
+          "artifact_core_failures": 0
+        }
+      }
+    },
+    "candidate_gate": {
+      "definition": "Open a local 0.1.1 design only when both cases in one mechanism have ours artifact criterion failures >=2/3 and baseline failures <=1/3 for each case; upstream and criteria 2-4 do not trigger it.",
+      "core_criterion_number": 1,
+      "per_case": {
+        "resize-one-visible-embed-only": {
+          "mechanism": "protected-bytes",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        },
+        "change-one-frontmatter-scalar": {
+          "mechanism": "protected-bytes",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        },
+        "plain-markdown-date-local-edit": {
+          "mechanism": "format-scope",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        },
+        "convert-one-line-to-warning-callout": {
+          "mechanism": "format-scope",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        },
+        "leave-unverified-target-unlinked": {
+          "mechanism": "target-state",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        },
+        "retarget-existing-not-planned-note": {
+          "mechanism": "target-state",
+          "ours_core_failures": 0,
+          "baseline_core_failures": 0,
+          "qualifies": false
+        }
+      },
+      "qualifying_cases_by_mechanism": {
+        "format-scope": [],
+        "protected-bytes": [],
+        "target-state": []
+      },
+      "required_qualifying_cases_per_mechanism": 2,
+      "qualifying_mechanisms": [],
+      "triggered": false
+    },
+    "cost_and_efficiency": {
+      "ours_vs_baseline": {
+        "total_tokens": {
+          "from": 175817,
+          "to": 329268,
+          "delta": 153451,
+          "percent": 87.3
+        },
+        "prompt_tokens_percent": 85.6,
+        "completion_tokens_percent": 239.1,
+        "cost_percent": 116.9,
+        "median_latency_percent": 67.7
+      },
+      "upstream_vs_baseline": {
+        "total_tokens": {
+          "from": 175817,
+          "to": 267666,
+          "delta": 91849,
+          "percent": 52.2
+        },
+        "prompt_tokens_percent": 51.0,
+        "completion_tokens_percent": 169.0,
+        "cost_percent": 107.8,
+        "median_latency_percent": 38.6
+      },
+      "ours_vs_upstream": {
+        "total_tokens": {
+          "from": 267666,
+          "to": 329268,
+          "delta": 61602,
+          "percent": 23.0
+        },
+        "prompt_tokens_percent": 23.0,
+        "completion_tokens_percent": 26.1,
+        "cost_percent": 4.4,
+        "median_latency_percent": 21.0
+      }
+    },
+    "forward_result": {
+      "observation": "All three arms produced 18/18 exact Markdown artifacts. Baseline and ours passed 72/72 criteria; upstream passed 71/72 because one message did not distinguish a planned note target. All 18 items had no unique preference: 17 were three-way equal, and one had baseline and ours tied for best.",
+      "interpretation": "The six narrow prompts were sufficient for exact artifact production without a Skill, so this run shows preservation capability but no measured accuracy or preference benefit from the local Skill. The local and upstream Skill arms used more tokens, cost, and latency than baseline in this run."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "candidate_design_opened": false,
+    "status_changed": false,
+    "evidence_changed": false,
+    "active_cases_added": 6,
+    "reason": "All 54 submitted notes passed the deterministic artifact criterion, so no case qualified for the frozen local candidate gate. Baseline and ours were both perfect on all 72 criteria; adding instructions is not supported by this sample."
+  },
+  "limitations": [
+    "Only six synthetic narrow-edit tasks, one model, one reasoning effort, and three repetitions per arm were tested.",
+    "The blind reviewer and post-score reviewer were model-assisted subagents, not independent humans.",
+    "The run compared returned text artifacts in read-only sessions; it did not edit a real vault or verify Obsidian rendering, link scans, plugins, or filesystem preservation.",
+    "Explicit project-level Skill invocation was configured, but the run has no per-session Skill-call trace, so this is not an implicit-routing evaluation.",
+    "Cost and latency differences describe this run and should not be generalized to all prompts or models.",
+    "The 13 raw run artifacts are intentionally ignored by Git. Their hashes can be rechecked when the local run directory is present; a fresh clone can only recompute the embedded outputs against committed frozen sources, packages, reviews, and the pinned evidence projection."
+  ]
+}

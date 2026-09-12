@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十二轮故障证据边界前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共132项。`debug-evidence-triage` 保持0.1.1；七个新题、每臂21份输出中，原匿名评阅为无 Skill 68/84、当前包69/84，完整输出均11/21，偏好各3次，另有15次持平。计分后独立复核修正超时幂等题六项语义误判，校准后为71/84与72/84、完整输出均13/21；两种口径都未触发候选门槛。
+当前阶段：**第二十三轮 Obsidian 窄编辑制品保真诊断**。已有十六个可试用的 `experimental` 技能，活动用例共138项。六个新题、三臂各18份输出的 Markdown 制品全部精确；无 Skill 与 `obsidian-note-edit` 0.1.0 均为72/72、18/18完整，上游为71/72、17/18完整，18项均无唯一偏好，其中17项三方并列、1项baseline与ours并列最佳。当前包没有观察到准确率增益，且未触发候选门槛，故保持0.1.0。
 
 ## 从这里开始
+
+- [第二十三轮质量打磨：Obsidian 窄编辑制品保真](docs/quality-polish-round-23.md)
+- [Obsidian 制品第二十三轮机器诊断](evaluations/reports/obsidian-artifact-preservation-round-23-diagnostic.json)
 
 - [第二十二轮质量打磨：故障证据边界前向诊断](docs/quality-polish-round-22.md)
 - [故障证据第二十二轮机器诊断](evaluations/reports/debug-evidence-boundaries-round-22-diagnostic.json)

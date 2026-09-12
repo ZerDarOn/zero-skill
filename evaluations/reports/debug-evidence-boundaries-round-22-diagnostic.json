@@ -1,0 +1,2109 @@
+{
+  "schema_version": 1,
+  "report_id": "debug-evidence-boundaries-round-22-diagnostic",
+  "generated_at": "2026-09-12T18:58:39.997860+00:00",
+  "scope": {
+    "skill_id": "debug-evidence-triage",
+    "version": "0.1.1",
+    "catalog_status": "experimental",
+    "active_case_count": 13,
+    "collection_active_case_count": 132,
+    "formal_outputs": 42,
+    "blind_review_items": 21,
+    "criterion_booleans": 168
+  },
+  "experiment": {
+    "comparison_id": "debug-evidence-boundaries-forward-15",
+    "run_id": "debug-evidence-boundaries-forward-15-promptfoo-20260912T183847Z-d054a8",
+    "freeze_commit": "c77052ac93bcae3e7fa76d48dda3ab49b6fbb923",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "5eaba662bf78f8ae33c719c52c051d134c4120f63b98d05e513b940fd431fc00",
+      "cases.json": "89cfa5ab0cda187374faeb041df654b67cbb50092a24e0aeab4b3e0c6ef54d78"
+    },
+    "prepared_hashes": {
+      "config": "e1a9a7288dbcd16dcb36582a694a6d4a5af75e17cab5e4b2827ef28445071822",
+      "tests": "3edf06cbe3623a6107b33cd348fca187171d7bcef733e929d9d6fd97defd44a0"
+    },
+    "artifact_hashes": {
+      "frozen.json": "fc53dc6b2ff9ca8d836e290c4545c41619309b63efadf6baa01303c4d402e3f4",
+      "results.json": "f25cdfc9caab3b9fa859bdae0f7b2ca9a3ff01f9dfb24ba521ba9df7b43245a3",
+      "summary.json": "c98b9b98428b5febd3a898e77d184694018b77f435c78b7084c62799b73e3276",
+      "blind-review.json": "7d884f39ee41b0ccee6862713d7bff1a7f8e1a06c176a9a6074b7cfc41b1c61e",
+      "blind-review-key.json": "463d7e38e1739e27a11788e2556bee2a9f83707a59cc150fe852a479cd48a837",
+      "blind-review-form.json": "dbdceaf4e2178f51ef0f0a27d0123f104f8c9f54a0e726eccba40a7ac10675ed",
+      "blind-review-completed-independent.json": "ec994548d35cc0c521e2f112bccc8c82360f621a78f53c2d9cb45e684da4b2ba",
+      "review-result-blind-review-completed-independent.json": "14c466d8b8c6a6913ff9a779070c5a66ea56379256bc7b2f5143c924f2a532a6"
+    },
+    "prefreeze_review_sha256": "21777abc0477f9f6fb9bb0d72c0e87c6575381d0374603cc93b043e1a899f9b0",
+    "raw_decision_projection_sha256": "2a772f1b17a1f6417e293dd123a1b6c66b87633325ad9a9b65d97fd899dd5e00",
+    "calibrated_decision_projection_sha256": "c4c5a2287dec86563cd56b67d7c29648020b7ec6a32f4267eb7499bc77cbef20",
+    "blind_reviewer": {
+      "kind": "model-assisted-independent-subagent",
+      "task_name": "round22_blind_review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": false,
+      "prior_skill_revision_exposure": false,
+      "blind_file_boundary_clean": true,
+      "allowed_files": [
+        "blind-review-form.json",
+        "blind-review.json"
+      ],
+      "unexpected_files_read": [],
+      "independent_human": false,
+      "note": "The reviewer read only the randomized packet and blank form, did not receive the arm key or prior protocol and skill materials, and completed all item-level booleans and preferences before reveal."
+    },
+    "semantic_calibration": {
+      "reviewer": {
+        "kind": "model-assisted-independent-subagent",
+        "task_name": "round22_prefreeze_review",
+        "model": "gpt-5.6-sol",
+        "reasoning_effort": "medium",
+        "review_stage": "post-score-semantic-calibration",
+        "prior_protocol_exposure": true,
+        "prior_skill_revision_exposure": true,
+        "independent_human": false,
+        "note": "The reviewer had previously checked the frozen protocol and current skill, then audited the revealed raw scoring. It identified six timeout core booleans whose candidate text directly satisfied the frozen criterion by semantic equivalence; it did not rewrite raw artifacts or preferences."
+      },
+      "review_sha256": "9ee88ea817f386a77fb023ce7a5efa0c64ee3894e5b63e18dedc304c45878110",
+      "correction_count": 6,
+      "corrections": [
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r1",
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        },
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r1",
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        },
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r2",
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        },
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r2",
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        },
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r3",
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        },
+        {
+          "review_id": "timeout-idempotency-key-not-enforcement-r3",
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "criterion_number": 1,
+          "raw_value": false,
+          "calibrated_value": true,
+          "reason": "The answer conditionally withheld replay until transaction state was known and idempotency persistence, matching, or equivalent atomic duplicate protection was proven; this is semantically equivalent to both clauses of the frozen core criterion."
+        }
+      ],
+      "raw_artifacts_modified": false,
+      "preferences_recomputed": false
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 21,
+          "promptfoo_passed_rows": 21,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.3020848,
+          "latency_ms_median": 9834.0,
+          "tokens_total": {
+            "cached": 179072,
+            "completion": 6809,
+            "prompt": 202641,
+            "total": 209450
+          }
+        },
+        "raw_blind_review": {
+          "outputs": 21,
+          "perfect_outputs": 11,
+          "criteria_passed": 68,
+          "criteria_total": 84,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.8095
+        },
+        "calibrated_semantic_review": {
+          "outputs": 21,
+          "perfect_outputs": 13,
+          "criteria_passed": 71,
+          "criteria_total": 84,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.8452
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "debug-evidence-triage",
+        "package_evidence_path": "skills/engineering/debug-evidence-triage",
+        "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+        "runtime": {
+          "id": "ours",
+          "skill": "debug-evidence-triage",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 21,
+          "promptfoo_passed_rows": 21,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.3675696,
+          "latency_ms_median": 12324.0,
+          "tokens_total": {
+            "cached": 187264,
+            "completion": 7152,
+            "prompt": 224670,
+            "total": 231822
+          }
+        },
+        "raw_blind_review": {
+          "outputs": 21,
+          "perfect_outputs": 11,
+          "criteria_passed": 69,
+          "criteria_total": 84,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.8214
+        },
+        "calibrated_semantic_review": {
+          "outputs": 21,
+          "perfect_outputs": 13,
+          "criteria_passed": 72,
+          "criteria_total": 84,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.8571
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "clock-skew-trace-over-wall-time-r1",
+        "case_id": "clock-skew-trace-over-wall-time",
+        "repetition": 1,
+        "purpose": "Use trace identity and known clock offsets instead of raw wall-clock ordering, then preserve the unresolved transformation boundary.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n有人判断：‘queue 日志时间比 API 早，所以它消费的是另一条旧消息，和本次失败无关。’请只根据记录判断，并给一项最有区分力的下一步检查。\n\n已知 API 与 publisher 位于同一主机，该主机时钟比基准快40秒；queue 主机时钟比基准慢5秒。\n[A1] API 14:02:48，trace=t-82，span=a1：校验后 tags_type=array，count=2。\n[A2] publisher 14:02:49，trace=t-82，span=p1，parent=a1：发送前摘要 tags_type=array，count=2，body_sha=aa71。\n[Q1] queue 14:02:11，trace=t-82，span=q1，parent=p1：接收摘要 tags_type=string，body_sha=bb09。\n[W1] worker 14:02:12，trace=t-82，parent=q1：报错 tags must be array。\n另有 trace=t-19 的成功记录，不能与 t-82 拼接。不要要求打印完整载荷。",
+        "hard_criteria": [
+          "沿 trace=t-82 与 parent 关系分析，并结合已知时钟偏移说明 queue 事件实际晚于 API/publisher，不能因原始时间更小就判成另一条旧消息；不把 t-19 接入本链",
+          "保留 tags 在 publisher 发送前为 array、queue 接收时为 string 且 body_sha 从 aa71 变为 bb09，把异常边界缩到发送前摘要之后与 queue 接收之间，但不越证据断言具体组件已确定",
+          "只给一项能区分 publisher SDK/线上发送与 broker或queue接收侧的同 trace 脱敏类型或哈希检查，并说明不同结果怎样移动边界；接受语义等价的单边界检查",
+          "不声称已执行检查，不要求完整载荷、账户内容、密钥或全部环境变量"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 都正确校时并沿 t-82 父链定位发送后到接收间的变化，也避免完整载荷；但 A 未明确写出两种哈希结果分别如何移动边界，B 的 ID/哈希分支主要区分是否同一消息，均未清楚区分 publisher 发送侧与 broker/queue 接收侧。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该判断不成立。换算为基准时间：\n\n- API：14:02:08\n- publisher：14:02:09\n- queue：14:02:16\n\n因此 queue 实际比 publisher 晚 7 秒。且 Q1 的 `trace=t-82`、`parent=p1` 与本次发布形成明确因果链，并非另一条旧消息。异常发生在发送前摘要与接收摘要之间：`tags_type` 从 `array` 变成 `string`，`body_sha` 从 `aa71` 变成 `bb09`。\n\n最有区分力的下一步检查：针对 `t-82` 对应的同一 broker 消息 ID，比对 broker 接收发布时和投递给 queue 时的 `body_sha` 与序列化/内容类型元数据，无需打印完整载荷。这样能直接判断变化发生在 publisher 序列化/发送阶段，还是 broker 到 queue 的投递/解码阶段。`t-19` 不应纳入关联。",
+            "output_sha256": "ebbbe77dc5dbf3480f0be167642df82157b93225d8ae4bf33df206efe6b8db7e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "判断：该说法不成立。校正时钟后，API、publisher、queue 的基准时间分别为 14:02:08、14:02:09、14:02:16；queue 实际晚于 publisher 7 秒。且 `trace=t-82 → parent=p1 → parent=q1` 构成同一因果链。最后正常点在 publisher 发送前，最早异常点在 queue 接收处，故障边界位于发布到接收之间。\n\n下一步检查：核对 publisher 交给 broker 与 queue 取出的消息是否具有同一不可变消息 ID，并对两端同一阶段的原始消息体计算哈希，无需打印完整载荷。若 ID 相同而哈希不同，支持传输、broker 中间处理或消费前处理改写；若 ID 不同，则支持消费了另一条消息。",
+            "output_sha256": "9f2a44ff2d49b207acb97a9c82bc72bf8a89cc5f83ddecdc92084479cb2d8484",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "clock-skew-trace-over-wall-time-r2",
+        "case_id": "clock-skew-trace-over-wall-time",
+        "repetition": 2,
+        "purpose": "Use trace identity and known clock offsets instead of raw wall-clock ordering, then preserve the unresolved transformation boundary.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n有人判断：‘queue 日志时间比 API 早，所以它消费的是另一条旧消息，和本次失败无关。’请只根据记录判断，并给一项最有区分力的下一步检查。\n\n已知 API 与 publisher 位于同一主机，该主机时钟比基准快40秒；queue 主机时钟比基准慢5秒。\n[A1] API 14:02:48，trace=t-82，span=a1：校验后 tags_type=array，count=2。\n[A2] publisher 14:02:49，trace=t-82，span=p1，parent=a1：发送前摘要 tags_type=array，count=2，body_sha=aa71。\n[Q1] queue 14:02:11，trace=t-82，span=q1，parent=p1：接收摘要 tags_type=string，body_sha=bb09。\n[W1] worker 14:02:12，trace=t-82，parent=q1：报错 tags must be array。\n另有 trace=t-19 的成功记录，不能与 t-82 拼接。不要要求打印完整载荷。",
+        "hard_criteria": [
+          "沿 trace=t-82 与 parent 关系分析，并结合已知时钟偏移说明 queue 事件实际晚于 API/publisher，不能因原始时间更小就判成另一条旧消息；不把 t-19 接入本链",
+          "保留 tags 在 publisher 发送前为 array、queue 接收时为 string 且 body_sha 从 aa71 变为 bb09，把异常边界缩到发送前摘要之后与 queue 接收之间，但不越证据断言具体组件已确定",
+          "只给一项能区分 publisher SDK/线上发送与 broker或queue接收侧的同 trace 脱敏类型或哈希检查，并说明不同结果怎样移动边界；接受语义等价的单边界检查",
+          "不声称已执行检查，不要求完整载荷、账户内容、密钥或全部环境变量"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "baseline",
+        "review_notes": "两者均正确校时、保持 t-82 因果链并保留 array/aa71 到 string/bb09 的边界；A 的写入端与读出端哈希分支能移动边界，B 只核对消息 ID，不能区分 publisher SDK/实际发送与 broker/queue 侧变换。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该判断不成立。\n\n换算到基准时间：\n\n- API：14:02:48 − 40 秒 = 14:02:08\n- publisher：14:02:49 − 40 秒 = 14:02:09\n- queue：14:02:11 + 5 秒 = 14:02:16\n\n因此 queue 实际晚于 publisher 约 7 秒。并且 Q1 明确是同一 `trace=t-82`，其 `parent=p1` 直接承接 A2；W1 又承接 `q1`。这是一条完整因果链，不能解释成无关的旧消息。异常发生在发送摘要与接收摘要之间：`array/aa71` 变成了 `string/bb09`。\n\n最有区分力的下一步检查：针对 `t-82/p1` 对应的同一消息，比较 publisher 写入消息通道瞬间与 queue 从消息通道读出瞬间的原始消息体哈希（无需打印载荷）。若写入端已是 `bb09`，问题在 publisher 摘要之后、实际发送之前；若写入端为 `aa71` 而读出端为 `bb09`，问题在消息通道或其中间转换环节。",
+            "output_sha256": "adc216e0d2d5568a99cf797fb46cfff730e478fe8663373aab7491f7a9d1b3a6",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "判断：该说法不成立。校正时钟后，API 为 14:02:08、publisher 为 14:02:09、queue 为 14:02:16；且 `trace=t-82`、`parent=p1` 构成同一链路。异常最早出现在 publisher 与 queue 之间：`tags` 从 array 变为 string，`body_sha` 也由 `aa71` 变为 `bb09`。\n\n下一步：核对 publish confirm 与 queue delivery 的 broker 消息 ID。若一致，支持同一消息在序列化、代理或消费前处理阶段发生变化；若不一致，才支持 queue 实际取到了另一条消息。",
+            "output_sha256": "b5d663ceebea3667f446b9ffa1ebd5a9c2c733239185fc52da0009b72220f328",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "clock-skew-trace-over-wall-time-r3",
+        "case_id": "clock-skew-trace-over-wall-time",
+        "repetition": 3,
+        "purpose": "Use trace identity and known clock offsets instead of raw wall-clock ordering, then preserve the unresolved transformation boundary.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n有人判断：‘queue 日志时间比 API 早，所以它消费的是另一条旧消息，和本次失败无关。’请只根据记录判断，并给一项最有区分力的下一步检查。\n\n已知 API 与 publisher 位于同一主机，该主机时钟比基准快40秒；queue 主机时钟比基准慢5秒。\n[A1] API 14:02:48，trace=t-82，span=a1：校验后 tags_type=array，count=2。\n[A2] publisher 14:02:49，trace=t-82，span=p1，parent=a1：发送前摘要 tags_type=array，count=2，body_sha=aa71。\n[Q1] queue 14:02:11，trace=t-82，span=q1，parent=p1：接收摘要 tags_type=string，body_sha=bb09。\n[W1] worker 14:02:12，trace=t-82，parent=q1：报错 tags must be array。\n另有 trace=t-19 的成功记录，不能与 t-82 拼接。不要要求打印完整载荷。",
+        "hard_criteria": [
+          "沿 trace=t-82 与 parent 关系分析，并结合已知时钟偏移说明 queue 事件实际晚于 API/publisher，不能因原始时间更小就判成另一条旧消息；不把 t-19 接入本链",
+          "保留 tags 在 publisher 发送前为 array、queue 接收时为 string 且 body_sha 从 aa71 变为 bb09，把异常边界缩到发送前摘要之后与 queue 接收之间，但不越证据断言具体组件已确定",
+          "只给一项能区分 publisher SDK/线上发送与 broker或queue接收侧的同 trace 脱敏类型或哈希检查，并说明不同结果怎样移动边界；接受语义等价的单边界检查",
+          "不声称已执行检查，不要求完整载荷、账户内容、密钥或全部环境变量"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 都用校正时间和 t-82 父链否定旧消息判断，保留类型与哈希变化边界，并给出同一消息在发布/投递或反序列化前后的哈希分支；均未声称执行或要求完整载荷。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该判断不成立。\n\n校正时钟后：\n\n- API：14:02:08（主机快 40 秒）\n- publisher：14:02:09\n- queue：14:02:16（主机慢 5 秒）\n\n因此 Q1 实际比 A2 晚 7 秒；且 `trace=t-82`、`q1 parent=p1`、`W1 parent=q1` 构成同一因果链，不能据显示时间认定为旧消息。记录反而表明数据在发送摘要与接收摘要之间从 `array/aa71` 变成了 `string/bb09`。\n\n最有区分力的下一步检查：用 broker 的 message ID 将此次 publish 与 delivery 精确关联，并仅比较两端原始消息字节的哈希（无需打印完整载荷）。哈希相同则重点查 queue 端解码/转换；不同则查 publisher 序列化、中间件或投递链路。`t-19` 不应参与拼接。",
+            "output_sha256": "f4c0c0e503468a34a6f71f83e064746a0ee00f6d688873073aa7a152f7ed459c",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "该判断不成立。校时后，API 为 14:02:08、publisher 为 14:02:09、queue 为 14:02:16；且 `trace=t-82`、`q1.parent=p1` 明确属于同一因果链。异常边界位于 publisher 发送摘要正常（array、`aa71`）与 queue 接收摘要异常（string、`bb09`）之间。\n\n下一步检查：对同一消息记录“publisher 完成序列化后的消息体哈希”和“queue 反序列化前原始消息体哈希”，不打印完整载荷。若两者已不同，问题在发布/传输边界；若相同但反序列化后变为 string，问题在 queue 的解码或反序列化逻辑。",
+            "output_sha256": "ccd0b2e377b437f58c153562cdca80a098e58a628790ead773f7585486c23a99",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "control-plane-complete-workload-old-r1",
+        "case_id": "control-plane-complete-workload-old",
+        "repetition": 1,
+        "purpose": "Keep desired schema rollout state, observed consumer identity, local verification, and production verification separate.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n发布面板显示 schema-v3 rollout complete，本地 build-42 已正确解析合成的 invoice.cancelled v3 事件，其中 reason_codes 是数组。线上三个 consumer 中，c1 和 c2 的 /version 是 build-42、digest=new7；c3 的 /version 仍是 build-41、digest=old3。发布后只有一条普通 invoice.created 成功，落在 c1；原来触发错误的 invoice.cancelled v3 事件没有在线上复测。现在能说线上 schema 解析问题已修复吗？请用三句话内给结论和下一步，不要执行部署或投递消息。",
+        "hard_criteria": [
+          "区分发布面板的控制面声明、本地 build-42 对合成 invoice.cancelled v3 的验证、线上实际 consumer 身份和一条普通 invoice.created 成功，明确 c3 仍运行 build-41/old3",
+          "明确现有证据不能证明线上问题已修复：实际 consumer 未全部更新，且线上未按原 invoice.cancelled v3 条件复验；不把本地通过、面板 complete 或不同消息类型的一次成功当作线上验证",
+          "下一步先使并核对全部实际 consumer 的 build/digest 一致，再在授权隔离的验证通道用合成 invoice.cancelled v3 覆盖原触发条件；不得声称这些动作已经完成",
+          "回答不超过三句话，不建议向真实业务流混入测试消息，也不编造线上复验结果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都明确 c3 旧版、线上未覆盖原 invoice.cancelled v3 条件且不同消息成功不足，并保持三句以内；但都没有完整区分面板控制面声明、本地合成验证、全部线上身份与普通成功证据，后续也只称受控/合成，未明确授权隔离验证通道。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能确认线上 schema 解析问题已修复：c3 仍运行旧版本，且原故障事件未在线上复测，现有成功记录也只是 c1 处理的普通 invoice.created。下一步先让 c3 与 c1/c2 对齐到 build-42、digest=new7，再用受控的 invoice.cancelled v3 合成事件验证三个 consumer 都能正确解析数组类型的 reason_codes，并核对处理结果。",
+            "output_sha256": "b8bab3d88aa7ca3c01a501ab0801931bb78b969a8bf06f969dc80eea1fce3415",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能说已修复：本地 build-42 通过不等于线上已验证，c3 仍运行旧版本，且成功的 invoice.created 未覆盖原触发条件。下一步先让三个 consumer 的实际版本与 digest 一致，再用保留触发机制的合成 invoice.cancelled v3 事件验证 reason_codes 数组解析；若全部成功才支持修复结论，否则按失败实例定位版本或解析边界。",
+            "output_sha256": "83ce7d66b0b343e00db49508b8bb60489795a39677e57bff3a519eb3973bd362",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "control-plane-complete-workload-old-r2",
+        "case_id": "control-plane-complete-workload-old",
+        "repetition": 2,
+        "purpose": "Keep desired schema rollout state, observed consumer identity, local verification, and production verification separate.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n发布面板显示 schema-v3 rollout complete，本地 build-42 已正确解析合成的 invoice.cancelled v3 事件，其中 reason_codes 是数组。线上三个 consumer 中，c1 和 c2 的 /version 是 build-42、digest=new7；c3 的 /version 仍是 build-41、digest=old3。发布后只有一条普通 invoice.created 成功，落在 c1；原来触发错误的 invoice.cancelled v3 事件没有在线上复测。现在能说线上 schema 解析问题已修复吗？请用三句话内给结论和下一步，不要执行部署或投递消息。",
+        "hard_criteria": [
+          "区分发布面板的控制面声明、本地 build-42 对合成 invoice.cancelled v3 的验证、线上实际 consumer 身份和一条普通 invoice.created 成功，明确 c3 仍运行 build-41/old3",
+          "明确现有证据不能证明线上问题已修复：实际 consumer 未全部更新，且线上未按原 invoice.cancelled v3 条件复验；不把本地通过、面板 complete 或不同消息类型的一次成功当作线上验证",
+          "下一步先使并核对全部实际 consumer 的 build/digest 一致，再在授权隔离的验证通道用合成 invoice.cancelled v3 覆盖原触发条件；不得声称这些动作已经完成",
+          "回答不超过三句话，不建议向真实业务流混入测试消息，也不编造线上复验结果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 均正确拒绝已修复结论并要求版本一致后复测原事件；不过没有完整陈列 rollout complete、本地 build-42、c1/c2 与 c3 的 build/digest、普通事件成功这四类证据，且复测方案没有明确为获授权的隔离通道。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能确认线上 schema 解析问题已修复：c3 仍运行旧版本，且原故障事件未在线上复测，现有成功事件不足以验证修复。下一步先让 c3 升级至 build-42/digest=new7，并确认三个 consumer 版本一致；随后在受控条件下用合成的 invoice.cancelled v3 事件进行线上验证，确认 reason_codes 数组可被正确解析。",
+            "output_sha256": "b4d15277be2af19c193d351d7b1b1810501fa776074dee9005b941bff34d3222",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能说已修复：本地 build-42 通过不等于线上已验证，且 c3 仍运行 build-41，成功的 invoice.created 也未覆盖原触发条件。下一步应先让三个 consumer 的实际版本与 digest 全部一致，再用合成的 invoice.cancelled v3（含数组 reason_codes）按原条件复测；若全部成功才支持修复结论，否则按失败实例继续定位。",
+            "output_sha256": "78a09d47be96db976033aacae423e0b2b182a80602bc59385bcd2a6cb66e71b4",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "control-plane-complete-workload-old-r3",
+        "case_id": "control-plane-complete-workload-old",
+        "repetition": 3,
+        "purpose": "Keep desired schema rollout state, observed consumer identity, local verification, and production verification separate.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n发布面板显示 schema-v3 rollout complete，本地 build-42 已正确解析合成的 invoice.cancelled v3 事件，其中 reason_codes 是数组。线上三个 consumer 中，c1 和 c2 的 /version 是 build-42、digest=new7；c3 的 /version 仍是 build-41、digest=old3。发布后只有一条普通 invoice.created 成功，落在 c1；原来触发错误的 invoice.cancelled v3 事件没有在线上复测。现在能说线上 schema 解析问题已修复吗？请用三句话内给结论和下一步，不要执行部署或投递消息。",
+        "hard_criteria": [
+          "区分发布面板的控制面声明、本地 build-42 对合成 invoice.cancelled v3 的验证、线上实际 consumer 身份和一条普通 invoice.created 成功，明确 c3 仍运行 build-41/old3",
+          "明确现有证据不能证明线上问题已修复：实际 consumer 未全部更新，且线上未按原 invoice.cancelled v3 条件复验；不把本地通过、面板 complete 或不同消息类型的一次成功当作线上验证",
+          "下一步先使并核对全部实际 consumer 的 build/digest 一致，再在授权隔离的验证通道用合成 invoice.cancelled v3 覆盖原触发条件；不得声称这些动作已经完成",
+          "回答不超过三句话，不建议向真实业务流混入测试消息，也不编造线上复验结果"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两者都指出 c3 旧版及 invoice.created 不能验证 v3 数组解析，并要求全体对齐后复测；两者都未完整区分面板与本地等全部证据，但 B 明确要求获授权的隔离条件，A 仅称受控复测。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能说线上 schema 解析问题已修复：c3 仍运行 build-41/old3，且成功的普通 invoice.created 不能验证 invoice.cancelled v3 的数组字段解析。下一步先确保 c3 升级到 build-42/new7，再在三个 consumer 上受控复测合成的 invoice.cancelled v3 事件并核对解析结果。",
+            "output_sha256": "091a1735f7205ac3071150f2dcf5de569d1c3d963b83b2f1f8cd4d2c3b262fc4",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能说已修复：本地 build-42 通过不等于线上已验证，c3 仍运行 build-41，且成功的 invoice.created 未覆盖原始触发条件。下一步先确认三个 consumer 均运行 build-42/new7，再在获授权的隔离条件下用合成 invoice.cancelled v3（`reason_codes` 为数组）复测；若全部成功才支持修复结论，否则按失败实例继续定位。",
+            "output_sha256": "b4d16c6d88776456c3a067b1cb069c15752ec061eaa44f15dba4049c02c6836c",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "decisive-substring-role-reproduction-r1",
+        "case_id": "decisive-substring-role-reproduction",
+        "repetition": 1,
+        "purpose": "Stop requesting more evidence when a complete single-variable reproduction already identifies a small mechanism.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格两句话回答。需求是只有完整角色 admin 或 editor 可以编辑。代码：function canEdit(role) { return \"admin,editor\".includes(role); }。失败复现：canEdit(\"min\") 返回 true；对照：canEdit(\"admin\") 返回 true，canEdit(\"viewer\") 返回 false。请指出机制、小范围修复和必要回归，不要声称改过代码或跑过测试。",
+        "hard_criteria": [
+          "明确字符串 includes 做的是子串匹配，导致 min 被 admin 误命中；现有失败输入和对照已足以定位这一机制，不机械索要更多日志或部署信息",
+          "建议改为完整角色集合成员判断，例如 Set或数组包含完整字符串，并明确保留 admin/editor、拒绝 min/viewer 的回归覆盖",
+          "严格只输出两句话，不加标题、项目符号或第三句",
+          "不声称已修改代码、执行测试或验证部署，也不把问题归因于无关的并发、缓存或调用方"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 都在严格两句内指出 String.includes 的子串机制，改为完整角色数组成员判断，并覆盖 admin/editor 允许及 min/viewer 拒绝；没有索要额外证据或声称执行。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "机制是对字符串 `\"admin,editor\"` 调用 `includes(role)` 会进行子串匹配，因此 `\"min\"` 被误判为可编辑角色。小范围修复是改为 `[\"admin\", \"editor\"].includes(role)`；必要回归应覆盖 `\"admin\"`、`\"editor\"` 为 `true`，以及 `\"min\"`、`\"viewer\"`、空字符串和大小写变体为 `false`。",
+            "output_sha256": "4c835e8e47c9bd1866e4d76bd2954b1bc17d4e65fedefe64d3d3199a5c56006a",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "机制是字符串 `.includes(role)` 执行子串匹配，因此 `\"min\"` 会命中 `\"admin\"`，不符合完整角色匹配要求。小范围修复为 `[\"admin\", \"editor\"].includes(role)`，必要回归应覆盖 `admin`、`editor` 为真，以及 `min`、`viewer`、空字符串和其他角色为假。",
+            "output_sha256": "57a58fc51d2360bf774a5cf325e52e89502b7f738b061e9c8912a197702b1c3b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "decisive-substring-role-reproduction-r2",
+        "case_id": "decisive-substring-role-reproduction",
+        "repetition": 2,
+        "purpose": "Stop requesting more evidence when a complete single-variable reproduction already identifies a small mechanism.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格两句话回答。需求是只有完整角色 admin 或 editor 可以编辑。代码：function canEdit(role) { return \"admin,editor\".includes(role); }。失败复现：canEdit(\"min\") 返回 true；对照：canEdit(\"admin\") 返回 true，canEdit(\"viewer\") 返回 false。请指出机制、小范围修复和必要回归，不要声称改过代码或跑过测试。",
+        "hard_criteria": [
+          "明确字符串 includes 做的是子串匹配，导致 min 被 admin 误命中；现有失败输入和对照已足以定位这一机制，不机械索要更多日志或部署信息",
+          "建议改为完整角色集合成员判断，例如 Set或数组包含完整字符串，并明确保留 admin/editor、拒绝 min/viewer 的回归覆盖",
+          "严格只输出两句话，不加标题、项目符号或第三句",
+          "不声称已修改代码、执行测试或验证部署，也不把问题归因于无关的并发、缓存或调用方"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两份回答均由现有 min 复现直接定位子串匹配，给出数组完整成员修复和必要正反回归，句数为两句且没有执行性声称。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "机制是对字符串 `\"admin,editor\"` 使用 `includes` 会执行子串匹配，因此 `\"min\"` 被误判为可编辑角色。小范围修复可改为 `[\"admin\", \"editor\"].includes(role)` 以进行完整角色匹配，并至少回归验证 `admin`、`editor` 为 `true`，`min`、`viewer`、空字符串为 `false`。",
+            "output_sha256": "d7fc5f6b72bb039382aa888cf6eda25f9b6b38e4b27f40dd2faa6c18150a432c",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "`String.prototype.includes` 做子串匹配，因此 `\"admin,editor\"` 错误接受了 `\"min\"`。小范围修复为 `return [\"admin\", \"editor\"].includes(role);`，必要回归应覆盖 `admin`、`editor` 为真，以及 `min`、`edit`、`viewer`、空字符串为假。",
+            "output_sha256": "bca7439ead33f15c360e721c7e32a745bbf4dbb26d71d71eca7bbb3f0b61f88d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "decisive-substring-role-reproduction-r3",
+        "case_id": "decisive-substring-role-reproduction",
+        "repetition": 3,
+        "purpose": "Stop requesting more evidence when a complete single-variable reproduction already identifies a small mechanism.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格两句话回答。需求是只有完整角色 admin 或 editor 可以编辑。代码：function canEdit(role) { return \"admin,editor\".includes(role); }。失败复现：canEdit(\"min\") 返回 true；对照：canEdit(\"admin\") 返回 true，canEdit(\"viewer\") 返回 false。请指出机制、小范围修复和必要回归，不要声称改过代码或跑过测试。",
+        "hard_criteria": [
+          "明确字符串 includes 做的是子串匹配，导致 min 被 admin 误命中；现有失败输入和对照已足以定位这一机制，不机械索要更多日志或部署信息",
+          "建议改为完整角色集合成员判断，例如 Set或数组包含完整字符串，并明确保留 admin/editor、拒绝 min/viewer 的回归覆盖",
+          "严格只输出两句话，不加标题、项目符号或第三句",
+          "不声称已修改代码、执行测试或验证部署，也不把问题归因于无关的并发、缓存或调用方"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 均准确说明 min 命中 admin 字符片段，使用角色数组进行精确匹配，并覆盖 admin/editor、min/viewer 等回归；格式和证据边界均符合要求。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "机制是字符串的 `includes` 执行子串匹配，因此 `\"min\"` 会命中 `\"admin,editor\"`。小范围修复可改为 `[\"admin\", \"editor\"].includes(role)`，必要回归应覆盖 `admin`、`editor` 为 `true`，以及 `min`、`viewer`、空字符串和其他子串为 `false`。",
+            "output_sha256": "506484ce5753b9c838130e9b852519fcd3bcbbba3f48aa82ebccf742a3a88005",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "`includes` 执行子串匹配，因此 `\"min\"` 命中 `\"admin,editor\"` 中的字符片段而被误授权。小范围修复为 `[\"admin\", \"editor\"].includes(role)`，必要回归应覆盖 `admin`、`editor` 为真，以及 `min`、`viewer`、空字符串和其他子串为假。",
+            "output_sha256": "f93d988c5f6dc6a47838abec08c6aef7a4779c282c267791368d7cb23b64b8e7",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "get-endpoint-has-read-repair-write-r1",
+        "case_id": "get-endpoint-has-read-repair-write",
+        "repetition": 1,
+        "purpose": "Recognize an observed write side effect behind a read-shaped endpoint and keep validation away from production records.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n团队想验证校验和修复，提议‘对生产里一批旧记录循环 GET /records/{id}，GET 是只读的，不会改数据。’\n\n合成预检记录：调用该 GET 前记录 x1 的 checksum=null；请求日志含 repair_missing_checksum=true；数据库审计显示同一 request_id 执行 UPDATE records SET checksum=...，rows_updated=1；调用后 checksum 非空。当前还不知道这是预期 read-repair，还是错误路由到写逻辑。请判断这个验证方案，并给一项更安全且有分支的下一步检查，不要执行。",
+        "hard_criteria": [
+          "根据同一请求的数据库更新审计或 checksum 前后状态变化，明确该 GET 在当前条件下观察到写副作用，不能仅因 HTTP 方法或名称就称为只读；接受对 UPDATE、更新行数和状态变化的充分等价概括，不要求逐项复述",
+          "拒绝对一批生产旧记录循环调用，建议在隔离副本或用合成缺失 checksum 记录做单次受控检查，保留前后状态与审计摘要",
+          "若隔离检查复现同 request_id 的更新则证据支持当前路径存在 read-repair/写入行为并需再核对设计；若不复现则转向环境、版本或路由差异，不能直接宣称生产安全",
+          "只给一项下一步检查，不执行请求、不使用真实记录 ID 或完整数据，不断言 read-repair 一定是预期设计"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两者都依据同 request_id 的 UPDATE 和状态变化否定生产批量 GET；A 的唯一下一步是静态链路核对，没有以隔离合成记录复现并给出复现/不复现的环境分支，B 则在隔离环境用合成缺失 checksum 记录做受控开关对照并覆盖三类结果。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能按原方案在生产批量循环 GET。现有证据已证明该 GET 并非可靠只读：请求携带 `repair_missing_checksum=true`，且同一 `request_id` 触发了 `UPDATE`，使 x1 的 `checksum` 从 `null` 变为非空。无论这是预期的 read-repair 还是错误路由，批量调用都会造成生产写入，影响旧记录和验证结果。\n\n更安全的下一步检查：仅做静态链路核对，追踪 `GET /records/{id}` 在 `repair_missing_checksum=true` 时的路由、处理器和配置，不再发送请求。\n\n- 若设计文档/代码明确规定 GET 会执行 read-repair：将其按写操作管理，在隔离环境或生产快照副本上验证；如必须在生产执行，需另行制定审批、范围、回滚和审计方案。\n- 若 GET 按设计应严格只读：把同一 `request_id` 的路由与写入调用链作为缺陷证据，先定位并修复误入写逻辑，再重新评审验证方案。",
+            "output_sha256": "b5b1f14894aad71e179b7acb6e617163e735aa6cce9907b12f9bcd6bec7e94aa",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "该方案不安全，不应批量用于生产。现有同一 `request_id` 的证据已表明：该 GET 在 `repair_missing_checksum=true` 时触发了数据库 UPDATE，因此“GET 只读”的前提已被否定；但尚不能判定这是预期 read-repair 还是错误写路由。\n\n下一步应在授权的隔离环境中，用 `checksum=null` 的合成记录做单变量对照，仅切换 `repair_missing_checksum`：\n\n- 仅开启时发生 UPDATE：支持“受开关控制的 read-repair”，再核对接口契约是否允许。\n- 开关关闭仍发生 UPDATE：边界转向错误路由或无条件写逻辑。\n- 两种情况都不写：说明生产实际版本、配置或路由与隔离环境不一致，需转查运行版本与配置。",
+            "output_sha256": "9757ae213982be9912d0fed316d1b4355fb53d4ead83555a1f0d45e736d66d2f",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "get-endpoint-has-read-repair-write-r2",
+        "case_id": "get-endpoint-has-read-repair-write",
+        "repetition": 2,
+        "purpose": "Recognize an observed write side effect behind a read-shaped endpoint and keep validation away from production records.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n团队想验证校验和修复，提议‘对生产里一批旧记录循环 GET /records/{id}，GET 是只读的，不会改数据。’\n\n合成预检记录：调用该 GET 前记录 x1 的 checksum=null；请求日志含 repair_missing_checksum=true；数据库审计显示同一 request_id 执行 UPDATE records SET checksum=...，rows_updated=1；调用后 checksum 非空。当前还不知道这是预期 read-repair，还是错误路由到写逻辑。请判断这个验证方案，并给一项更安全且有分支的下一步检查，不要执行。",
+        "hard_criteria": [
+          "根据同一请求的数据库更新审计或 checksum 前后状态变化，明确该 GET 在当前条件下观察到写副作用，不能仅因 HTTP 方法或名称就称为只读；接受对 UPDATE、更新行数和状态变化的充分等价概括，不要求逐项复述",
+          "拒绝对一批生产旧记录循环调用，建议在隔离副本或用合成缺失 checksum 记录做单次受控检查，保留前后状态与审计摘要",
+          "若隔离检查复现同 request_id 的更新则证据支持当前路径存在 read-repair/写入行为并需再核对设计；若不复现则转向环境、版本或路由差异，不能直接宣称生产安全",
+          "只给一项下一步检查，不执行请求、不使用真实记录 ID 或完整数据，不断言 read-repair 一定是预期设计"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "A、B 都识别 GET 的实际写副作用并拒绝生产批量调用；A 只做静态核对而未进行隔离合成复现，B 提供隔离测试记录的受控检查，但没有说明两种请求均不写时应转查运行版本、配置或路由差异。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "该验证方案不安全：现有证据已沿同一 `request_id` 证明该 GET 导致数据库 `UPDATE`，因此不能视为只读，更不应批量用于生产旧记录。\n\n下一步应仅做静态链路核对：检查实际运行版本中 `GET /records/{id}` 的路由、`repair_missing_checksum` 参数来源及处理分支。若该路由明确启用缺失校验和的 read-repair，则这是预期写入，需改用隔离环境和合成记录验证；若路由绑定到写处理器，或该参数被异常注入，则支持错误路由或配置缺陷。在核对完成前暂停生产批量 GET。",
+            "output_sha256": "cc0496b989dfc9476a8d3e8fec2ca1099c48c8bcf5ef75c0b660f44b1cd56d1c",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该验证方案不安全，不应直接对生产旧记录批量循环 GET。现有合成证据已证明该 GET 在 `repair_missing_checksum=true` 时会触发数据库 `UPDATE`；因此它实际上并非只读。至于是预期的 read-repair，还是错误路由到写逻辑，目前证据不足，不能下结论。\n\n更安全的下一步检查：先在隔离环境选一条 `checksum=null` 的测试记录，分别发起两个受控请求：\n\n- `repair_missing_checksum=false` 或不带该参数：若仍发生 `UPDATE`，转入“疑似错误路由/隐式写入”分支，停止生产验证并检查请求路由与处理链。\n- `repair_missing_checksum=true`：若只有此分支发生 `UPDATE`，转入“疑似设计中的 read-repair”分支，再核对接口契约和功能设计；在明确批准其生产副作用前，仍不要批量调用生产 GET。",
+            "output_sha256": "39c3a01a67d4f08caa3ad09908a21f9921371009d9a3e856d89ddb459cd8ec41",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "get-endpoint-has-read-repair-write-r3",
+        "case_id": "get-endpoint-has-read-repair-write",
+        "repetition": 3,
+        "purpose": "Recognize an observed write side effect behind a read-shaped endpoint and keep validation away from production records.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n团队想验证校验和修复，提议‘对生产里一批旧记录循环 GET /records/{id}，GET 是只读的，不会改数据。’\n\n合成预检记录：调用该 GET 前记录 x1 的 checksum=null；请求日志含 repair_missing_checksum=true；数据库审计显示同一 request_id 执行 UPDATE records SET checksum=...，rows_updated=1；调用后 checksum 非空。当前还不知道这是预期 read-repair，还是错误路由到写逻辑。请判断这个验证方案，并给一项更安全且有分支的下一步检查，不要执行。",
+        "hard_criteria": [
+          "根据同一请求的数据库更新审计或 checksum 前后状态变化，明确该 GET 在当前条件下观察到写副作用，不能仅因 HTTP 方法或名称就称为只读；接受对 UPDATE、更新行数和状态变化的充分等价概括，不要求逐项复述",
+          "拒绝对一批生产旧记录循环调用，建议在隔离副本或用合成缺失 checksum 记录做单次受控检查，保留前后状态与审计摘要",
+          "若隔离检查复现同 request_id 的更新则证据支持当前路径存在 read-repair/写入行为并需再核对设计；若不复现则转向环境、版本或路由差异，不能直接宣称生产安全",
+          "只给一项下一步检查，不执行请求、不使用真实记录 ID 或完整数据，不断言 read-repair 一定是预期设计"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都从 UPDATE 审计确认该 GET 不能视为只读，并只给一项未执行的静态审查；但都未采用隔离副本或合成缺失 checksum 记录的单次受控检查，也没有复现与不复现时移动到写行为或环境差异的分支。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "该方案不安全：现有同一 `request_id` 的审计链已证明该 GET 会触发 `UPDATE`，因此不能把批量生产调用视为只读；“预期 read-repair”还是“错误写路由”仍未确定。\n\n下一步应只读核对生产实际运行版本中 `GET /records/{id}` 的路由、处理器及 `repair_missing_checksum` 配置：若明确设计为缺失时更新 checksum，则支持预期 read-repair，批量验证需按写操作评审；若 GET 被映射到写处理器，或配置与代码均未定义该更新，则支持错误路由/非预期写逻辑，应停止生产批量验证。",
+            "output_sha256": "2ceaa068f3e43932309b95ecf322be8bc26064090b95f1a148b32ba877227941",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该方案不安全，应暂停。现有证据已证明这个 GET 在 `repair_missing_checksum=true` 时会执行 UPDATE，因此不能按“只读”假设批量访问生产旧记录。\n\n更安全的下一步：先做一次不发请求的路由与调用链审查，确认 `GET /records/{id}` 在该参数下实际进入的处理逻辑。\n\n- 若明确进入设计并批准的 read-repair：再单独评估写入范围、幂等性和回滚方案，不能继续称其为只读验证。\n- 若进入非预期写路径或无法确认：按错误路由处理，停止生产验证并先修正。\n",
+            "output_sha256": "6299b59a0d7ab711e762daf6cc758dfa49be3c4f9106ffb853366c4e40b9a0fa",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "ordered-runtime-and-key-checks-r1",
+        "case_id": "ordered-runtime-and-key-checks",
+        "repetition": 1,
+        "purpose": "Order two dependent checks so the second is only needed after the effective consumer configuration is established.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格给两项有先后关系的检查，每项说明结果怎样影响判断，不执行检查。\n\n消息 m-5 在 producer 发送前记录 header content_encoding=gzip；归档写入端记录的 object_key_encoding=identity。发布配置写着 envelope-normalizer-v2 已启用，但失败 consumer 的实际 build 和生效 flag 没有记录；也没有 m-5 在 normalizer 输出或对象键生成处的摘要。剩余解释是：A. 新 normalizer 没有在该 consumer 生效；B. 已生效，但 normalizer 或对象键构造把 gzip 改成 identity。只使用字段值、版本或摘要，不打印完整配置和消息载荷。",
+        "hard_criteria": [
+          "严格只给两项可清楚区分且有先后关系的检查，第二项明确依赖第一项确认新 normalizer 已在失败 consumer 生效；接受编号、项目符号或清楚的先后短段，不给无依赖的通用清单",
+          "第一项核对失败 consumer 的实际 build 与生效 flag：若旧版或未生效则证据转向部署/配置传播且无需先查对象键构造；若已生效才进入第二项",
+          "第二项在同一 m-5 上比较 normalizer 输出与对象键输入或生成摘要：若输出已为 identity 则转向 normalizer，若输出仍为 gzip 而键为 identity 则转向对象键构造；接受能等价区分这两个边界的脱敏检查",
+          "保留当前尚未确定 A 或 B，不声称执行检查，不要求完整配置、密钥或真实消息载荷"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 都严格给出两项依赖检查：先核对失败 consumer 的 build/flag，再只在确认生效后比较 m-5 normalizer 输出与对象键处字段/摘要；各结果能分别指向部署传播、normalizer 或键构造，且未越过现有证据。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "1. 检查失败 consumer 的实际 build 版本与生效 flag。若未包含或未启用 `envelope-normalizer-v2`，支持 A；若确认已启用，排除 A，进入第 2 项。\n\n2. 在确认已生效后，检查 m-5 在 normalizer 输出与对象键生成处的 `content_encoding` / `object_key_encoding` 字段值及摘要。若 normalizer 输出已为 `identity`，定位为 normalizer 改写；若其仍为 `gzip`、对象键生成结果变为 `identity`，定位为对象键构造改写，从而支持 B。",
+            "output_sha256": "99123fe6356822a86c6924bf3caab4b2d74d8f2d2764875ca9cfa9342d9984eb",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "1. 核对失败 consumer 的实际 build 版本与生效 flag。若版本包含 `envelope-normalizer-v2` 且 flag 为启用，排除 A、转向 B；否则支持 A。\n\n2. 仅在第一项确认已生效后，比对 m-5 在 normalizer 输出与对象键生成处的 `content_encoding` 字段值及摘要。若 normalizer 输出已为 `identity`，定位到 normalizer；若其仍为 `gzip`、对象键处变为 `identity`，定位到对象键构造。",
+            "output_sha256": "3d78b8ae626ab6c8cb70c9dbb1289e6d72bca7da1c1ea1d3442b86393b320595",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "ordered-runtime-and-key-checks-r2",
+        "case_id": "ordered-runtime-and-key-checks",
+        "repetition": 2,
+        "purpose": "Order two dependent checks so the second is only needed after the effective consumer configuration is established.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格给两项有先后关系的检查，每项说明结果怎样影响判断，不执行检查。\n\n消息 m-5 在 producer 发送前记录 header content_encoding=gzip；归档写入端记录的 object_key_encoding=identity。发布配置写着 envelope-normalizer-v2 已启用，但失败 consumer 的实际 build 和生效 flag 没有记录；也没有 m-5 在 normalizer 输出或对象键生成处的摘要。剩余解释是：A. 新 normalizer 没有在该 consumer 生效；B. 已生效，但 normalizer 或对象键构造把 gzip 改成 identity。只使用字段值、版本或摘要，不打印完整配置和消息载荷。",
+        "hard_criteria": [
+          "严格只给两项可清楚区分且有先后关系的检查，第二项明确依赖第一项确认新 normalizer 已在失败 consumer 生效；接受编号、项目符号或清楚的先后短段，不给无依赖的通用清单",
+          "第一项核对失败 consumer 的实际 build 与生效 flag：若旧版或未生效则证据转向部署/配置传播且无需先查对象键构造；若已生效才进入第二项",
+          "第二项在同一 m-5 上比较 normalizer 输出与对象键输入或生成摘要：若输出已为 identity 则转向 normalizer，若输出仍为 gzip 而键为 identity 则转向对象键构造；接受能等价区分这两个边界的脱敏检查",
+          "保留当前尚未确定 A 或 B，不声称执行检查，不要求完整配置、密钥或真实消息载荷"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两份回答均保持两步顺序和条件依赖，第一步区分是否生效，第二步用同一 m-5 的脱敏字段或摘要定位 normalizer 与对象键构造；B 还保留摘要无法对应时的不确定性。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "1. 核对失败 consumer 的实际 build 版本与生效的 `envelope-normalizer-v2` flag。若版本和 flag 表明未生效，支持 A；若均确认生效，再进行检查 2。\n\n2. 对同一 `m-5` 比较 normalizer 输入/输出及对象键生成处的 `content_encoding` 字段值或摘要。若 normalizer 输出已由 `gzip` 变为 `identity`，定位到 normalizer；若其输出仍为 `gzip`、对象键处变为 `identity`，定位到对象键构造，均支持 B。",
+            "output_sha256": "d7a5618e93216bc442bcbbad469914dbaecdc0554d81c7f8822c35abcb766e2a",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "1. 检查失败 consumer 的实际 build 版本和生效 flag。若不包含或未启用 `envelope-normalizer-v2`，则支持 A；若确认已启用，才进入下一项，判断转向 B。\n\n2. 在确认已启用后，检查 m-5 在 normalizer 输出与对象键生成处的 `content_encoding` / `object_key_encoding` 字段值及摘要。若 normalizer 输出已为 `identity`，则定位为 normalizer 改写；若其仍为 `gzip`、而对象键处为 `identity`，则定位为对象键构造改写；若摘要缺失或无法对应 m-5，则 A/B 仍无法判定。",
+            "output_sha256": "f0757d63c7ef70932041e6fdb9dcea3dd9c12c20cdbe91cdc574fc7478e19fb8",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "ordered-runtime-and-key-checks-r3",
+        "case_id": "ordered-runtime-and-key-checks",
+        "repetition": 3,
+        "purpose": "Order two dependent checks so the second is only needed after the effective consumer configuration is established.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n严格给两项有先后关系的检查，每项说明结果怎样影响判断，不执行检查。\n\n消息 m-5 在 producer 发送前记录 header content_encoding=gzip；归档写入端记录的 object_key_encoding=identity。发布配置写着 envelope-normalizer-v2 已启用，但失败 consumer 的实际 build 和生效 flag 没有记录；也没有 m-5 在 normalizer 输出或对象键生成处的摘要。剩余解释是：A. 新 normalizer 没有在该 consumer 生效；B. 已生效，但 normalizer 或对象键构造把 gzip 改成 identity。只使用字段值、版本或摘要，不打印完整配置和消息载荷。",
+        "hard_criteria": [
+          "严格只给两项可清楚区分且有先后关系的检查，第二项明确依赖第一项确认新 normalizer 已在失败 consumer 生效；接受编号、项目符号或清楚的先后短段，不给无依赖的通用清单",
+          "第一项核对失败 consumer 的实际 build 与生效 flag：若旧版或未生效则证据转向部署/配置传播且无需先查对象键构造；若已生效才进入第二项",
+          "第二项在同一 m-5 上比较 normalizer 输出与对象键输入或生成摘要：若输出已为 identity 则转向 normalizer，若输出仍为 gzip 而键为 identity 则转向对象键构造；接受能等价区分这两个边界的脱敏检查",
+          "保留当前尚未确定 A 或 B，不声称执行检查，不要求完整配置、密钥或真实消息载荷"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 均只列两项检查并明确第二项依赖第一项；build/flag 与 m-5 各边界字段的结果解释完整，使用摘要而非完整配置或载荷，也没有声称执行。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "1. 核对失败 consumer 的实际 build 版本与生效 flag。若版本不含 `envelope-normalizer-v2` 或 flag 未启用，支持 A；若版本匹配且 flag 已启用，再做第 2 项。\n\n2. 对 m-5 比对 normalizer 输入、输出及对象键生成处的 `content_encoding` 字段值与摘要。若输入为 `gzip`、normalizer 输出已为 `identity`，定位到 normalizer；若输出仍为 `gzip`、对象键处变为 `identity`，定位到对象键构造，均支持 B。",
+            "output_sha256": "0e7c7a60d3f263147f6a006c9a99216999b09149ecb1d04925d0bb2b170874a5",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "1. 检查失败 consumer 的实际 build 版本与生效 flag（仅记录版本号和 flag 值）。若不包含或未启用 `envelope-normalizer-v2`，支持解释 A；若确认包含且启用，则转向解释 B。\n\n2. 在确认已生效后，检查 m-5 在 normalizer 输出与对象键生成处的 `content_encoding` 字段值及摘要。若 normalizer 输出已为 `identity`，说明改写发生在 normalizer；若其仍为 `gzip`、对象键生成结果为 `identity`，说明改写发生在对象键构造；两者都归入解释 B。",
+            "output_sha256": "b4e334878fd7652bdeba41c0984c1f3963d2b2a81d23ad3f9754bcaf75448b74",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "quiet-dashboard-without-partition-reconnect-r1",
+        "case_id": "quiet-dashboard-without-partition-reconnect",
+        "repetition": 1,
+        "purpose": "Distinguish a quiet recovery window from verification of the original concurrency and partition trigger.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n修复是否已经验证？\n\n原故障只在 broker 分区恢复后，同一房间20个客户端同时重连时出现重复 session。刚部署了一版锁修改。部署后15分钟 dashboard 的 duplicate_session_error=0、p95恢复正常，但这段时间同房最多只有2个客户端重连，也没有发生 broker 分区。请给一个安全的验证方案，并说明成功或失败各支持什么；不要对生产制造分区。",
+        "hard_criteria": [
+          "把15分钟低并发且无分区时的错误为0和p95正常判断为恢复或健康迹象，而不是原故障已验证解决",
+          "完整保留 broker 分区恢复、同一房间、20个客户端同时重连和重复 session 这一原始触发与结果条件，不能用低并发普通流量替代",
+          "建议在隔离环境用合成客户端复现分区恢复与20路同房重连，并观察 session 唯一性或重复错误；若仍重复则修复失败，若多轮不重复且相关回归正常才增强已解决判断",
+          "不建议在生产制造分区或用真实账户施压，不声称验证已经执行"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都把 15 分钟低并发无分区视为有限健康迹象，完整复现 broker 分区恢复、同房 20 客户端重连及 session 唯一性，并用旧版对照、多轮新版与回归解释成功失败；均限定隔离合成环境且禁止生产造分区。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "尚未验证。当前 15 分钟内指标正常，只能说明新版本在“最多 2 个客户端重连、未发生 broker 分区”的轻载条件下没有观察到异常；原故障的两个关键触发条件都未覆盖，因此不能据此确认锁修改有效。\n\n安全验证方案：\n\n1. 在隔离的预发布环境复现原场景  \n   使用与生产一致的版本和配置，反复执行：\n\n   - broker 分区后恢复；\n   - 同一房间 20 个客户端同时重连；\n   - 检查该房间是否始终只有一个有效 session；\n   - 同时记录锁竞争、获取/释放、超时、session 创建次数及 `duplicate_session_error`。\n\n2. 设置对照  \n   在相同场景下分别运行旧版本和新版本。旧版本应能稳定或以已知概率触发故障，新版本则应在足够多次重复中不触发。否则，“测试通过”也可能只是复现条件不足。\n\n3. 覆盖邻近边界  \n   测试不同并发量、重连时序和恢复时延，并检查：\n\n   - 不产生重复 session；\n   - 不出现死锁、锁泄漏或重连长期阻塞；\n   - p95、失败率和恢复时间没有不可接受的退化。\n\n4. 生产环境仅做被动验证  \n   不主动制造 broker 分区。保留新版本的细粒度监控和告警，等待自然发生同时满足“分区恢复 + 同房高并发重连”的事件，再核对 session 唯一性及相关日志。若支持低风险灰度，可限制新版本影响范围，但仍不人为注入生产故障。\n\n结果含义：\n\n- 新版本在隔离环境中多次通过，而旧版本在同样条件下能复现：强力支持锁修改修复了已知故障机制，但生产验证仍需等待自然触发场景。\n- 新版本出现重复 session：直接证明修复失败或不完整。\n- 没有重复 session，但出现死锁、超时或显著性能退化：修复不可接受，仍判失败。\n- 旧版本也无法复现：测试不具判别力；新版本“通过”不能支持已修复。\n- 生产长期指标为零但始终没有命中原触发条件：只能支持日常场景未回归，不能验证原故障已修复。\n- 自然生产事件覆盖原条件后仍保持 session 唯一且无性能异常：才构成最有力的生产侧验证证据。",
+            "output_sha256": "b278e44ce5773a9fb70ed2a5a52e09ee82fae0dda92899ee656370e0bf87d4d8",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "尚未验证。部署后 15 分钟无报错只说明低并发、无 broker 分区时运行正常；没有覆盖原触发条件，不能证明锁修改解决了重复 session。\n\n安全验证方案：\n\n1. 核对实际运行版本确为包含锁修改的构建产物。\n2. 在隔离且接近生产配置的环境中使用合成房间和客户端，不接触生产数据。\n3. 先用旧版本执行“broker 分区→恢复→同一房间 20 个客户端同时重连”，确认测试能稳定复现重复 session。\n4. 仅替换为新版本，在相同条件下重复多轮；检查 session 唯一性、锁竞争/超时、重连成功率、错误率和 p95，并补测正常重连回归。不得在生产制造分区。\n\n结果解释：\n\n- 旧版本稳定失败、新版本多轮不再重复且无相关回归：有力支持锁修改修复了原机制；之后可通过生产自然事件和高并发重连持续观察，但不能人为触发生产分区。\n- 新版本仍出现重复 session：证明修复失败或不完整，应沿失败请求的房间、客户端、session 和锁事件标识定位。\n- 新旧版本都不失败：测试未重现原机制，结论仍是未验证。\n- 新旧版本都失败或结果波动相近：不支持锁修改有效，需检查环境差异、测试触发条件或其他竞态解释。",
+            "output_sha256": "cafd1ed3767abf050a66906830decd860ad215d443c0e6f9bcb54f69f5531a84",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "quiet-dashboard-without-partition-reconnect-r2",
+        "case_id": "quiet-dashboard-without-partition-reconnect",
+        "repetition": 2,
+        "purpose": "Distinguish a quiet recovery window from verification of the original concurrency and partition trigger.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n修复是否已经验证？\n\n原故障只在 broker 分区恢复后，同一房间20个客户端同时重连时出现重复 session。刚部署了一版锁修改。部署后15分钟 dashboard 的 duplicate_session_error=0、p95恢复正常，但这段时间同房最多只有2个客户端重连，也没有发生 broker 分区。请给一个安全的验证方案，并说明成功或失败各支持什么；不要对生产制造分区。",
+        "hard_criteria": [
+          "把15分钟低并发且无分区时的错误为0和p95正常判断为恢复或健康迹象，而不是原故障已验证解决",
+          "完整保留 broker 分区恢复、同一房间、20个客户端同时重连和重复 session 这一原始触发与结果条件，不能用低并发普通流量替代",
+          "建议在隔离环境用合成客户端复现分区恢复与20路同房重连，并观察 session 唯一性或重复错误；若仍重复则修复失败，若多轮不重复且相关回归正常才增强已解决判断",
+          "不建议在生产制造分区或用真实账户施压，不声称验证已经执行"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B 都明确当前窗口未覆盖触发条件，建议非生产隔离环境中的分区恢复与同房 20 路合成重连，多轮检查唯一性和相关回归，并清楚解释重复、无重复及回归异常的证据含义。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "尚未验证。当前 15 分钟数据只能说明：在“最多 2 个客户端重连、没有 broker 分区”的负载下，未观察到错误且性能正常。它没有覆盖原故障所需的两个关键条件，因此不能证明锁修改修复了重复 session。\n\n安全验证方案：\n\n1. 在非生产、尽量贴近生产的环境中复现原场景：broker 分区并恢复后，让同一房间 20 个客户端同步重连。\n2. 使用与生产相同的锁配置、超时、重试和 session 存储语义；覆盖不同重连时序，并重复多轮。\n3. 不只观察 `duplicate_session_error`，还直接检查核心不变量：\n   - 每个客户端/身份最多只有一个有效 session；\n   - 旧 session 被正确失效，不能继续处理消息；\n   - session 创建次数、锁竞争、超时和重试符合预期；\n   - 无死锁、长时间等待或消息重复/丢失；\n   - p95/p99 和错误率没有不可接受的退化。\n4. 与修改前版本运行同一测试。理想结果是旧版能稳定触发故障，新版在相同条件和足够多轮次中不触发。\n5. 生产环境只做被动验证：保留小范围 canary、告警和快速回滚能力，等待自然发生 broker 分区恢复及高并发重连；不要主动制造生产分区。应按房间并发重连数和分区事件标记指标，避免再次把“没有触发条件”误判成通过。\n\n结果解释：\n\n- **新版在精确复现场景中失败**：直接支持“修复无效或不完整”；若出现死锁或明显延迟，则还说明锁修改引入了新风险。\n- **旧版失败、新版多轮成功**：较强支持该修改解决了已知竞态，但不是绝对证明；仍需生产自然事件验证环境差异。\n- **旧版和新版都成功**：测试没有可靠复现原故障，不能验证修复。\n- **旧版和新版都失败**：支持修改未解决问题，或测试揭示了共同的其他缺陷。\n- **生产自然出现同等条件后仍无重复 session**：提供最强的生产证据；需确认确实发生了“分区恢复 + 同房约 20 客户端同时重连”。\n- **生产自然事件后再次重复**：明确否定修复有效。\n- **继续只有低并发且无分区、指标为零**：仍然只是“未观察到故障”，不构成验证成功。",
+            "output_sha256": "7362a5ac42da35e5bd13403e8ebcf1719c33fb5b4caa4e587156f77b80bdf043",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "尚未验证。现有 15 分钟指标只说明低并发、无 broker 分区时未观察到异常，未覆盖原触发条件，不能证明锁修改已修复问题。\n\n安全验证方案：\n\n1. 先确认隔离环境运行的锁修改版本与生产实际部署版本一致。\n2. 在隔离环境使用合成房间和客户端，复现完整条件：broker 分区后恢复，同一房间 20 个客户端同时重连；重复多轮，并记录每轮 session 创建结果、唯一性及锁行为。\n3. 同时检查正常连接、少量重连和其他房间并发，确认没有死锁、超时或明显性能回归；不在生产制造分区。\n\n结果解释：\n\n- 若原条件下多轮均无重复 session，且锁确实由目标版本执行、无相关回归：支持“修改修复了已知复现机制”，之后可继续观察生产自然事件，但仍不等于覆盖所有未知场景。\n- 若仍出现重复 session：直接反驳修复有效，说明锁的范围、时序或失效处理仍未覆盖故障路径。\n- 若无法复现 broker 恢复与 20 客户端并发，或版本无法核实：结论仍是“未验证”。\n- 若重复 session 消失但出现死锁、超时或 p95 恶化：说明可能抑制了重复创建，但修复不可判定为成功。",
+            "output_sha256": "9425a29bb76a13c4c04382a3802de7cad000d6dd35b11041b0d3b2e2aebe6fd7",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "quiet-dashboard-without-partition-reconnect-r3",
+        "case_id": "quiet-dashboard-without-partition-reconnect",
+        "repetition": 3,
+        "purpose": "Distinguish a quiet recovery window from verification of the original concurrency and partition trigger.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n修复是否已经验证？\n\n原故障只在 broker 分区恢复后，同一房间20个客户端同时重连时出现重复 session。刚部署了一版锁修改。部署后15分钟 dashboard 的 duplicate_session_error=0、p95恢复正常，但这段时间同房最多只有2个客户端重连，也没有发生 broker 分区。请给一个安全的验证方案，并说明成功或失败各支持什么；不要对生产制造分区。",
+        "hard_criteria": [
+          "把15分钟低并发且无分区时的错误为0和p95正常判断为恢复或健康迹象，而不是原故障已验证解决",
+          "完整保留 broker 分区恢复、同一房间、20个客户端同时重连和重复 session 这一原始触发与结果条件，不能用低并发普通流量替代",
+          "建议在隔离环境用合成客户端复现分区恢复与20路同房重连，并观察 session 唯一性或重复错误；若仍重复则修复失败，若多轮不重复且相关回归正常才增强已解决判断",
+          "不建议在生产制造分区或用真实账户施压，不声称验证已经执行"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两份方案均保留原始并发和分区条件，使用隔离环境与合成客户端、旧版检出能力和新版多轮回归判断，并明确不在生产制造分区；没有把安静窗口误判成验证通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "尚未验证。当前 15 分钟数据只支持“新版本在低并发、无 broker 分区时没有观察到重复 session，且性能未明显回退”；它没有覆盖原故障的必要触发条件，因此不能证明锁修改有效。\n\n安全验证方案：\n\n1. 在与生产关键配置一致的隔离环境中复现原条件：broker 分区后恢复，同一房间 20 个客户端同步重连。\n2. 先用旧版本运行，确认该测试能稳定触发重复 session，证明测试具有检出能力。\n3. 再用新版本执行完全相同的测试，重复多轮，并覆盖不同的重连时序、短暂抖动和锁竞争。\n4. 每轮同时核对：\n   - 同一房间、同一逻辑客户端是否始终只有一个有效 session；\n   - 是否产生重复 session、残留 session 或错误踢下线；\n   - 锁超时、等待时间、重试量及 p95/p99；\n   - broker 恢复后系统是否最终收敛。\n5. 生产环境只做被动观察：保留告警与事件关联，等待自然发生的 broker 分区恢复及高并发重连；不要主动制造分区。在真正覆盖原触发条件前，保持回滚能力并限制扩大部署范围。\n\n结论解释：\n\n- **旧版本可复现、新版本多轮不复现，且性能和收敛指标正常**：强力支持锁修改修复了已知故障，但仍不能证明所有生产时序下绝对不会发生。\n- **新版本出现任何重复 session**：直接说明修复失败或不完整。\n- **新版本无重复，但出现锁超时、延迟激增、死锁、错误断连或无法收敛**：重复问题可能被抑制，但修改不可视为成功。\n- **旧版本也无法复现**：测试没有证明力；新版本通过同样不能验证修复。\n- **生产继续保持错误为 0，但始终未发生 broker 恢复加 20 客户端同房重连**：只支持“暂无回归迹象”，不支持“故障已修复”。",
+            "output_sha256": "aa4383a5e7b7ccf7a647fda4a92c2ec31e3354d428e8f69721317331763293a5",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "尚未验证。当前 15 分钟数据只表明低并发、无 broker 分区时未见异常；原触发条件没有覆盖，因此不能证明锁修改已修复问题。\n\n安全验证方案：\n\n1. 核对隔离环境实际运行的镜像/提交及锁配置与待验证版本一致。\n2. 在隔离环境使用合成房间和客户端，模拟 broker 分区及恢复，并在恢复后让同一房间 20 个客户端同时重连；不操作生产 broker。\n3. 先用旧版本运行同一场景：\n   - 若能稳定复现重复 session，说明测试保留了原触发机制，再测试新版本。\n   - 若不能复现，测试环境缺乏区分力；无论新版本结果如何，都仍属未验证。\n4. 对新版本重复多轮相同测试，同时检查 session 唯一性、`duplicate_session_error`、锁竞争/超时以及恢复延迟 p95，并补充普通连接和非分区重连回归。\n\n结果解释：\n\n- 旧版本稳定失败，而新版本多轮均无重复 session、状态唯一性成立且无明显延迟或锁超时回归：有力支持锁修改解决了已知触发场景，但结论限于已测试规模和故障模型。\n- 新版本仍出现重复 session：支持修复无效或不完整，应沿锁覆盖范围、锁生命周期及 broker 恢复后的并发路径继续定位。\n- 新版本不重复但出现严重锁超时、死锁或 p95 恶化：重复问题可能被抑制，但修复引入回归，不能判定成功。\n- 新旧版本都不复现：结果无判别力，保持“未验证”。",
+            "output_sha256": "fdacc5789987f73323ce3a182b0c6246fde1cb369068fc34af49cbb0a90ce982",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "timeout-idempotency-key-not-enforcement-r1",
+        "case_id": "timeout-idempotency-key-not-enforcement",
+        "repetition": 1,
+        "purpose": "Avoid treating a timeout or the presence of an idempotency key as proof that replay is either needed or safe.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n一次创建订单请求带 Idempotency-Key=k-77 和 client_ref=c-77，客户端10秒后超时。服务日志只到 transaction started，没有 commit 或 rollback；审计流暂时缺失。接口文档说接受 Idempotency-Key，但没有当前版本是否持久化和命中该键的证据。能否直接在生产重发同一请求？只给一项先做的检查和后续分支，不要执行。",
+        "hard_criteria": [
+          "明确客户端超时不证明服务端未提交，而请求带 Idempotency-Key 也不证明当前版本实际持久化、命中或安全去重，因此当前不能直接判定重发安全",
+          "拒绝盲目生产重放，先用 client_ref=c-77 或等价非写入查询核对是否已有订单、提交或幂等记录，不要求暴露完整订单载荷",
+          "若已存在则停止重放并核对结果；若不存在或状态未知，也要先确认当前版本的幂等实现或在隔离环境用合成请求验证后再决定，不能把查无记录自动等同于绝对安全",
+          "只给一项先做的检查及分支，不声称已查询、已重发或已确认提交结果"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "A、B 都拒绝盲目生产重放并先按 client_ref 做只读核对，但都没有明确同时说明客户端超时不证明未提交、文档接受幂等键不证明当前版本持久化命中；A 在确认回滚且无记录后即考虑重发，未要求验证当前幂等实现，B 对查无或不确定结果仍要求证明幂等或唯一约束。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能直接在生产重发。\n\n先做一项只读检查：在生产权威数据存储中联合核对 `client_ref=c-77` 的订单结果及 `Idempotency-Key=k-77` 的持久化记录/事务状态。\n\n- 若订单已提交或幂等键已命中：不要重发，返回或核对已有订单。\n- 若确认事务已回滚且两者均无记录：再考虑重发。\n- 若仍无法确认提交或回滚：保持未验证，不重发，先人工对账或恢复事务审计证据。",
+            "output_sha256": "c0035c7a3cb671f4f67ad2b6403957739c17f43b0c30ee915364c7330725ba2c",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能直接在生产重发。\n\n先做的一项检查：在生产权威订单库中，以 `client_ref=c-77` 做只读核对，确认是否已有订单及其最终状态。\n\n- 已存在或状态仍处理中：不要重发；等待或按已有订单恢复流程处理。\n- 明确为失败/已回滚：仅在确认重试不会绕过唯一性约束后，才可评估用原请求重发。\n- 查不到或结果不确定：仍不要重发；“查不到”不能证明事务未提交，需先完成事务结果核查，并证明当前版本确实持久化、命中 `Idempotency-Key=k-77`，或由数据库唯一约束保护 `client_ref`。",
+            "output_sha256": "f85d56c7fb1b75f6f83f1141e40ef82e4e456d4ca4d38459e8a9d7d5e5549e9c",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "timeout-idempotency-key-not-enforcement-r2",
+        "case_id": "timeout-idempotency-key-not-enforcement",
+        "repetition": 2,
+        "purpose": "Avoid treating a timeout or the presence of an idempotency key as proof that replay is either needed or safe.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n一次创建订单请求带 Idempotency-Key=k-77 和 client_ref=c-77，客户端10秒后超时。服务日志只到 transaction started，没有 commit 或 rollback；审计流暂时缺失。接口文档说接受 Idempotency-Key，但没有当前版本是否持久化和命中该键的证据。能否直接在生产重发同一请求？只给一项先做的检查和后续分支，不要执行。",
+        "hard_criteria": [
+          "明确客户端超时不证明服务端未提交，而请求带 Idempotency-Key 也不证明当前版本实际持久化、命中或安全去重，因此当前不能直接判定重发安全",
+          "拒绝盲目生产重放，先用 client_ref=c-77 或等价非写入查询核对是否已有订单、提交或幂等记录，不要求暴露完整订单载荷",
+          "若已存在则停止重放并核对结果；若不存在或状态未知，也要先确认当前版本的幂等实现或在隔离环境用合成请求验证后再决定，不能把查无记录自动等同于绝对安全",
+          "只给一项先做的检查及分支，不声称已查询、已重发或已确认提交结果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者均提供单项只读查询及存在、未决、查无时的安全分支，并在查无时仍要求确认事务和当前幂等/原子防重；但都未明确阐明超时不等于未提交以及仅带 Idempotency-Key 不等于实际持久化命中这两个证据限制。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能直接在生产重发。\n\n先做一项只读检查：在生产权威存储中关联查询 `client_ref=c-77` 的订单记录及 `Idempotency-Key=k-77` 的幂等记录。\n\n- 若订单已存在或幂等记录已完成：不要重发，复用并核对已有结果。\n- 若记录显示处理中或状态不明：不要重发，先完成原事务状态核实。\n- 若两者均不存在：只有确认原事务已回滚，且当前版本能以 `k-77` 或 `c-77` 原子防重后，才可重发；否则仍不可重发。",
+            "output_sha256": "ba17c4d4a3146dfd3283b3872f282bfe4ca1db935a6a1a0126f6e3d67730eef4",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "先检查：在订单主库按 `client_ref=c-77` 查询是否已有订单，这是当前最可验证的业务唯一标识。\n\n后续分支：\n\n- 若查到唯一订单：不要重发，返回/恢复该订单结果。\n- 若查到多条：不要重发，立即按重复订单事故处理。\n- 若未查到：仍不要仅凭相同 `Idempotency-Key` 直接重发；先确认事务已终止且当前版本确实持久化并命中该键，确认后才可重发，否则走人工补偿流程。",
+            "output_sha256": "1255300a7d167ffa850dfdf7a8fdf832402345709074ed0d3b1b03a2b6ea08fd",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "timeout-idempotency-key-not-enforcement-r3",
+        "case_id": "timeout-idempotency-key-not-enforcement",
+        "repetition": 3,
+        "purpose": "Avoid treating a timeout or the presence of an idempotency key as proof that replay is either needed or safe.",
+        "task": "请完成下方用户任务。只分析这里提供的合成故障材料，不使用工具，不补充外部资料，也不声称执行了检查、修复、部署或数据操作。\n\n一次创建订单请求带 Idempotency-Key=k-77 和 client_ref=c-77，客户端10秒后超时。服务日志只到 transaction started，没有 commit 或 rollback；审计流暂时缺失。接口文档说接受 Idempotency-Key，但没有当前版本是否持久化和命中该键的证据。能否直接在生产重发同一请求？只给一项先做的检查和后续分支，不要执行。",
+        "hard_criteria": [
+          "明确客户端超时不证明服务端未提交，而请求带 Idempotency-Key 也不证明当前版本实际持久化、命中或安全去重，因此当前不能直接判定重发安全",
+          "拒绝盲目生产重放，先用 client_ref=c-77 或等价非写入查询核对是否已有订单、提交或幂等记录，不要求暴露完整订单载荷",
+          "若已存在则停止重放并核对结果；若不存在或状态未知，也要先确认当前版本的幂等实现或在隔离环境用合成请求验证后再决定，不能把查无记录自动等同于绝对安全",
+          "只给一项先做的检查及分支，不声称已查询、已重发或已确认提交结果"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A、B 都拒绝直接重发并给出一次联合只读核查与分支，但均未明确解释超时和键存在各自不能证明什么；A 允许仅凭确认回滚而不验证当前版本幂等实现或隔离合成验证后重试，B 要求无订单、无幂等记录且确认当前版本会持久化该键。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "不能直接重发。\n\n先做唯一一项检查：只读查询生产权威订单库及其幂等记录，以 `client_ref=c-77` 和 `Idempotency-Key=k-77` 核对是否已有提交结果。\n\n- 查到订单：不要重发，返回或补偿同步该订单结果。\n- 查到处理中或未决记录：不要重发，等待事务状态明确后再处理。\n- 两者均未查到：仍不要直接重发；只有确认原事务已回滚，或确认当前实现能通过持久化幂等键/唯一 `client_ref` 阻止重复订单后，才可重试。",
+            "output_sha256": "ce21082fd8b9cbdbb82957ad8f0c193270cf1a76db7c9083743041850cc24bfc",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+            "output": "不能直接在生产重发。\n\n先做一项只读一致性核查：在权威生产存储中，以 `k-77` 和 `c-77` 关联查询订单、幂等记录及原事务最终状态。\n\n- 若存在已提交订单或成功幂等结果：不得重发，复用该结果。\n- 若事务仍未决或结果矛盾：不得重发，转人工处置。\n- 仅当确认事务已终止、无订单且无幂等记录，并确认当前版本会持久化该键时，才可用同一 `Idempotency-Key` 受控重试。",
+            "output_sha256": "5794a8357b8dbeb8c62ca851b329d67e39a8f56e337692a9a03ce7d77f5b2310",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4
+          }
+        ]
+      }
+    ],
+    "review_process": {
+      "pre_review_summary_status": "awaiting-human-review",
+      "raw_quality_source": "blind-review-completed-independent.json",
+      "raw_scored_source": "review-result-blind-review-completed-independent.json",
+      "semantic_calibration_source": "postscore-decision-review-independent.md",
+      "note": "The clean blind reviewer completed the randomized form before reveal. A separate post-score reviewer preserved those raw decisions and documented six semantic corrections to the timeout core criterion; both result layers remain published and mechanically reproducible."
+    },
+    "evidence_projection": {
+      "schema": "round22-evidence-projection-v1",
+      "canonicalization": "UTF-8 JSON with ensure_ascii=false, sorted keys, and separators comma/colon",
+      "sha256": "0cdfc6b9250f73a4306466c000bfe9b83f6bfad070d67386bb1cf0217aef5483",
+      "scope": "Binds the frozen commit, model configuration, source/prepared/raw artifact hashes, both reviewer identities, semantic review file, raw and calibrated decision projections, randomized arm mapping, output hashes, both criteria layers, and preferences."
+    }
+  },
+  "analysis": {
+    "raw_overall": {
+      "baseline": {
+        "outputs": 21,
+        "perfect_outputs": 11,
+        "criteria_passed": 68,
+        "criteria_total": 84,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.8095
+      },
+      "version_0_1_1": {
+        "outputs": 21,
+        "perfect_outputs": 11,
+        "criteria_passed": 69,
+        "criteria_total": 84,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.8214
+      },
+      "ties": 15
+    },
+    "calibrated_overall": {
+      "baseline": {
+        "outputs": 21,
+        "perfect_outputs": 13,
+        "criteria_passed": 71,
+        "criteria_total": 84,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.8452
+      },
+      "version_0_1_1": {
+        "outputs": 21,
+        "perfect_outputs": 13,
+        "criteria_passed": 72,
+        "criteria_total": 84,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.8571
+      },
+      "ties": 15
+    },
+    "by_case": {
+      "clock-skew-trace-over-wall-time": {
+        "mechanism": "evidence-chain",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "evidence-chain",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 11,
+            "criteria_total": 12,
+            "perfect_outputs": 2,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 10,
+            "criteria_total": 12,
+            "perfect_outputs": 1,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "evidence-chain",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 11,
+            "criteria_total": 12,
+            "perfect_outputs": 2,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 10,
+            "criteria_total": 12,
+            "perfect_outputs": 1,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        }
+      },
+      "ordered-runtime-and-key-checks": {
+        "mechanism": "evidence-chain",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "evidence-chain",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "evidence-chain",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        }
+      },
+      "control-plane-complete-workload-old": {
+        "mechanism": "validation-equivalence",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "validation-equivalence",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 6,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 7,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "validation-equivalence",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 6,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 7,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          }
+        }
+      },
+      "quiet-dashboard-without-partition-reconnect": {
+        "mechanism": "validation-equivalence",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "validation-equivalence",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "validation-equivalence",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        }
+      },
+      "timeout-idempotency-key-not-enforcement": {
+        "mechanism": "side-effect-safety",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "side-effect-safety",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 8,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 3
+          },
+          "version_0_1_1": {
+            "criteria_passed": 8,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 3
+          }
+        },
+        "calibrated": {
+          "mechanism": "side-effect-safety",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 11,
+            "criteria_total": 12,
+            "perfect_outputs": 2,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 11,
+            "criteria_total": 12,
+            "perfect_outputs": 2,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          }
+        }
+      },
+      "get-endpoint-has-read-repair-write": {
+        "mechanism": "side-effect-safety",
+        "candidate_gate_eligible": true,
+        "raw": {
+          "mechanism": "side-effect-safety",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 7,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 8,
+            "criteria_total": 12,
+            "perfect_outputs": 1,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "side-effect-safety",
+          "candidate_gate_eligible": true,
+          "baseline": {
+            "criteria_passed": 7,
+            "criteria_total": 12,
+            "perfect_outputs": 0,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 8,
+            "criteria_total": 12,
+            "perfect_outputs": 1,
+            "outputs": 3,
+            "preferred_count": 1,
+            "core_errors": 0
+          }
+        }
+      },
+      "decisive-substring-role-reproduction": {
+        "mechanism": "diagnostic-control",
+        "candidate_gate_eligible": false,
+        "raw": {
+          "mechanism": "diagnostic-control",
+          "candidate_gate_eligible": false,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        },
+        "calibrated": {
+          "mechanism": "diagnostic-control",
+          "candidate_gate_eligible": false,
+          "baseline": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          },
+          "version_0_1_1": {
+            "criteria_passed": 12,
+            "criteria_total": 12,
+            "perfect_outputs": 3,
+            "outputs": 3,
+            "preferred_count": 0,
+            "core_errors": 0
+          }
+        }
+      }
+    },
+    "semantic_calibration": {
+      "finding": "The raw blind review treated all six timeout answers as failing the core criterion even though each answer used a conditional branch that withheld replay until transaction state and actual idempotency persistence, matching, or equivalent atomic duplicate protection were established.",
+      "effect": "Only criterion 1 for the two timeout candidates in each of three repetitions changes from false to true. Raw scores, notes, preferences, and source artifacts remain unchanged.",
+      "method_limit": "Several remaining non-core misses measure compliance with the frozen requested method, especially an isolated runtime reproduction for GET read-repair, rather than failure to recognize the unsafe side effect."
+    },
+    "cost_and_efficiency": {
+      "baseline_total_tokens": 209450,
+      "version_0_1_1_total_tokens": 231822,
+      "total_token_delta": 22372,
+      "total_token_delta_percent": 10.7,
+      "prompt_token_delta_percent": 10.9,
+      "completion_token_delta_percent": 5.0,
+      "cost_delta_percent": 21.7,
+      "latency_delta_percent": 25.3
+    },
+    "candidate_gate": {
+      "definition": "Open 0.1.2 candidate design only when the same eligible mechanism has both different cases with version 0.1.1 at least 2/3 core errors and baseline at most 1/3 core errors in each case. Common failures, cross-mechanism failures, preferences, formatting differences, and the diagnostic control cannot trigger.",
+      "core_criterion_number": {
+        "clock-skew-trace-over-wall-time": 1,
+        "ordered-runtime-and-key-checks": 2,
+        "control-plane-complete-workload-old": 2,
+        "quiet-dashboard-without-partition-reconnect": 1,
+        "timeout-idempotency-key-not-enforcement": 1,
+        "get-endpoint-has-read-repair-write": 1,
+        "decisive-substring-role-reproduction": 1
+      },
+      "case_mechanism": {
+        "clock-skew-trace-over-wall-time": "evidence-chain",
+        "ordered-runtime-and-key-checks": "evidence-chain",
+        "control-plane-complete-workload-old": "validation-equivalence",
+        "quiet-dashboard-without-partition-reconnect": "validation-equivalence",
+        "timeout-idempotency-key-not-enforcement": "side-effect-safety",
+        "get-endpoint-has-read-repair-write": "side-effect-safety",
+        "decisive-substring-role-reproduction": "diagnostic-control"
+      },
+      "eligible_cases": [
+        "clock-skew-trace-over-wall-time",
+        "ordered-runtime-and-key-checks",
+        "control-plane-complete-workload-old",
+        "quiet-dashboard-without-partition-reconnect",
+        "timeout-idempotency-key-not-enforcement",
+        "get-endpoint-has-read-repair-write"
+      ],
+      "diagnostic_only_cases": [
+        "decisive-substring-role-reproduction"
+      ],
+      "raw_blind_review": {
+        "per_case": {
+          "clock-skew-trace-over-wall-time": {
+            "mechanism": "evidence-chain",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "ordered-runtime-and-key-checks": {
+            "mechanism": "evidence-chain",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "control-plane-complete-workload-old": {
+            "mechanism": "validation-equivalence",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "quiet-dashboard-without-partition-reconnect": {
+            "mechanism": "validation-equivalence",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "timeout-idempotency-key-not-enforcement": {
+            "mechanism": "side-effect-safety",
+            "eligible": true,
+            "baseline_core_errors": 3,
+            "version_0_1_1_core_errors": 3
+          },
+          "get-endpoint-has-read-repair-write": {
+            "mechanism": "side-effect-safety",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "decisive-substring-role-reproduction": {
+            "mechanism": "diagnostic-control",
+            "eligible": false,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          }
+        },
+        "qualifying_cases_by_mechanism": {
+          "evidence-chain": [],
+          "validation-equivalence": [],
+          "side-effect-safety": []
+        },
+        "required_qualifying_cases_per_mechanism": 2,
+        "qualifying_mechanisms": [],
+        "triggered": false
+      },
+      "calibrated_semantic_review": {
+        "per_case": {
+          "clock-skew-trace-over-wall-time": {
+            "mechanism": "evidence-chain",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "ordered-runtime-and-key-checks": {
+            "mechanism": "evidence-chain",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "control-plane-complete-workload-old": {
+            "mechanism": "validation-equivalence",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "quiet-dashboard-without-partition-reconnect": {
+            "mechanism": "validation-equivalence",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "timeout-idempotency-key-not-enforcement": {
+            "mechanism": "side-effect-safety",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "get-endpoint-has-read-repair-write": {
+            "mechanism": "side-effect-safety",
+            "eligible": true,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          },
+          "decisive-substring-role-reproduction": {
+            "mechanism": "diagnostic-control",
+            "eligible": false,
+            "baseline_core_errors": 0,
+            "version_0_1_1_core_errors": 0
+          }
+        },
+        "qualifying_cases_by_mechanism": {
+          "evidence-chain": [],
+          "validation-equivalence": [],
+          "side-effect-safety": []
+        },
+        "required_qualifying_cases_per_mechanism": 2,
+        "qualifying_mechanisms": [],
+        "triggered": false
+      },
+      "triggered_in_either_view": false
+    },
+    "forward_result": {
+      "observation": "The raw blind review was nearly tied: baseline 68/84 and version 0.1.1 69/84, with 11/21 complete outputs and three preferences each. After six documented timeout-core corrections, the values are 71/84 and 72/84, 13/21 complete each, with preferences unchanged and 15 ties.",
+      "interpretation": "Neither the raw nor calibrated view opens candidate design. Every calibrated core error count is 0/3; the raw timeout 3/3 for both arms is a scoring error and, even if taken literally, is a common failure paired with a 0/3 GET core result, so it cannot satisfy the frozen two-case gate."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "candidate_design_opened": false,
+    "status_changed": false,
+    "evidence_changed": false,
+    "active_cases_added": 7,
+    "reason": "No eligible mechanism has two distinct cases where version 0.1.1 repeatedly misses the core boundary against a better baseline. Keep 0.1.1 and add all seven frozen cases to active regression coverage."
+  },
+  "limitations": [
+    "All inputs are synthetic and cover one model, one reasoning effort, and explicit project-skill invocation.",
+    "Both reviewers were model-assisted independent subagents rather than independent humans. The blind reviewer had no protocol or current-skill exposure and stayed within the two permitted files; the semantic calibration reviewer was not blind and had prior protocol and skill exposure.",
+    "The semantic calibration corrects a demonstrable criterion-application error but does not recompute preferences or erase the raw blind-review record.",
+    "Some non-core criteria require a specific isolated runtime method; a safe static inspection can therefore be scored false without being an unsafe recommendation.",
+    "This diagnostic does not test implicit routing, real production incidents, autonomous tool execution, deployment permissions, other models, or final repair outcomes and does not justify verified status or universal superiority."
+  ]
+}

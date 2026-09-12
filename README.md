@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十一轮人物证据自然语境前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共125项。`person-evidence-analysis` 保持0.1.2；六个新题、每臂18份输出中，无 Skill 为67/72、13/18完整，当前包为70/72、16/18完整，偏好为3比5，另有10次持平。当前包六题核心错误均为0/3，未触发候选门槛；两次地点结果细节遗漏进入活动回归。
+当前阶段：**第二十二轮故障证据边界前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共132项。`debug-evidence-triage` 保持0.1.1；七个新题、每臂21份输出中，原匿名评阅为无 Skill 68/84、当前包69/84，完整输出均11/21，偏好各3次，另有15次持平。计分后独立复核修正超时幂等题六项语义误判，校准后为71/84与72/84、完整输出均13/21；两种口径都未触发候选门槛。
 
 ## 从这里开始
+
+- [第二十二轮质量打磨：故障证据边界前向诊断](docs/quality-polish-round-22.md)
+- [故障证据第二十二轮机器诊断](evaluations/reports/debug-evidence-boundaries-round-22-diagnostic.json)
 
 - [第二十一轮质量打磨：人物证据自然语境前向诊断](docs/quality-polish-round-21.md)
 - [人物证据第二十一轮机器诊断](evaluations/reports/person-evidence-natural-context-round-21-diagnostic.json)

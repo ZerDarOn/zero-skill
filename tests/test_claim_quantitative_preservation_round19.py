@@ -223,8 +223,14 @@ class ClaimQuantitativePreservationRound19Tests(unittest.TestCase):
                 active_total += len(suite["cases"])
             if suite.get("skill_id") == "claim-evidence-review":
                 claim_suite = suite
-        self.assertEqual(active_total, 116)
-        self.assertEqual(len(claim_suite["cases"]), 14)
+        # Later rounds may add cases. This historical test keeps its four frozen
+        # cases bound; the newest report test owns the exact current totals.
+        self.assertGreaterEqual(
+            active_total, report["scope"]["collection_active_case_count"]
+        )
+        self.assertGreaterEqual(
+            len(claim_suite["cases"]), report["scope"]["active_case_count"]
+        )
         active_by_comparison = {
             item["input"]["comparison_case_id"]: item
             for item in claim_suite["cases"]

@@ -1,0 +1,978 @@
+{
+  "schema_version": 1,
+  "report_id": "claim-quantitative-confirmatory-round-20-diagnostic",
+  "generated_at": "2026-09-13T00:35:02+08:00",
+  "scope": {
+    "skill_id": "claim-evidence-review",
+    "version": "0.1.0",
+    "catalog_status": "experimental",
+    "active_case_count": 17,
+    "collection_active_case_count": 119,
+    "formal_outputs": 30,
+    "blind_review_items": 15,
+    "criterion_booleans": 90
+  },
+  "experiment": {
+    "comparison_id": "claim-quantitative-confirmatory-13",
+    "run_id": "claim-quantitative-confirmatory-13-promptfoo-20260912T162323Z-7d2e23",
+    "freeze_commit": "8b72878a41b6963fd411b1619adf308b79c439d9",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 5,
+    "executed_repetitions": 5,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "83ab64fea30ea4f45db2df89afd7423de6ccf01bc852e58e1a7765ce86a5c94f",
+      "cases.json": "55ab72fc651d7fd917e581162c8fa542431865cc8bb5ad398dea9bc9e13c7b6e"
+    },
+    "prepared_hashes": {
+      "config": "58f7530c9c9d068868519599e4619e0bcd3aa0836f2689dbb2bef382a25d811c",
+      "tests": "f868590322310d82567abd9e76de63114deeb570fea5930c72b2ce98aeebc999"
+    },
+    "artifact_hashes": {
+      "frozen.json": "6ef387d97154f1712acdfea793164755e8beae86c296a92cf4feea0987768aff",
+      "results.json": "061d17ee0bffb218e537ef8b518ba67f4bdf79983da5c9b937510d975a721bdd",
+      "summary.json": "f2987c5b5e64f55d8e0b3e63d4df2648b054155067e567991ac96ffb6a9e1729",
+      "blind-review.json": "5e8308731200aca7d9bb6ec574843bd61b8dab39ac6ed5c6ff68f607bb8bed39",
+      "blind-review-key.json": "97bce904d4e400d9d676c70aa586ec42dc3a823a5f02b54b5571dde9fefb64fe",
+      "blind-review-form.json": "44bdd9230e3acfc7b2fb9d9defe38959ddc7b6fc4f8f584bb25346312a2099c0",
+      "blind-review-completed-independent.json": "eb99153e7df14e36f8bd782460f190ca25d8ef969bc6792024b7be8f663200fe",
+      "review-result-blind-review-completed-independent.json": "407e40fc11987f170c5c63dbfd066be9dc872c0b35d7c7de58d701b25370bf42"
+    },
+    "decision_projection_sha256": "18290d5de78ac8a32e4a00f4ebe1c54a2b24e91fbe047eb4c0d298a931e9d121",
+    "reviewer": {
+      "kind": "model-assisted-independent-codex-task",
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "prior_skill_revision_exposure_note": "Saw the frozen protocol and current 0.1.0 skill, but no candidate revision.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "independent_human": false,
+      "note": "Another Codex task in the same project scored anonymous candidates without candidate-to-arm mapping; it had reviewed the protocol before the run."
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 15,
+          "promptfoo_passed_rows": 15,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.261012,
+          "latency_ms_median": 10834.0,
+          "tokens_total": {
+            "cached": 106880,
+            "completion": 3605,
+            "prompt": 143420,
+            "total": 147025
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 15,
+          "perfect_outputs": 14,
+          "criteria_passed": 44,
+          "criteria_total": 45,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.9778
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "claim-evidence-review",
+        "package_evidence_path": "skills/research/claim-evidence-review",
+        "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+        "runtime": {
+          "id": "ours",
+          "skill": "claim-evidence-review",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 15,
+          "promptfoo_passed_rows": 15,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2593048,
+          "latency_ms_median": 11059.0,
+          "tokens_total": {
+            "cached": 127232,
+            "completion": 4681,
+            "prompt": 155930,
+            "total": 160611
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 15,
+          "perfect_outputs": 15,
+          "criteria_passed": 45,
+          "criteria_total": 45,
+          "preferred_count": 7,
+          "criterion_pass_rate": 1.0
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "corrected-and-missing-denominators-r1",
+        "case_id": "corrected-and-missing-denominators",
+        "repetition": 1,
+        "purpose": "Track a corrected denominator while retaining a known numerator whose denominator remains unavailable in another region.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘北区和南区的按时处理率现在都确认是15%。’\n\n[S1，北区初稿] 记录为12/60按时处理。\n[S2，北区更正] 核对同一批工单后，确认分子12不变，分母应为80而不是60；S2替代S1中的分母，没有新增样本。\n[S3，南区原始记录] 只写明有9单按时处理，总工单数一栏缺失。\n[S4，南区备忘] 根据S3写成‘按时处理率15%’，没有提供分母或新增记录。\n\n逐区说明当前能确认的数值、来源关系和准确结论。",
+        "hard_criteria": [
+          "同时保留北区从12/60更正为12/80、当前为15%，以及南区已知有9单按时处理但分母缺失；不遗漏旧分母、修正后分母或南区已知分子",
+          "说明北区分子12不变、S2只更正同批记录的分母而不是新增样本；指出S4沿用南区同一不完整记录且没有补足分母或新增记录，因此不能确认南区15%",
+          "总体结论只确认北区更正后的12/80即15%，明确南区比例未知，不能把两区合并、平均或写成均已确认15%"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A：标准1保留了北区12/80=15%、分母60更正为80，以及南区9单且分母缺失；标准2说明同批工单只改分母、无新增样本，并说明S4未补分母或记录；标准3只确认北区15%并否定两区均确认。B：三项同样通过，并更明确写出12/60=20%已被更正、分子12不变以及南区不能确认15%，故轻微优于A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "北区：当前可确认按时处理率为 **12/80 = 15%**。S2核对的是S1同一批工单，仅将分母从60更正为80，没有新增样本；因此应以S2替代S1的分母。\n\n南区：当前只能确认有 **9单**按时处理，无法确认按时处理率。S3缺少总工单数；S4的“15%”仅根据S3写成，既未提供分母，也未新增记录，因此不能独立支持15%。\n\n准确结论：**只能确认北区为15%，不能确认南区为15%；原论断不成立。**",
+            "output_sha256": "5fae7415e8a39639693a201d6f0cda8d2582f826da2ae11d9b29a182ea20a3b8",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区：当前可确认按时处理率为 **12/80＝15%**。S2核对同一批工单后，以分母80替代S1的60，分子12不变，也未新增样本；因此S1的12/60＝20%已被更正。\n- 南区：当前只能确认有 **9单**按时处理，因总工单数缺失，无法计算或确认按时处理率。S4的15%仅转述自S3，没有补充分母或独立证据，不能支持该比例。\n- 准确结论：**北区确认是15%；南区是否为15%尚不能确认，因此“两个区现在都确认是15%”不成立。**",
+            "output_sha256": "dfbb050eba385349860ceb326e46eb23752a38246852d583f6cf0be877d52bfe",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-and-missing-denominators-r2",
+        "case_id": "corrected-and-missing-denominators",
+        "repetition": 2,
+        "purpose": "Track a corrected denominator while retaining a known numerator whose denominator remains unavailable in another region.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘北区和南区的按时处理率现在都确认是15%。’\n\n[S1，北区初稿] 记录为12/60按时处理。\n[S2，北区更正] 核对同一批工单后，确认分子12不变，分母应为80而不是60；S2替代S1中的分母，没有新增样本。\n[S3，南区原始记录] 只写明有9单按时处理，总工单数一栏缺失。\n[S4，南区备忘] 根据S3写成‘按时处理率15%’，没有提供分母或新增记录。\n\n逐区说明当前能确认的数值、来源关系和准确结论。",
+        "hard_criteria": [
+          "同时保留北区从12/60更正为12/80、当前为15%，以及南区已知有9单按时处理但分母缺失；不遗漏旧分母、修正后分母或南区已知分子",
+          "说明北区分子12不变、S2只更正同批记录的分母而不是新增样本；指出S4沿用南区同一不完整记录且没有补足分母或新增记录，因此不能确认南区15%",
+          "总体结论只确认北区更正后的12/80即15%，明确南区比例未知，不能把两区合并、平均或写成均已确认15%"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A：标准1完整给出12/60更正为12/80=15%及南区9单、分母缺失；标准2明确分子12不变、同批更正且无新增样本，并正确处理S4；标准3明确仅北区确认、南区未知。B：三项也通过，但额外给出南区理论比例范围并非完成标准所需；A更直接贴合逐区审查要求。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区：当前确认值为 **12/80＝15%**。S2核对同一批工单，将S1的分母60更正为80，分子12不变，也未新增样本；因此S2替代S1的分母。\n- 南区：当前只能确认 **9单按时处理**，因总工单数缺失，无法计算或确认处理率。S4的“15%”仅转述、推算自S3，未提供分母或独立新增证据。\n- 准确结论：**北区已确认是15%；南区尚不能确认是15%。因此“北区和南区都确认是15%”不受现有材料支持。**",
+            "output_sha256": "b3b56471cf9819b51f8aab320da32307f5ea107ed197669bab66c1007c085aaf",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：确认按时处理率为 **12/80 = 15%**。S2复核的是S1同一批工单，仅将分母由60更正为80，没有新增样本；因此S2替代S1的分母。\n\n- 南区：只能确认有 **9单**按时处理，无法确认处理率。S3缺少总工单数；S4的15%仅据S3写成，既未提供分母，也无新增记录，不能作为独立证据。按现有材料，处理率只能落在 **(0%, 100%]**，不能确认是15%。\n\n结论：原论断不成立。**北区已确认是15%，南区尚未确认。**",
+            "output_sha256": "6bb5b64b46ea39b2b28b5f2b7a9c4e1cf7e74a5bae5d964b5848c3eb0c6dc89d",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-and-missing-denominators-r3",
+        "case_id": "corrected-and-missing-denominators",
+        "repetition": 3,
+        "purpose": "Track a corrected denominator while retaining a known numerator whose denominator remains unavailable in another region.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘北区和南区的按时处理率现在都确认是15%。’\n\n[S1，北区初稿] 记录为12/60按时处理。\n[S2，北区更正] 核对同一批工单后，确认分子12不变，分母应为80而不是60；S2替代S1中的分母，没有新增样本。\n[S3，南区原始记录] 只写明有9单按时处理，总工单数一栏缺失。\n[S4，南区备忘] 根据S3写成‘按时处理率15%’，没有提供分母或新增记录。\n\n逐区说明当前能确认的数值、来源关系和准确结论。",
+        "hard_criteria": [
+          "同时保留北区从12/60更正为12/80、当前为15%，以及南区已知有9单按时处理但分母缺失；不遗漏旧分母、修正后分母或南区已知分子",
+          "说明北区分子12不变、S2只更正同批记录的分母而不是新增样本；指出S4沿用南区同一不完整记录且没有补足分母或新增记录，因此不能确认南区15%",
+          "总体结论只确认北区更正后的12/80即15%，明确南区比例未知，不能把两区合并、平均或写成均已确认15%"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "A：标准1通过，当前12/80=15%、旧分母60和南区9单缺分母均可见；标准2通过，输出说明更正的是S1分母且未新增样本，结合前后数值保留了分子12，并说明S4无分母或新增证据；标准3准确否定两区均确认。B：三项均通过，且直接写明同一批、分子12不变、无新增样本，来源关系表达更完整，故优于A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区：当前可确认按时处理率为 **12/80＝15%**。S2核对并更正了S1的分母（60改为80），未新增样本；因此应以S2替代S1的分母。\n- 南区：当前只能确认 **9单按时处理**，无法计算或确认处理率。S4的15%仅是对S3的转述，未提供分母或新增证据，不能作为独立支持。\n- 准确结论：**仅北区确认是15%；南区是否为15%尚无法确认。因此“北区和南区都确认是15%”不受现有材料支持。**",
+            "output_sha256": "3117472ed7b1aa4075ed42e86c44e3dfb71317b39ed21f5b3de87031776890aa",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：当前确认值为 **12/80 = 15%**。S2核对了与S1相同的一批工单，仅将分母从60更正为80，分子12不变且没有新增样本；因此S2替代S1的分母。\n\n- 南区：当前只能确认 **9单按时处理**，无法计算处理率。S3缺少总工单数；S4的“15%”仅由S3写成，没有补充分母或新增记录，不能独立证实该比例。\n\n准确结论：**北区已确认是15%，南区尚不能确认是15%；因此“北区和南区现在都确认是15%”不成立。**",
+            "output_sha256": "153641d2dd4da6ce6f634c20ef96256448bf876627d7227977e659ed9d17bd62",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-and-missing-denominators-r4",
+        "case_id": "corrected-and-missing-denominators",
+        "repetition": 4,
+        "purpose": "Track a corrected denominator while retaining a known numerator whose denominator remains unavailable in another region.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘北区和南区的按时处理率现在都确认是15%。’\n\n[S1，北区初稿] 记录为12/60按时处理。\n[S2，北区更正] 核对同一批工单后，确认分子12不变，分母应为80而不是60；S2替代S1中的分母，没有新增样本。\n[S3，南区原始记录] 只写明有9单按时处理，总工单数一栏缺失。\n[S4，南区备忘] 根据S3写成‘按时处理率15%’，没有提供分母或新增记录。\n\n逐区说明当前能确认的数值、来源关系和准确结论。",
+        "hard_criteria": [
+          "同时保留北区从12/60更正为12/80、当前为15%，以及南区已知有9单按时处理但分母缺失；不遗漏旧分母、修正后分母或南区已知分子",
+          "说明北区分子12不变、S2只更正同批记录的分母而不是新增样本；指出S4沿用南区同一不完整记录且没有补足分母或新增记录，因此不能确认南区15%",
+          "总体结论只确认北区更正后的12/80即15%，明确南区比例未知，不能把两区合并、平均或写成均已确认15%"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：三项通过；完整保留北区更正链和南区已知分子，说明同批、分子不变及S4证据不足，结论仅确认北区。其假设性说明9单若为15%需分母60同时明确材料未确认，没有把该分母当事实。B：三项也通过；完整保留所需数值、来源限制和结论，理论范围被明确标为理论范围。两者均未脑补确定分母，判为持平。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区：当前可确认按时处理率为 **12/80＝15%**。S2核对同一批工单，将S1的分母60更正为80，分子12不变且没有新增样本；因此S1据原分母得到的20%已被更正。\n\n- 南区：当前只能确认 **9单按时处理**，无法确认处理率。S3缺少总工单数；S4的15%仅转述自S3，没有补充分母或新增记录，不能作为独立证据。若9单对应15%，分母应为60，但材料并未确认这一分母。\n\n- 准确结论：**北区已确认是15%；南区是否为15%尚未确认，因此“北区和南区现在都确认是15%”不成立。**",
+            "output_sha256": "234d5f400cfa855e55e663750269aeff8979904197684a19b4e1fee1228b16b6",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：当前确认值为 **12/80 = 15%**。S2核对的是S1同一批工单，仅将分母从60更正为80，没有新增样本；因此S2替代S1的分母。\n\n- 南区：只能确认 **9单按时处理**，总工单数缺失，无法计算处理率。S4的15%仅由S3转述而来，未提供分母或新增证据，不能独立确认；若总数至少为9，处理率理论范围为 **大于0%至100%**。\n\n- 结论：论断 **不成立**。目前只有北区确认是15%，南区不能确认是15%。",
+            "output_sha256": "3c647516136cdcc2779c92960dcb83b2424f47f7a92ae04650dd5a9fe2629941",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "corrected-and-missing-denominators-r5",
+        "case_id": "corrected-and-missing-denominators",
+        "repetition": 5,
+        "purpose": "Track a corrected denominator while retaining a known numerator whose denominator remains unavailable in another region.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘北区和南区的按时处理率现在都确认是15%。’\n\n[S1，北区初稿] 记录为12/60按时处理。\n[S2，北区更正] 核对同一批工单后，确认分子12不变，分母应为80而不是60；S2替代S1中的分母，没有新增样本。\n[S3，南区原始记录] 只写明有9单按时处理，总工单数一栏缺失。\n[S4，南区备忘] 根据S3写成‘按时处理率15%’，没有提供分母或新增记录。\n\n逐区说明当前能确认的数值、来源关系和准确结论。",
+        "hard_criteria": [
+          "同时保留北区从12/60更正为12/80、当前为15%，以及南区已知有9单按时处理但分母缺失；不遗漏旧分母、修正后分母或南区已知分子",
+          "说明北区分子12不变、S2只更正同批记录的分母而不是新增样本；指出S4沿用南区同一不完整记录且没有补足分母或新增记录，因此不能确认南区15%",
+          "总体结论只确认北区更正后的12/80即15%，明确南区比例未知，不能把两区合并、平均或写成均已确认15%"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：标准1完整写出12/60=20%被12/80=15%替代及南区9单缺分母；标准2明确同批、只改分母、无新增样本和S4限制；标准3仅确认北区。B：同样完整保留更正前后数值、分子不变、南区缺分母及S4来源限制，并明确不能确认两区均为15%。两者实质等同。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 北区：当前可确认是 **12/80 = 15%**。S2核对的是S1同一批工单，只将分母由60更正为80，没有新增样本；因此S2替代S1的分母，S1的 **12/60 = 20%** 不再适用。\n\n- 南区：当前只能确认 **9单按时处理**，无法确认处理率。S3缺少总工单数；S4的“15%”仅根据S3写成，既未提供分母，也未增加记录，因此不能作为15%的独立证据。\n\n结论：**只能确认北区为15%，不能确认南区为15%；“北区和南区现在都确认是15%”这一论断不成立。**",
+            "output_sha256": "bb389acd3d6500ad262d8a3329ed4924844416c5f497755dcba80449c161a731",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 北区：当前确认 **12/80＝15%**。S2仅更正S1的分母（60改为80），分子仍为12，且没有新增样本；因此S1据原分母得到的20%已被替代。\n- 南区：当前只能确认 **9单按时处理**，总工单数缺失，无法计算或确认按时处理率。S4的15%完全转述自S3，未提供分母或独立新增证据。\n- 结论：论断仅对北区成立；**不能确认北区和南区的按时处理率都为15%**。",
+            "output_sha256": "c08c9b36879aa051b6c17a74d8e64ce5eff37f5bb631701ba8d9c348b02f0a55",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "equal-rate-different-denominators-r1",
+        "case_id": "equal-rate-different-denominators",
+        "repetition": 1,
+        "purpose": "Preserve both raw sample sizes when equal observed rates could hide a large difference in evidence scale.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两批调查的选择率都是25%，所以两批证据规模相同，可以看作等量重复。’\n\n[S1，试点调查] 一批受访者20人，其中5人选择方案A。\n[S2，推广调查] 另一批受访者500人，其中125人选择方案A；两批对象互不重叠，问法相同。\n[S3，仪表盘摘要] 把S1和S2的结果并列显示为25%和25%，没有新增样本。\n\n说明独立样本数、数值关系和论断边界，并给一句准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立样本，S3只汇总这两批结果而不是第三批独立证据",
+          "同时保留S1的5/20与S2的125/500，指出两者观察比例均为25%，但原始样本量明显不同，不把相同比例写成证据规模相同",
+          "改写可以承认两批在相同问法下观察到相同选择比例，但不能称为等量重复或擅自给出题面没有提供的置信区间、显著性与总体代表性"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A：标准1明确两批独立且S3无新增样本；标准2完整保留5/20、125/500、共同25%和25倍样本量差；标准3的改写只承认同问法下比例一致并否定等量重复。B：三项也通过，但额外合并为130/520并非判断所需；A更聚焦独立样本与证据规模边界。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立样本数：2批，分别为20人和500人；S3未新增样本。\n- 数值关系：5/20＝125/500＝25%，但S2的样本量和选择A的人数均为S1的25倍。\n- 论断边界：两批调查的选择率相同，可视为独立样本中结果一致，但不能据此认定证据规模相同或属于等量重复。\n- 准确改写：两批互不重叠、问法相同的调查均得到25%的选择率，但样本量分别为20人和500人，因此结果一致而证据规模并不相等。",
+            "output_sha256": "b157d8f94b5f248f33f8a9f6a8b709db0b27eab0c91b398a2f7a9dfdf1a7afdb",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本数：S1为20人，S2为500人，两批互不重叠，共520人；S3没有新增样本。\n- 数值关系：S1为5/20=25%，S2为125/500=25%；选择率相同，但S2样本量是S1的25倍。合并后为130/520=25%。\n- 论断边界：“两批选择率都是25%”成立；“证据规模相同、可看作等量重复”不成立。两批可视为问法相同的独立调查，但证据量不等。\n\n准确改写：两批互不重叠的调查均得到25%的选择率，但样本量分别为20人和500人，因此是结果一致但证据规模相差25倍的独立调查，不能视为等量重复。",
+            "output_sha256": "54052896ef906726ef1bea6de4d5dabb76c0c1f814811620328e69053081dd8a",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "equal-rate-different-denominators-r2",
+        "case_id": "equal-rate-different-denominators",
+        "repetition": 2,
+        "purpose": "Preserve both raw sample sizes when equal observed rates could hide a large difference in evidence scale.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两批调查的选择率都是25%，所以两批证据规模相同，可以看作等量重复。’\n\n[S1，试点调查] 一批受访者20人，其中5人选择方案A。\n[S2，推广调查] 另一批受访者500人，其中125人选择方案A；两批对象互不重叠，问法相同。\n[S3，仪表盘摘要] 把S1和S2的结果并列显示为25%和25%，没有新增样本。\n\n说明独立样本数、数值关系和论断边界，并给一句准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立样本，S3只汇总这两批结果而不是第三批独立证据",
+          "同时保留S1的5/20与S2的125/500，指出两者观察比例均为25%，但原始样本量明显不同，不把相同比例写成证据规模相同",
+          "改写可以承认两批在相同问法下观察到相同选择比例，但不能称为等量重复或擅自给出题面没有提供的置信区间、显著性与总体代表性"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A：标准1通过，明确两批互不重叠且S3不新增样本；标准2失败，虽写了20人与500人、两者均25%，但没有同时保留标准明确要求的5/20与125/500；标准3通过，改写未称等量重复，也未引入统计推断。B：标准1至3均通过，明确S3仅汇总，并完整写出5/20=25%、125/500=25%及样本量差，准确否定等量重复。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本：2批，S1为20人，S2为500人；对象互不重叠。S3没有新增样本。\n- 数值关系：两批选择率均为25%，但S2样本量是S1的25倍。合计520人，其中130人选择A，合并选择率仍为25%。\n- 论断边界：相同选择率只表示点估计相同，不能推出证据规模相同，也不能视为等量重复。\n\n准确改写：**“两批独立调查的选择率均为25%，但样本量分别为20人和500人，因此结果一致而证据规模不等，并非等量重复。”**",
+            "output_sha256": "878cbf5dae9646f83a6ffb1814174c1ce964df96c4e3fb12595c3ece8eefe173",
+            "criteria_pass": [
+              true,
+              false,
+              true
+            ],
+            "passed": 2,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立样本：2批，分别为20人和500人，共520人；S3仅汇总S1、S2，不增加样本。\n- 数值关系：S1为5/20=25%，S2为125/500=25%；选择率相同，但S2样本量是S1的25倍。\n- 论断边界：材料支持“两批观察到的选择率相同”，不支持“证据规模相同”或“等量重复”。\n\n准确改写：两批互不重叠、问法相同的调查均观察到25%的方案A选择率，但样本量分别为20人和500人，证据规模并不相同，不能视为等量重复。",
+            "output_sha256": "d9368545061991dfe1cfa18bd6a8148189dc3f7049219d5002f6d8f4b46db38f",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "equal-rate-different-denominators-r3",
+        "case_id": "equal-rate-different-denominators",
+        "repetition": 3,
+        "purpose": "Preserve both raw sample sizes when equal observed rates could hide a large difference in evidence scale.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两批调查的选择率都是25%，所以两批证据规模相同，可以看作等量重复。’\n\n[S1，试点调查] 一批受访者20人，其中5人选择方案A。\n[S2，推广调查] 另一批受访者500人，其中125人选择方案A；两批对象互不重叠，问法相同。\n[S3，仪表盘摘要] 把S1和S2的结果并列显示为25%和25%，没有新增样本。\n\n说明独立样本数、数值关系和论断边界，并给一句准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立样本，S3只汇总这两批结果而不是第三批独立证据",
+          "同时保留S1的5/20与S2的125/500，指出两者观察比例均为25%，但原始样本量明显不同，不把相同比例写成证据规模相同",
+          "改写可以承认两批在相同问法下观察到相同选择比例，但不能称为等量重复或擅自给出题面没有提供的置信区间、显著性与总体代表性"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A：三项通过，明确两批独立、S3无新增样本，保留5/20与125/500及25%和规模差，且明确不是等量重复；把两批称为独立的重复调查没有写成等量证据。B：三项同样通过，直接区分相同比例与不同证据规模，改写更简洁且没有额外合并计算，故轻微优于A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本：两批对象互不重叠，共2批、520人；S3没有新增样本。\n- 数值关系：S1为5/20=25%，S2为125/500=25%；S2样本量是S1的25倍。合并后为130/520=25%。\n- 论断边界：选择率相同不代表证据规模相同。两批可视为相互独立的重复调查，但不能视为等量重复或证据权重相同。\n\n准确改写：**两批独立调查的选择率均为25%，但样本量分别为20人和500人，因此方向一致，却不是等量重复。**",
+            "output_sha256": "5124a1c2e76aac41c5342ef436a7cd99e1425aaeb810e4d4247f0cab583a82c3",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "独立样本数：S1为20人，S2为500人，两批对象互不重叠；S3只是摘要，没有新增样本。\n\n数值关系：S1为5/20＝25%，S2为125/500＝25%；选择率相同，但S2样本量是S1的25倍。\n\n论断边界：材料支持“两批调查的观察选择率相同”，不支持“证据规模相同”或“等量重复”。\n\n准确改写：两批独立调查的方案A选择率均为25%，但样本量分别为20人和500人，证据规模并不相同，不能视为等量重复。",
+            "output_sha256": "a1b83a43ca99d62ba5c234d01fddf201107711030fdba4747eaca2c577b0f381",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "equal-rate-different-denominators-r4",
+        "case_id": "equal-rate-different-denominators",
+        "repetition": 4,
+        "purpose": "Preserve both raw sample sizes when equal observed rates could hide a large difference in evidence scale.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两批调查的选择率都是25%，所以两批证据规模相同，可以看作等量重复。’\n\n[S1，试点调查] 一批受访者20人，其中5人选择方案A。\n[S2，推广调查] 另一批受访者500人，其中125人选择方案A；两批对象互不重叠，问法相同。\n[S3，仪表盘摘要] 把S1和S2的结果并列显示为25%和25%，没有新增样本。\n\n说明独立样本数、数值关系和论断边界，并给一句准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立样本，S3只汇总这两批结果而不是第三批独立证据",
+          "同时保留S1的5/20与S2的125/500，指出两者观察比例均为25%，但原始样本量明显不同，不把相同比例写成证据规模相同",
+          "改写可以承认两批在相同问法下观察到相同选择比例，但不能称为等量重复或擅自给出题面没有提供的置信区间、显著性与总体代表性"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：三项通过，明确两批、S3无新增样本，保留5/20、125/500、共同25%和25倍规模差，并准确否定等量重复。B：三项也通过，内容同样完整；附加130/520=25%是由可见数值直接计算且未替代两批原始分母。两者结论边界一致，判为持平。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立样本：2批，分别为20人和500人，共520人；S3没有新增样本。\n- 数值关系：5/20＝125/500＝25%，但S2样本量是S1的25倍。\n- 论断边界：材料支持“两批选择率相同”，不支持“证据规模相同”或“等量重复”。\n\n准确改写：两批互不重叠、问法相同的调查均观察到25%的方案A选择率，但样本量分别为20人和500人，证据规模并不相同，不能视为等量重复。",
+            "output_sha256": "ef2cd5eb81053594a281abc120061ab3ca3c3873a7b71c58ad36d40089225c0d",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本数：2批，彼此不重叠；S3没有新增样本。\n- 数值关系：S1为5/20=25%，S2为125/500=25%；S2样本量是S1的25倍。合计为130/520=25%。\n- 论断边界：两批选择率相同，但证据规模不相同，不能视为“等量重复”；只能说是两批独立调查得到相同选择率。\n\n准确改写：两批互不重叠的调查均得到25%的选择率，但样本量分别为20人和500人，因此是结果一致而非等量的独立重复。",
+            "output_sha256": "842f99158dd63a7d86cec2eb0dc898e3bc23b5a71593b2914c4c1783bcfa1252",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "equal-rate-different-denominators-r5",
+        "case_id": "equal-rate-different-denominators",
+        "repetition": 5,
+        "purpose": "Preserve both raw sample sizes when equal observed rates could hide a large difference in evidence scale.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n审查论断：‘两批调查的选择率都是25%，所以两批证据规模相同，可以看作等量重复。’\n\n[S1，试点调查] 一批受访者20人，其中5人选择方案A。\n[S2，推广调查] 另一批受访者500人，其中125人选择方案A；两批对象互不重叠，问法相同。\n[S3，仪表盘摘要] 把S1和S2的结果并列显示为25%和25%，没有新增样本。\n\n说明独立样本数、数值关系和论断边界，并给一句准确改写。",
+        "hard_criteria": [
+          "明确S1与S2是两批独立样本，S3只汇总这两批结果而不是第三批独立证据",
+          "同时保留S1的5/20与S2的125/500，指出两者观察比例均为25%，但原始样本量明显不同，不把相同比例写成证据规模相同",
+          "改写可以承认两批在相同问法下观察到相同选择比例，但不能称为等量重复或擅自给出题面没有提供的置信区间、显著性与总体代表性"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A：三项通过，说明两批不重叠、S3不新增，完整保留两组分数、共同25%及规模差，并否定等量证据；合并计算没有改变判断。B：三项通过，完整覆盖相同信息且不加入不必要的合并值，准确改写为比例相同但证据规模不同，因此轻微优于A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- 独立样本数：S1为20人，S2为500人，对象互不重叠；合计520个独立样本。S3没有新增样本。\n- 数值关系：S1为5/20＝25%，S2为125/500＝25%；S2的样本量和选择人数均为S1的25倍。合并后为130/520＝25%。\n- 论断边界：两批调查的选择率相同，只说明点估计一致；不能据此认定证据规模相同或属于等量重复。\n\n准确改写：两批独立调查均得到25%的选择率，但第二批样本量是第一批的25倍，因此两者结果一致，却不是等量证据。",
+            "output_sha256": "6026d596aceb6fcde3eabedbaed43e8a662f746d565968be830ec9a2e8660a8f",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "- 独立样本数：S1为20人，S2为500人，合计520人且互不重叠；S3只是摘要，不增加独立样本。\n- 数值关系：两批选择率均为25%（5/20与125/500），但S2样本量是S1的25倍。\n- 论断边界：材料支持“两批观察到的选择率相同”，不支持“证据规模相同”或“等量重复”。\n- 准确改写：两批独立调查的方案A选择率均为25%，但样本量分别为20人与500人，因此结果比例相同、证据规模并不相同。",
+            "output_sha256": "865f7d006d966471aab74c6b780960492b1795ceed0d518ac47a40b6f79c930a",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "strict-table-two-batches-r1",
+        "case_id": "strict-table-two-batches",
+        "repetition": 1,
+        "purpose": "Preserve two different before-after magnitudes in a compact table while excluding unrelated metrics.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n用且只用一个Markdown表格回答，表头固定为‘批次｜错误率变化｜判断’，只给甲、乙两行数据；除Markdown分隔行外不要添加其他行、标题、脚注或表外文字。审查论断是‘流程调整让两个批次的错误率都减半了。’\n\n[S1，甲批] 调整前60件中6件错误，调整后60件中3件错误；同期还更换了质检员。平均响应时长从8分钟变为7分钟。\n[S2，乙批] 调整前200件中20件错误，调整后200件中15件错误；没有对照组。满意度从72分变为74分。\n\n表格中保留判断所需的前后数值和因果限制，不复述与错误率论断无关的指标。",
+        "hard_criteria": [
+          "输出只有一个Markdown表格，使用指定三列表头并且只有甲、乙两行数据，除必要分隔行外无标题、脚注或表外文字，也不复述响应时长或满意度",
+          "两行同时完整保留甲批6/60到3/60或等价的10%到5%、乙批20/200到15/200或等价的10%到7.5%，指出甲批确实减半而乙批只下降2.5个百分点或相对下降25%、没有减半",
+          "甲行指出同期更换质检员使变化不能单独归因于流程调整，乙行保留无对照的因果限制；总体不写成流程调整已被证明导致两批变化"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：标准1只有指定三列表格和甲乙两行，无无关指标；标准2完整给出甲10%到5%减半、乙10%到7.5%相对下降25%且未减半；标准3分别保留更换质检员与无对照限制。B：三项同样通过，内容与A实质一致，判为持平。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 描述性变化支持减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能归因于流程调整 |",
+            "output_sha256": "c2bab398568294ba09a16a931c0cae530836f536134e50e8249453d6acaeba5d",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 数值上减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能归因于流程调整 |",
+            "output_sha256": "b5812063dbbee1f12fa77a447a672380df5842eefb15eb2526cb5da6a766dccf",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "strict-table-two-batches-r2",
+        "case_id": "strict-table-two-batches",
+        "repetition": 2,
+        "purpose": "Preserve two different before-after magnitudes in a compact table while excluding unrelated metrics.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n用且只用一个Markdown表格回答，表头固定为‘批次｜错误率变化｜判断’，只给甲、乙两行数据；除Markdown分隔行外不要添加其他行、标题、脚注或表外文字。审查论断是‘流程调整让两个批次的错误率都减半了。’\n\n[S1，甲批] 调整前60件中6件错误，调整后60件中3件错误；同期还更换了质检员。平均响应时长从8分钟变为7分钟。\n[S2，乙批] 调整前200件中20件错误，调整后200件中15件错误；没有对照组。满意度从72分变为74分。\n\n表格中保留判断所需的前后数值和因果限制，不复述与错误率论断无关的指标。",
+        "hard_criteria": [
+          "输出只有一个Markdown表格，使用指定三列表头并且只有甲、乙两行数据，除必要分隔行外无标题、脚注或表外文字，也不复述响应时长或满意度",
+          "两行同时完整保留甲批6/60到3/60或等价的10%到5%、乙批20/200到15/200或等价的10%到7.5%，指出甲批确实减半而乙批只下降2.5个百分点或相对下降25%、没有减半",
+          "甲行指出同期更换质检员使变化不能单独归因于流程调整，乙行保留无对照的因果限制；总体不写成流程调整已被证明导致两批变化"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：严格保持一个指定表格、两行数据，无表外文字或无关指标；完整保留两批分数与等价百分比，正确区分甲下降50%即减半和乙相对下降25%未减半，并写明两项因果限制。B：三项均以等价表达完整满足，和A没有实质差异。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），下降50% | 数值上减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能确认流程调整的因果作用 |",
+            "output_sha256": "8f66ec49668582c6b9334ccbc75957a0a44c4fbb161f07f183c7796ead334ecd",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 描述性减半；同期更换质检员，不能单独归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能确认流程调整的因果效果 |",
+            "output_sha256": "8e587ebef10a00670f1273153fb6263ff6aa0a824b439d99815f1d784ecf7707",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "strict-table-two-batches-r3",
+        "case_id": "strict-table-two-batches",
+        "repetition": 3,
+        "purpose": "Preserve two different before-after magnitudes in a compact table while excluding unrelated metrics.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n用且只用一个Markdown表格回答，表头固定为‘批次｜错误率变化｜判断’，只给甲、乙两行数据；除Markdown分隔行外不要添加其他行、标题、脚注或表外文字。审查论断是‘流程调整让两个批次的错误率都减半了。’\n\n[S1，甲批] 调整前60件中6件错误，调整后60件中3件错误；同期还更换了质检员。平均响应时长从8分钟变为7分钟。\n[S2，乙批] 调整前200件中20件错误，调整后200件中15件错误；没有对照组。满意度从72分变为74分。\n\n表格中保留判断所需的前后数值和因果限制，不复述与错误率论断无关的指标。",
+        "hard_criteria": [
+          "输出只有一个Markdown表格，使用指定三列表头并且只有甲、乙两行数据，除必要分隔行外无标题、脚注或表外文字，也不复述响应时长或满意度",
+          "两行同时完整保留甲批6/60到3/60或等价的10%到5%、乙批20/200到15/200或等价的10%到7.5%，指出甲批确实减半而乙批只下降2.5个百分点或相对下降25%、没有减半",
+          "甲行指出同期更换质检员使变化不能单独归因于流程调整，乙行保留无对照的因果限制；总体不写成流程调整已被证明导致两批变化"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "A：三项通过；表格形状完全符合要求，两批前后数值和变化幅度完整，甲批质检员混杂与乙批无对照限制均明确。B：三项也通过；乙行的“不支持”结合“未减半”和“无对照组”仍可准确理解，但A的判断措辞更直接完整，故轻微优于B。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 描述性减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能归因于流程调整 |",
+            "output_sha256": "8b47632394bfe82f77411b9d02fb384926c3fe6a4759ee7cdbbb9cb0572c2ae9",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 数值上减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25%，未减半 | 不支持；且无对照组，不能归因于流程调整 |",
+            "output_sha256": "32bc3871816810f448e6e9ec3f49ce83a8edd7ddb1fa3234354a6ba79d8c4641",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "strict-table-two-batches-r4",
+        "case_id": "strict-table-two-batches",
+        "repetition": 4,
+        "purpose": "Preserve two different before-after magnitudes in a compact table while excluding unrelated metrics.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n用且只用一个Markdown表格回答，表头固定为‘批次｜错误率变化｜判断’，只给甲、乙两行数据；除Markdown分隔行外不要添加其他行、标题、脚注或表外文字。审查论断是‘流程调整让两个批次的错误率都减半了。’\n\n[S1，甲批] 调整前60件中6件错误，调整后60件中3件错误；同期还更换了质检员。平均响应时长从8分钟变为7分钟。\n[S2，乙批] 调整前200件中20件错误，调整后200件中15件错误；没有对照组。满意度从72分变为74分。\n\n表格中保留判断所需的前后数值和因果限制，不复述与错误率论断无关的指标。",
+        "hard_criteria": [
+          "输出只有一个Markdown表格，使用指定三列表头并且只有甲、乙两行数据，除必要分隔行外无标题、脚注或表外文字，也不复述响应时长或满意度",
+          "两行同时完整保留甲批6/60到3/60或等价的10%到5%、乙批20/200到15/200或等价的10%到7.5%，指出甲批确实减半而乙批只下降2.5个百分点或相对下降25%、没有减半",
+          "甲行指出同期更换质检员使变化不能单独归因于流程调整，乙行保留无对照的因果限制；总体不写成流程调整已被证明导致两批变化"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：三项通过，只有规定表格和两行，完整保留6/60到3/60、20/200到15/200及相应判断，并逐行说明混杂和无对照。B：三项同样通过；Markdown单元格空格差异不改变指定表头、行数或结构，内容与A等价。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 数值上减半；同期更换质检员，不能确认由流程调整导致 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能确认下降由流程调整导致 |",
+            "output_sha256": "9d98c2ca47a86c15677abfc99e8eea8de979a379a7b636c8b1c18329e750af38",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "|批次|错误率变化|判断|\n|---|---|---|\n|甲|6/60（10%）→3/60（5%），减半|数值上减半；同期更换质检员，不能归因于流程调整|\n|乙|20/200（10%）→15/200（7.5%），下降25%|未减半；且无对照组，不能归因于流程调整|",
+            "output_sha256": "1bfdaf08a7009e419e2c4ad255fb0a5e57fcd8203acad043a4d14b3b83d88fb4",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      },
+      {
+        "review_id": "strict-table-two-batches-r5",
+        "case_id": "strict-table-two-batches",
+        "repetition": 5,
+        "purpose": "Preserve two different before-after magnitudes in a compact table while excluding unrelated metrics.",
+        "task": "请完成下方合成论断与证据审查任务。只使用题目中实际给出的材料，不调用工具，不补充外部事实。保留会影响结论的定量范围，并严格遵守用户要求的输出形状。\n\n用且只用一个Markdown表格回答，表头固定为‘批次｜错误率变化｜判断’，只给甲、乙两行数据；除Markdown分隔行外不要添加其他行、标题、脚注或表外文字。审查论断是‘流程调整让两个批次的错误率都减半了。’\n\n[S1，甲批] 调整前60件中6件错误，调整后60件中3件错误；同期还更换了质检员。平均响应时长从8分钟变为7分钟。\n[S2，乙批] 调整前200件中20件错误，调整后200件中15件错误；没有对照组。满意度从72分变为74分。\n\n表格中保留判断所需的前后数值和因果限制，不复述与错误率论断无关的指标。",
+        "hard_criteria": [
+          "输出只有一个Markdown表格，使用指定三列表头并且只有甲、乙两行数据，除必要分隔行外无标题、脚注或表外文字，也不复述响应时长或满意度",
+          "两行同时完整保留甲批6/60到3/60或等价的10%到5%、乙批20/200到15/200或等价的10%到7.5%，指出甲批确实减半而乙批只下降2.5个百分点或相对下降25%、没有减半",
+          "甲行指出同期更换质检员使变化不能单独归因于流程调整，乙行保留无对照的因果限制；总体不写成流程调整已被证明导致两批变化"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A：三项通过，严格采用唯一三列表格，完整呈现两批前后值、甲减半与乙相对下降25%但未减半，并保留两项因果限制。B：三项也通过；虽然把质检员和无对照信息放入错误率变化列，但仍在指定三列和对应甲乙行内完整表达，没有增加行或表外文字，实质与A持平。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "claim-evidence-review",
+            "skill_package_sha256": "bfda03a341b9d1b62f2004b7854fca0d4e7712a730a95274e3f9a4b43f7d8e29",
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半 | 描述性减半；同期更换质检员，不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25% | 未减半；且无对照组，不能归因于流程调整 |",
+            "output_sha256": "8b47632394bfe82f77411b9d02fb384926c3fe6a4759ee7cdbbb9cb0572c2ae9",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "| 批次 | 错误率变化 | 判断 |\n|---|---|---|\n| 甲 | 6/60（10%）→3/60（5%），减半；同期更换质检员 | 数值上减半，但不能归因于流程调整 |\n| 乙 | 20/200（10%）→15/200（7.5%），下降25%；无对照组 | 未减半，且不能确认因果关系 |",
+            "output_sha256": "4c9acccf64d4321692d383350af1fff56d9f1dc3f8951d7126a4c6ca9d8874c5",
+            "criteria_pass": [
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 3
+          }
+        ]
+      }
+    ],
+    "review_process": {
+      "pre_review_summary_status": "awaiting-human-review",
+      "formal_quality_source": "review-result-blind-review-completed-independent.json",
+      "note": "summary.json is the pre-review runtime snapshot. Formal quality scores come from the completed anonymous review and reveal mapping. Blindness relies on workflow constraints and the reviewer declaration, not independently enforceable access controls in the final artifact."
+    },
+    "evidence_projection": {
+      "schema": "round20-evidence-projection-v1",
+      "canonicalization": "UTF-8 JSON with ensure_ascii=false, sorted keys, and separators comma/colon",
+      "sha256": "412449a205c54e2c0308e8f4a59e5f035d309e96daddad0af9c8191a94622c97"
+    }
+  },
+  "analysis": {
+    "overall": {
+      "baseline": {
+        "outputs": 15,
+        "perfect_outputs": 14,
+        "criteria_passed": 44,
+        "criteria_total": 45,
+        "preferred_count": 1,
+        "criterion_pass_rate": 0.9778
+      },
+      "version_0_1_0": {
+        "outputs": 15,
+        "perfect_outputs": 15,
+        "criteria_passed": 45,
+        "criteria_total": 45,
+        "preferred_count": 7,
+        "criterion_pass_rate": 1.0
+      },
+      "ties": 7
+    },
+    "by_case": {
+      "corrected-and-missing-denominators": {
+        "baseline": {
+          "criteria_passed": 15,
+          "criteria_total": 15,
+          "perfect_outputs": 5,
+          "outputs": 5,
+          "preferred_count": 1,
+          "core_omissions": 0
+        },
+        "version_0_1_0": {
+          "criteria_passed": 15,
+          "criteria_total": 15,
+          "perfect_outputs": 5,
+          "outputs": 5,
+          "preferred_count": 2,
+          "core_omissions": 0
+        }
+      },
+      "equal-rate-different-denominators": {
+        "baseline": {
+          "criteria_passed": 14,
+          "criteria_total": 15,
+          "perfect_outputs": 4,
+          "outputs": 5,
+          "preferred_count": 0,
+          "core_omissions": 1
+        },
+        "version_0_1_0": {
+          "criteria_passed": 15,
+          "criteria_total": 15,
+          "perfect_outputs": 5,
+          "outputs": 5,
+          "preferred_count": 4,
+          "core_omissions": 0
+        }
+      },
+      "strict-table-two-batches": {
+        "baseline": {
+          "criteria_passed": 15,
+          "criteria_total": 15,
+          "perfect_outputs": 5,
+          "outputs": 5,
+          "preferred_count": 0,
+          "core_omissions": 0
+        },
+        "version_0_1_0": {
+          "criteria_passed": 15,
+          "criteria_total": 15,
+          "perfect_outputs": 5,
+          "outputs": 5,
+          "preferred_count": 1,
+          "core_omissions": 0
+        }
+      }
+    },
+    "cost_and_efficiency": {
+      "baseline_total_tokens": 147025,
+      "version_0_1_0_total_tokens": 160611,
+      "total_token_delta": 13586,
+      "total_token_delta_percent": 9.2,
+      "completion_token_delta_percent": 29.8,
+      "cost_delta_percent": -0.7,
+      "latency_delta_percent": 2.1
+    },
+    "candidate_gate": {
+      "definition": "Open candidate design only when version 0.1.0 has at least 2 of 5 core omissions in at least two new cases and baseline has at most 1 of 5 in each corresponding case.",
+      "core_criterion_number": {
+        "equal-rate-different-denominators": 2,
+        "corrected-and-missing-denominators": 1,
+        "strict-table-two-batches": 2
+      },
+      "per_case": {
+        "corrected-and-missing-denominators": {
+          "baseline_core_omissions": 0,
+          "version_0_1_0_core_omissions": 0
+        },
+        "equal-rate-different-denominators": {
+          "baseline_core_omissions": 1,
+          "version_0_1_0_core_omissions": 0
+        },
+        "strict-table-two-batches": {
+          "baseline_core_omissions": 0,
+          "version_0_1_0_core_omissions": 0
+        }
+      },
+      "qualifying_cases": [],
+      "required_qualifying_cases": 2,
+      "triggered": false,
+      "prior_exploratory_signal_included": false
+    },
+    "confirmation_result": {
+      "prior_exploratory_signal": "Rounds 18 and 19 observed 4 core quantitative omissions for version 0.1.0 versus 2 for baseline across five related topologies and 15 outputs per arm.",
+      "new_confirmatory_observation": "Across three new topologies and 15 outputs per arm, version 0.1.0 had zero core omissions; baseline had one.",
+      "interpretation": "The preregistered confirmation did not reproduce a stable relative quantitative-fidelity regression. This does not prove universal superiority."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "candidate_design_opened": false,
+    "status_changed": false,
+    "evidence_changed": false,
+    "active_cases_added": 3,
+    "reason": "No new case qualified for the preregistered candidate gate. Keep claim-evidence-review 0.1.0 experimental and add all three cases to active regression."
+  },
+  "limitations": [
+    "All tasks and data are synthetic.",
+    "Only gpt-5.6-sol at medium reasoning was tested.",
+    "The skill arm used explicit project invocation; implicit routing was not retested.",
+    "The reviewer was a model-assisted task, not an independent human domain reviewer.",
+    "Fifteen outputs per arm cannot establish a general skill ranking.",
+    "Promptfoo did not emit skillCalls telemetry for the explicit project invocation."
+  ]
+}

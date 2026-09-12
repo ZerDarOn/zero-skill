@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十三轮 Obsidian 窄编辑制品保真诊断**。已有十六个可试用的 `experimental` 技能，活动用例共138项。六个新题、三臂各18份输出的 Markdown 制品全部精确；无 Skill 与 `obsidian-note-edit` 0.1.0 均为72/72、18/18完整，上游为71/72、17/18完整，18项均无唯一偏好，其中17项三方并列、1项baseline与ours并列最佳。当前包没有观察到准确率增益，且未触发候选门槛，故保持0.1.0。
+当前阶段：**第二十四轮沟通演练原生多轮会话诊断**。已有十六个可试用的 `experimental` 技能，活动用例共144项。六个新题、两臂各18条原生 resume 轨迹全部通过技术校验。原始盲评为无 Skill 72/72、`conversation-rehearsal` 0.1.1 69/72；独立裁决确认其中3项使用了未冻结的“必须另写拒绝句”要求，公开校准分为两臂均72/72、18/18完整。baseline 的3次偏好保留为边界表达清晰度观察；校准门禁仍未触发，当前包保持0.1.1。
 
 ## 从这里开始
+
+- [第二十四轮质量打磨：沟通演练原生多轮会话](docs/quality-polish-round-24.md)
+- [沟通演练第二十四轮机器诊断](evaluations/reports/conversation-native-resume-round-24-diagnostic.json)
 
 - [第二十三轮质量打磨：Obsidian 窄编辑制品保真](docs/quality-polish-round-23.md)
 - [Obsidian 制品第二十三轮机器诊断](evaluations/reports/obsidian-artifact-preservation-round-23-diagnostic.json)

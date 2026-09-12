@@ -1,0 +1,80 @@
+[
+  {
+    "id": "resize-one-visible-embed-only",
+    "mechanism": "protected-bytes",
+    "purpose": "Resize one visible image embed while preserving its target and every protected frontmatter, comment, fenced example, and block identifier.",
+    "prompt": "只把正文“当前展示”这一处可见图片 embed 的宽度从 320 改为 480；保留文件目标 `架构图.png`。frontmatter、Obsidian 注释、代码块、普通正文、空行和块 ID 都必须逐字保留。\n\n原笔记开始\n---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|320]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n原笔记结束",
+    "expected_note": "---\ntitle: 架构图说明\ncover: \"[[封面.png]]\"\n---\n\n# 架构图说明\n\n当前展示：![[架构图.png|480]]\n\n宽图用于评审。 %% ![[架构图.png|320]] 保留在注释 %%\n\n```text\n![[架构图.png|320]]\n```\n\n图注保持原样。 ^diagram-note\n",
+    "hard_criteria": [
+      "JSON的note字段仅把正文可见embed改为![[架构图.png|480]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+      "保持Obsidian图片embed语法和目标架构图.png，不改成wikilink、Markdown图片或其他尺寸形式",
+      "frontmatter、cover值、普通文本、Obsidian注释、text代码块、空行和^diagram-note均保持原字节内容",
+      "返回可解析的固定两字段JSON；message不声称扫描、保存、打开、确认附件存在或验证Obsidian渲染"
+    ]
+  },
+  {
+    "id": "change-one-frontmatter-scalar",
+    "mechanism": "protected-bytes",
+    "purpose": "Change one YAML scalar without reformatting other property types, body text, or code examples.",
+    "prompt": "只把 frontmatter 的顶层 `score` 从数字 3 改成数字 4。其他属性的顺序、引号、列表形式和值，以及正文、代码块和空行都必须逐字保留。\n\n原笔记开始\n---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 3\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n原笔记结束",
+    "expected_note": "---\ntitle: 质量记录\ntags:\n  - work\n  - review\nscore: 4\nrelated: \"[[项目北斗]]\"\ncode: \"008\"\n---\n\n# 质量记录\n\n当前评分待复核。\n\n```yaml\nscore: 3\n```\n",
+    "hard_criteria": [
+      "JSON的note字段只把frontmatter顶层score: 3改为score: 4，除整份note末尾换行差异外与冻结expected_note逐字一致",
+      "score仍为YAML数字标量，不加引号、不改名，也不误改代码块里的score: 3",
+      "tags列表、related的带引号wikilink、code字符串008、属性顺序、正文和空行逐字保留",
+      "返回可解析的固定两字段JSON；message只报告这一项文本编辑，不声称保存或验证渲染"
+    ]
+  },
+  {
+    "id": "plain-markdown-date-local-edit",
+    "mechanism": "format-scope",
+    "purpose": "Honor a plain-Markdown local edit without injecting Obsidian syntax or changing protected URL and fenced examples.",
+    "prompt": "这是普通 Markdown，不是 Obsidian 笔记。只把正文会议决定中的“下周一”改为“下周二”；URL 查询参数和代码块里的“下周一”保持不变。不要添加 frontmatter、wikilink、callout、标签或其他结构。\n\n原文开始\n# 发布说明\n\n会议决定：下周一复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n原文结束",
+    "expected_note": "# 发布说明\n\n会议决定：下周二复查导入结果。\n\n参考：https://example.test/a?next=下周一\n\n```text\n下周一复查导入结果\n```\n",
+    "hard_criteria": [
+      "JSON的note字段只修改正文会议决定的日期，除整份note末尾换行差异外与冻结expected_note逐字一致",
+      "正文目标句变为下周二复查导入结果且不改变决定语义",
+      "URL参数、text代码块、标题与空行逐字保留，并且不新增任何Obsidian专用语法或frontmatter",
+      "返回可解析的固定两字段JSON；message不声称修改实际文件或验证任何应用渲染"
+    ]
+  },
+  {
+    "id": "convert-one-line-to-warning-callout",
+    "mechanism": "format-scope",
+    "purpose": "Introduce exactly one requested Obsidian callout without templating or restructuring the rest of the note.",
+    "prompt": "只把“> 注意：周五前确认字段。”这一行改成两行 Obsidian warning callout，标题固定为“截止提醒”，正文固定为“周五前确认字段。”。不要添加 frontmatter、标签或其他 callout；其余内容与空行逐字保留。\n\n原笔记开始\n# 项目状态\n\n背景段落保持原样。\n\n> 注意：周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n原笔记结束",
+    "expected_note": "# 项目状态\n\n背景段落保持原样。\n\n> [!warning] 截止提醒\n> 周五前确认字段。\n\n## 记录\n\n- 字段表已整理\n- 运营尚未确认\n",
+    "hard_criteria": [
+      "JSON的note字段只把指定行改成冻结要求的两行warning callout，除整份note末尾换行差异外与expected_note逐字一致",
+      "callout使用> [!warning] 截止提醒及下一行> 周五前确认字段。的有效结构",
+      "背景、记录列表、未确认状态、标题与空行逐字保留，不新增frontmatter、标签、额外callout或完成状态",
+      "返回可解析的固定两字段JSON；message只报告文本转换，不声称已在Obsidian中验证"
+    ]
+  },
+  {
+    "id": "leave-unverified-target-unlinked",
+    "mechanism": "target-state",
+    "purpose": "Leave an unverified target as plain text and explain the bounded no-op instead of inventing a valid vault link.",
+    "prompt": "已确认 vault 清单只有 `项目北斗` 和 `会议索引`。有人建议把正文“临时方案”改成 wikilink，但该目标是否存在尚未验证；本任务规定只有清单中已确认的目标才能落链接。若不能确认，就保持笔记逐字不变，并在 message 里简短说明未应用链接及原因。\n\n原笔记开始\n# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n原笔记结束",
+    "expected_note": "# 方案记录\n\n候选方案：临时方案\n\n已确认参考：[[项目北斗]]\n",
+    "hard_criteria": [
+      "JSON的note字段保持原笔记不变，除整份note末尾换行差异外与冻结expected_note逐字一致，不创建[[临时方案]]或任何替代链接",
+      "保留已经确认的[[项目北斗]]链接且不重写标题、段落或格式",
+      "message明确说明临时方案不在已确认清单或存在性未验证，所以未应用链接；不能反过来宣称目标不存在",
+      "返回可解析的固定两字段JSON，不声称扫描vault、保存文件或验证Obsidian渲染"
+    ]
+  },
+  {
+    "id": "retarget-existing-not-planned-note",
+    "mechanism": "target-state",
+    "purpose": "Apply a confirmed rename while keeping a merely planned note as plain text and preserving fenced examples.",
+    "prompt": "已确认 vault 中 `旧路线图` 已改名为 `路线图`；`季度复盘` 只是计划以后新建，目前没有该笔记。只修复正文中现有入口的 wikilink 目标并保留显示文字；计划项继续保持纯文本。frontmatter、代码块与其他内容逐字保留。\n\n原笔记开始\n---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[旧路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n原笔记结束",
+    "expected_note": "---\ntitle: 导航更新\n---\n\n# 导航更新\n\n现有入口：[[路线图|路线图]]\n\n后续可能建立季度复盘，当前只是计划。\n\n```text\n[[旧路线图|路线图]]\n季度复盘\n```\n",
+    "hard_criteria": [
+      "JSON的note字段只把正文现有入口改为[[路线图|路线图]]，除整份note末尾换行差异外与冻结expected_note逐字一致",
+      "季度复盘仍是纯文本计划，不创建wikilink、嵌入或声称它已存在",
+      "保留显示文字路线图、frontmatter、text代码块中的旧链接与季度复盘字符串、空行和其他正文",
+      "返回可解析的固定两字段JSON；message区分已确认重命名与计划目标，不声称扫描、保存或验证渲染"
+    ]
+  }
+]

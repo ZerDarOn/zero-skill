@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十轮论断证据定量保真确认性复测**。已有十六个可试用的 `experimental` 技能，活动用例共119项。`claim-evidence-review` 保持0.1.0；三个新题、每臂15份输出中，无 Skill 为44/45、14/15完整，当前包为45/45、15/15完整，偏好为1比7，另有7次持平。当前包三个题型均为0/5核心遗漏，未触发候选门槛；第十八、十九轮的探索性风险没有在确认轮复现。
+当前阶段：**第二十一轮人物证据自然语境前向诊断**。已有十六个可试用的 `experimental` 技能，活动用例共125项。`person-evidence-analysis` 保持0.1.2；六个新题、每臂18份输出中，无 Skill 为67/72、13/18完整，当前包为70/72、16/18完整，偏好为3比5，另有10次持平。当前包六题核心错误均为0/3，未触发候选门槛；两次地点结果细节遗漏进入活动回归。
 
 ## 从这里开始
+
+- [第二十一轮质量打磨：人物证据自然语境前向诊断](docs/quality-polish-round-21.md)
+- [人物证据第二十一轮机器诊断](evaluations/reports/person-evidence-natural-context-round-21-diagnostic.json)
 
 - [第二十轮质量打磨：定量保真确认性复测](docs/quality-polish-round-20.md)
 - [定量保真第二十轮机器诊断](evaluations/reports/claim-quantitative-confirmatory-round-20-diagnostic.json)

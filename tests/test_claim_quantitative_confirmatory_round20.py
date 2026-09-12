@@ -315,7 +315,9 @@ class ClaimQuantitativeConfirmatoryRound20Tests(unittest.TestCase):
                 active_total += len(suite["cases"])
             if suite.get("skill_id") == "claim-evidence-review":
                 claim_suite = suite
-        self.assertEqual(active_total, 119)
+        self.assertGreaterEqual(
+            active_total, report["scope"]["collection_active_case_count"]
+        )
         self.assertEqual(len(claim_suite["cases"]), 17)
         active_by_comparison = {
             item["input"]["comparison_case_id"]: item

@@ -1,0 +1,1293 @@
+{
+  "schema_version": 1,
+  "report_id": "person-evidence-natural-context-round-21-diagnostic",
+  "generated_at": "2026-09-12T17:50:42.013255+00:00",
+  "scope": {
+    "skill_id": "person-evidence-analysis",
+    "version": "0.1.2",
+    "catalog_status": "experimental",
+    "active_case_count": 16,
+    "collection_active_case_count": 125,
+    "formal_outputs": 36,
+    "blind_review_items": 18,
+    "criterion_booleans": 144
+  },
+  "experiment": {
+    "comparison_id": "person-evidence-natural-context-forward-14",
+    "run_id": "person-evidence-natural-context-forward-14-promptfoo-20260912T171540Z-735bf6",
+    "freeze_commit": "359ef9533d8a7bc316e38659f53b18db10df5e9c",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "source_hashes": {
+      "promptfoo.json": "66ae3f8150e95be66349ab81e92423b8024112578350594b8b9445d6820dd326",
+      "cases.json": "aeb630efe886455460d4e48ea0679374985de6681104c043e294308fe83c03aa"
+    },
+    "prepared_hashes": {
+      "config": "411832f0e579382bd695be9446e64589be56311bee459af452b2572f25421bb5",
+      "tests": "59e12afdf36c860ee3ca7dd79bb005f73946bba1649fc2737a26003916ed4d7e"
+    },
+    "artifact_hashes": {
+      "frozen.json": "99d1d449f5d8a3bc68059781f7f8de8cc5e6c5099af476168ad590a6877f549b",
+      "results.json": "3c123b3e7e8ed46376e859372a9e1c73967356f1e978edeeae6f6c10aee6b36c",
+      "summary.json": "b9ee591c846335e8be3ef5a71e32dbde94c2cd06335c68194587a74d96bb56fd",
+      "blind-review.json": "0b28a724c12212cd69d443cec9ede64409409412eb5a35451e023869c0121872",
+      "blind-review-key.json": "ff670bfb9aaa2e8ce8f992aaba3b1b94d7b97dd70fe8558de7614bdfdbe53ed8",
+      "blind-review-form.json": "29ea2fbc253086e348c98013f3bf02babdea2016033ad7975793c344493be6e3",
+      "blind-review-completed-independent.json": "7dcc6fd4c069367170da20c1663f445c0b8c0aa3a0ff1ca4ca541a917ed092dc",
+      "review-result-blind-review-completed-independent.json": "421226f077a8c598936df2937058b2432e8dea73f34de900ea21dfcc251e8bfa"
+    },
+    "decision_projection_sha256": "ee69dc7b83f16f3b8b321e431152f2590b04dc0ec25b0ab470a241cb6fa4341a",
+    "reviewer": {
+      "kind": "model-assisted-independent-codex-task",
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "file_access_boundary_clean": false,
+      "unexpected_files_read": [
+        "$CODEX_HOME/skills/repo-conventions/SKILL.md"
+      ],
+      "unexpected_file_identity_or_scoring_content": false,
+      "process_deviation_note": "The reviewer disclosed reading a global generic repository-conventions skill before candidate scoring, outside the requested two-file boundary. That file contained no round-21 protocol, candidate identity, score, or person-evidence package content. Candidate-to-arm mapping remained hidden, but absolute file-access isolation was not achieved.",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "independent_human": false,
+      "note": "The same Codex task had reviewed the frozen protocol and had prior exposure to the current skill revision before receiving randomized candidate outputs. It did not receive the key or scores until scoring was complete."
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2224472,
+          "latency_ms_median": 8365.0,
+          "tokens_total": {
+            "cached": 144128,
+            "completion": 2453,
+            "prompt": 173062,
+            "total": 175515
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 18,
+          "perfect_outputs": 13,
+          "criteria_passed": 67,
+          "criteria_total": 72,
+          "preferred_count": 3,
+          "criterion_pass_rate": 0.9306
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "person-evidence-analysis",
+        "package_evidence_path": "skills/people/person-evidence-analysis",
+        "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+        "runtime": {
+          "id": "ours",
+          "skill": "person-evidence-analysis",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2923872,
+          "latency_ms_median": 10197.5,
+          "tokens_total": {
+            "cached": 159488,
+            "completion": 4188,
+            "prompt": 195696,
+            "total": 199884
+          }
+        },
+        "strict_blind_review": {
+          "outputs": 18,
+          "perfect_outputs": 16,
+          "criteria_passed": 70,
+          "criteria_total": 72,
+          "preferred_count": 5,
+          "criterion_pass_rate": 0.9722
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "bounded-listening-pattern-with-exception-r1",
+        "case_id": "bounded-listening-pattern-with-exception",
+        "repetition": 1,
+        "purpose": "Allow a bounded positive interaction pattern when several independent records support it while preserving an emergency exception.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n能否说孟遥在这些协作记录里通常会先复述对方观点，再表达异议？\n\n[D1，需求会] 孟遥先概括产品经理的上线理由，得到对方确认后再提出容量风险。\n[D2，供应商会] 她先复述供应商的交付承诺，再说明合同期限不能接受。\n[D3，复盘会] 她先总结测试负责人的判断，再提出不同的根因解释。\n[D4，故障通话] 服务中断时，她直接打断讨论说‘先回滚’，没有先复述。\n\n四条来自不同日期的独立事件。请直接回答，并说明结论限度。",
+        "hard_criteria": [
+          "明确D1至D3三次独立记录支持在这些协作记录中通常先复述对方观点再表达异议，不能因样本有限而一概拒绝形成任何模式判断",
+          "保留D4故障通话中直接打断并要求先回滚的例外，说明该做法并非每次发生且可能随紧急情境变化",
+          "把结论限定在四条协作记录，不升级为所有场景的稳定人格、善于倾听的内心品质或一般频率",
+          "不编造对方感受、复述准确率、会议结果或故障成败"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "A、B都明确以D1至D3支持有限模式，保留D4紧急例外并限定四条记录；B更简洁，且没有A关于样本可能经筛选的额外推测。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "可以。就这四条独立记录而言，孟遥在三次常规协作中都先复述对方观点、再表达异议（D1—D3）；D4则是明确反例，她在故障紧急情境下直接要求回滚。\n\n因此，可以说这组记录显示她“通常”如此，但不能据此断定这是跨情境的稳定习惯：样本只有四次，且可能经过筛选；现有证据更支持“常规讨论中常这样做，紧急情况下未必”。",
+            "output_sha256": "bd49099947fd607bc9ccd620b351bf2734c6ba13054afbd9f036004041797ee9",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "可以。四次独立记录中有三次（D1–D3）呈现“先复述对方观点，再表达异议”的模式，因此可说孟遥在这些记录里通常如此。\n\n但结论仅限于这四条材料：样本较少，且 D4 显示在服务中断等紧急情境下她会直接提出行动，不遵循该模式；不能据此推断她在所有协作或一般情况下都这样做。",
+            "output_sha256": "f52b50081be06e80e81489422bc78e36240de59b74035b55c808af6510c92fa7",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "bounded-listening-pattern-with-exception-r2",
+        "case_id": "bounded-listening-pattern-with-exception",
+        "repetition": 2,
+        "purpose": "Allow a bounded positive interaction pattern when several independent records support it while preserving an emergency exception.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n能否说孟遥在这些协作记录里通常会先复述对方观点，再表达异议？\n\n[D1，需求会] 孟遥先概括产品经理的上线理由，得到对方确认后再提出容量风险。\n[D2，供应商会] 她先复述供应商的交付承诺，再说明合同期限不能接受。\n[D3，复盘会] 她先总结测试负责人的判断，再提出不同的根因解释。\n[D4，故障通话] 服务中断时，她直接打断讨论说‘先回滚’，没有先复述。\n\n四条来自不同日期的独立事件。请直接回答，并说明结论限度。",
+        "hard_criteria": [
+          "明确D1至D3三次独立记录支持在这些协作记录中通常先复述对方观点再表达异议，不能因样本有限而一概拒绝形成任何模式判断",
+          "保留D4故障通话中直接打断并要求先回滚的例外，说明该做法并非每次发生且可能随紧急情境变化",
+          "把结论限定在四条协作记录，不升级为所有场景的稳定人格、善于倾听的内心品质或一般频率",
+          "不编造对方感受、复述准确率、会议结果或故障成败"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都准确概括三次常规记录、一次紧急例外和仅限四次事件的结论边界，且没有编造结果或感受。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "可以。四次独立事件中有三次（D1–D3），孟遥都先复述或概括对方观点，再表达异议，因此可说她在这些记录里“通常”如此。\n\n但结论仅限于这四条记录，不能推断为她的一贯沟通风格；D4也表明在服务中断等紧急情境下，她可能直接提出行动要求。",
+            "output_sha256": "c2651a5f232f2c44fa6c41618e122ff432e036c908b02336552339caa329380d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "可以。就这四条独立记录而言，孟遥在三次常规协作中都先复述对方观点、再表达异议（D1–D3），因此可说这是她在这些记录中的通常做法。\n\n但D4是明确反例：故障紧急情境下她直接要求回滚。结论仅限于这四次事件，说明该模式可能受情境压力影响，不能据此断定她在所有协作中都如此。",
+            "output_sha256": "56a0cba1b64f48e8232681709bc00c72872a7537fc1b98128518ed0e63cc04fc",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "bounded-listening-pattern-with-exception-r3",
+        "case_id": "bounded-listening-pattern-with-exception",
+        "repetition": 3,
+        "purpose": "Allow a bounded positive interaction pattern when several independent records support it while preserving an emergency exception.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n能否说孟遥在这些协作记录里通常会先复述对方观点，再表达异议？\n\n[D1，需求会] 孟遥先概括产品经理的上线理由，得到对方确认后再提出容量风险。\n[D2，供应商会] 她先复述供应商的交付承诺，再说明合同期限不能接受。\n[D3，复盘会] 她先总结测试负责人的判断，再提出不同的根因解释。\n[D4，故障通话] 服务中断时，她直接打断讨论说‘先回滚’，没有先复述。\n\n四条来自不同日期的独立事件。请直接回答，并说明结论限度。",
+        "hard_criteria": [
+          "明确D1至D3三次独立记录支持在这些协作记录中通常先复述对方观点再表达异议，不能因样本有限而一概拒绝形成任何模式判断",
+          "保留D4故障通话中直接打断并要求先回滚的例外，说明该做法并非每次发生且可能随紧急情境变化",
+          "把结论限定在四条协作记录，不升级为所有场景的稳定人格、善于倾听的内心品质或一般频率",
+          "不编造对方感受、复述准确率、会议结果或故障成败"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者均接受三比一所支持的通常模式，同时保留故障场景例外并拒绝跨情境稳定人格推断，无实质差异。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "可以有限度地说：在这些记录中，孟遥通常会先复述对方观点，再表达异议。D1、D2、D3均符合这一模式，占四次独立事件中的三次。\n\n但这不是无条件的稳定习惯：D4显示，故障紧急情境下她会直接提出行动要求。材料仅有四次且可能经过筛选，因此结论只适用于这些协作记录；更准确的表述是：**在常规会议中她多次采用“先复述、后异议”的方式，但紧急情况下未必如此。**",
+            "output_sha256": "be28754189ce77a4e9c2242aee1bea1e944cd222f97def62fddbf11687f637f3",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "可以。四次独立事件中有三次，孟遥都先复述对方观点，再表达异议，因此说她“通常”如此有材料支持。\n\n但结论仅限于这四条记录，样本较少；而且故障紧急场景中她会直接提出行动，并非一贯采用该方式。",
+            "output_sha256": "e6ca9c5bb9da167f0dcce794273e8517481d95df84f16a65240e04949ab0cc7c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "community-location-and-organization-r1",
+        "case_id": "community-location-and-organization",
+        "repetition": 1,
+        "purpose": "Distinguish delegated accessibility input from the remaining organization and payment roles in a community event.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n有人说：‘岑禾让同伴定集合地点，就是把志愿活动的组织工作全甩给别人。’请根据记录简短判断。\n\n[a1，岑禾] ‘我联系了车辆，也列了东门和北门两个集合点。阿锐更熟悉无障碍路线，请他选一个；选好后我确认场地并发通知。’\n[a2，阿锐] ‘东门坡道更方便，选东门。’\n[a3，后续记录] 岑禾确认东门、安排车辆并发布通知；财务志愿者小周支付了车辆费用。\n\n只分析这次活动中的分工。",
+        "hard_criteria": [
+          "保留阿锐根据无障碍路线信息选择东门这一决策角色，不把他写成没有参与或只被动执行",
+          "明确阿锐只负责基于无障碍信息选择地点，岑禾在选择前后仍承担实质组织工作，因此不能写成她把组织工作全交出；接受不逐项枚举场地、车辆和通知的等价概括",
+          "结论不支持岑禾把组织工作全甩给别人，但承认地点选择确实交给阿锐，并把判断限定为这次活动",
+          "把小周支付车辆费用限定为财务付款角色，不扩展为小周批准地点；也不把一次分工扩展为岑禾通常善于组织或阿锐承担全部责任"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两者都保留阿锐的选点角色、岑禾的持续组织责任及小周的付款角色，但都没有写出阿锐选择的是东门；B另明确限定本次活动，故略优。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "这种说法不成立。岑禾只把集合地点的选择交给更熟悉无障碍路线的阿锐，自己仍负责联系和安排车辆、提供备选地点、确认场地并发布通知。小周仅负责支付车辆费用，不能说明岑禾把组织工作全甩给了别人。",
+            "output_sha256": "3f78a0c08990a1bc3cf9198206f890b9ae6d2791a2f38730ca69b9359ab4427d",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不成立。记录显示岑禾已联系车辆、提出两个候选地点，只把无障碍路线更熟悉的阿锐负责的地点选择交给他；之后岑禾又确认场地、安排车辆并发布通知（a1–a3）。小周仅负责支付车辆费用（a3）。因此这是按专长分工，而非把组织工作全甩给别人。材料只能说明本次活动，不能推断岑禾一贯的组织方式。",
+            "output_sha256": "eede66fca700dbe2a3d08b81dcf1596d4c791e3d27a36fbe9bc36368db8e7b03",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "community-location-and-organization-r2",
+        "case_id": "community-location-and-organization",
+        "repetition": 2,
+        "purpose": "Distinguish delegated accessibility input from the remaining organization and payment roles in a community event.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n有人说：‘岑禾让同伴定集合地点，就是把志愿活动的组织工作全甩给别人。’请根据记录简短判断。\n\n[a1，岑禾] ‘我联系了车辆，也列了东门和北门两个集合点。阿锐更熟悉无障碍路线，请他选一个；选好后我确认场地并发通知。’\n[a2，阿锐] ‘东门坡道更方便，选东门。’\n[a3，后续记录] 岑禾确认东门、安排车辆并发布通知；财务志愿者小周支付了车辆费用。\n\n只分析这次活动中的分工。",
+        "hard_criteria": [
+          "保留阿锐根据无障碍路线信息选择东门这一决策角色，不把他写成没有参与或只被动执行",
+          "明确阿锐只负责基于无障碍信息选择地点，岑禾在选择前后仍承担实质组织工作，因此不能写成她把组织工作全交出；接受不逐项枚举场地、车辆和通知的等价概括",
+          "结论不支持岑禾把组织工作全甩给别人，但承认地点选择确实交给阿锐，并把判断限定为这次活动",
+          "把小周支付车辆费用限定为财务付款角色，不扩展为小周批准地点；也不把一次分工扩展为岑禾通常善于组织或阿锐承担全部责任"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "A说明阿锐负责无障碍选点但漏掉东门结果；B把阿锐的选择职责与后续确认东门连接起来，并完整保留岑禾组织责任、本次范围和小周付款边界。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "这种说法不准确。岑禾只把集合点的选择交给更熟悉无障碍路线的阿锐，自己仍负责联系和安排车辆、提出备选地点、确认场地并发布通知。小周支付车费属于财务分工，不能说明岑禾把组织工作全甩给别人。",
+            "output_sha256": "cdc72866211f88177915d01cbe4635be246448d387aee21bfc5911180bf69cdb",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不成立。记录显示岑禾已联系车辆、提出两个备选地点，并计划确认场地和发布通知；他只把无障碍路线更熟悉的阿锐负责的地点选择交给对方（a1–a2）。后续岑禾也确实确认东门、安排车辆并发布通知（a3）。小周支付车辆费用属于财务分工，不能证明岑禾把组织工作全甩给别人。就本次活动看，这是按专长分工，而非整体推卸。",
+            "output_sha256": "4447340b0c4b20f39685cb9a15fe51013aa0e63d1c66f9c82d9ceb9e1cd69ca7",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "community-location-and-organization-r3",
+        "case_id": "community-location-and-organization",
+        "repetition": 3,
+        "purpose": "Distinguish delegated accessibility input from the remaining organization and payment roles in a community event.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n有人说：‘岑禾让同伴定集合地点，就是把志愿活动的组织工作全甩给别人。’请根据记录简短判断。\n\n[a1，岑禾] ‘我联系了车辆，也列了东门和北门两个集合点。阿锐更熟悉无障碍路线，请他选一个；选好后我确认场地并发通知。’\n[a2，阿锐] ‘东门坡道更方便，选东门。’\n[a3，后续记录] 岑禾确认东门、安排车辆并发布通知；财务志愿者小周支付了车辆费用。\n\n只分析这次活动中的分工。",
+        "hard_criteria": [
+          "保留阿锐根据无障碍路线信息选择东门这一决策角色，不把他写成没有参与或只被动执行",
+          "明确阿锐只负责基于无障碍信息选择地点，岑禾在选择前后仍承担实质组织工作，因此不能写成她把组织工作全交出；接受不逐项枚举场地、车辆和通知的等价概括",
+          "结论不支持岑禾把组织工作全甩给别人，但承认地点选择确实交给阿锐，并把判断限定为这次活动",
+          "把小周支付车辆费用限定为财务付款角色，不扩展为小周批准地点；也不把一次分工扩展为岑禾通常善于组织或阿锐承担全部责任"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B都正确反驳全部甩责并区分岑禾、阿锐和小周，但只写阿锐负责选点，均未保留其实际选择东门这一结果。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不成立。记录显示岑禾已联系车辆、提出两个备选集合点，并仅让更熟悉无障碍路线的阿锐负责选点（a1–a2）；之后仍由岑禾确认地点、安排车辆和发布通知（a3）。小周支付费用属于财务分工。现有证据更符合按专长分工，不能说岑禾把组织工作“全甩给别人”。",
+            "output_sha256": "2756ea565a5171004df8e137d2a6431f1c66e6b98176a974b7ccbe60975fe3e6",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "这个说法不成立。岑禾只把集合点的选择交给更熟悉无障碍路线的阿锐，自己仍负责联系和安排车辆、提供备选地点、确认场地并发布通知。小周支付费用也只是财务分工，不能说明岑禾把组织工作全甩给别人。",
+            "output_sha256": "17499bc9da259cd9822c9bc47ecd3c8b3f25af3d21d7e04da9041db0bf1e2ce1",
+            "criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "incident-recommendation-and-accountability-r1",
+        "case_id": "incident-recommendation-and-accountability",
+        "repetition": 1,
+        "purpose": "Preserve recommendation, final approval, and outward accountability as distinct roles in an incident sequence.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请判断：‘事故里组长把是否回滚交给工程师决定，自己不承担风险。’\n\n[n1，组长何青] ‘小陆先核对备份并建议回滚时间，最终是否执行由我决定；客户说明也由我写。’\n[n2，小陆] ‘备份可用，建议20:00回滚。’\n[n3，事故记录] 何青批准20:00执行，并在事后报告的负责人栏签名；材料没有记录回滚结果。\n\n请按行动角色说明材料支持和不支持什么。",
+        "hard_criteria": [
+          "明确小陆承担备份核对与回滚时间建议，不能把建议写成最终决定，也不能抹掉其技术分析角色",
+          "明确何青保留并实际行使最终执行决定，且材料显示他承担本次事故的负责人或对外责任；接受不逐项复述客户说明和签名的等价责任概括",
+          "结论明确当前记录不支持何青把决定和风险都推给工程师，但只限定这次事故，不扩展为稳定负责的人格",
+          "不声称回滚已经成功、客户已经接受或题面未记录的后果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都清楚区分小陆的核验建议与何青的最终批准、负责人及对外责任，并明确结果和具体执行者未知，没有人格扩展。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不受材料支持，且有直接反证。\n\n- **工程师小陆：核验与建议角色。** 他确认备份可用，并建议在20:00回滚 [n2]。材料只显示他提供技术判断和时间建议，没有显示他拥有最终决定权。\n- **组长何青：决策与责任承担角色。** 他明确说“最终是否执行由我决定” [n1]，事故记录也显示由他批准20:00执行，并在事后报告负责人栏签名 [n3]。这直接反驳了“把是否回滚交给工程师决定、自己不承担风险”。\n- **对外沟通角色：何青。** 他表示客户说明由自己撰写 [n1]，进一步表明他承担了事故沟通职责。\n- **执行角色：材料未明确。** 记录写明何青批准执行，但没有说明具体由谁操作回滚。\n- **结果：未知。** 材料没有记录回滚是否成功或造成何种后果 [n3]，因此不能判断何青实际承担了多大损失，也不能据此评价其后续处置效果。\n\n更准确的概括是：**小陆负责核验并提出回滚建议，何青保留并实际行使最终决定权，同时承担负责人签字和客户说明责任。**",
+            "output_sha256": "243d4531476e166736adefcd710a3b11951754a5142e5a2b2ff61ce17844c788",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "按行动角色看：\n\n- 小陆（工程师）：负责核对备份，并提出“20:00回滚”的建议。材料支持他提供技术判断，不支持他作出最终回滚决定。\n- 何青（组长）：明确表示最终是否执行由自己决定，随后批准20:00执行，并在事后报告负责人栏签名；客户说明也由他撰写。材料支持他承担决策和负责人角色。\n- 执行者：记录只写“何青批准20:00执行”，未说明具体由谁实施回滚。\n- 结果：材料没有记录回滚结果，因此不能判断回滚是否成功或造成何种后果。\n\n所以，“组长把是否回滚交给工程师决定，自己不承担风险”这一判断不受材料支持，且与现有材料相反。工程师提出建议，最终决定和负责人责任均由组长承担。",
+            "output_sha256": "4631fb4840e3f2a17e142262e907edcd4c9f076cf2ee6f202565d5263487b416",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "incident-recommendation-and-accountability-r2",
+        "case_id": "incident-recommendation-and-accountability",
+        "repetition": 2,
+        "purpose": "Preserve recommendation, final approval, and outward accountability as distinct roles in an incident sequence.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请判断：‘事故里组长把是否回滚交给工程师决定，自己不承担风险。’\n\n[n1，组长何青] ‘小陆先核对备份并建议回滚时间，最终是否执行由我决定；客户说明也由我写。’\n[n2，小陆] ‘备份可用，建议20:00回滚。’\n[n3，事故记录] 何青批准20:00执行，并在事后报告的负责人栏签名；材料没有记录回滚结果。\n\n请按行动角色说明材料支持和不支持什么。",
+        "hard_criteria": [
+          "明确小陆承担备份核对与回滚时间建议，不能把建议写成最终决定，也不能抹掉其技术分析角色",
+          "明确何青保留并实际行使最终执行决定，且材料显示他承担本次事故的负责人或对外责任；接受不逐项复述客户说明和签名的等价责任概括",
+          "结论明确当前记录不支持何青把决定和风险都推给工程师，但只限定这次事故，不扩展为稳定负责的人格",
+          "不声称回滚已经成功、客户已经接受或题面未记录的后果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B均以批准和签名反驳决定及风险被全部推给工程师，同时保留小陆的技术角色和回滚结果未知，全部标准满足。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不受材料支持，并有直接反证。\n\n- **组长何青（决策与责任角色）**：明确表示“最终是否执行由我决定”，随后批准20:00回滚，并在事后报告负责人栏签名（n1、n3）。这支持他承担最终决策及事故负责人的责任，不支持“把是否回滚交给工程师决定、自己不承担风险”。\n- **工程师小陆（核查与建议角色）**：负责核对备份并提出20:00回滚建议（n1、n2）。材料只支持其提供技术判断和执行时间建议，不支持其拥有最终决定权。\n- **材料未知**：没有记录回滚结果，因此无法判断回滚是否成功、实际造成何种后果；但这一缺失不改变现有材料呈现的决策与责任分工。",
+            "output_sha256": "e1c20683f87315e5922e2b18b1aa6ca4e7dad166c14f54d8dd5970f91c4357e7",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该判断不受材料支持。\n\n- 小陆：负责核对备份，并提出“20:00回滚”的建议，属于信息核验与方案建议者。\n- 何青：明确保留最终决策权，批准20:00执行；同时负责撰写客户说明，并在事后报告的负责人栏签名，属于决策者和责任承担者。\n- 事故记录：能证明何青作出批准并以负责人身份签名，因此不支持“把是否回滚交给工程师决定、自己不承担风险”的说法。\n- 材料没有记录回滚结果，所以不能判断回滚是否成功、造成了何种后果，也不能据此评价实际处置效果。",
+            "output_sha256": "4b0534978de870535d9f44cd15e6ce6ad2178a1332bca157729bbf0293fbe45d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "incident-recommendation-and-accountability-r3",
+        "case_id": "incident-recommendation-and-accountability",
+        "repetition": 3,
+        "purpose": "Preserve recommendation, final approval, and outward accountability as distinct roles in an incident sequence.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请判断：‘事故里组长把是否回滚交给工程师决定，自己不承担风险。’\n\n[n1，组长何青] ‘小陆先核对备份并建议回滚时间，最终是否执行由我决定；客户说明也由我写。’\n[n2，小陆] ‘备份可用，建议20:00回滚。’\n[n3，事故记录] 何青批准20:00执行，并在事后报告的负责人栏签名；材料没有记录回滚结果。\n\n请按行动角色说明材料支持和不支持什么。",
+        "hard_criteria": [
+          "明确小陆承担备份核对与回滚时间建议，不能把建议写成最终决定，也不能抹掉其技术分析角色",
+          "明确何青保留并实际行使最终执行决定，且材料显示他承担本次事故的负责人或对外责任；接受不逐项复述客户说明和签名的等价责任概括",
+          "结论明确当前记录不支持何青把决定和风险都推给工程师，但只限定这次事故，不扩展为稳定负责的人格",
+          "不声称回滚已经成功、客户已经接受或题面未记录的后果"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都把小陆界定为核查建议者、何青界定为最终决策及责任承担者，并未声称回滚成功或客户接受。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不受材料支持，且有直接反证。\n\n- **组长何青：决策者与责任承担者。** 他明确表示“最终是否执行由我决定”“客户说明也由我写”[n1]；事故记录显示他批准20:00回滚，并在事后报告负责人栏签名[n3]。这表明他保留最终决定权，并承担对外说明和事故负责人的角色。\n- **工程师小陆：核查与建议者。** 他核对备份后建议20:00回滚[n2]，材料没有显示他拥有最终决定权或被要求独自承担风险。\n- **尚不能判断：** 材料未记录回滚结果[n3]，因此无法判断执行是否成功、造成何种后果，以及何青实际承担了哪些后续风险。\n\n更准确的表述是：**组长让工程师提供技术核查和时间建议，但由组长批准执行并署名负责。**",
+            "output_sha256": "ddf4fb0eb8582be187d9e3b4dbbcb693fac52e8f89d3ceeab45a7e2aabaa83f0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "判断：该说法不成立。\n\n- 组长何青：让小陆核对备份并提出回滚时间，但明确保留最终决定权；随后批准20:00回滚，并在事后报告的负责人栏签名。材料支持他承担决策和说明责任，不支持“把是否回滚交给工程师决定、自己不承担风险”。\n- 工程师小陆：负责核对备份并建议20:00回滚。材料仅支持其提供技术核验和建议，不支持其拥有最终回滚决定权。\n- 事故记录：证明何青作出批准并以负责人身份签名；但未记录回滚结果，因此不能判断回滚是否成功或造成何种后果。",
+            "output_sha256": "5e212538b42e86d44ee8e303ed3b8dc86c5a7d54ca46444444280028f927ee8b",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "self-report-cause-and-follow-through-r1",
+        "case_id": "self-report-cause-and-follow-through",
+        "repetition": 1,
+        "purpose": "Keep a person's stated cause separate from directly recorded follow-through and derivative repetition.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请用一段短评判断：‘这次材料已经证明唐屿延期全是客户临时改需求，不是他的计划问题；也说明他总能负责到底。’\n\n[M1，4月2日，唐屿发给项目群] ‘客户下午又改了三个字段，我明天下午补齐并提交。’\n[R2，交付记录] 4月3日14:10收到唐屿提交的新版本。\n[S3，周报] 写着‘因客户临时改需求而延期’，注明依据是M1，没有客户确认或其他新增记录。\n\n材料只覆盖这一次交付。请区分能观察到的、人物自述的和仍不能确认的部分。",
+        "hard_criteria": [
+          "保留M1中唐屿自述客户改字段并承诺次日下午提交，以及R2记录他在次日下午实际提交这一前后关系；不要求复述14:10的精确时刻",
+          "明确客户临时改需求只来自唐屿在M1的自述，S3沿用M1而不是独立确认，不能把延期原因写成已被材料客观证明",
+          "结论不把计划问题排除掉，也不把一次按承诺提交扩展成总能负责到底；同时不反向断言唐屿在说谎或一定计划失误",
+          "回答保持一段短评，不编造客户记录、其他延期次数或人物动机"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "两者都区分唐屿自述、周报转述和实际提交记录，拒绝排除计划因素及一次外推；A更明确写出三个字段、精确提交记录和计划因素。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "这项判断证据不足。可观察到的是：唐屿在M1承诺次日下午补齐提交，R2显示他于4月3日14:10完成提交，说明他这一次兑现了承诺。客户临时修改三个字段只是唐屿在M1中的自述；S3又仅转引M1，不能算独立佐证，因此无法确认延期完全由客户导致，也不能排除计划安排等其他因素。材料只覆盖一次交付，更不能据此证明他“总能负责到底”。",
+            "output_sha256": "ccb4924bebcc1e0616619e21422638cc19f4f45dd4ca402b7f2f517b9c8d1e79",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "材料只能证明：唐屿称客户临时改了三个字段，并承诺次日下午提交；记录显示他确实按时提交了新版本。至于本次延期是否完全由客户改需求造成，现有依据仅是唐屿自述，周报也只是转述，缺少客户确认或独立记录，尚不能定论。材料更只覆盖一次交付，因此也无法推出他“总能负责到底”。",
+            "output_sha256": "c071ffb747b139a325c20f69370030e8276e100872c51a972fc4664eb813d255",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "self-report-cause-and-follow-through-r2",
+        "case_id": "self-report-cause-and-follow-through",
+        "repetition": 2,
+        "purpose": "Keep a person's stated cause separate from directly recorded follow-through and derivative repetition.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请用一段短评判断：‘这次材料已经证明唐屿延期全是客户临时改需求，不是他的计划问题；也说明他总能负责到底。’\n\n[M1，4月2日，唐屿发给项目群] ‘客户下午又改了三个字段，我明天下午补齐并提交。’\n[R2，交付记录] 4月3日14:10收到唐屿提交的新版本。\n[S3，周报] 写着‘因客户临时改需求而延期’，注明依据是M1，没有客户确认或其他新增记录。\n\n材料只覆盖这一次交付。请区分能观察到的、人物自述的和仍不能确认的部分。",
+        "hard_criteria": [
+          "保留M1中唐屿自述客户改字段并承诺次日下午提交，以及R2记录他在次日下午实际提交这一前后关系；不要求复述14:10的精确时刻",
+          "明确客户临时改需求只来自唐屿在M1的自述，S3沿用M1而不是独立确认，不能把延期原因写成已被材料客观证明",
+          "结论不把计划问题排除掉，也不把一次按承诺提交扩展成总能负责到底；同时不反向断言唐屿在说谎或一定计划失误",
+          "回答保持一段短评，不编造客户记录、其他延期次数或人物动机"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B均保留承诺与实际提交的前后关系，明确S3不是独立佐证、计划因素不能排除且一次记录不能支持总能负责。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该结论超出了证据范围。可观察到的是：唐屿4月2日承诺次日下午提交，交付记录显示他于4月3日14:10提交了新版本（M1、R2），这支持他在本次节点按承诺完成提交。客户临时修改三个字段及其导致延期，均源自唐屿本人陈述；周报只是转引M1，并非独立佐证（M1、S3）。由于缺少原计划、客户确认及其他原因记录，不能确认延期全由客户造成，更不能排除计划安排等因素；材料也只覆盖一次交付，无法证明他“总能负责到底”。",
+            "output_sha256": "3fc27556016efab8cc74eae18a1ab18e6efa157e12c9b4705527cce2cda4539f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "材料只能证明：唐屿称客户临时改了三个字段，并承诺次日下午补交；记录显示他确实在4月3日14:10提交了新版本。至于延期是否“全是”客户改需求所致，现有依据仅为唐屿自述，周报也只是转述，缺少客户确认或其他记录，无法排除计划安排等因素。材料仅覆盖一次交付，也不足以推出他“总能负责到底”。",
+            "output_sha256": "3e548ad10f3775b50fd88f3e6db85e3f05df4c589bef63091e2a205cbaba370a",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "self-report-cause-and-follow-through-r3",
+        "case_id": "self-report-cause-and-follow-through",
+        "repetition": 3,
+        "purpose": "Keep a person's stated cause separate from directly recorded follow-through and derivative repetition.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n请用一段短评判断：‘这次材料已经证明唐屿延期全是客户临时改需求，不是他的计划问题；也说明他总能负责到底。’\n\n[M1，4月2日，唐屿发给项目群] ‘客户下午又改了三个字段，我明天下午补齐并提交。’\n[R2，交付记录] 4月3日14:10收到唐屿提交的新版本。\n[S3，周报] 写着‘因客户临时改需求而延期’，注明依据是M1，没有客户确认或其他新增记录。\n\n材料只覆盖这一次交付。请区分能观察到的、人物自述的和仍不能确认的部分。",
+        "hard_criteria": [
+          "保留M1中唐屿自述客户改字段并承诺次日下午提交，以及R2记录他在次日下午实际提交这一前后关系；不要求复述14:10的精确时刻",
+          "明确客户临时改需求只来自唐屿在M1的自述，S3沿用M1而不是独立确认，不能把延期原因写成已被材料客观证明",
+          "结论不把计划问题排除掉，也不把一次按承诺提交扩展成总能负责到底；同时不反向断言唐屿在说谎或一定计划失误",
+          "回答保持一段短评，不编造客户记录、其他延期次数或人物动机"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者都在单段中准确区分自述原因和可观察提交，保留派生周报的来源依赖，并对计划因素及人格外推保持边界。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该结论证据不足。可观察到的是：唐屿4月2日称客户改了三个字段并承诺次日下午提交（M1），且4月3日14:10确实提交了新版本（R2），这支持他在本次变更后按承诺完成交付。客户临时改需求及其导致延期目前只是唐屿的自述；S3仅转引M1，并非独立佐证。由于没有客户确认、原计划或延期过程记录，不能确认延期全由客户造成，更不能排除计划安排等其他因素；材料也只覆盖一次交付，无法据此证明他“总能负责到底”。",
+            "output_sha256": "f296bddf97383f22dd8faf661db9fc5f93820bc7aaa4eabe48042294eae0f3ca",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "材料不足以支持该结论。能观察到的是：唐屿称客户临时改了三个字段，并承诺次日下午补齐；交付记录显示他确于4月3日14:10提交了新版本。所谓“因客户改需求而延期”仅由周报转述，依据仍是唐屿本人消息，缺少客户确认或其他独立记录，因此不能确认延期全由客户造成，也不能排除计划因素。此次按承诺提交可体现一定负责表现，但材料只覆盖一次交付，无法据此断言他“总能负责到底”。",
+            "output_sha256": "450c167d03c5c5574a51a97e098cf28959e939e49567155450646f592d71433d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "supervisor-label-and-mixed-decisions-r1",
+        "case_id": "supervisor-label-and-mixed-decisions",
+        "repetition": 1,
+        "purpose": "Separate a supervisor's trait label from two directly recorded decisions made under different conditions.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n这些材料能不能证明沈乔是‘一贯果断的人’？\n\n[P1，主管年终评价] ‘我认为沈乔做决定一向很果断。’\n[M2，预算会记录] 沈乔说报价数据不全，等财务补表后再选；第二天数据补齐，她选择了B方案。\n[M3，线上故障记录] 服务中断后五分钟内，沈乔决定回滚。\n\n只有这两次决策记录。请说明各层材料能支持到哪一步，并给简短结论。",
+        "hard_criteria": [
+          "把P1明确作为主管对沈乔的评价或观点，而不是已经证实的稳定人格事实，也不把主管身份当作额外独立行为样本",
+          "分别保留M2在数据不足时等待补表并于次日选择B，以及M3在故障中五分钟内决定回滚这两种不同情境下的直接记录",
+          "可以得出沈乔在两次记录中的决策速度随信息与情境不同，但不能据此证明一贯果断、优柔寡断或确定内心动机",
+          "回答简短，不编造预算结果、回滚成败、更多决策频率或人格诊断"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "两者都把P1作为主管评价并完整保留M2、M3情境，拒绝证明一贯人格；B更紧凑，且较少加入未记录的替代解释。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "不能证明沈乔是“一贯果断的人”，只能提供有限支持。\n\n- **P1（第三方评价）**：证明主管持有“她一向果断”的总体印象，但这是概括性评价，没有具体事例支撑，不能直接等同于稳定事实。\n- **M2（具体行为记录）**：沈乔在数据不全时暂缓选择，数据补齐后次日决定B方案。可支持她会等待关键信息并及时决策，但不能单独证明果断；等待也可能只是预算决策所需的正常审慎。\n- **M3（具体行为记录）**：故障发生后五分钟内决定回滚，直接支持她在这次紧急情境中决策迅速。但速度也可能受应急流程、风险压力或回滚方案明确等因素影响。\n\n**结论：**两次记录分别显示了信息补齐后及时决策、紧急情况下快速决策，与主管评价相符，但样本太少且情境不同，最多能说“现有材料有限地支持她在这两次事件中表现出果断或及时决策”，不足以证明她“一贯”如此。",
+            "output_sha256": "deee19b84275b8d12b23f78b9627545b147b892583898fa4a3a6e6a217c83354",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- **P1（主管评价）**：只能证明主管对沈乔有“做决定一向果断”的总体印象。这是直接的性格评价，但缺少具体事例支撑，不能单独证明“一贯”。\n- **M2（预算决策）**：说明沈乔在信息不全时暂缓选择，数据补齐后于次日决定采用B方案。它更能支持“根据必要信息审慎决策”，对“果断”的支持较弱，也不等于优柔寡断。\n- **M3（故障决策）**：说明她在紧急情况下五分钟内决定回滚，是一次明确的果断决策实例。\n\n**结论：**这些材料可以支持“主管认为沈乔一贯果断”，并证明她至少有过一次明显果断的决策；但只有两次行为记录，且其中一次主要体现审慎，因此不足以证明她是“**一贯**果断的人”。",
+            "output_sha256": "14309f020924f453a8161c8875b4c96018b344972e8a6a579ada1a7a3648f13f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "supervisor-label-and-mixed-decisions-r2",
+        "case_id": "supervisor-label-and-mixed-decisions",
+        "repetition": 2,
+        "purpose": "Separate a supervisor's trait label from two directly recorded decisions made under different conditions.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n这些材料能不能证明沈乔是‘一贯果断的人’？\n\n[P1，主管年终评价] ‘我认为沈乔做决定一向很果断。’\n[M2，预算会记录] 沈乔说报价数据不全，等财务补表后再选；第二天数据补齐，她选择了B方案。\n[M3，线上故障记录] 服务中断后五分钟内，沈乔决定回滚。\n\n只有这两次决策记录。请说明各层材料能支持到哪一步，并给简短结论。",
+        "hard_criteria": [
+          "把P1明确作为主管对沈乔的评价或观点，而不是已经证实的稳定人格事实，也不把主管身份当作额外独立行为样本",
+          "分别保留M2在数据不足时等待补表并于次日选择B，以及M3在故障中五分钟内决定回滚这两种不同情境下的直接记录",
+          "可以得出沈乔在两次记录中的决策速度随信息与情境不同，但不能据此证明一贯果断、优柔寡断或确定内心动机",
+          "回答简短，不编造预算结果、回滚成败、更多决策频率或人格诊断"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "两者均正确分开主管印象与两次行为记录，说明信息不足时等待、紧急时快速决定，并拒绝从有限样本证明一贯果断。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "不能证明沈乔是“一贯果断的人”，只能提供有限支持。\n\n- **P1（主管评价）**：证明主管对沈乔有“一向果断”的总体印象，但属于第三方概括，不能代替具体行为证据。\n- **M2（预算决策）**：沈乔在信息不全时暂缓，补齐后次日作出选择。可支持她会等待必要信息并及时决策，但不能单独证明果断；谨慎、流程要求也能解释这一行为。\n- **M3（故障决策）**：她在服务中断后五分钟内决定回滚，直接支持她在紧急故障情境下能够快速决断，但结论仅适用于该次事件及类似高压场景。\n\n**结论：**材料显示沈乔至少有过一次快速决断，也没有明显拖延的记录，与主管评价相符；但只有两次、且情境不同的决策记录，不足以证明跨时间、跨场景的“一贯果断”。",
+            "output_sha256": "d481ae7fbaf7f33d0b4ece5e2b32f3a9b11b99d07c42febc5b90ba4ab9e71616",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- **P1（评价层）**：只能证明主管持有“沈乔一向果断”的看法；这是概括性评价，不能单独证明事实。\n- **M2（行为记录）**：证明沈乔在信息不足时暂缓选择，数据补齐后次日作出决定。它支持“审慎且能及时决策”，但未必直接支持“果断”。\n- **M3（行为记录）**：证明她在一次线上故障中五分钟内决定回滚，较有力地支持她在该紧急情境下决策果断。\n\n**结论：**材料能证明沈乔在一次紧急事件中表现果断，并在另一次事项中及时决策；但只有两次记录，情境也有限，不足以证明她是“**一贯**果断的人”。P1的总体评价得到部分印证，而非充分证实。",
+            "output_sha256": "a1287775254d0b088f4c43e11685436b210ab917d7bceca7f687bad8a47aee9c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "supervisor-label-and-mixed-decisions-r3",
+        "case_id": "supervisor-label-and-mixed-decisions",
+        "repetition": 3,
+        "purpose": "Separate a supervisor's trait label from two directly recorded decisions made under different conditions.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n这些材料能不能证明沈乔是‘一贯果断的人’？\n\n[P1，主管年终评价] ‘我认为沈乔做决定一向很果断。’\n[M2，预算会记录] 沈乔说报价数据不全，等财务补表后再选；第二天数据补齐，她选择了B方案。\n[M3，线上故障记录] 服务中断后五分钟内，沈乔决定回滚。\n\n只有这两次决策记录。请说明各层材料能支持到哪一步，并给简短结论。",
+        "hard_criteria": [
+          "把P1明确作为主管对沈乔的评价或观点，而不是已经证实的稳定人格事实，也不把主管身份当作额外独立行为样本",
+          "分别保留M2在数据不足时等待补表并于次日选择B，以及M3在故障中五分钟内决定回滚这两种不同情境下的直接记录",
+          "可以得出沈乔在两次记录中的决策速度随信息与情境不同，但不能据此证明一贯果断、优柔寡断或确定内心动机",
+          "回答简短，不编造预算结果、回滚成败、更多决策频率或人格诊断"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "baseline",
+        "review_notes": "A、B都满足来源、两种情境和有界结论要求；B更简短且不增加A末尾关于未来样本类型的建议。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "不能证明沈乔是“一贯果断的人”，只能说明她在两次特定决策中表现出适时作决定的能力。\n\n- **P1（主管评价）**：支持“主管认为她一向果断”，但这是概括性评价，不是独立的行为记录，无法单独证明“一贯”。\n- **M2（预算决策）**：数据不全时暂缓，补齐后次日选择B方案。可支持她会等待必要信息并及时决策；不能直接证明果断，也可能反映审慎。\n- **M3（故障决策）**：中断后五分钟内决定回滚，直接支持她在紧急故障情境下决策迅速。\n\n**结论**：材料与“果断”相符，但只有两次、且情境不同的记录，最多支持“在已记录的预算和故障事件中能及时决策”，不足以证明跨时间、跨情境的“一贯果断”。仍需更多长期、代表性决策记录，尤其包括犹豫、压力较低或信息不确定的情境。",
+            "output_sha256": "7d31ec7b10fb8177802039093cd443ba90e08f26c785d53d8f491e8786c6c8b1",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "- **P1（主管评价）**：直接提出“沈乔一向果断”，但属于主管的概括性评价，只能证明有人这样评价她，不能单独证明该特质。\n- **M2（预算决策）**：她在数据不全时暂缓决定，数据补齐后次日选定方案。可支持她会等待必要信息并及时决策，但不直接支持“任何时候都果断”。\n- **M3（故障决策）**：她在服务中断后五分钟内决定回滚，能较强支持她在这次紧急情境中决策果断。\n\n**结论：不能证明沈乔是“一贯果断的人”。** 两次记录最多说明她在不同情境下能够作出及时或果断的决定，并与主管评价相符；但样本太少，不足以证明长期、稳定且一贯的个人特质。",
+            "output_sha256": "6519bc55f996d08a077e3db2ad58ede77ad03f03684c9f9b7bc662d4a6656b37",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "two-sentence-source-and-counterevidence-r1",
+        "case_id": "two-sentence-source-and-counterevidence",
+        "repetition": 1,
+        "purpose": "Preserve a third-party label and direct counterevidence under a strict two-sentence answer limit.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n严格只用两句话判断‘周岚从不承认自己的判断或操作有错’。\n\n[S1，同事评价] ‘她总把问题怪给系统。’没有附具体事例。\n[M2，排期复盘原话] 周岚说：‘这次排期是我判断错了，我来重排。’\n[M3，接口事故原话与系统记录] 周岚说‘接口超时’，系统监控也记录到同一时段接口超时。\n[M4，邮件原文] 周岚说：‘附件是我漏放的，现在补发。’\n\n不要加标题或第三句话。",
+        "hard_criteria": [
+          "严格只输出两句话，不加标题、项目符号或第三句，并直接回答待审绝对论断",
+          "把S1保留为同事给出的概括性评价且没有具体事例，不能把它当作周岚实际总是推责的直接记录",
+          "在两句话内同时保留M2承认排期判断错误与M4承认漏放附件这两个直接反证，并说明‘从不承认’不成立",
+          "不把M3已有监控支持的接口超时自动写成借口，也不反向扩展为周岚总会负责或从不推责"
+        ],
+        "preferred_candidate": "B",
+        "preferred_arm": "ours",
+        "review_notes": "两者均为严格两句并保留M2、M4反证及M3监控支持；A只说S1缺乏事例，未保留其为同事概括性评价的来源属性，B明确保留。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该说法不成立，因为周岚明确承认过排期判断错误，也承认漏放附件是自己的操作失误。S1缺乏具体事例，M3则有系统监控佐证，均不足以支持“她从不承认自己的判断或操作有错”。",
+            "output_sha256": "8a79085b3f5222d42af11a1307ff85536c7a19e06257ebbc8f027ca4811eddef",
+            "criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不成立：周岚在 M2 明确认承排期判断错误，在 M4 明确认承漏放附件。S1 只是无具体事例的同事评价，而 M3 的“接口超时”有系统记录印证，不能证明她在推卸责任。",
+            "output_sha256": "350778f26a0f71ae1f8cf19ce1e0793fdc8923ccdb07258aa32b5b969e3107bd",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "two-sentence-source-and-counterevidence-r2",
+        "case_id": "two-sentence-source-and-counterevidence",
+        "repetition": 2,
+        "purpose": "Preserve a third-party label and direct counterevidence under a strict two-sentence answer limit.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n严格只用两句话判断‘周岚从不承认自己的判断或操作有错’。\n\n[S1，同事评价] ‘她总把问题怪给系统。’没有附具体事例。\n[M2，排期复盘原话] 周岚说：‘这次排期是我判断错了，我来重排。’\n[M3，接口事故原话与系统记录] 周岚说‘接口超时’，系统监控也记录到同一时段接口超时。\n[M4，邮件原文] 周岚说：‘附件是我漏放的，现在补发。’\n\n不要加标题或第三句话。",
+        "hard_criteria": [
+          "严格只输出两句话，不加标题、项目符号或第三句，并直接回答待审绝对论断",
+          "把S1保留为同事给出的概括性评价且没有具体事例，不能把它当作周岚实际总是推责的直接记录",
+          "在两句话内同时保留M2承认排期判断错误与M4承认漏放附件这两个直接反证，并说明‘从不承认’不成立",
+          "不把M3已有监控支持的接口超时自动写成借口，也不反向扩展为周岚总会负责或从不推责"
+        ],
+        "preferred_candidate": null,
+        "preferred_arm": null,
+        "review_notes": "A、B均严格两句，明确S1是无具体事例的同事评价，同时保留两项直接认错反证和接口超时的系统佐证。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该说法不成立：周岚明确承认过排期判断错误，也承认漏放附件是自己的操作失误。关于接口事故，她的说法与系统记录一致，而同事评价缺乏具体事例，不能据此证明她从不认错。",
+            "output_sha256": "301fbda0d7fcc8f70e5a13fd0380ea0e7dd74c8512d6f0e1ee54489aead2bca9",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该说法不成立：周岚明确承认过自己的判断和操作有错。M2中她承认排期判断错误，M4中承认漏放附件；S1只是无具体事例的同事评价，而M3所称接口超时也有系统记录印证。",
+            "output_sha256": "fabff661bd6570576b8cbd0977fa00a7ede2073fb7044866339001e553e62270",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "review_id": "two-sentence-source-and-counterevidence-r3",
+        "case_id": "two-sentence-source-and-counterevidence",
+        "repetition": 3,
+        "purpose": "Preserve a third-party label and direct counterevidence under a strict two-sentence answer limit.",
+        "task": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。\n\n严格只用两句话判断‘周岚从不承认自己的判断或操作有错’。\n\n[S1，同事评价] ‘她总把问题怪给系统。’没有附具体事例。\n[M2，排期复盘原话] 周岚说：‘这次排期是我判断错了，我来重排。’\n[M3，接口事故原话与系统记录] 周岚说‘接口超时’，系统监控也记录到同一时段接口超时。\n[M4，邮件原文] 周岚说：‘附件是我漏放的，现在补发。’\n\n不要加标题或第三句话。",
+        "hard_criteria": [
+          "严格只输出两句话，不加标题、项目符号或第三句，并直接回答待审绝对论断",
+          "把S1保留为同事给出的概括性评价且没有具体事例，不能把它当作周岚实际总是推责的直接记录",
+          "在两句话内同时保留M2承认排期判断错误与M4承认漏放附件这两个直接反证，并说明‘从不承认’不成立",
+          "不把M3已有监控支持的接口超时自动写成借口，也不反向扩展为周岚总会负责或从不推责"
+        ],
+        "preferred_candidate": "A",
+        "preferred_arm": "ours",
+        "review_notes": "两者均两句并保留M2、M4及M3；B只说S1缺少具体事例，没有说明它是同事的概括性评价，A则完整保留该来源层级。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "skill": "person-evidence-analysis",
+            "skill_package_sha256": "bf74c8e3288c5f5a3ca751235815089731aeed0ef3ee92b74e396251c93a33ef",
+            "output": "该判断不成立：周岚在 M2 明确承认排期判断错误，在 M4 明确承认漏放附件。S1 只是缺乏具体事例的同事评价，而 M3 的“接口超时”有系统记录印证，均不足以支持“从不承认错误”。",
+            "output_sha256": "200450a03d6be9fbc19b7823b87fa209f42bee1a3866a0dd907be7c266e98595",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "skill": null,
+            "skill_package_sha256": null,
+            "output": "该说法不成立。M2和M4表明周岚明确承认过自己的判断或操作有错，而S1缺乏具体事例，M3则有系统记录佐证。",
+            "output_sha256": "8554f9b694f47a33b379e17888bb209a0ce0ba29e90d227ff23533a2f63ba451",
+            "criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4
+          }
+        ]
+      }
+    ],
+    "review_process": {
+      "pre_review_summary_status": "awaiting-human-review",
+      "formal_quality_source": "blind-review-completed-independent.json",
+      "note": "The completed review was hashed before score_blind_review.py resolved randomized candidate IDs. Content remained blind to arm mapping. The reviewer later disclosed one unrelated global conventions file outside the requested file boundary; the deviation is preserved in reviewer metadata."
+    },
+    "evidence_projection": {
+      "schema": "round21-evidence-projection-v2",
+      "canonicalization": "UTF-8 JSON with ensure_ascii=false, sorted keys, and separators comma/colon",
+      "sha256": "bfd195f4b80c331dd8d9836a6dffb7399938061a7fe28b417e85bb4f2e29e41f",
+      "scope": "Binds the frozen commit, model configuration, source/prepared/raw artifact hashes, reviewer method and disclosed deviation, randomized arm mapping, output hashes, criteria decisions, and preferences."
+    }
+  },
+  "analysis": {
+    "overall": {
+      "baseline": {
+        "outputs": 18,
+        "perfect_outputs": 13,
+        "criteria_passed": 67,
+        "criteria_total": 72,
+        "preferred_count": 3,
+        "criterion_pass_rate": 0.9306
+      },
+      "version_0_1_2": {
+        "outputs": 18,
+        "perfect_outputs": 16,
+        "criteria_passed": 70,
+        "criteria_total": 72,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.9722
+      },
+      "ties": 10
+    },
+    "by_case": {
+      "bounded-listening-pattern-with-exception": {
+        "mechanism": "bounded",
+        "candidate_gate_eligible": false,
+        "baseline": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 1,
+          "core_errors": 0
+        },
+        "version_0_1_2": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        }
+      },
+      "community-location-and-organization": {
+        "mechanism": "action-role",
+        "candidate_gate_eligible": true,
+        "baseline": {
+          "criteria_passed": 9,
+          "criteria_total": 12,
+          "perfect_outputs": 0,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        },
+        "version_0_1_2": {
+          "criteria_passed": 10,
+          "criteria_total": 12,
+          "perfect_outputs": 1,
+          "outputs": 3,
+          "preferred_count": 2,
+          "core_errors": 0
+        }
+      },
+      "incident-recommendation-and-accountability": {
+        "mechanism": "action-role",
+        "candidate_gate_eligible": true,
+        "baseline": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        },
+        "version_0_1_2": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        }
+      },
+      "self-report-cause-and-follow-through": {
+        "mechanism": "source",
+        "candidate_gate_eligible": true,
+        "baseline": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        },
+        "version_0_1_2": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 1,
+          "core_errors": 0
+        }
+      },
+      "supervisor-label-and-mixed-decisions": {
+        "mechanism": "source",
+        "candidate_gate_eligible": true,
+        "baseline": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 2,
+          "core_errors": 0
+        },
+        "version_0_1_2": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 0
+        }
+      },
+      "two-sentence-source-and-counterevidence": {
+        "mechanism": "source",
+        "candidate_gate_eligible": true,
+        "baseline": {
+          "criteria_passed": 10,
+          "criteria_total": 12,
+          "perfect_outputs": 1,
+          "outputs": 3,
+          "preferred_count": 0,
+          "core_errors": 2
+        },
+        "version_0_1_2": {
+          "criteria_passed": 12,
+          "criteria_total": 12,
+          "perfect_outputs": 3,
+          "outputs": 3,
+          "preferred_count": 2,
+          "core_errors": 0
+        }
+      }
+    },
+    "cost_and_efficiency": {
+      "baseline_total_tokens": 175515,
+      "version_0_1_2_total_tokens": 199884,
+      "total_token_delta": 24369,
+      "total_token_delta_percent": 13.9,
+      "prompt_token_delta_percent": 13.1,
+      "completion_token_delta_percent": 70.7,
+      "cost_delta_percent": 31.4,
+      "latency_delta_percent": 21.9
+    },
+    "candidate_gate": {
+      "definition": "Open 0.1.3 candidate design only when the same eligible mechanism has at least two different cases where version 0.1.2 has at least 2/3 core errors and baseline has at most 1/3 core errors in each case. Bounded-pattern has only one case and is diagnostic only.",
+      "core_criterion_number": {
+        "self-report-cause-and-follow-through": 2,
+        "supervisor-label-and-mixed-decisions": 1,
+        "incident-recommendation-and-accountability": 2,
+        "community-location-and-organization": 2,
+        "bounded-listening-pattern-with-exception": 1,
+        "two-sentence-source-and-counterevidence": 2
+      },
+      "case_mechanism": {
+        "self-report-cause-and-follow-through": "source",
+        "supervisor-label-and-mixed-decisions": "source",
+        "two-sentence-source-and-counterevidence": "source",
+        "incident-recommendation-and-accountability": "action-role",
+        "community-location-and-organization": "action-role",
+        "bounded-listening-pattern-with-exception": "bounded"
+      },
+      "eligible_cases": [
+        "self-report-cause-and-follow-through",
+        "supervisor-label-and-mixed-decisions",
+        "two-sentence-source-and-counterevidence",
+        "incident-recommendation-and-accountability",
+        "community-location-and-organization"
+      ],
+      "diagnostic_only_cases": [
+        "bounded-listening-pattern-with-exception"
+      ],
+      "per_case": {
+        "bounded-listening-pattern-with-exception": {
+          "mechanism": "bounded",
+          "eligible": false,
+          "baseline_core_errors": 0,
+          "version_0_1_2_core_errors": 0
+        },
+        "community-location-and-organization": {
+          "mechanism": "action-role",
+          "eligible": true,
+          "baseline_core_errors": 0,
+          "version_0_1_2_core_errors": 0
+        },
+        "incident-recommendation-and-accountability": {
+          "mechanism": "action-role",
+          "eligible": true,
+          "baseline_core_errors": 0,
+          "version_0_1_2_core_errors": 0
+        },
+        "self-report-cause-and-follow-through": {
+          "mechanism": "source",
+          "eligible": true,
+          "baseline_core_errors": 0,
+          "version_0_1_2_core_errors": 0
+        },
+        "supervisor-label-and-mixed-decisions": {
+          "mechanism": "source",
+          "eligible": true,
+          "baseline_core_errors": 0,
+          "version_0_1_2_core_errors": 0
+        },
+        "two-sentence-source-and-counterevidence": {
+          "mechanism": "source",
+          "eligible": true,
+          "baseline_core_errors": 2,
+          "version_0_1_2_core_errors": 0
+        }
+      },
+      "qualifying_cases_by_mechanism": {
+        "source": [],
+        "action-role": [],
+        "bounded": []
+      },
+      "required_qualifying_cases_per_mechanism": 2,
+      "qualifying_mechanisms": [],
+      "triggered": false
+    },
+    "forward_result": {
+      "observation": "Version 0.1.2 passed 70/72 criteria and 16/18 outputs versus baseline 67/72 and 13/18. It had zero core errors on all six cases; baseline had two source-level core errors in the strict two-sentence case.",
+      "interpretation": "The frozen candidate gate did not trigger. The two version 0.1.2 misses were both non-core omission of the selected east-gate result in one community case, observed in 2/3 outputs; this remains an active regression signal rather than a skill-edit mandate."
+    }
+  },
+  "decision": {
+    "skill_changed": false,
+    "version_changed": false,
+    "candidate_design_opened": false,
+    "status_changed": false,
+    "evidence_changed": false,
+    "active_cases_added": 6,
+    "reason": "No eligible mechanism produced two distinct cases with repeated version-0.1.2 core errors against a better baseline. Keep 0.1.2 and add all six frozen cases to active regression coverage."
+  },
+  "limitations": [
+    "All inputs are synthetic and cover one model, one reasoning effort, and explicit project-skill invocation.",
+    "The reviewer was model-assisted rather than an independent human and had prior protocol and current-skill exposure, although candidate-to-arm mapping remained hidden until scoring.",
+    "The reviewer read a global generic repository-conventions skill outside the requested two-file blind-review boundary. It contained no round identity or scoring information, but absolute file-access isolation was not achieved.",
+    "The strict two-sentence and formatting constraints test instruction following as well as person-evidence reasoning.",
+    "This diagnostic does not test implicit routing, real conversations, longitudinal person modeling, other models, or production use and does not justify verified status or universal superiority."
+  ]
+}

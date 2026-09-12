@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "person-evidence-natural-context-forward-14",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "common_prompt": "请完成下方用户任务。只分析这里提供的合成人物材料，不使用工具，不补充外部资料，也不声称修改或保存了任何记录。",
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "person-evidence-analysis",
+        "source": "../../../skills/people/person-evidence-analysis",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

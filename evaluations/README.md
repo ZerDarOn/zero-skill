@@ -190,3 +190,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第二十三轮质量打磨
 
 第二十三轮用六个新合成窄编辑任务比较无 Skill、`obsidian-note-edit` 0.1.0 和 Obsidian Skills 固定提交的 `obsidian-markdown`，每臂各重复三次。54份提交的 Markdown 制品全部与冻结期望逐字一致；无 Skill 与当前包均为72/72、18/18完整，上游为71/72、17/18完整，18项均无唯一偏好，其中17项三方并列、1项baseline与ours并列最佳。上游唯一扣分是一次 `message` 未明确区分已确认重命名与仍属计划的目标，揭盲复核不改分。六题三臂的制品核心失败均为0/3，未触发本地候选门槛，故保持0.1.0。六题加入活动回归，Obsidian编辑从4例增至10例，全仓增至138例。当前包相对baseline总token增加87.3%、记录成本增加116.9%、中位延迟增加67.7%；结果只覆盖只读会话返回的合成文本制品，不构成真实vault编辑、应用渲染、隐式路由或 `verified` 证据。详见[第二十三轮报告](../docs/quality-polish-round-23.md)与[自包含机器诊断](reports/obsidian-artifact-preservation-round-23-diagnostic.json)。
+
+## 第二十六轮显式调用可靠性
+
+第二十六轮把第二十五轮 v1 的单次显式 Skill 调用失效从回答质量中拆出。canary 与 business 两个队列各执行40条单轮轨迹，共80条；80/80 technical valid、80/80 operational success，baseline技术失败、canary Skill失败、canary令牌泄漏和business Skill失败均为0。canary probe的两个隐藏令牌各精确返回10次，business `conversation-rehearsal` 20/20保持单一最终消息且无策略阻断或过程播报。结果仅说明本次冻结条件下未复现，不重新评分质量，不证明每条business轨迹加载了正文，也不改变Skill、版本、catalog、evidence或活动用例。详见[第二十六轮报告](../docs/quality-polish-round-26.md)与[机器证据](reports/explicit-invocation-reliability-round-26.json)。

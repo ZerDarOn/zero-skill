@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十五轮沟通演练显式边界确认**。已有十六个可试用的 `experimental` 技能，活动用例共148项。确认性 v2 的24条单轮轨迹全部通过技术校验；无 Skill 与 `conversation-rehearsal` 0.1.1 均为48/48、12/12完整，12项无唯一偏好，两个机制门槛均未触发。v1 的23/24技术结果不计分，但保留为一次 Skill 显式调用操作可靠性观察；当前包仍为0.1.1。
+当前阶段：**第二十六轮显式 Skill 调用可靠性**。已有十六个可试用的 `experimental` 技能，活动用例共148项。canary 与 business 两个正式队列共80条单轮轨迹，全部通过技术与运行完整性检查；四项零容忍门禁均为0。结果说明第二十五轮 v1 的单次失效未在本轮冻结条件下复现，但不重新评分回答质量，也不证明长期零故障；`conversation-rehearsal` 仍为0.1.1。
 
 ## 从这里开始
+
+- [第二十六轮质量打磨：显式 Skill 调用可靠性](docs/quality-polish-round-26.md)
+- [显式调用第二十六轮机器报告](evaluations/reports/explicit-invocation-reliability-round-26.json)
 
 - [第二十五轮质量打磨：沟通演练显式边界确认](docs/quality-polish-round-25.md)
 - [沟通演练第二十五轮机器诊断](evaluations/reports/conversation-explicit-boundary-round-25-confirmatory.json)

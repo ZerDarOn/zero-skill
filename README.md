@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十四轮沟通演练原生多轮会话诊断**。已有十六个可试用的 `experimental` 技能，活动用例共144项。六个新题、两臂各18条原生 resume 轨迹全部通过技术校验。原始盲评为无 Skill 72/72、`conversation-rehearsal` 0.1.1 69/72；独立裁决确认其中3项使用了未冻结的“必须另写拒绝句”要求，公开校准分为两臂均72/72、18/18完整。baseline 的3次偏好保留为边界表达清晰度观察；校准门禁仍未触发，当前包保持0.1.1。
+当前阶段：**第二十五轮沟通演练显式边界确认**。已有十六个可试用的 `experimental` 技能，活动用例共148项。确认性 v2 的24条单轮轨迹全部通过技术校验；无 Skill 与 `conversation-rehearsal` 0.1.1 均为48/48、12/12完整，12项无唯一偏好，两个机制门槛均未触发。v1 的23/24技术结果不计分，但保留为一次 Skill 显式调用操作可靠性观察；当前包仍为0.1.1。
 
 ## 从这里开始
+
+- [第二十五轮质量打磨：沟通演练显式边界确认](docs/quality-polish-round-25.md)
+- [沟通演练第二十五轮机器诊断](evaluations/reports/conversation-explicit-boundary-round-25-confirmatory.json)
 
 - [第二十四轮质量打磨：沟通演练原生多轮会话](docs/quality-polish-round-24.md)
 - [沟通演练第二十四轮机器诊断](evaluations/reports/conversation-native-resume-round-24-diagnostic.json)

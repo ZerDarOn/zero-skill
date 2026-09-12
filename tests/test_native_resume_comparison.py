@@ -228,6 +228,47 @@ class NativeResumeComparisonTests(unittest.TestCase):
         meta["results_sha256"] = sha256_bytes(results_path.read_bytes())
         write_json(meta_path, meta)
 
+    def write_legacy_multiple_message_failure(self):
+        trajectories = self.write_valid_run()
+        target = trajectories[0]
+        turn = target["turns"][0]
+        progress = "synthetic progress message"
+        values = [
+            {"type": "thread.started", "thread_id": turn["thread_id"]},
+            {"type": "turn.started"},
+            {
+                "type": "item.completed",
+                "item": {"id": "item_0", "type": "agent_message", "text": progress},
+            },
+            {
+                "type": "item.completed",
+                "item": {
+                    "id": "item_1",
+                    "type": "agent_message",
+                    "text": turn["raw_output"],
+                },
+            },
+            {"type": "turn.completed", "usage": turn["usage"]},
+        ]
+        events = "".join(
+            json.dumps(value, ensure_ascii=False) + "\n" for value in values
+        )
+        turn["raw_events"] = events
+        turn["events_sha256"] = sha256_bytes(events.encode("utf-8"))
+        turn["item_types"] = ["agent_message", "agent_message"]
+        turn["agent_messages"] = [progress, turn["raw_output"]]
+        turn["output_matches_last_agent_message"] = False
+        turn["technical_valid"] = False
+        target["technical_valid"] = False
+        target["thread_id"] = None
+        self.rewrite_results(trajectories)
+        meta_path = self.run_dir / "run-meta.json"
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        meta["valid_trajectories"] = len(trajectories) - 1
+        meta["invalid_trajectories"] = 1
+        write_json(meta_path, meta)
+        return trajectories, target
+
     def test_frozen_shape_has_three_paired_mechanisms_and_84_turns(self):
         mechanisms = {}
         for case in self.cases:
@@ -548,6 +589,45 @@ class NativeResumeComparisonTests(unittest.TestCase):
         ours["skill_package_sha256"] = None
         self.rewrite_results(trajectories)
         with self.assertRaisesRegex(ValueError, "skill package"):
+            SUMMARY["normalize_trajectories"](self.run_dir, ROOT)
+
+    def test_summarizer_preserves_legacy_multiple_message_failure(self):
+        trajectories, target = self.write_legacy_multiple_message_failure()
+        summary = SUMMARY["summarize_native_resume"](self.run_dir, ROOT)
+        self.assertEqual(summary["status"], "infrastructure-invalid")
+        self.assertFalse(summary["infrastructure_valid"])
+        self.assertEqual(
+            sum(arm["valid_trajectories"] for arm in summary["arms"]),
+            len(trajectories) - 1,
+        )
+        key = json.loads(
+            (self.run_dir / "blind-review-key.json").read_text(encoding="utf-8")
+        )
+        mapping = next(
+            candidate
+            for item in key["items"]
+            for candidate in item["candidates"]
+            if candidate["trajectory_id"] == target["trajectory_id"]
+        )
+        self.assertIsNone(mapping["thread_id"])
+
+    def test_invalid_trajectory_still_rejects_wrong_nonempty_thread(self):
+        _, target = self.write_legacy_multiple_message_failure()
+        target["thread_id"] = "forged-thread"
+        payload_path = self.run_dir / "native-results.json"
+        payload = json.loads(payload_path.read_text(encoding="utf-8"))
+        replacement = next(
+            item
+            for item in payload["trajectories"]
+            if item["trajectory_id"] == target["trajectory_id"]
+        )
+        replacement["thread_id"] = "forged-thread"
+        write_json(payload_path, payload)
+        meta_path = self.run_dir / "run-meta.json"
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        meta["results_sha256"] = sha256_bytes(payload_path.read_bytes())
+        write_json(meta_path, meta)
+        with self.assertRaisesRegex(ValueError, "stored trajectory thread id"):
             SUMMARY["normalize_trajectories"](self.run_dir, ROOT)
 
     def test_blind_packet_is_write_once(self):

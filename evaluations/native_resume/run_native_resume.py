@@ -603,11 +603,11 @@ def run_trajectory(
         )
         write_json(evidence_dir / f"turn-{index}-record.json", record)
         result["turns"].append(record)
-        if not record["technical_valid"]:
-            break
-        if thread_id is None:
+        if thread_id is None and isinstance(record["thread_id"], str):
             thread_id = record["thread_id"]
             result["thread_id"] = thread_id
+        if not record["technical_valid"]:
+            break
         prior_output_hashes.append(record["output_sha256"])
     result["technical_valid"] = (
         valid_git

@@ -243,7 +243,13 @@ def normalize_trajectories(
         )
         if trajectory.get("technical_valid") is not expected_trajectory_valid:
             raise ValueError("stored trajectory technical validity is inconsistent")
-        if trajectory.get("thread_id") != thread_id:
+        stored_thread_id = trajectory.get("thread_id")
+        legacy_invalid_without_thread = (
+            not expected_trajectory_valid
+            and stored_thread_id is None
+            and isinstance(thread_id, str)
+        )
+        if stored_thread_id != thread_id and not legacy_invalid_without_thread:
             raise ValueError("stored trajectory thread id is inconsistent")
         if thread_id is not None:
             previous = seen_thread_ids.get(thread_id)

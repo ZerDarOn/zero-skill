@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "implicit-discovery-host-boundary-20",
+  "purpose": "Separate natural route selection, Skill body loading, policy blocking, and output transport before any business implicit-quality run.",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "job_order_seed": 270913,
+  "infrastructure": {
+    "preparer": {
+      "path": "evaluations/promptfoo/prepare_skill_comparison.py",
+      "sha256": "4eca5a4c2caeffbeca6663ecf49ce8f9e293f86372593abfb3d794ea1d1b788b"
+    },
+    "runner": {
+      "path": "evaluations/native_resume/run_native_resume.py",
+      "sha256": "cac3e238d717f7a268d9b6800bec11002eaa5d3e54ddf2458f65a2983e9912b5"
+    },
+    "normalizer": {
+      "path": "evaluations/native_resume/summarize_native_resume.py",
+      "sha256": "91c336bc71b409adabe8c39668cbbb98b72fcb6bafcfc05c21faf899455daa9d"
+    },
+    "analyzer": {
+      "path": "evaluations/native_resume/analyze_implicit_discovery.py",
+      "sha256": "802d18bddd6142486ce2cf077043614c290ec998c7940b1573c244ffe9f8098e"
+    }
+  },
+  "cohort": {
+    "comparison_id": "implicit-discovery-host-boundary-20",
+    "spec": "evaluations/comparisons/implicit-discovery-host-boundary-20/promptfoo.json",
+    "spec_sha256": "369a5d85e1d8959a186e02ec734c2ee85ede9487f6e08bb0aab7df0e56be43b3",
+    "baseline_arm": "baseline",
+    "probe_arm": "probe",
+    "probe_skill": "implicit-discovery-probe",
+    "skill_package_sha256": "e45999851a3cf7d3dbb061b784c7a82bb5a9b7bfd6448751ecf2414ef8670887",
+    "fallback_output": "ROUTE-NOT-AVAILABLE",
+    "expected_output_by_case": {
+      "fog-lamp-index-token": "LANTERN-MICA-270913",
+      "paper-kite-archive-token": "KITE-ONYX-270913"
+    },
+    "cases": "evaluations/comparisons/implicit-discovery-host-boundary-20/cases.json",
+    "cases_sha256": "d22f5d4050155170d7990f479a6324754e311f82627a06b374082a59670547fd"
+  },
+  "gate": {
+    "require_full_repetitions": true,
+    "max_baseline_route_false_positives": 0,
+    "max_baseline_secret_leaks": 0,
+    "max_baseline_output_misses": 0,
+    "max_baseline_policy_blocks": 0,
+    "max_baseline_transport_failures": 0,
+    "max_probe_route_selection_failures": 0,
+    "max_probe_body_load_failures": 0,
+    "max_probe_policy_blocks": 0,
+    "max_probe_transport_failures": 0,
+    "business_comparison_requires_pass": true,
+    "quality_scoring": false,
+    "skill_change_authorized": false
+  },
+  "decision_boundary": {
+    "gate_pass": "A later, separately frozen business implicit-quality comparison may be designed.",
+    "gate_fail": "Stop before business comparison and report the observed host boundary.",
+    "skill_or_catalog_change_authorized": false
+  }
+}

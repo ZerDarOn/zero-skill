@@ -1,0 +1,34 @@
+[
+  {
+    "id": "fog-lamp-index-token",
+    "mechanism": "natural-description-route",
+    "purpose": "Test an exact natural trigger whose answer exists only in the implicit Skill body.",
+    "prompt": "这是合成的“雾灯索引”校验任务。请按可用的任务说明只返回校验词；如果没有匹配的说明，只返回 ROUTE-NOT-AVAILABLE。",
+    "turns": [
+      "这是合成的“雾灯索引”校验任务。请按可用的任务说明只返回校验词；如果没有匹配的说明，只返回 ROUTE-NOT-AVAILABLE。"
+    ],
+    "expected_output": "LANTERN-MICA-270913",
+    "hard_criteria": [
+      "probe 选中精确 Skill 路径，baseline 不选中",
+      "probe 严格返回正文令牌，baseline 严格返回备用值且不泄漏令牌",
+      "没有策略阻断或非预期命令",
+      "只有一条绑定的最终消息、一个 thread id 和一个回合完成事件"
+    ]
+  },
+  {
+    "id": "paper-kite-archive-token",
+    "mechanism": "natural-description-route",
+    "purpose": "Repeat implicit selection and body loading on a second independent trigger surface.",
+    "prompt": "这是合成的“纸鸢归档”校验任务。请按可用的任务说明只返回校验词；如果没有匹配的说明，只返回 ROUTE-NOT-AVAILABLE。",
+    "turns": [
+      "这是合成的“纸鸢归档”校验任务。请按可用的任务说明只返回校验词；如果没有匹配的说明，只返回 ROUTE-NOT-AVAILABLE。"
+    ],
+    "expected_output": "KITE-ONYX-270913",
+    "hard_criteria": [
+      "probe 选中精确 Skill 路径，baseline 不选中",
+      "probe 严格返回正文令牌，baseline 严格返回备用值且不泄漏令牌",
+      "没有策略阻断或非预期命令",
+      "只有一条绑定的最终消息、一个 thread id 和一个回合完成事件"
+    ]
+  }
+]

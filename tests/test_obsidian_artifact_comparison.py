@@ -218,6 +218,7 @@ class ObsidianArtifactComparisonTests(unittest.TestCase):
 
     def test_prefill_run_rejects_frozen_cases_path_outside_repository(self):
         runs_root = ROOT / "evaluations" / "runs"
+        runs_root.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=runs_root) as temporary:
             run_dir = Path(temporary)
             (run_dir / "frozen.json").write_text(

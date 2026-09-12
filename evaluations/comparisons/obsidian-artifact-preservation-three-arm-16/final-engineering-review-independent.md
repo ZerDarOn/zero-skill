@@ -43,6 +43,12 @@
 
 ## 验证记录
 
+### 推送后发现与解决
+
+首个 push 的 GitHub Actions run `34716719510` 在 Ubuntu acceptance tests 失败。父代理随后用 `git archive` 生成的 clean checkout 复现：`test_prefill_run_rejects_frozen_cases_path_outside_repository` 假设受 Git 忽略的 `evaluations/runs` 目录已经存在，因此在干净检出中于测试准备阶段失败。这是测试夹具的目录前置条件遗漏，不是产品逻辑或冻结证据失败。
+
+**Resolution：已解决。** 测试现在先执行 `runs_root.mkdir(parents=True, exist_ok=True)`，不再依赖工作树残留目录。修正后 prefill 定向测试 7/7 通过，本地主树全量测试 88 通过、1 跳过；`git archive` clean checkout 全量测试 88 通过、2 跳过。clean checkout 多出的跳过项正是受 Git 忽略的 Round 23 raw run 不存在时跳过本地 artifact 哈希核验，与本报告已披露的证据限制一致。该推送后 finding 已关闭，不改变最终 P0–P3 判断。
+
 - `python -m unittest tests.test_obsidian_artifact_round23 -v`：修正后独立重跑，4/4 通过；本地 raw run 存在，13 个 artifact 哈希测试实际执行而非跳过。
 - `python -m unittest discover -s tests -v`：父代理修正后重跑为 88 通过，1 跳过，0 失败；跳过项为 Windows symlink 权限条件。
 - `python scripts/validate_collection.py`：通过。

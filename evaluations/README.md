@@ -10,7 +10,7 @@
 
 `cases/conversation-rehearsal.json` 是 P4 的五个 `active` 用例：原三条合成轨迹：演练／暂停／重试、材料更正与模拟证据隔离，以及停止表演的单轮范围测试；首轮质量打磨另增加暂停后事实边界与明确假设例子。
 
-第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，各有四个单轮合成用例。前者覆盖限定性主张、作者声音、受保护片段和无需改写；后者覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
+第二次吸收新增 `cases/prose-polish.json` 与 `cases/obsidian-note-edit.json`，最初各有四个单轮合成用例。文稿润色经第六、九和三十一轮扩至十五例，覆盖限定性主张、作者声音、受保护片段、无需改写、长度内关系保持、修订历史和刻意表达控制；Obsidian 组覆盖已知笔记整理、窄范围章节编辑、确认映射的链接修复和普通 Markdown 边界。
 
 第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`。前者经第二十二轮增加七题后共十三个单轮合成用例，覆盖因果链、请求关联、恢复与验证、部署身份、时钟偏移、依赖检查顺序、原触发条件等价性、幂等证据和只读接口写副作用；后者在原四题基础上由第十八轮增加六题、第十九轮增加四题、第二十轮增加三题，目前共十七题，覆盖来源依赖、字段级更正、有限日志、聚合反转、材料内指令、链接边界、强证据控制，以及多队列、多地区、多试验、不同样本量和严格短表中的定量保真。
 
@@ -210,3 +210,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第三十轮文章配图规划鉴别性前向盲测
 
 第三十轮在第二十九轮天花板之后冻结六个更难的合成文本规划题，继续比较无 Skill、`article-visual-plan` 0.1.0 和同一固定 Baoyu 上游，每臂各重复三次。54份输出全部有效，三臂均为70/72、16/18完整，18项没有唯一偏好。六个失败判断中五个是三臂均出现的非核心材料扩写；唯一核心失败是当前包一次遗漏异组观察比例，但同机制另一题通过，未达到预注册的双题重复门槛。Skill、版本、catalog 与 evidence 保持不变。六题加入活动回归，文章配图规划从10例增至16例，全仓增至160例。详见[第三十轮报告](../docs/quality-polish-round-30.md)与[机器证据](reports/article-visual-plan-discriminative-round-30-diagnostic.json)。
+
+## 第三十一轮当前文稿润色与 Humanizer 前向盲测
+
+第三十一轮重新比较无 Skill、当前 `prose-polish` 0.1.3 与固定 Humanizer 3.0.0，每臂在六个新合成任务上重复三次。54份输出全部有效；三臂分别为71/72、70/72、69/72，完整输出为17/18、16/18、15/18。六个失败判断全部来自同一道作者声音题：baseline、当前包、上游分别有1/3、2/3、3/3次没有实质收敛成功与全员赞扬措辞；配对的刻意短句控制题三臂均为0/3核心失败。因此没有机制达到预注册的双题重复门槛，Skill、0.1.3版本、catalog与evidence保持不变。六题加入活动回归，文稿润色从9例增至15例，全仓增至166例。详见[第三十一轮报告](../docs/quality-polish-round-31.md)与[机器证据](reports/prose-polish-current-humanizer-round-31-diagnostic.json)。

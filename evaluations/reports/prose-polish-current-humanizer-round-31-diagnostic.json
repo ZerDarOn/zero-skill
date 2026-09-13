@@ -1,0 +1,1388 @@
+{
+  "schema_version": 1,
+  "report_id": "prose-polish-current-humanizer-round-31-diagnostic",
+  "generated_at": "2026-09-13T19:40:47.668622+00:00",
+  "scope": {
+    "skill_id": "prose-polish",
+    "version": "0.1.3",
+    "catalog_status": "experimental",
+    "catalog_evidence": null,
+    "prior_active_case_count": 9,
+    "active_case_count": 15,
+    "collection_active_case_count": 166,
+    "formal_outputs": 54,
+    "blind_review_items": 18,
+    "criterion_booleans": 216
+  },
+  "experiment": {
+    "comparison_id": "prose-polish-current-humanizer-24",
+    "run_id": "prose-polish-current-humanizer-24-formal-20260914-v1",
+    "freeze_commit": "5fb4a1ca09a7a17059b41a372daf1c06e0927fa0",
+    "promptfoo_version": "0.123.0",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "preflight": {
+      "run_id": "prose-polish-current-humanizer-24-preflight-20260914-v1",
+      "outputs": 3,
+      "infrastructure_valid": true,
+      "summary_sha256": "d09a49cd8a625c6cbb8016190d44b096f45dcc9c5bd5dc01c9ff7764eacb4c14",
+      "scored": false
+    },
+    "source_hashes": {
+      "promptfoo.json": "b1109cc9fc2d69e440fdb2c4d523778d889499ab7224e1009d79b03117a92eb3",
+      "cases.json": "2fdd0ce433b9c581165800c128f9461a41f8fcbf72360fae66b21d4282f95898",
+      "active-cases.json": "7663ef7421deba6fc04c025fcb09d8160bb403a04324f1ec1d0e1ca5f19779bf",
+      "SKILL.md": "ec8bd7f0fa2d418bec700676cc1faa169b23e1cf369ac25a8ec381f38b70f0bf",
+      "upstream-provenance.json": "553fc7d5465c1f5ce02f032a54c1ba2a39eb8f54c49cedf4e7a929aea5f9703f"
+    },
+    "prepared_hashes": {
+      "config": "a4f0110813322a8c5916a827de4f165d1ad401ac807f7915d84f4a84524ddba1",
+      "tests": "e0826494ef2a4acf5015f3d89d492606de872140db166f73fd99e2d8755040c4"
+    },
+    "artifact_hashes": {
+      "frozen.json": "ce8c24e610b18bcdb7e201b4f1960a123fe82bccf139ee97e8f450b6444bf070",
+      "run-meta.json": "b872deee405684d1fc0d67f68956068638ed76918634d51b73c8c0c3ceaf35ee",
+      "results.json": "6b4862597fda606aa09dac0e591646ef80e756cec75adc9396d557bfc657e5b6",
+      "summary.json": "9ceee223803c7476d42d56a25c0ef23e847e2e475f349acc5c6ab3dcb97b84b2",
+      "blind-review.json": "302d9bb0709af72a992055e8f655b547121cf20a790b22868547aa3b339e83c8",
+      "blind-review-key.json": "90cba287260406e5f7cde90b0e9572b7708d2854a7e4628df483b7c211bc780c",
+      "blind-review-form.json": "c95b1b454cf380e9bb0a8a21ed39e4a38bc019b85de7e71ab6a6e88675b5971c",
+      "blind-review-completed-independent.json": "1fd21da941a826eed88fed92c53833fe66a48879794417908872488195d45030",
+      "review-result-blind-review-completed-independent.json": "488a5de17b7a39573484676e5fe6d0c234c8eb46a1817409b7ebd5bf30954ee0"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "c2c90a0b3f38c3652fb291cfdc0d4bb7cd9696d9adb50c80d289711591b14320",
+      "postscore-decision-review-independent.md": "bf502fc404d1b8bdca8338dad82981cd8eb605f7339cca2e46917f632593d855"
+    },
+    "upstream_provenance": {
+      "repository": "https://github.com/blader/humanizer",
+      "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "license": "MIT",
+      "provenance_sha256": "553fc7d5465c1f5ce02f032a54c1ba2a39eb8f54c49cedf4e7a929aea5f9703f",
+      "package_sha256": "1f7cf25aac13904bfa2a9e1f54f83ba8f620c50bd059b2f7b634e62d7010adde",
+      "package_license_included": true,
+      "source_bytes_modified": false,
+      "runtime_files": [
+        "SKILL.md"
+      ],
+      "ignored_host_metadata": [
+        "agents/openai.yaml"
+      ],
+      "known_source_issues": []
+    },
+    "blind_reviewer": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round31_blind_review",
+      "completed_at": "2026-09-13T19:34:46.801566+00:00",
+      "independent_human": false,
+      "blind_to_arm_mapping": true,
+      "allowed_files": [
+        "blind-review.json",
+        "blind-review-form.json"
+      ],
+      "blind_file_boundary_clean": true,
+      "unexpected_files_read": [],
+      "notes": "Scored only the synthetic task text, anonymous outputs, and frozen hard criteria in the allowed blind packet and form; prose preference did not override hard criteria."
+    },
+    "postscore_review": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round31_blind_review",
+      "blind": false,
+      "same_reviewer_as_blind_scoring": true,
+      "corrections": 0,
+      "finding": "All six false scores stand. The only repeated ours failure is isolated to the restrained-voice case; its paired no-change control passes, so no mechanism triggers the frozen gate.",
+      "review_sha256": "bf502fc404d1b8bdca8338dad82981cd8eb605f7339cca2e46917f632593d855"
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.1957408,
+          "latency_ms_median": 8023.5,
+          "tokens_total": {
+            "cached": 154112,
+            "completion": 3272,
+            "prompt": 171276,
+            "total": 174548
+          }
+        },
+        "blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 17,
+          "criteria_passed": 71,
+          "criteria_total": 72,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.9861
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "prose-polish",
+        "package_evidence_path": "skills/creation/prose-polish",
+        "skill_package_sha256": "85460012946903fe6401f8df5f6b284497103606fbeaed86eda963d92a103047",
+        "runtime": {
+          "id": "ours",
+          "skill": "prose-polish",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2929624,
+          "latency_ms_median": 8620.0,
+          "tokens_total": {
+            "cached": 156416,
+            "completion": 3821,
+            "prompt": 194910,
+            "total": 198731
+          }
+        },
+        "blind_review": {
+          "arm_id": "ours",
+          "skill": "prose-polish",
+          "outputs": 18,
+          "perfect_outputs": 16,
+          "criteria_passed": 70,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9722
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "humanizer",
+        "package_evidence_path": "evaluations/fixtures/upstreams/humanizer/9862685f575c65a8247f90369951df1b3416e3d6",
+        "skill_package_sha256": "1f7cf25aac13904bfa2a9e1f54f83ba8f620c50bd059b2f7b634e62d7010adde",
+        "runtime": {
+          "id": "upstream",
+          "skill": "humanizer",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.5704072,
+          "latency_ms_median": 8925.5,
+          "tokens_total": {
+            "cached": 183168,
+            "completion": 3513,
+            "prompt": 289888,
+            "total": 293401
+          }
+        },
+        "blind_review": {
+          "arm_id": "upstream",
+          "skill": "humanizer",
+          "outputs": 18,
+          "perfect_outputs": 15,
+          "criteria_passed": 69,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9583
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "audit-invalidates-metric-keeps-quote-r1",
+        "case_id": "audit-invalidates-metric-keeps-quote",
+        "mechanism": "revision-history-control",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "最新核对：试点实际覆盖27家客户（非32家）；因计时起点不一致，18%已作废，现有记录无法判断等待时间变化的方向或幅度。一位客户主观反馈：“确实少等了一会儿”。",
+            "output_sha256": "18205cdb5ded08e9db1960d37b5ab02d3851230b9d428a1d3d22a22b4176374b",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "更新：试点覆盖由32家更正为27家。因各客户计时起点不一致，等待时间缩短18%的结论作废，现有记录无法判断变化方向或幅度。一位客户反馈：“确实少等了一会儿”。",
+            "output_sha256": "3b65c27117c46c26fb0f6beaf5da6d1185cec5174bdfff73f431167048d22d9c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "审计确认试点实际覆盖27家客户，早期草稿为32家。因各客户计时起点不一致，等待时间缩短18%的结论已作废，现有记录无法判断变化方向或幅度。一位客户反馈：“确实少等了一会儿”。",
+            "output_sha256": "05246cbb4d979f749a394659dc9993aee02548bcf0dcbef245b887407e8e12f9",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "audit-invalidates-metric-keeps-quote-r2",
+        "case_id": "audit-invalidates-metric-keeps-quote",
+        "mechanism": "revision-history-control",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "最新核对：试点实际覆盖27家客户，非32家。因各客户计时起点不一致，18%已作废，现有记录无法判断等待时间变化的方向或幅度。一位客户的主观反馈是：“确实少等了一会儿”。",
+            "output_sha256": "e3a81f0fbd028119f873fffe8c4ba41446eea56c0c64f5bd96f9f76ed99489d2",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "最新审计：试点实际覆盖27家客户，并非早期草稿所述32家。因各客户计时起点不一，18%已作废，现有记录无法判断等待时间变化的方向或幅度。一位客户的主观反馈是：“确实少等了一会儿”。",
+            "output_sha256": "9806e158fa7bf17d1916b1f6918143cb92a4c5c9aa764e932b7a0b76e09fbd22",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "最新核对：试点实际覆盖27家客户，原32家有误。因计时起点不一致，18%已作废，现有记录无法判断等待时间变化的方向或幅度。一位客户主观反馈：“确实少等了一会儿”。",
+            "output_sha256": "6d703defe5ad1c918840ac6b28b4b7d8ab9e11e397f59984323e05fb5091238d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "audit-invalidates-metric-keeps-quote-r3",
+        "case_id": "audit-invalidates-metric-keeps-quote",
+        "mechanism": "revision-history-control",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "最新核对：试点实际覆盖27家（早期称32家）；因各客户计时起点不一致，等待时间缩短18%的结论已作废，现有记录无法判断变化方向或幅度。一位客户的主观反馈是：“确实少等了一会儿”。",
+            "output_sha256": "3c4b3c97e557ce0b4cd683f8086728e03177626c72d5a40d8d471041f7e84e3f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "最新审计：试点覆盖由32家更正为27家。因各客户计时起点不一致，等待时间缩短18%的结论作废，现有记录无法判断变化方向或幅度。一位客户主观反馈：“确实少等了一会儿”。",
+            "output_sha256": "c8df95df83b8dbd2cb9f89f49dcbca9543c4a6b950af1b3735c459eca704dfa8",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "核对结果：试点实际覆盖27家客户。因计时起点不一，等待时间缩短18%的结论作废，现有记录无法判断变化方向或幅度。一位客户主观反馈：“确实少等了一会儿”。",
+            "output_sha256": "2b25f48e8475a782be2ec0dd717688ec067d12c2b3ab685d28be51be10b81d36",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "intentional-fragments-no-change-control-r1",
+        "case_id": "intentional-fragments-no-change-control",
+        "mechanism": "author-voice-restraint",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "intentional-fragments-no-change-control-r2",
+        "case_id": "intentional-fragments-no-change-control",
+        "mechanism": "author-voice-restraint",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "intentional-fragments-no-change-control-r3",
+        "case_id": "intentional-fragments-no-change-control",
+        "mechanism": "author-voice-restraint",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "门开了。风进来。我没动。再等一会儿，再等一会儿。",
+            "output_sha256": "088afe0fcbc226f10aa961e58b05ab234ee6ce228dec095295c2568495a96db0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "partial-rollback-keeps-schedule-revision-r1",
+        "case_id": "partial-rollback-keeps-schedule-revision",
+        "mechanism": "revision-history-control",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "9月5日的内部试用有14名参与者。  \n公开试用原定于9月20日开始，现改为：若安全复核在9月18日前通过，则于9月22日开始，否则开始时间待定。",
+            "output_sha256": "56e412cb916bc062557894654ff1a9b51f894c3b0153084c38c435a75ea47c18",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "9月5日的内部试用共有14名参与者。公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始；否则，开始时间待定。",
+            "output_sha256": "377111ae2afe29ebbede90aa7974d5713d1d6763486f2573c0d88d470b15eaba",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "9月5日的内部试用有14名参与者。公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始；否则，开始时间待定。",
+            "output_sha256": "afd3876ca62d3a66f109202cecc9e05b7bafa7b6939e8a62939f0a421eb9acd4",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "partial-rollback-keeps-schedule-revision-r2",
+        "case_id": "partial-rollback-keeps-schedule-revision",
+        "mechanism": "revision-history-control",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "9月5日的内部试用有14名参与者。\n公开试用原定9月20日开始，现改为：若安全复核在9月18日前通过，则9月22日开始，否则开始时间待定。",
+            "output_sha256": "e5da7eed35d2a0389f86b1efa2b40599693592b56be5fd108bc38b0cc38fa3b3",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "9月5日的内部试用有14名参与者。  \n公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始；否则，开始时间待定。",
+            "output_sha256": "861b5ec0318c2ec30345c33d06a1b4c50d5cd684c355384c270a625bcc50bd69",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "9月5日的内部试用有14名参与者。公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始，否则开始时间待定。",
+            "output_sha256": "f32783696ee91664ecccc7b505a5bf9b3b8b180543fba8d86e8cbb6551060a32",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "partial-rollback-keeps-schedule-revision-r3",
+        "case_id": "partial-rollback-keeps-schedule-revision",
+        "mechanism": "revision-history-control",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "9月5日的内部试用有14名参与者。公开试用由原定9月20日开始，改为若安全复核在9月18日前通过，则于9月22日开始，否则开始时间待定。",
+            "output_sha256": "dbb951fd98840a16b7b7a1ffef1a099b8b5a2ae37deb946e6247712142be885f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "9月5日的内部试用共有14名参与者。  \n公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始，否则开始时间待定。",
+            "output_sha256": "036ea34ea28c3cb0237c39807a046ac512ad784bdd0b260376cb094c283d5454",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "9月5日的内部试用有14名参与者。公开试用原定于9月20日开始，现调整为：若安全复核在9月18日前通过，则于9月22日开始，否则开始时间待定。",
+            "output_sha256": "f32783696ee91664ecccc7b505a5bf9b3b8b180543fba8d86e8cbb6551060a32",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "restrained-voice-with-fixed-closing-r1",
+        "case_id": "restrained-voice-with-fixed-closing",
+        "mechanism": "author-voice-restraint",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "上周六，社区修伞活动圆满结束，现场收获了大家的赞扬。7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "560900dc3eb4393671ef2ab696755d6a43609c4c8908910e2e52be593ffbe4b3",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "上周六，社区的修伞活动办得很成功。7位居民一起修好了11把伞，现场每个人都给出了很高的评价。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "0076e0edf0de5e57a6a1ef71507892c388b9656ca1326e5b0e67e81bdd357063",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "上周六，社区的修伞活动顺顺利利办完了。7位居民一起修好了11把伞，在场的人个个都说好。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "67e7d72e5148c7fe7409f67d58a16a4a4e74a17b39f4bc705edf640a178f6c1d",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "restrained-voice-with-fixed-closing-r2",
+        "case_id": "restrained-voice-with-fixed-closing",
+        "mechanism": "author-voice-restraint",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "上周六，社区修伞活动顺利开展，7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "7e43d6290db2563870f51beafcf7ee34584e36bba7be1c94d28ab758c32bc2da",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "上周六，社区办了一场修伞活动。7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "e8169cba67bc946bcd07bf0b60df010b965dcea18171c70241526942b84d862e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "上周六，社区办了场修伞活动。7位居民一起修好11把伞，在场的人都说好。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "25749925243a747d0baa080b3fcd2e6a88a82145d85ec042dec894bcd36e3d60",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "restrained-voice-with-fixed-closing-r3",
+        "case_id": "restrained-voice-with-fixed-closing",
+        "mechanism": "author-voice-restraint",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "上周六，社区修伞活动顺利开展，7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "7e43d6290db2563870f51beafcf7ee34584e36bba7be1c94d28ab758c32bc2da",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": true
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "上周六，社区修伞活动办得很成功，现场每个人都很赞许。7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "8d848b064f3fb6d1fae7f2bf31b67144c8262425b6523175efb9a79ba0b53e97",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "上周六，社区的修伞活动办得很顺利。7位居民一起修好了11把伞，到场的每个人都夸修得好。我还是觉得，慢一点没什么不好。",
+            "output_sha256": "424f7659c9de1f8525efa3aef9cf27e3f4a6b3d9e3586c7d840f6777682d15d2",
+            "criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-migration-plan-under-limit-r1",
+        "case_id": "scoped-migration-plan-under-limit",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "2026年第四季度迁移仅含东、北区试点；南区须在10月3日前通过传感器兼容性验证方可纳入；西区不在本轮，参与名单未定。以上仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "3baa309c2c4adfc5e3d20afa94398fffbb33140019f916ab517ecbc5f219f1b9",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "2026年第四季度迁移计划仅含东区、北区两个试点；南区须在10月3日前通过传感器兼容性验证方可纳入；西区不在本轮范围。参与名单未定，仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "226ceecdd75e8af025751efb7b025609336e31225a5636d9ceeae44c85ad3a1d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "2026年第四季度迁移仅含东区、北区试点；南区须在10月3日前通过传感器兼容性验证方可纳入，西区不在本轮范围。参与名单未定，以上仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "12784ce3059c620cac6a2aa1c40b414cbffc0e869f9efb7018612bf5bb2394ea",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-migration-plan-under-limit-r2",
+        "case_id": "scoped-migration-plan-under-limit",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "2026年第四季度迁移目前仅含东区、北区试点；南区须在10月3日前通过传感器兼容性验证方纳入，西区不在本轮。名单未定；以上仅为计划范围，非已上线或承诺上线。",
+            "output_sha256": "4a0f261a6441c6975263e9703012c9d9326a5f539efd6b4c19f62ce5c9cb250e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "2026年第四季度迁移仅含东区、北区试点；南区须在10月3日前通过传感器兼容性验证方可纳入；西区不在本轮范围。名单未定；此为计划范围，非已上线或承诺上线。",
+            "output_sha256": "22d746bc77b4c18787e88d309e3e852f4b21ed2ec297d16f37fabd6b1537212f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "2026年四季度迁移计划仅含东区、北区试点；南区须在10月3日前通过传感器兼容性验证方可纳入，西区不在本轮范围。参与名单未定；以上仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "e956d07e529365eb4b0cebc212d97ce76528a885b9fb2dc3503cdac344c48541",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-migration-plan-under-limit-r3",
+        "case_id": "scoped-migration-plan-under-limit",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "2026年四季度迁移仅含东、北区试点；南区须在10月3日前通过传感器兼容性验证方纳入；西区不在本轮。名单未定，以上仅为计划范围，非已上线或承诺上线。",
+            "output_sha256": "0ad17d99fad85fd2675e81091e7f068c4f00f2a3bc4b29d17429ef3b85825a6f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "2026年第四季度迁移仅含东区、北区试点；南区须在10月3日前通过传感器兼容性验证方纳入；西区不在本轮范围；名单待定。以上仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "56bb929f5db3338dc903bc728d2b27cd19916dda06100f0e2cdd1df23fb97f84",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "2026年第四季度迁移仅含东、北区试点；南区须在10月3日前通过传感器兼容性验证方可纳入；西区不在本轮。参与名单未定。以上仅为计划范围，不代表已上线或承诺上线。",
+            "output_sha256": "4c4aea807b4c199a6d08dadb1b24556c057795a9b106db4f4633a5cae8939788",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "triple-eligibility-with-exceptions-r1",
+        "case_id": "triple-eligibility-with-exceptions",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "预约页9月22日开放。仅持有效校园卡、首次到访且需无障碍路线者须于9月24日17:00前填写。线上、非首次或无需无障碍路线者免填；无有效校园卡者不可预约。",
+            "output_sha256": "769985750ae079eb52bdcd8336e019b15835d83f4999328f975fcfc7f27eea29",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "预约页9月22日开放。仅限持有效校园卡、首次到访且需要无障碍路线的访客须于9月24日17:00前填写；线上访客、非首次到访者及无需无障碍路线者免填，无有效校园卡者不可预约。",
+            "output_sha256": "077c09c251ad9fe6f499b3f25e712b18873fc3de05c42c3bbf77ede8b60aa2bf",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "预约页9月22日开放。仅持有效校园卡、首次到访且需无障碍路线者须于9月24日17:00前填写；线上访客、非首次或无需无障碍路线者免填；无有效校园卡者不可预约。",
+            "output_sha256": "2043683d6c1ece51370ce788ff2d163e343e22f12f1195f335d49ef7fbfd6991",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "triple-eligibility-with-exceptions-r2",
+        "case_id": "triple-eligibility-with-exceptions",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "预约页9月22日开放。持有效校园卡且首次到访并需无障碍路线者，须于9月24日17:00前填写；线上访客、非首次到访或无需无障碍路线者免填；无有效校园卡者不能预约。",
+            "output_sha256": "de490935ef8ea076f50d23c885acd1d92693d32b2e9f7039a41737472fde0d6f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "预约页9月22日开放。仅持有效校园卡、首次到访且需无障碍路线者须于9月24日17:00前填写；线上访客、非首次到访或无需该路线者免填，无有效校园卡者不可预约。",
+            "output_sha256": "9140020eb15c0227319652c9283871592d07983aa62936080e3dcbcbeee1409c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "预约页9月22日开放。仅首次到访、持有效校园卡且需无障碍路线者须于9月24日17:00前填写；线上、非首次或无需者免填，无有效校园卡者不可预约。",
+            "output_sha256": "b57e9ad7e3031edf43fdcf9f68881ae89a90c8074f4e1f2649e1c42658e05090",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "triple-eligibility-with-exceptions-r3",
+        "case_id": "triple-eligibility-with-exceptions",
+        "mechanism": "bounded-condition-preservation",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "预约页9月22日开放。仅持有效校园卡、首次到访且需无障碍路线者须于9月24日17:00前填写；线上、非首次或无需无障碍路线者免填，无有效校园卡者不可预约。",
+            "output_sha256": "a272fb37ab23109c7735445a5ec8bb00a0ff0be83c548ea21d420797980eeab8",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "prose-polish",
+            "output": "预约页9月22日开放。仅持有效校园卡、首次到访且需无障碍路线的访客须于9月24日17:00前填写；线上访客、非首次到访者及无需无障碍路线者免填，无有效校园卡者不可预约。",
+            "output_sha256": "47e5d591ca80ff523b006ae80dfef17659f9beaf2f5a92af6b77bd626c718826",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "humanizer",
+            "output": "预约页9月22日开放。持有效校园卡、首次到访且需无障碍路线者，须于9月24日17:00前填写；线上访客、非首次或无需无障碍路线者免填；无有效校园卡者不可预约。",
+            "output_sha256": "f889ea29d653e5ed8dfa2b2a007bf038c09b5a8e0b0004fcfb6b4c01e9f2c58a",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "case_core_failures": {
+      "scoped-migration-plan-under-limit": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "triple-eligibility-with-exceptions": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "audit-invalidates-metric-keeps-quote": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "partial-rollback-keeps-schedule-revision": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "restrained-voice-with-fixed-closing": {
+        "baseline": 1,
+        "ours": 2,
+        "upstream": 3
+      },
+      "intentional-fragments-no-change-control": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      }
+    },
+    "mechanisms": [
+      {
+        "mechanism": "bounded-condition-preservation",
+        "case_ids": [
+          "scoped-migration-plan-under-limit",
+          "triple-eligibility-with-exceptions"
+        ],
+        "core_failures": {
+          "scoped-migration-plan-under-limit": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "triple-eligibility-with-exceptions": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "revision-history-control",
+        "case_ids": [
+          "audit-invalidates-metric-keeps-quote",
+          "partial-rollback-keeps-schedule-revision"
+        ],
+        "core_failures": {
+          "audit-invalidates-metric-keeps-quote": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "partial-rollback-keeps-schedule-revision": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "author-voice-restraint",
+        "case_ids": [
+          "restrained-voice-with-fixed-closing",
+          "intentional-fragments-no-change-control"
+        ],
+        "core_failures": {
+          "restrained-voice-with-fixed-closing": {
+            "baseline": 1,
+            "ours": 2,
+            "upstream": 3
+          },
+          "intentional-fragments-no-change-control": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "decision_gate": {
+      "scope": "ours-versus-baseline",
+      "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+      "minimum_cases_in_same_mechanism": 2,
+      "ours_min_core_failures_per_case": 2,
+      "baseline_max_core_failures_per_case": 1,
+      "required_valid_outputs": 54,
+      "upstream_role": "context-only",
+      "effect": "open-minimal-candidate-design-only"
+    },
+    "valid_output_count": 54,
+    "all_preferences_tied": false,
+    "equal_arm_scores": false,
+    "efficiency": {
+      "ours_vs_baseline_percent": {
+        "tokens_total": 13.9,
+        "cost_total": 49.7,
+        "latency_ms_median": 7.4
+      },
+      "upstream_vs_baseline_percent": {
+        "tokens_total": 68.1,
+        "cost_total": 191.4,
+        "latency_ms_median": 11.2
+      },
+      "ours_vs_upstream_percent": {
+        "tokens_total": -32.3,
+        "cost_total": -48.6,
+        "latency_ms_median": -3.4
+      },
+      "semantics": "Promptfoo recorded totals for this run only; percent = comparison/reference - 1."
+    },
+    "ceiling_effect": false,
+    "discrimination_note": "The tasks separated the arms only on one author-voice case: baseline had one, ours two, and upstream three core failures. The paired intentional-fragment control had no failures, so the preregistered mechanism gate did not trigger."
+  },
+  "decision": {
+    "candidate_design_open": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "verification_status_changed": false,
+    "current_version": "0.1.3",
+    "current_catalog_status": "experimental",
+    "current_catalog_evidence": null,
+    "active_cases_added": [
+      "scoped-migration-plan-under-limit",
+      "triple-eligibility-with-exceptions",
+      "audit-invalidates-metric-keeps-quote",
+      "partial-rollback-keeps-schedule-revision",
+      "restrained-voice-with-fixed-closing",
+      "intentional-fragments-no-change-control"
+    ],
+    "active_case_count_before": 9,
+    "active_case_count_after": 15,
+    "skill_package_sha256": "85460012946903fe6401f8df5f6b284497103606fbeaed86eda963d92a103047",
+    "active_cases_sha256": "7663ef7421deba6fc04c025fcb09d8160bb403a04324f1ec1d0e1ca5f19779bf",
+    "conclusion": "Keep prose-polish 0.1.3 unchanged. Ours underperformed baseline by one criterion and exceeded the per-case failure threshold on the restrained-voice task, but the paired control passed and no preregistered mechanism-level gate opened candidate design."
+  },
+  "limitations": [
+    "Six synthetic single-turn Chinese text-editing tasks, one generation model, one reasoning effort, and three repetitions per arm.",
+    "The reviewer was a model-assisted task previously exposed to the protocol and skills, and was blind only to randomized arm mapping; the same reviewer performed the postscore decision check.",
+    "The comparison used explicit project-level invocation and did not test implicit routing, multi-turn editing, files, publishing, or real authors.",
+    "Humanizer is broader than the shared text-polishing slice tested here; these scores do not establish a general product or skill ranking.",
+    "Raw Promptfoo artifacts remain git-ignored; the public report embeds synthetic outputs and hashes but a fresh clone cannot independently recreate provider events."
+  ],
+  "evidence_projection_sha256": "9dd3c0e625549210a31333e16aa6f874ff1a6e06197c24e592d99169d36ef91f"
+}

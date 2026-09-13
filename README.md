@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第三十轮文章配图规划鉴别性前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共160项。无 Skill、`article-visual-plan` 0.1.0 与固定 Baoyu 上游在六题三次重复中均为70/72、16/18完整；当前包有一次孤立核心遗漏，但没有机制达到预注册改版门槛。因此 Skill、版本、catalog 与 evidence 不变，六个冻结前向题加入活动回归。
+当前阶段：**第三十一轮当前文稿润色与 Humanizer 前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共166项。无 Skill、`prose-polish` 0.1.3 与固定 Humanizer 在六题三次重复中分别为71/72、70/72、69/72；差异集中于一道夸大表达收敛题，配对控制题没有失败，因此没有机制达到预注册改版门槛。Skill、版本、catalog 与 evidence 不变，六个冻结前向题加入活动回归。
 
 ## 从这里开始
+
+- [第三十一轮质量打磨：当前文稿润色与 Humanizer 前向盲测](docs/quality-polish-round-31.md)
+- [文稿润色第三十一轮机器诊断](evaluations/reports/prose-polish-current-humanizer-round-31-diagnostic.json)
 
 - [第三十轮质量打磨：文章配图规划鉴别性前向盲测](docs/quality-polish-round-30.md)
 - [文章配图第三十轮机器诊断](evaluations/reports/article-visual-plan-discriminative-round-30-diagnostic.json)

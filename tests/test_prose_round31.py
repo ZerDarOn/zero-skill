@@ -1,4 +1,4 @@
-"""Integrity checks for the Round 30 discriminative visual-planning report."""
+"""Integrity checks for the Round 31 current prose-polish comparison."""
 
 import copy
 import hashlib
@@ -12,16 +12,16 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-COMPARISON = ROOT / "evaluations/comparisons/article-visual-plan-discriminative-23"
-REPORT_PATH = ROOT / "evaluations/reports/article-visual-plan-discriminative-round-30-diagnostic.json"
-RUN = ROOT / "evaluations/runs/article-visual-plan-discriminative-23-formal-20260913-v1"
-PREFLIGHT_RUN = ROOT / "evaluations/runs/article-visual-plan-discriminative-23-preflight-20260913-v1"
-ACTIVE = ROOT / "evaluations/cases/article-visual-plan.json"
-SKILL = ROOT / "skills/creation/article-visual-plan"
-COMMIT = "6b7a2e417500561a5ecdd0b168332f4142584617"
-UPSTREAM = ROOT / "evaluations/fixtures/upstreams/baoyu-skills" / COMMIT
-FREEZE_COMMIT = "b5b45539fe9b7adddf2ca2199ab6c6011cf8461d"
-EXPECTED_PROJECTION = "e300418ed60d2a3d39baed4679dfeeef26dbcc3bdcbbd027489ae99e6202f152"
+COMPARISON = ROOT / "evaluations/comparisons/prose-polish-current-humanizer-24"
+REPORT_PATH = ROOT / "evaluations/reports/prose-polish-current-humanizer-round-31-diagnostic.json"
+RUN = ROOT / "evaluations/runs/prose-polish-current-humanizer-24-formal-20260914-v1"
+PREFLIGHT_RUN = ROOT / "evaluations/runs/prose-polish-current-humanizer-24-preflight-20260914-v1"
+ACTIVE = ROOT / "evaluations/cases/prose-polish.json"
+SKILL = ROOT / "skills/creation/prose-polish"
+COMMIT = "9862685f575c65a8247f90369951df1b3416e3d6"
+UPSTREAM = ROOT / "evaluations/fixtures/upstreams/humanizer" / COMMIT
+FREEZE_COMMIT = "5fb4a1ca09a7a17059b41a372daf1c06e0927fa0"
+EXPECTED_PROJECTION = "9dd3c0e625549210a31333e16aa6f874ff1a6e06197c24e592d99169d36ef91f"
 VALIDATOR = runpy.run_path(str(ROOT / "scripts/validate_collection.py"))
 ORDER = {"baseline": 0, "ours": 1, "upstream": 2}
 
@@ -34,7 +34,7 @@ def object_sha(value: object) -> str:
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
-class ArticleVisualRound30Tests(unittest.TestCase):
+class ProseRound31Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
@@ -215,20 +215,20 @@ class ArticleVisualRound30Tests(unittest.TestCase):
         )
         self._assert_frozen_package(
             frozen_arms["upstream"],
-            UPSTREAM / "skills/baoyu-article-illustrator",
+            UPSTREAM,
             report_arms["upstream"],
         )
         for package in (
-            prepared_root / "skills/ours/article-visual-plan",
-            prepared_root / "fixtures/ours/.agents/skills/article-visual-plan",
+            prepared_root / "skills/ours/prose-polish",
+            prepared_root / "fixtures/ours/.agents/skills/prose-polish",
         ):
             self._assert_frozen_package(
                 frozen_arms["ours"], package, report_arms["ours"]
             )
         for package in (
-            prepared_root / "skills/upstream/baoyu-article-illustrator",
+            prepared_root / "skills/upstream/humanizer",
             prepared_root
-            / "fixtures/upstream/.agents/skills/baoyu-article-illustrator",
+            / "fixtures/upstream/.agents/skills/humanizer",
         ):
             self._assert_frozen_package(
                 frozen_arms["upstream"], package, report_arms["upstream"]
@@ -311,7 +311,7 @@ class ArticleVisualRound30Tests(unittest.TestCase):
 
     def test_sources_projection_and_freeze_commit_are_bound(self):
         report = self.report
-        self.assertEqual(report["report_id"], "article-visual-plan-discriminative-round-30-diagnostic")
+        self.assertEqual(report["report_id"], "prose-polish-current-humanizer-round-31-diagnostic")
         experiment = report["experiment"]
         self.assertEqual(experiment["freeze_commit"], FREEZE_COMMIT)
         sources = {
@@ -325,6 +325,25 @@ class ArticleVisualRound30Tests(unittest.TestCase):
             self.assertEqual(experiment["source_hashes"][name], sha(path))
         for name, expected in experiment["review_hashes"].items():
             self.assertEqual(expected, sha(COMPARISON / name))
+        provenance = json.loads(
+            (UPSTREAM / "provenance.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            experiment["upstream_provenance"],
+            {
+                "repository": "https://github.com/blader/humanizer",
+                "commit": COMMIT,
+                "license": "MIT",
+                "provenance_sha256": sha(UPSTREAM / "provenance.json"),
+                "package_sha256": VALIDATOR["package_fingerprint"](UPSTREAM),
+                "package_license_included": True,
+                "source_bytes_modified": False,
+                "runtime_files": ["SKILL.md"],
+                "ignored_host_metadata": ["agents/openai.yaml"],
+                "known_source_issues": [],
+            },
+        )
+        self.assertEqual(provenance["commit"], COMMIT)
         projection = {key: report[key] for key in ("scope", "experiment", "analysis", "decision", "limitations")}
         self.assertEqual(object_sha(projection), report["evidence_projection_sha256"])
         self.assertEqual(report["evidence_projection_sha256"], EXPECTED_PROJECTION)
@@ -356,11 +375,24 @@ class ArticleVisualRound30Tests(unittest.TestCase):
                 aggregates[arm][1] += candidate["passed"] == 4
                 aggregates[arm][2] += candidate["passed"]
                 aggregates[arm][3] += candidate["preferred"]
-        self.assertEqual(aggregates, {arm: [18, 16, 70, 0] for arm in ORDER})
+        self.assertEqual(
+            aggregates,
+            {
+                "baseline": [18, 17, 71, 1],
+                "ours": [18, 16, 70, 0],
+                "upstream": [18, 15, 69, 0],
+            },
+        )
         self.assertEqual(self.report["analysis"]["case_core_failures"], failures)
         expected_failures = {case_id: {arm: 0 for arm in ORDER} for case_id in case_by}
-        expected_failures["unequal-cohort-observed-rates"]["ours"] = 1
+        expected_failures["restrained-voice-with-fixed-closing"] = {
+            "baseline": 1,
+            "ours": 2,
+            "upstream": 3,
+        }
         self.assertEqual(failures, expected_failures)
+        self.assertFalse(self.report["analysis"]["all_preferences_tied"])
+        self.assertFalse(self.report["analysis"]["equal_arm_scores"])
         self._assert_gate_semantics(self.report)
 
         runtime = {arm["arm_id"]: arm["runtime"] for arm in self.report["experiment"]["arms"]}
@@ -376,17 +408,18 @@ class ArticleVisualRound30Tests(unittest.TestCase):
     def test_active_cases_and_skill_state_match_decision(self):
         active = json.loads(ACTIVE.read_text(encoding="utf-8"))
         by_id = {case["id"]: case for case in active["cases"]}
-        self.assertEqual(len(by_id), 16)
+        self.assertEqual(len(by_id), 15)
         for case in self.cases:
             self.assertEqual(by_id[case["id"]]["prompt"], case["prompt"])
-            self.assertEqual(by_id[case["id"]]["must_include"], case["hard_criteria"])
+            self.assertEqual(by_id[case["id"]]["expected_route"], "prose-polish")
+            self.assertEqual(by_id[case["id"]]["input"], {"kind": "synthetic"})
+            self.assertEqual(len(by_id[case["id"]]["must_include"]), 3)
+            self.assertEqual(len(by_id[case["id"]]["must_avoid"]), 3)
         catalog = json.loads((ROOT / "catalog/collection.json").read_text(encoding="utf-8"))
-        entry = next(item for item in catalog["skills"] if item["id"] == "article-visual-plan")
-        self.assertEqual((entry["version"], entry["status"], entry["evidence"]), ("0.1.0", "experimental", None))
+        entry = next(item for item in catalog["skills"] if item["id"] == "prose-polish")
+        self.assertEqual((entry["version"], entry["status"], entry["evidence"]), ("0.1.3", "experimental", None))
         total = sum(len(json.loads((ROOT / item["evaluation"]).read_text(encoding="utf-8"))["cases"]) for item in catalog["skills"])
-        self.assertGreaterEqual(
-            total, self.report["scope"]["collection_active_case_count"]
-        )
+        self.assertEqual(total, 166)
         decision = self.report["decision"]
         self.assertEqual(decision["active_cases_sha256"], sha(ACTIVE))
         self.assertEqual(decision["skill_package_sha256"], VALIDATOR["package_fingerprint"](SKILL))
@@ -394,7 +427,7 @@ class ArticleVisualRound30Tests(unittest.TestCase):
 
     def test_raw_run_semantically_reprojects_when_present(self):
         if not RUN.is_dir():
-            self.skipTest("ignored Round 30 run is unavailable")
+            self.skipTest("ignored Round 31 run is unavailable")
         self.assertTrue(PREFLIGHT_RUN.is_dir())
         experiment = self.report["experiment"]
         for name, expected in experiment["artifact_hashes"].items():
@@ -457,7 +490,7 @@ class ArticleVisualRound30Tests(unittest.TestCase):
 
     def test_coordinated_raw_validity_changes_fail_semantic_checks(self):
         if not RUN.is_dir() or not PREFLIGHT_RUN.is_dir():
-            self.skipTest("ignored Round 30 runs are unavailable")
+            self.skipTest("ignored Round 31 runs are unavailable")
         frozen = json.loads((RUN / "frozen.json").read_text(encoding="utf-8"))
         run_meta = json.loads((RUN / "run-meta.json").read_text(encoding="utf-8"))
         summary = json.loads((RUN / "summary.json").read_text(encoding="utf-8"))
@@ -524,7 +557,7 @@ class ArticleVisualRound30Tests(unittest.TestCase):
 
             prepared_skill = (
                 prepared_copy
-                / "fixtures/ours/.agents/skills/article-visual-plan/SKILL.md"
+                / "fixtures/ours/.agents/skills/prose-polish/SKILL.md"
             )
             prepared_skill.write_bytes(prepared_skill.read_bytes() + b"\n")
             with self.assertRaises(AssertionError):

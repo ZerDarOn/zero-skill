@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import runpy
+import subprocess
 import tempfile
 import unittest
 
@@ -32,6 +33,18 @@ EXPECTED_OURS_PACKAGE_SHA256 = (
 EXPECTED_UPSTREAM_PACKAGE_SHA256 = (
     "1f7cf25aac13904bfa2a9e1f54f83ba8f620c50bd059b2f7b634e62d7010adde"
 )
+FREEZE_COMMIT = "5fb4a1ca09a7a17059b41a372daf1c06e0927fa0"
+PRE_FREEZE_ACTIVE_IDS = {
+    "preserve-qualified-claims",
+    "match-author-voice",
+    "edit-prose-only",
+    "leave-clear-text-alone",
+    "authorized-corrections-in-protected-content",
+    "quiet-voice-without-new-events",
+    "local-revision-and-rollback",
+    "preserve-reschedule-relation-under-limit",
+    "preserve-conjunctive-audience-condition",
+}
 VALIDATOR = runpy.run_path(str(ROOT / "scripts/validate_collection.py"))
 
 
@@ -102,7 +115,7 @@ class ProseCurrentHumanizerComparisonTests(unittest.TestCase):
             ],
         )
 
-    def test_cases_cover_three_new_mechanisms_without_reusing_active_ids(self):
+    def test_cases_cover_three_new_mechanisms_without_reusing_prefreeze_ids(self):
         counts = {}
         identifiers = set()
         for case in self.cases:
@@ -121,14 +134,24 @@ class ProseCurrentHumanizerComparisonTests(unittest.TestCase):
                 "author-voice-restraint": 2,
             },
         )
-        active = json.loads(
-            (ROOT / "evaluations/cases/prose-polish.json").read_text(
-                encoding="utf-8"
+        self.assertTrue(identifiers.isdisjoint(PRE_FREEZE_ACTIVE_IDS))
+        if (ROOT / ".git").exists():
+            frozen_active = json.loads(
+                subprocess.run(
+                    [
+                        "git",
+                        "show",
+                        f"{FREEZE_COMMIT}:evaluations/cases/prose-polish.json",
+                    ],
+                    cwd=ROOT,
+                    check=True,
+                    capture_output=True,
+                ).stdout.decode("utf-8")
             )
-        )
-        self.assertTrue(
-            identifiers.isdisjoint({case["id"] for case in active["cases"]})
-        )
+            self.assertEqual(
+                {case["id"] for case in frozen_active["cases"]},
+                PRE_FREEZE_ACTIVE_IDS,
+            )
 
     def test_character_limits_are_feasible_without_dropping_relations(self):
         examples = {

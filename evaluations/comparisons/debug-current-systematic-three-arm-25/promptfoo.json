@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "debug-current-systematic-three-arm-25",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "sandbox_mode": "read-only",
+  "common_prompt": "请完成下方合成故障分析任务。只使用题目给出的记录，不调用工具，不读取或写入文件，不访问外部系统，不问澄清问题。区分已观察事实、解释和待验证结论；建议的检查写成尚未执行，并遵守题目要求的数量与格式。",
+  "decision_gate": {
+    "scope": "ours-versus-baseline",
+    "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+    "minimum_cases_in_same_mechanism": 2,
+    "ours_min_core_failures_per_case": 2,
+    "baseline_max_core_failures_per_case": 1,
+    "required_valid_outputs": 54,
+    "upstream_role": "context-only",
+    "effect": "open-minimal-candidate-design-only"
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "debug-evidence-triage",
+        "source": "../../../skills/engineering/debug-evidence-triage",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "upstream",
+      "skill": {
+        "id": "systematic-debugging",
+        "source": "../../fixtures/upstreams/superpowers-systematic-debugging/b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

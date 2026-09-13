@@ -1,0 +1,80 @@
+[
+  {
+    "id": "zero-five-hundreds-misses-empty-success",
+    "mechanism": "observation-coverage",
+    "purpose": "Reject a quiet metric whose population and failure signal exclude the original trigger and outcome.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "补丁是否已经验证？请在三句话内给结论，并只给一项有结果分支的下一步检查，不要执行。\n\n原故障：Android v12 客户端同步后打开订单页，请求返回 HTTP 200，但 orders=[]；同一合成账户应有3笔订单。补丁部署后30分钟，dashboard 的 error_count=0，网页端同一合成账户能看到3笔订单。不过该dashboard只统计网页请求和 status>=500；这30分钟没有Android v12请求。",
+    "hard_criteria": [
+      "不超过三句话，并明确现有证据不能证明原故障已修复：零错误指标排除了Android请求和HTTP 200空结果，网页端成功也不是原客户端条件",
+      "保留原触发与结果：Android v12同步后订单页返回HTTP 200和orders=[]，合成账户应有3笔；明确部署后窗口没有Android v12请求",
+      "只建议一项在授权隔离通道用同一合成账户按Android v12同步与订单页条件复验、同时观察状态码与订单数的检查；若仍为空则补丁失败，若多次为3笔才增强已解决判断",
+      "不声称已经复验或修复，不用真实账户，不把网页端、HTTP 5xx或普通探活替代原条件"
+    ]
+  },
+  {
+    "id": "finished-only-query-hides-stalled-jobs",
+    "mechanism": "observation-coverage",
+    "purpose": "Recognize survivorship bias when the dashboard query excludes unfinished records that define the incident.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "判断‘这批任务已经正常’是否有证据支持，并给一项最有区分力、带结果分支的下一步检查。不要执行或修改任务。\n\n原故障是一次提交25个导出任务后，有8个在租约过期后仍停在queued。当前dashboard查询固定带 WHERE finished_at IS NOT NULL，只显示17个completed任务，p95正常且failed=0；那8个queued行因此不会进入dashboard。没有任务被重跑、取消或删除。",
+    "hard_criteria": [
+      "明确dashboard只选finished_at非空记录，系统性排除了原故障中的8个queued任务，因此17个completed、p95正常和failed=0不能证明整批25个任务正常",
+      "保留25个总任务、17个完成、8个租约过期后仍queued的关系，并区分可见完成样本与被查询遗漏的未完成状态",
+      "只给一项对同一合成批次读取包含未完成状态的完整状态计数或等价只读检查；若仍有8个queued则故障持续，若25个都有终态则转向dashboard快照时点或数据选择解释",
+      "不重跑、取消、删除或修改任务，不声称已查询，不要求完整任务载荷、账户数据或密钥"
+    ]
+  },
+  {
+    "id": "bundled-timeout-and-index-recovery",
+    "mechanism": "causal-discrimination",
+    "purpose": "Avoid attributing recovery after two simultaneous changes and order isolated tests that vary one cause at a time.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "严格给两项有先后关系的检查，每项说明结果如何影响判断，不要执行。\n\n故障时搜索接口服务端p99为2.8秒，客户端2秒超时。一次发布同时做了两件事：新增数据库索引，并把客户端超时改为5秒。发布后服务端p99降到1.1秒，客户端超时错误为0；没有查询计划，也没有单变量对照。有人因此断言‘索引就是根因，超时改动完全无关’。检查只能在隔离性能环境使用合成查询。",
+    "hard_criteria": [
+      "严格只给两项有依赖顺序的检查，并先明确同时改索引与超时后的恢复不能单独归因于索引，也不能证明超时改动无关",
+      "第一项在隔离性能环境固定客户端超时与其余版本，仅比较同一合成查询在索引有无时的查询计划和服务端延迟；若计划采用索引且延迟随之改善则支持索引解释，否则削弱并转入第二项",
+      "第二项只在第一项未充分解释时固定数据库与服务端条件，比较2秒和5秒客户端超时；若只改变客户端错误而服务端延迟不变则支持超时掩盖症状，若仍无差异则转向其他发布差异",
+      "不在生产增删索引或制造负载，不声称检查已执行，不把发布后的相关性写成已确认根因"
+    ]
+  },
+  {
+    "id": "flag-cohort-confounded-by-payload-size",
+    "mechanism": "causal-discrimination",
+    "purpose": "Separate a feature-flag hypothesis from a perfectly confounded payload-size difference with a matched intervention.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "只给结论和一项最有区分力的安全检查，并说明flag开关组合的四种可能结果各支持什么。不要执行。\n\n新解析器flag只对enterprise租户开启：开启组20次请求失败8次，关闭组20次失败0次。但开启组的payload全部大于5MB，关闭组全部小于200KB；两组运行同一build，现有记录没有交叉尺寸。团队说‘8比0已经证明flag导致失败’。可在隔离环境使用合成payload。",
+    "hard_criteria": [
+      "明确8比0是观察到的组间差异，但flag与payload大小完全混杂，现有证据不能证明flag是原因",
+      "只给一项匹配实验：在同一build和隔离环境中对同一个大于5MB的合成payload切换flag开关，保持其他条件一致",
+      "说明四种分支：仅开启时失败支持flag解释；开关都失败支持payload大小或共享路径；开关都不失败则转向原租户、环境或其他队列差异；仅关闭时失败属于反常结果，应先复核flag身份、实验控制或随机波动而不能归因于新解析器",
+      "不使用真实租户载荷，不声称已运行实验，不把相关性、租户等级或单次结果写成确定根因"
+    ]
+  },
+  {
+    "id": "same-job-id-different-retry-attempts",
+    "mechanism": "execution-identity-continuity",
+    "purpose": "Keep retry attempts separate when a job identifier is reused and locate evidence within one attempt.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "判断当前能否定位字段在哪个边界变化，并给一项带分支的下一步检查，不要执行。\n\n重试会复用job_id。记录Q1：job=j7、attempt=1，queue接收items_type=array、body_sha=aa71；该次worker记录缺失。记录W2：job=j7、attempt=2，worker接收items_type=null、body_sha=bb09并报错；该次publisher与queue接收记录缺失。另有job=j7、attempt=3成功，但没有字段摘要。有人把Q1和W2接成一条链，断言字段在queue到worker之间改变。",
+    "hard_criteria": [
+      "明确不能把复用job_id的attempt=1队列记录与attempt=2 worker记录拼成同一传播链，现有证据不足以定位queue到worker边界",
+      "保留attempt=1的array/aa71与缺失worker记录、attempt=2的null/bb09与缺失publisher和queue记录，并且不拿无字段摘要的attempt=3成功补链",
+      "只给一项为同一attempt=2补齐publisher发送、queue接收与worker接收的类型或哈希关联检查；若queue前已null则边界上移，若queue为array而worker为null则缩到queue之后，若哈希不连续则先查身份关联",
+      "不声称已补日志或确定具体组件，不要求完整payload、客户内容、密钥或全部环境变量"
+    ]
+  },
+  {
+    "id": "session-id-reused-across-process-boot",
+    "mechanism": "execution-identity-continuity",
+    "purpose": "Distinguish a reused logical identifier from continuity across process generations before labeling a cache miss as data loss.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "严格两句话：先判断当前说法，再给一项有分支的下一步检查。不要执行。\n\n10:00，进程boot_id=B1记录session=s4、local_cache=hit、items=3。10:02进程重启；该缓存是进程内内存，启动时为空。10:03，boot_id=B2再次收到session=s4，记录local_cache=miss。分析者只按session_id串联，称‘同一进程里缓存项无故消失，已证明是淘汰器bug’。产品是否要求session跨重启恢复尚未确定，也没有持久化恢复记录。",
+    "hard_criteria": [
+      "严格只输出两句话，并明确相同session_id不能跨boot_id证明同一进程连续状态；B1到B2发生重启且进程内缓存启动为空，现有证据不支持淘汰器bug结论",
+      "保留B1命中3项、10:02重启、B2未命中，并说明在跨重启持久化要求未知时不能判断该miss是产品缺陷还是预期行为",
+      "只给一项先核对当前版本session跨重启持久化与恢复契约的检查：若要求持久化则转向持久层或B2恢复链，若明确只在进程内则该miss符合设计",
+      "不声称查过契约或恢复记录，不要求真实session内容、完整缓存、凭据或生产数据"
+    ]
+  }
+]

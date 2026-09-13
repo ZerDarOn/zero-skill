@@ -270,17 +270,20 @@ class ImplicitDiscoveryRound27ReportTests(unittest.TestCase):
     def test_report_recomputes_from_published_evidence(self):
         validate_report(self.report)
 
-    def test_catalog_and_active_cases_remain_unchanged(self):
+    def test_round27_decision_preserves_catalog_status_and_adds_no_cases(self):
         catalog = json.loads(
             (ROOT / "catalog" / "collection.json").read_text(encoding="utf-8")
         )
         self.assertEqual(len(catalog["skills"]), 16)
         self.assertTrue(all(item["status"] == "experimental" for item in catalog["skills"]))
-        active_cases = 0
-        for item in catalog["skills"]:
-            case_data = json.loads((ROOT / item["evaluation"]).read_text(encoding="utf-8"))
-            active_cases += len(case_data["cases"] if isinstance(case_data, dict) else case_data)
-        self.assertEqual(active_cases, 148)
+        self.assertEqual(self.report["decision"]["active_cases_added"], 0)
+        for field in (
+            "skill_changed",
+            "version_changed",
+            "catalog_changed",
+            "evidence_changed",
+        ):
+            self.assertFalse(self.report["decision"][field])
 
     def test_local_raw_run_recomputes_when_available(self):
         if not RUN_DIR.exists():

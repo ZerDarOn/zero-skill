@@ -14,7 +14,7 @@
 
 第三次吸收新增 `cases/debug-evidence-triage.json` 与 `cases/claim-evidence-review.json`。前者经第二十二轮增加七题后共十三个单轮合成用例，覆盖因果链、请求关联、恢复与验证、部署身份、时钟偏移、依赖检查顺序、原触发条件等价性、幂等证据和只读接口写副作用；后者在原四题基础上由第十八轮增加六题、第十九轮增加四题、第二十轮增加三题，目前共十七题，覆盖来源依赖、字段级更正、有限日志、聚合反转、材料内指令、链接边界、强证据控制，以及多队列、多地区、多试验、不同样本量和严格短表中的定量保真。
 
-第四次吸收新增 `cases/product-context-brief.json` 与 `cases/article-visual-plan.json`，各有四个单轮合成用例，覆盖证据层次、购买角色、更正范围、配图位置、不确定性和显式流程关系。
+第四次吸收新增 `cases/product-context-brief.json` 与 `cases/article-visual-plan.json`，最初各有四个单轮合成用例，覆盖证据层次、购买角色、更正范围、配图位置、不确定性和显式流程关系。第二十九轮为文章配图规划加入六个前向题，增加零图/单图价值选择、弱证据视觉保真和计划增删状态保持，目前该组共十例。
 
 第五次吸收新增 `cases/react-performance-review.json` 与 `cases/meeting-communication-review.json`，各有四个单轮合成用例，覆盖请求依赖、派生状态、缓存证据、实测优先级、轮次与时长、谨慎表达、比较分母和有界改写。
 
@@ -202,3 +202,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第二十八轮 Windows 原生沙箱运行前门禁
 
 第二十八轮用零模型调用的受限 canary 继续定位第二十七轮阻断。`:read-only` 原生 sandbox 在命令启动前返回 `helper_unknown_error: apply deny-read ACLs`，`codex doctor` 同时报告 elevated Windows sandbox provisioning 失败。新增可选运行前门禁，启用后在失败时保存脱敏证据并于任何模型调用前停止；原有纯文本评测默认不受影响。本轮没有业务评分或 Skill 变更，Microsoft Defender 只记录为未经确认的修复线索。详见[第二十八轮报告](../docs/quality-polish-round-28.md)与[机器证据](reports/native-host-sandbox-preflight-round-28.json)。
+
+## 第二十九轮文章配图规划三方前向盲测
+
+第二十九轮用六个新合成规划题比较无 Skill、`article-visual-plan` 0.1.0 和 Baoyu Skills 固定提交的 `baoyu-article-illustrator`，每臂各重复三次。54份输出全部有效，三臂均为72/72、18/18完整，18项偏好全部持平；六题的逐臂核心失败均为0/3，三个冻结机制门槛都未触发。结果形成天花板效应，不能证明当前 Skill 相对 baseline 或上游有收益，因此保持0.1.0、`experimental`、`evidence: null`。六题加入活动回归，文章配图规划从4例增至10例，全仓增至154例。评测只覆盖文本规划，没有测试实际生图、渲染、写盘、集成或真实读者效果。详见[第二十九轮报告](../docs/quality-polish-round-29.md)与[机器证据](reports/article-visual-plan-three-arm-round-29-diagnostic.json)。

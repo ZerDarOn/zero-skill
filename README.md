@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十八轮 Windows 原生沙箱运行前门禁**。已有十六个可试用的 `experimental` 技能，活动用例共148项。直接受限 canary 与 `codex doctor` 都定位到当前宿主沙箱 provisioning 失败；新门禁会在任何模型调用前停止依赖命令执行的评测。本轮模型调用为0，不改变任何 Skill、版本、catalog、evidence 或活动用例。
+当前阶段：**第二十九轮文章配图规划三方前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共154项。无 Skill、`article-visual-plan` 0.1.0 与固定 Baoyu 上游在六题三次重复中均为72/72，形成天花板效应；因此 Skill、版本、catalog 与 evidence 不变，只把六个冻结前向题加入活动回归。
 
 ## 从这里开始
+
+- [第二十九轮质量打磨：文章配图规划三方前向盲测](docs/quality-polish-round-29.md)
+- [文章配图第二十九轮机器诊断](evaluations/reports/article-visual-plan-three-arm-round-29-diagnostic.json)
 
 - [第二十八轮质量打磨：Windows 原生沙箱运行前门禁](docs/quality-polish-round-28.md)
 - [原生沙箱第二十八轮机器报告](evaluations/reports/native-host-sandbox-preflight-round-28.json)
@@ -164,4 +167,4 @@ docs/          架构、规范、调研取舍
 
 ## 来源与授权
 
-本地技能使用原创说明和链接进行设计研究。三方对照另在 `evaluations/fixtures/upstreams/` 保存 Humanizer、Superpowers 与 LoveHelper 固定提交的未修改评测夹具，附原始 MIT 许可证、版权声明和来源指纹；这些夹具不属于本地技能登记，也未全局安装或执行其中的上游脚本。上游声明的许可证记录在候选表，正式引入时需针对具体提交核对许可证、素材权利及署名。此仓库自身的公开发布许可尚未选定，不应假定仓库已按 MIT 或其他许可证授权。
+本地技能使用原创说明和链接进行设计研究。三方对照另在 `evaluations/fixtures/upstreams/` 保存 Humanizer、Superpowers、LoveHelper、Obsidian Skills 与 Baoyu Skills 固定提交的未修改评测夹具，附原始许可证、版权声明和来源指纹；这些夹具不属于本地技能登记，也未全局安装或执行其中的上游脚本。上游声明的许可证记录在候选表，正式引入时需针对具体提交核对许可证、素材权利及署名。此仓库自身的公开发布许可尚未选定，不应假定仓库已按 MIT 或其他许可证授权。

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "article-visual-plan-discriminative-23",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "sandbox_mode": "read-only",
+  "common_prompt": "请完成下方合成文章配图规划任务。这是一次性文本规划：跳过偏好配置、EXTEND.md 检查、首次设置、确认、生图、写盘和文章回填。只使用题目给出的材料，不调用工具，不读取或写入文件，不生成图片，不问澄清问题，直接给出最终回答。遵守用户指定的图片数量、位置、比例和输出格式；不要声称已经创建、保存、渲染或插入任何素材。",
+  "decision_gate": {
+    "scope": "ours-versus-baseline",
+    "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+    "minimum_cases_in_same_mechanism": 2,
+    "ours_min_core_failures_per_case": 2,
+    "baseline_max_core_failures_per_case": 1,
+    "required_valid_outputs": 54,
+    "upstream_role": "context-only",
+    "effect": "open-minimal-candidate-design-only"
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "article-visual-plan",
+        "source": "../../../skills/creation/article-visual-plan",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "upstream",
+      "skill": {
+        "id": "baoyu-article-illustrator",
+        "source": "../../fixtures/upstreams/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

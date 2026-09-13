@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "prose-polish-current-humanizer-24",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "sandbox_mode": "read-only",
+  "common_prompt": "请完成下方合成文稿润色任务。只使用题目给出的文字，不调用工具，不读取或写入文件，不访问链接，不问澄清问题，直接返回题目要求的最终文本。保留用户指定的事实、关系、范围和格式，不声称已经发布、发送、保存或验证任何内容。",
+  "decision_gate": {
+    "scope": "ours-versus-baseline",
+    "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+    "minimum_cases_in_same_mechanism": 2,
+    "ours_min_core_failures_per_case": 2,
+    "baseline_max_core_failures_per_case": 1,
+    "required_valid_outputs": 54,
+    "upstream_role": "context-only",
+    "effect": "open-minimal-candidate-design-only"
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "prose-polish",
+        "source": "../../../skills/creation/prose-polish",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    },
+    {
+      "id": "upstream",
+      "skill": {
+        "id": "humanizer",
+        "source": "../../fixtures/upstreams/humanizer/9862685f575c65a8247f90369951df1b3416e3d6",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

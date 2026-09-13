@@ -1,0 +1,80 @@
+[
+  {
+    "id": "scoped-migration-plan-under-limit",
+    "mechanism": "bounded-condition-preservation",
+    "purpose": "Preserve scoped inclusion, conditional inclusion, explicit exclusion, and planning uncertainty under a hard character limit.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "把下面内部说明压到85个Unicode字符以内，含标点，只给最终说明。\n\n2026年第四季度迁移计划目前只包含东区和北区两个试点。南区只有在10月3日前通过传感器兼容性验证才纳入；西区不在本轮范围。参与名单尚未确定。这些是计划范围，不是已经上线或承诺上线的结果。",
+    "hard_criteria": [
+      "只返回一条不超过85个Unicode字符的最终说明，不附标题、计数、解释或备选版本",
+      "保留2026年第四季度目前只含东区和北区两个试点，以及南区须在10月3日前通过传感器兼容性验证才纳入",
+      "保留西区不在本轮、参与名单尚未确定，并明确内容是计划范围而非已经上线或承诺上线",
+      "不新增地区、名单、日期、验证结果、上线状态、原因、链接、负责人或承诺"
+    ]
+  },
+  {
+    "id": "triple-eligibility-with-exceptions",
+    "mechanism": "bounded-condition-preservation",
+    "purpose": "Keep three conjunctive eligibility conditions and their exceptions within a short notice.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "把下面说明压到90个Unicode字符以内，含标点，只给最终说明。\n\n预约页9月22日开放。仅持有效校园卡、首次到访并且需要无障碍路线的访客，须在9月24日17:00前填写。线上访客、非首次到访者、无需无障碍路线者都不用填写；没有有效校园卡者不能预约。",
+    "hard_criteria": [
+      "只返回一条不超过90个Unicode字符的最终说明，不附标题、计数、解释或备选版本",
+      "保留预约页9月22日开放和9月24日17:00截止，并保持有效校园卡、首次到访、需要无障碍路线三个条件共同成立才须填写",
+      "保留线上访客、非首次到访者、无需无障碍路线者不用填写，以及没有有效校园卡者不能预约",
+      "不把任一单独条件扩大成必须填写，不新增入口、材料、原因、承诺或办理结果"
+    ]
+  },
+  {
+    "id": "audit-invalidates-metric-keeps-quote",
+    "mechanism": "revision-history-control",
+    "purpose": "Apply a later audit correction without altering a protected subjective quote or preserving a withdrawn metric as current.",
+    "core_criteria": [1, 2],
+    "prompt": "按最新核对结果把下面草稿改成简洁的内部更新，不超过110个Unicode字符，只返回正文。\n\n早期草稿写：试点覆盖32家客户，等待时间缩短18%。后续审计确认实际覆盖27家；各客户计时起点不一致，18%已作废，现有记录无法判断等待时间变化的方向或幅度。一位客户的主观反馈是：“确实少等了一会儿”。这句引语必须逐字保留。",
+    "hard_criteria": [
+      "只返回不超过110个Unicode字符的一段内部更新，不附标题、计数、解释或备选版本",
+      "采用后续审计的27家，明确18%已经作废且因计时起点不一致无法判断等待时间变化方向或幅度；不把32家或18%写成当前有效结果",
+      "逐字保留引语“确实少等了一会儿”，并把它限定为一位客户的主观反馈而非总体证据",
+      "不新增平均值、原因、显著性、客户数量、改善结论、行动承诺或已发送状态"
+    ]
+  },
+  {
+    "id": "partial-rollback-keeps-schedule-revision",
+    "mechanism": "revision-history-control",
+    "purpose": "Resolve a partial rollback while preserving a still-active conditional schedule revision.",
+    "core_criteria": [0, 1, 2],
+    "prompt": "根据三次修改记录，只返回当前有效的两句正文，不附说明。\n\nv1：9月5日的内部试用有14名参与者；公开试用原定9月20日开始。\nv2：人数更正为17名；公开试用改为：若安全复核在9月18日前通过，则9月22日开始，否则开始时间待定。\nv3：撤回17名这项人数更正，恢复14名；v2的公开试用安排继续有效。\n\n第一句写当前人数，第二句必须保留公开试用从原定日期到当前条件安排的变更关系。",
+    "hard_criteria": [
+      "只返回恰好两句正文：第一句写人数，第二句写公开试用安排；不附标题、版本记录、解释或备选版本",
+      "人数采用撤回更正后的14名，不把17名保留为当前人数，也不改动9月5日这一日期",
+      "第二句明确公开试用由原定9月20日改为：安全复核在9月18日前通过则9月22日开始，否则开始时间待定",
+      "不把条件安排写成已经通过、确定开始或取消，也不新增负责人、原因、链接、承诺或执行状态"
+    ]
+  },
+  {
+    "id": "restrained-voice-with-fixed-closing",
+    "mechanism": "author-voice-restraint",
+    "purpose": "Match a restrained sample without importing its imagery or weakening a fixed personal closing.",
+    "core_criteria": [1, 2, 3],
+    "prompt": "参考样文润色草稿，只返回一段正文。草稿末句必须逐字保留，不要移植样文里的事实或意象。\n\n样文：我又绕了一站。不是路远，是想把那阵风走完。\n草稿：上周六的社区修伞活动取得了圆满成功，现场的每个人都给予了高度赞扬。7位居民一起修好了11把伞。我还是觉得，慢一点没什么不好。",
+    "hard_criteria": [
+      "只返回一段润色后的正文，不附风格分析、修改说明、标题或备选版本",
+      "保留上周六、社区修伞活动、7位居民共同修好11把伞这些草稿事实，不新增活动细节或他人反应",
+      "逐字保留末句“我还是觉得，慢一点没什么不好。”，并删除或实质收敛“圆满成功”“每个人都高度赞扬”的夸大表达",
+      "不移植样文中的车站、绕路或风等事实和意象，也不新增地点、天气、对话、来源或评价"
+    ]
+  },
+  {
+    "id": "intentional-fragments-no-change-control",
+    "mechanism": "author-voice-restraint",
+    "purpose": "Leave a clear passage unchanged when its fragments and repetition are explicitly intentional.",
+    "core_criteria": [1],
+    "prompt": "这段日记的短句与重复是刻意的。若没有影响理解的语病，请原样返回；不要添加标题、引号或说明。\n\n门开了。风进来。我没动。再等一会儿，再等一会儿。",
+    "hard_criteria": [
+      "只返回日记正文一行，不附标题、引号、前言、解释、评价或备选版本",
+      "正文逐字保持为“门开了。风进来。我没动。再等一会儿，再等一会儿。”，包括句序、重复与标点",
+      "不合并短句、不删改重复、不改写为更完整或更文学化的表达",
+      "不新增人物、动作、原因、时间、地点、天气细节、感受或发布状态"
+    ]
+  }
+]

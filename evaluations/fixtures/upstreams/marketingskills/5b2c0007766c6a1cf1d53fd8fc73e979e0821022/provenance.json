@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+  "license": "MIT",
+  "retrieved_at": "2026-09-13T21:11:12.203082+00:00",
+  "modifications": "No upstream SKILL.md bytes changed. The repository-root LICENSE is copied byte-for-byte into skills/product-marketing/LICENSE so the prepared evaluation package carries its license. The fixture contains Markdown instructions only; no upstream script is installed or executed.",
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+      "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+    },
+    "skills/product-marketing/SKILL.md": {
+      "url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/product-marketing/SKILL.md",
+      "sha256": "6dfd6bd485f62448385844cb9eceefcee0977c843d7a1c9e6077590d4e19d1ec"
+    },
+    "skills/product-marketing/LICENSE": {
+      "url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+      "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
+    }
+  }
+}

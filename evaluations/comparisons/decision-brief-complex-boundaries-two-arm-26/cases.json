@@ -1,0 +1,80 @@
+[
+  {
+    "id": "approved-choice-new-qualification-evidence",
+    "mechanism": "decision-history",
+    "purpose": "Preserve an approved decision and its original basis when new evidence removes an old differentiator without creating a new approval.",
+    "prompt": "给明天的采购会写一段不超过120字的决策简报，直接交稿。记录 D14：上月采购委员会批准继续用 Atlas，依据是必须达到无障碍 AA，当时只有 Atlas 已确认。新资料 S9：Beacon 现也取得 AA；财务总监个人偏好 Beacon，但无批准权；两者仍没有同口径退出成本，委员会也没有重新表决。明天只需决定是否重开选型。",
+    "hard_criteria": [
+      "保留D14上月已批准继续用Atlas及当时只有Atlas确认达到无障碍AA这一原批准依据，并把S9中Beacon现也取得AA标为后续新事实；语义等价表述均可",
+      "明确财务总监偏好Beacon不是批准，采购委员会尚未重新表决；不得把Atlas写成从未批准或把Beacon写成已选",
+      "把明天的决定限定为是否重开选型，并保留两者同口径退出成本缺失会影响重选；不在缺口未补时擅自完成新选型",
+      "直接交付单段且不超过120个字符（含中文、数字与标点）的合理短文，不提问、不编造成本、权限、投票或已执行动作"
+    ],
+    "core_criteria": [0, 1, 2]
+  },
+  {
+    "id": "cost-correction-does-not-revoke-approval",
+    "mechanism": "decision-history",
+    "purpose": "Apply a cost correction inside a bounded revision without silently revoking a decision approved on an unchanged hard requirement.",
+    "prompt": "只返回修订后的“成本与状态”一个段落，不加标题。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 只有欧盟驻留。原段落还写 North 首年估计70万元、South 90万元。更正 C4：North 首年估计应为105万元；其他事实与 D22 批准状态不变。请传播更正，但不要把成本变化写成已撤销或重新批准。",
+    "hard_criteria": [
+      "把North首年估计从70万元更正为105万元并保留South首年90万元，不沿用旧数字或改变同一首年口径",
+      "保留D22已批准North，并明确成本更正本身没有撤销、替代或重新批准该决定",
+      "保留North满足欧盟驻留和审计导出、South只满足欧盟驻留，因此South仍不满足既定采购底线；不因更便宜直接改荐South",
+      "严格只返回一个无标题的修订段落，不补写其他章节、人物立场、预算承诺或已执行操作"
+    ],
+    "core_criteria": [0, 1, 2]
+  },
+  {
+    "id": "normalize-three-year-cost-basis",
+    "mechanism": "constraint-and-denominator",
+    "purpose": "Normalize one-time and annual costs to the requested three-year horizon before recommending on cost.",
+    "prompt": "给财务负责人写一个三句话内的成本决策建议。两项都满足全部功能与安全底线，时间也相同；只比较已知三年成本。A：一次性实施20万元，年费30万元。B：无实施费，年费36万元。所有数字都是未含税估计，三年内年费不变，暂无其他成本资料。必须展示计算口径，不要把估计写成报价。",
+    "hard_criteria": [
+      "按同一三年口径计算A为20+30×3=110万元、B为36×3=108万元，不把一次性与年度数字直接相减或遗漏年份",
+      "基于已知三年成本可条件性倾向B且差额仅2万元，或说明两者成本接近；不得声称B便宜14万元或A年费就是总成本",
+      "保留所有金额为未含税估计、暂无其他成本资料，并把建议限定在已知成本而非确定报价或全面优势",
+      "不超过三句话，不编造税费、折扣、迁移成本、批准状态、评分权重或已完成采购"
+    ],
+    "core_criteria": [0, 1, 2]
+  },
+  {
+    "id": "no-feasible-option-with-one-unknown",
+    "mechanism": "constraint-and-denominator",
+    "purpose": "Respect two hard constraints when one option violates one and the other has an unmeasured critical condition.",
+    "prompt": "为采购委员会写一段直接可用的短建议。两个条件都不可放宽：审计日志保留至少7年，灾备恢复演练必须在4小时内完成。A 已确认保留7年，但从未做过恢复演练；B 已实测2小时恢复，但只保留5年。委员会今天可决定签约或暂缓。请给有界建议，并说明什么结果会改变它，不要提出多个问题。",
+    "hard_criteria": [
+      "明确B因只保留5年而违反7年硬约束，不能因2小时恢复就推荐签约B",
+      "明确A虽满足7年保留，但4小时恢复尚未测量，所以当前也不能无条件判定A满足全部底线",
+      "建议当前暂缓签约并优先验证A的恢复演练；若A在4小时内则A成为可行选项，若超过4小时则当前两项均不可行，或给出语义等价的完整结果分支",
+      "直接交付一个短段，不把未知写成失败或通过，不编造测试、例外批准、第三选项或已执行动作"
+    ],
+    "core_criteria": [0, 1, 2]
+  },
+  {
+    "id": "executive-preference-without-approval-authority",
+    "mechanism": "role-and-evidence",
+    "purpose": "Keep an executive preference separate from the committee that actually owns approval and from an unfinished review.",
+    "prompt": "给董事会秘书写一段状态简报。章程规定采购委员会才有批准权。CTO 个人偏好 Beta，项目工作组也建议 Beta；委员会尚未表决，安全复核还缺供应链风险结果。有人草拟了“公司已决定采用 Beta，由 CTO 批准”。请纠正状态，并说明下一项会改变决定的材料；不要评价任何人的动机。",
+    "hard_criteria": [
+      "明确采购委员会才有批准权且尚未表决，所以公司目前没有已批准的Beta决定",
+      "把CTO个人偏好与工作组建议分别保留为偏好和建议，不写成CTO批准、公司决定或授权承诺",
+      "指出缺失的供应链风险复核结果是会影响委员会决定的下一项材料，并保持其为未知而非默认通过",
+      "不评价动机，不编造表决、负责人、日期、供应商能力或声称已取得复核结果"
+    ],
+    "core_criteria": [0, 1, 2]
+  },
+  {
+    "id": "small-usability-check-does-not-prove-rollout",
+    "mechanism": "role-and-evidence",
+    "purpose": "Keep a small usability check, an unmeasured production threshold, and an executive proposal from becoming an organization-wide decision.",
+    "prompt": "为变更委员会写一个不超过130字的推广建议。12名内部测试者中有9名首次完成新开票流程，没有与现流程对照；全公司有1200人。推广底线是月末峰值P95响应低于2秒，但测试未测峰值。运营副总建议下月全员启用，委员会尚未批准。请保留证据范围、角色和状态，可给条件建议或暂缓。",
+    "hard_criteria": [
+      "保留12名内部测试者中9名首次完成新流程、没有与现流程对照及全公司1200人的证据边界；不得把小样本完成数写成全员效果或相对现流程的已证优势，语义等价表述均可",
+      "明确月末峰值P95低于2秒是推广底线且测试未测峰值，不能用流程完成数替代该指标或假定已达标",
+      "把运营副总的全员启用建议与变更委员会尚未批准分开，并将推广限定为补齐峰值响应等证据后的条件建议或暂缓",
+      "不超过130个字符（含中文、数字与标点）的合理短文，不编造响应时间、对照结果、批准、负责人或已执行推广"
+    ],
+    "core_criteria": [0, 1, 2]
+  }
+]

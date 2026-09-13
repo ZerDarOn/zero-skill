@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "decision-brief-complex-boundaries-two-arm-26",
+  "comparison_kind": "quality",
+  "cases": "cases.json",
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "repetitions": 3,
+  "sandbox_mode": "read-only",
+  "common_prompt": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。",
+  "review_policy": {
+    "blind_arm_mapping": true,
+    "hard_criteria_judgment": "Accept any semantically equivalent answer supported by the frozen case prompt; do not require exact wording and do not add post-hoc requirements.",
+    "preference_separate_from_criteria": true
+  },
+  "decision_gate": {
+    "scope": "ours-versus-baseline",
+    "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+    "minimum_cases_in_same_mechanism": 2,
+    "ours_min_core_failures_per_case": 2,
+    "baseline_max_core_failures_per_case": 1,
+    "required_valid_outputs": 36,
+    "effect": "open-minimal-candidate-design-only"
+  },
+  "arms": [
+    {
+      "id": "baseline",
+      "skill": null
+    },
+    {
+      "id": "ours",
+      "skill": {
+        "id": "decision-brief-draft",
+        "source": "../../../skills/creation/decision-brief-draft",
+        "install_mode": "project",
+        "invocation": "explicit"
+      }
+    }
+  ]
+}

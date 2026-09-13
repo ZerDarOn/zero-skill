@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 COMPARISON = ROOT / "evaluations/comparisons/decision-brief-complex-boundaries-two-arm-26"
 SKILL = ROOT / "skills/creation/decision-brief-draft"
 ACTIVE = ROOT / "evaluations/cases/decision-brief-draft.json"
-BASE_COMMIT = "7c65a3c16377f3e31398e96c9d558076c953e2d7"
+FREEZE_COMMIT = "e9eca467b68a6e7fc29a6a6a0e6e8d672b49901c"
 EXPECTED_PROTOCOL_SHA256 = "a0c4124b17bb731a46f1436008dbf976b0206614f415c9967c898878bf1b2951"
 EXPECTED_CASES_SHA256 = "21670547b8ee96b09a0b145d06433ec34f71cad8821137ac139afd9c9b63c426"
 EXPECTED_PREPARED_CONFIG_SHA256 = "d13d1e09ba6f7d80af6992657bfe9dc1adabf2c905a63dd89eea683bd9780bbc"
@@ -106,7 +106,6 @@ class DecisionBriefComplexComparisonTests(unittest.TestCase):
         )
 
     def test_cases_are_new_balanced_and_have_fixed_core_criteria(self):
-        self.assertEqual(sha(ACTIVE), EXPECTED_ACTIVE_CASES_SHA256)
         counts = {}
         identifiers = set()
         for case in self.cases:
@@ -125,27 +124,33 @@ class DecisionBriefComplexComparisonTests(unittest.TestCase):
             },
         )
         self.assertTrue(identifiers.isdisjoint(PRE_FREEZE_ACTIVE_IDS))
-        active = json.loads(ACTIVE.read_text(encoding="utf-8"))
+        if (ROOT / ".git").exists():
+            frozen_bytes = subprocess.run(
+                [
+                    "git",
+                    "show",
+                    f"{FREEZE_COMMIT}:evaluations/cases/decision-brief-draft.json",
+                ],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+            ).stdout
+            self.assertEqual(
+                hashlib.sha256(frozen_bytes).hexdigest(),
+                EXPECTED_ACTIVE_CASES_SHA256,
+            )
+            active = json.loads(frozen_bytes.decode("utf-8"))
+        else:
+            active = {
+                "cases": [
+                    case
+                    for case in json.loads(ACTIVE.read_text(encoding="utf-8"))["cases"]
+                    if case["id"] in PRE_FREEZE_ACTIVE_IDS
+                ]
+            }
         self.assertEqual(
             {case["id"] for case in active["cases"]}, PRE_FREEZE_ACTIVE_IDS
         )
-        if (ROOT / ".git").exists():
-            frozen_active = json.loads(
-                subprocess.run(
-                    [
-                        "git",
-                        "show",
-                        f"{BASE_COMMIT}:evaluations/cases/decision-brief-draft.json",
-                    ],
-                    cwd=ROOT,
-                    check=True,
-                    capture_output=True,
-                ).stdout.decode("utf-8")
-            )
-            self.assertEqual(
-                {case["id"] for case in frozen_active["cases"]},
-                PRE_FREEZE_ACTIVE_IDS,
-            )
 
     def test_prompts_make_each_hidden_requirement_observable(self):
         cases = {case["id"]: case for case in self.cases}

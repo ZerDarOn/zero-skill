@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第三十二轮当前故障证据排查与 Systematic Debugging 前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共172项。无 Skill、`debug-evidence-triage` 0.1.1 与固定 Superpowers `systematic-debugging` 在六题三次重复中的原始分为51/72、45/72、44/72，独立语义校准后为53/72、50/72、47/72；baseline 在两种口径下均领先，且没有机制达到预注册改版门槛。Skill、版本、catalog 与 evidence 不变，六个冻结前向题加入活动回归。
+当前阶段：**第三十三轮复杂决策边界前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共178项。无 Skill 与 `decision-brief-draft` 0.1.1 在六题三次重复中的原始分为63/72、68/72，独立语义校准后为64/72、68/72；完整输出为10/18、14/18，5次唯一偏好全部给当前 Skill。没有机制达到预注册改版门槛，Skill、版本、catalog 与 evidence 不变，六个冻结前向题加入活动回归。
 
 ## 从这里开始
+
+- [第三十三轮质量打磨：复杂决策边界前向盲测](docs/quality-polish-round-33.md)
+- [决策简报第三十三轮机器诊断](evaluations/reports/decision-brief-complex-round-33-diagnostic.json)
 
 - [第三十二轮质量打磨：当前故障证据排查与 Systematic Debugging 前向盲测](docs/quality-polish-round-32.md)
 - [故障证据第三十二轮机器诊断](evaluations/reports/debug-current-systematic-round-32-diagnostic.json)

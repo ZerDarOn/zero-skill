@@ -1,0 +1,1773 @@
+{
+  "schema_version": 1,
+  "report_id": "decision-brief-complex-round-33-diagnostic",
+  "generated_at": "2026-09-13T20:54:24.909821+00:00",
+  "scope": {
+    "skill_id": "decision-brief-draft",
+    "version": "0.1.1",
+    "catalog_status": "experimental",
+    "catalog_evidence": null,
+    "prior_active_case_count": 6,
+    "active_case_count": 12,
+    "collection_active_case_count": 178,
+    "formal_outputs": 36,
+    "blind_review_items": 18,
+    "criterion_booleans": 144
+  },
+  "experiment": {
+    "comparison_id": "decision-brief-complex-boundaries-two-arm-26",
+    "run_id": "decision-brief-complex-boundaries-two-arm-26-formal-20260914-v1",
+    "freeze_commit": "e9eca467b68a6e7fc29a6a6a0e6e8d672b49901c",
+    "promptfoo_version": "0.123.0",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "preflight": {
+      "run_id": "decision-brief-complex-boundaries-two-arm-26-preflight-20260914-v1",
+      "outputs": 2,
+      "infrastructure_valid": true,
+      "summary_sha256": "f148a5621b9c2ad17c7907512cdf6f51dc29cf07ac28757874b8b0710954fb6c",
+      "scored": false
+    },
+    "source_hashes": {
+      "promptfoo.json": "a0c4124b17bb731a46f1436008dbf976b0206614f415c9967c898878bf1b2951",
+      "cases.json": "21670547b8ee96b09a0b145d06433ec34f71cad8821137ac139afd9c9b63c426",
+      "active-cases.json": "c3b9d8ce75bfa24d91d550e03fcd8a67bf8024afa4cea684daace71dc5e9191e",
+      "SKILL.md": "1ef140aae7f7d154c6013fb3adabf91cd973ab9d9fd24a777c81a9f80947c938",
+      "prepare_skill_comparison.py": "4eca5a4c2caeffbeca6663ecf49ce8f9e293f86372593abfb3d794ea1d1b788b"
+    },
+    "prepared_hashes": {
+      "config": "d13d1e09ba6f7d80af6992657bfe9dc1adabf2c905a63dd89eea683bd9780bbc",
+      "tests": "e3d7fd741ff8a17652a62d8f0cd8e1550f5e8b3203ee32913fde68de3e2819ef"
+    },
+    "artifact_hashes": {
+      "frozen.json": "0aeee6480f48df05e5e0638610d8cf933a663c62b44cdb427a8e1bacd84c832f",
+      "run-meta.json": "d829c3c57509f336bb2303601d8fd15b15b837626a59732c51e4dcdc4477d5f1",
+      "results.json": "6478a52cca4bbdaf14afb8f599da95ec9088cf3a0574c779fde074332d290c99",
+      "results.html": "1d6e50b2992cffef35ed50b4ad908a1def24d5c9c4d7d8f564a489fa120a8032",
+      "summary.json": "1a0a7c4f2fea93ceb0e5d0cdc0bcc3738524a7c8d130e719028e0cae4ed44b9e",
+      "blind-review.json": "b724df4a1c339847e20d80137d25ca57771e4400b26089d981afcc78bbe1f5f6",
+      "blind-review-key.json": "e04a978a43562562117d3a1c1427468a63ffa31be6f5ce2075a098de06c641f6",
+      "blind-review-form.json": "4ff756d545c43e9fa8f654216a8a2ba8a86ab922862937751755b223e815ce83",
+      "blind-review-completed-independent.json": "314cbb432c1ad3cd62a0ea7e962f349fe4b8a7498b460cf49bf4ee338e8f525c",
+      "review-result-blind-review-completed-independent.json": "5ba8dd6e933235cff18f95d9c42a8e720d106e04b92975bb7e152e408f5348c9",
+      "review-calibration-independent.json": "fa543531dc32aeb4e2121271c614093131f6e55e1c65d13f08f88dcf80cbd753"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "7a027ae0e1c7f791ad6f3a10dfa6d2cea7371e519ee573c0e15fd298b88cfdf5",
+      "postscore-decision-review-independent.md": "2b78c6afe6946d365a079ff93a869cdb94556733e9a46b2711e29c25f09537ba"
+    },
+    "blind_reviewer": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round33_blind_review",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "completed_at": "2026-09-13T20:45:31.616222+00:00",
+      "independent_human": false,
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": false,
+      "prior_skill_revision_exposure": false,
+      "allowed_files": [
+        "blind-review.json",
+        "blind-review-form.json"
+      ],
+      "unexpected_files_read": [],
+      "blind_file_boundary_clean": true,
+      "notes": "Scored only the allowed anonymous packet and blank form against each frozen criterion, accepting semantic equivalents and adding no criteria. Preferences were recorded separately and did not alter booleans."
+    },
+    "semantic_calibration": {
+      "schema_version": 1,
+      "comparison_id": "decision-brief-complex-boundaries-two-arm-26",
+      "calibration_kind": "post-reveal-semantic-false-to-true-only",
+      "reviewer": {
+        "kind": "model-assisted-independent-task",
+        "model": "gpt-6",
+        "independent_human": false,
+        "was_original_anonymous_scorer": false,
+        "blind_to_arm_mapping": false,
+        "post_reveal": true,
+        "scope_note": "Reviewed all 13 original false judgments after reveal. Corrections require the candidate answer to already satisfy the frozen criterion semantically; no criterion was relaxed, no new false judgment was added, and preferences were not re-evaluated."
+      },
+      "source_bindings": {
+        "blind-review.json": "b724df4a1c339847e20d80137d25ca57771e4400b26089d981afcc78bbe1f5f6",
+        "blind-review-key.json": "e04a978a43562562117d3a1c1427468a63ffa31be6f5ce2075a098de06c641f6",
+        "blind-review-completed-independent.json": "314cbb432c1ad3cd62a0ea7e962f349fe4b8a7498b460cf49bf4ee338e8f525c",
+        "review-result-blind-review-completed-independent.json": "5ba8dd6e933235cff18f95d9c42a8e720d106e04b92975bb7e152e408f5348c9",
+        "summary.json": "1a0a7c4f2fea93ceb0e5d0cdc0bcc3738524a7c8d130e719028e0cae4ed44b9e",
+        "run-meta.json": "d829c3c57509f336bb2303601d8fd15b15b837626a59732c51e4dcdc4477d5f1",
+        "frozen.json": "0aeee6480f48df05e5e0638610d8cf933a663c62b44cdb427a8e1bacd84c832f",
+        "results.json": "6478a52cca4bbdaf14afb8f599da95ec9088cf3a0574c779fde074332d290c99"
+      },
+      "frozen_source_bindings": {
+        "promptfoo.json": "a0c4124b17bb731a46f1436008dbf976b0206614f415c9967c898878bf1b2951",
+        "cases.json": "21670547b8ee96b09a0b145d06433ec34f71cad8821137ac139afd9c9b63c426",
+        "prepared/promptfooconfig.json": "d13d1e09ba6f7d80af6992657bfe9dc1adabf2c905a63dd89eea683bd9780bbc",
+        "prepared/tests.json": "e3d7fd741ff8a17652a62d8f0cd8e1550f5e8b3203ee32913fde68de3e2819ef",
+        "decision-brief-draft-package": "d66fc65cda321f4a9718c5517ff17e87f704646c9de07d9afb9cb4b4b1495c17",
+        "prepared/skills/ours/decision-brief-draft/SKILL.md": "1ef140aae7f7d154c6013fb3adabf91cd973ab9d9fd24a777c81a9f80947c938"
+      },
+      "review_context_bindings": {
+        "comparison/README.md": "08c1544f87c740dab78468c3d0ff8fbcd6239416230f63d80ebf47b01eab53b2",
+        "comparison/prefreeze-review-independent.md": "7a027ae0e1c7f791ad6f3a10dfa6d2cea7371e519ee573c0e15fd298b88cfdf5",
+        "current/skills/creation/decision-brief-draft/SKILL.md": "1ef140aae7f7d154c6013fb3adabf91cd973ab9d9fd24a777c81a9f80947c938",
+        "current/evaluations/cases/decision-brief-draft.json": "7cfe377e96097d77fd0ab5d409d542b1d7c05740c05ac24fc05523961450ee72",
+        "preflight/summary.json": "f148a5621b9c2ad17c7907512cdf6f51dc29cf07ac28757874b8b0710954fb6c",
+        "preflight/run-meta.json": "1d9d58544800afb988b4b7fd7ec7563051a2bedb980dbc073d4302f84482f6cb"
+      },
+      "original_false_count": 13,
+      "correction_count": 1,
+      "retained_false_count": 12,
+      "corrections": [
+        {
+          "review_id": "approved-choice-new-qualification-evidence-r3",
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "答案把退出成本标为不可比，记录委员会未重新表决，并给出“建议重开选型；重审前原批准不变”。在明日采购会的冻结任务语境中，这已用等价语义把当前动作限定为重开评估且没有在成本缺口未补时完成新选型，不必逐字复述“明天只决定是否”。"
+        }
+      ]
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2079536,
+          "latency_ms_median": 9043.5,
+          "tokens_total": {
+            "cached": 152704,
+            "completion": 3637,
+            "prompt": 171237,
+            "total": 174874
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 10,
+          "criteria_passed": 63,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.875
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 10,
+          "criteria_passed": 64,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.8889
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "decision-brief-draft",
+        "package_evidence_path": "skills/creation/decision-brief-draft",
+        "skill_package_sha256": "d66fc65cda321f4a9718c5517ff17e87f704646c9de07d9afb9cb4b4b1495c17",
+        "runtime": {
+          "id": "ours",
+          "skill": "decision-brief-draft",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.3458544,
+          "latency_ms_median": 8944.5,
+          "tokens_total": {
+            "cached": 140416,
+            "completion": 3723,
+            "prompt": 194223,
+            "total": 197946
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "ours",
+          "skill": "decision-brief-draft",
+          "outputs": 18,
+          "perfect_outputs": 14,
+          "criteria_passed": 68,
+          "criteria_total": 72,
+          "preferred_count": 5,
+          "criterion_pass_rate": 0.9444
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "ours",
+          "skill": "decision-brief-draft",
+          "outputs": 18,
+          "perfect_outputs": 14,
+          "criteria_passed": 68,
+          "criteria_total": 72,
+          "preferred_count": 5,
+          "criterion_pass_rate": 0.9444
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "approved-choice-new-qualification-evidence-r1",
+        "case_id": "approved-choice-new-qualification-evidence",
+        "repetition": 1,
+        "purpose": "Preserve an approved decision and its original basis when new evidence removes an old differentiator without creating a new approval.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给明天的采购会写一段不超过120字的决策简报，直接交稿。记录 D14：上月采购委员会批准继续用 Atlas，依据是必须达到无障碍 AA，当时只有 Atlas 已确认。新资料 S9：Beacon 现也取得 AA；财务总监个人偏好 Beacon，但无批准权；两者仍没有同口径退出成本，委员会也没有重新表决。明天只需决定是否重开选型。",
+        "hard_criteria": [
+          "保留D14上月已批准继续用Atlas及当时只有Atlas确认达到无障碍AA这一原批准依据，并把S9中Beacon现也取得AA标为后续新事实；语义等价表述均可",
+          "明确财务总监偏好Beacon不是批准，采购委员会尚未重新表决；不得把Atlas写成从未批准或把Beacon写成已选",
+          "把明天的决定限定为是否重开选型，并保留两者同口径退出成本缺失会影响重选；不在缺口未补时擅自完成新选型",
+          "直接交付单段且不超过120个字符（含中文、数字与标点）的合理短文，不提问、不编造成本、权限、投票或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均保留D14批准、当时仅Atlas达AA、Beacon后续达AA、权限与退出成本缺口；均为120字内单段，四项通过，无明确优胜。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "D14已批准续用Atlas，因当时仅其确认达到无障碍AA。现Beacon也获AA，原依据已变；财务总监偏好不等于批准，委员会未重表决。建议明日重开选型，待同口径退出成本齐备后再定。",
+            "output_sha256": "2265d491062c3a8815b1a40a8e9f7d089f5426cfd6f2d104231b9192811d8148",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "事实：D14批准续用Atlas，因当时仅其确认达AA；现Beacon也达AA。偏好：财务总监倾向Beacon，无批准权。未知：退出成本不可比。委员会未重表决。建议：明日仅决定是否重开选型。",
+            "output_sha256": "3204a4c946ae231c27e836c03691358a648549fa8fd2e736080bd5e89051e287",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approved-choice-new-qualification-evidence-r2",
+        "case_id": "approved-choice-new-qualification-evidence",
+        "repetition": 2,
+        "purpose": "Preserve an approved decision and its original basis when new evidence removes an old differentiator without creating a new approval.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给明天的采购会写一段不超过120字的决策简报，直接交稿。记录 D14：上月采购委员会批准继续用 Atlas，依据是必须达到无障碍 AA，当时只有 Atlas 已确认。新资料 S9：Beacon 现也取得 AA；财务总监个人偏好 Beacon，但无批准权；两者仍没有同口径退出成本，委员会也没有重新表决。明天只需决定是否重开选型。",
+        "hard_criteria": [
+          "保留D14上月已批准继续用Atlas及当时只有Atlas确认达到无障碍AA这一原批准依据，并把S9中Beacon现也取得AA标为后续新事实；语义等价表述均可",
+          "明确财务总监偏好Beacon不是批准，采购委员会尚未重新表决；不得把Atlas写成从未批准或把Beacon写成已选",
+          "把明天的决定限定为是否重开选型，并保留两者同口径退出成本缺失会影响重选；不在缺口未补时擅自完成新选型",
+          "直接交付单段且不超过120个字符（含中文、数字与标点）的合理短文，不提问、不编造成本、权限、投票或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": "ours",
+        "review_notes": "A完整保留原批准的“当时仅Atlas达AA”依据，四项通过；B保留批准和Beacon新资格但遗漏该历史依据，K0失败，其余通过，偏好A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议明日重开选型。D14已批准续用Atlas，依据是当时仅其确认达AA；现Beacon亦达AA，原依据已变。财务总监偏好不等于批准；退出成本仍不可比，委员会尚未重表决。",
+            "output_sha256": "804a647b53e507a00c70115ebe92c638ccc925f6f9f31735e517997f4b05e8f2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "事实：D14已批准继续用Atlas；现Beacon也获AA。偏好：财务总监倾向Beacon，无批准权。未知：同口径退出成本。现状：委员会未重表决。建议：明日决定重开选型。",
+            "output_sha256": "20222aca79d278e7d569a05869a968e74fff6c67f0e57b188cf859a126a54380",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approved-choice-new-qualification-evidence-r3",
+        "case_id": "approved-choice-new-qualification-evidence",
+        "repetition": 3,
+        "purpose": "Preserve an approved decision and its original basis when new evidence removes an old differentiator without creating a new approval.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给明天的采购会写一段不超过120字的决策简报，直接交稿。记录 D14：上月采购委员会批准继续用 Atlas，依据是必须达到无障碍 AA，当时只有 Atlas 已确认。新资料 S9：Beacon 现也取得 AA；财务总监个人偏好 Beacon，但无批准权；两者仍没有同口径退出成本，委员会也没有重新表决。明天只需决定是否重开选型。",
+        "hard_criteria": [
+          "保留D14上月已批准继续用Atlas及当时只有Atlas确认达到无障碍AA这一原批准依据，并把S9中Beacon现也取得AA标为后续新事实；语义等价表述均可",
+          "明确财务总监偏好Beacon不是批准，采购委员会尚未重新表决；不得把Atlas写成从未批准或把Beacon写成已选",
+          "把明天的决定限定为是否重开选型，并保留两者同口径退出成本缺失会影响重选；不在缺口未补时擅自完成新选型",
+          "直接交付单段且不超过120个字符（含中文、数字与标点）的合理短文，不提问、不编造成本、权限、投票或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": "ours",
+        "review_notes": "A说明原依据已变化但未保留“当时仅Atlas确认达AA”，K0失败，其余通过；B同样遗漏旧依据，且没有把明天决定限定为是否重开，K0/K2失败；偏好A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "明日决策：是否重开选型。D14已批准继续用Atlas，原依据现已变化：Beacon也取得AA。财务总监偏好Beacon，但非批准；委员会未重表决，退出成本尚不可比。建议重开选型，待成本可比后再定。",
+            "output_sha256": "2d080b074fd1c236ac5d8c3e88b56f1ad172cc3974f71625e5903ad762ee83c9",
+            "raw_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "事实：D14已批准续用Atlas；现Beacon亦获AA。偏好：财务总监倾向Beacon，无批准权。未知：退出成本不可比，委员会未重表决。建议：重开选型；重审前原批准不变。",
+            "output_sha256": "7f111e97ed2129eb167600ef2975d868fdbdb0cfbc4b95476f9d593e39d14495",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "from": false,
+                "to": true,
+                "reason": "答案把退出成本标为不可比，记录委员会未重新表决，并给出“建议重开选型；重审前原批准不变”。在明日采购会的冻结任务语境中，这已用等价语义把当前动作限定为重开评估且没有在成本缺口未补时完成新选型，不必逐字复述“明天只决定是否”。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "review_id": "cost-correction-does-not-revoke-approval-r1",
+        "case_id": "cost-correction-does-not-revoke-approval",
+        "repetition": 1,
+        "purpose": "Apply a cost correction inside a bounded revision without silently revoking a decision approved on an unchanged hard requirement.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n只返回修订后的“成本与状态”一个段落，不加标题。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 只有欧盟驻留。原段落还写 North 首年估计70万元、South 90万元。更正 C4：North 首年估计应为105万元；其他事实与 D22 批准状态不变。请传播更正，但不要把成本变化写成已撤销或重新批准。",
+        "hard_criteria": [
+          "把North首年估计从70万元更正为105万元并保留South首年90万元，不沿用旧数字或改变同一首年口径",
+          "保留D22已批准North，并明确成本更正本身没有撤销、替代或重新批准该决定",
+          "保留North满足欧盟驻留和审计导出、South只满足欧盟驻留，因此South仍不满足既定采购底线；不因更便宜直接改荐South",
+          "严格只返回一个无标题的修订段落，不补写其他章节、人物立场、预算承诺或已执行操作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均使用105万与90万同一首年口径，保留D22批准和两项采购底线，并明确更正不撤销决定；均为无标题单段，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 仅确认欧盟驻留。成本更正后，North 首年估计为105万元，South 为90万元；该更正不改变 D22 的批准状态及其依据。",
+            "output_sha256": "c0070eadb545befd4bb38fc0d09363a3f25210923bafd0de7bb259f6d39a42fc",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "North 首年估计成本更正为105万元，South 首年估计仍为90万元。D22 对 North 的批准状态不变，其依据仍是采购底线要求欧盟驻留和审计导出：North 两项均已确认，South 仅确认欧盟驻留。此次仅传播 C4 成本更正，不构成撤销或重新批准。",
+            "output_sha256": "10f653add73bf8bdc8829a09f451b9808ac09dd2610fb15b3fa3133df1cacdff",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "cost-correction-does-not-revoke-approval-r2",
+        "case_id": "cost-correction-does-not-revoke-approval",
+        "repetition": 2,
+        "purpose": "Apply a cost correction inside a bounded revision without silently revoking a decision approved on an unchanged hard requirement.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n只返回修订后的“成本与状态”一个段落，不加标题。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 只有欧盟驻留。原段落还写 North 首年估计70万元、South 90万元。更正 C4：North 首年估计应为105万元；其他事实与 D22 批准状态不变。请传播更正，但不要把成本变化写成已撤销或重新批准。",
+        "hard_criteria": [
+          "把North首年估计从70万元更正为105万元并保留South首年90万元，不沿用旧数字或改变同一首年口径",
+          "保留D22已批准North，并明确成本更正本身没有撤销、替代或重新批准该决定",
+          "保留North满足欧盟驻留和审计导出、South只满足欧盟驻留，因此South仍不满足既定采购底线；不因更便宜直接改荐South",
+          "严格只返回一个无标题的修订段落，不补写其他章节、人物立场、预算承诺或已执行操作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": "ours",
+        "review_notes": "A的事实、状态与底线正确，但“成本与状态：”构成标题式标签，不满足无标题段落，K3失败；B四项均满足，偏好B。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "成本与状态：North 首年估计为105万元，South 首年估计为90万元。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 仅确认欧盟驻留。此次仅更正 C4 的 North 成本估计，不代表撤销或重新批准；其他事实与 D22 批准状态不变。",
+            "output_sha256": "eb046f588a8f63356579ba57c7d93d0254a2ab985d65b71c6c511beeb82e9268",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "D22 已批准采用 North，依据是采购底线要求欧盟驻留和审计导出；North 已确认同时满足两项要求，South 仅满足欧盟驻留。更正 C4 后，North 首年估计为105万元，South 首年估计仍为90万元；该成本更正不改变 D22 的批准状态及其依据。",
+            "output_sha256": "2dd333257838d1715ba839bed3c3e6ccd877842144e2312f2a1985d9b67776da",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "cost-correction-does-not-revoke-approval-r3",
+        "case_id": "cost-correction-does-not-revoke-approval",
+        "repetition": 3,
+        "purpose": "Apply a cost correction inside a bounded revision without silently revoking a decision approved on an unchanged hard requirement.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n只返回修订后的“成本与状态”一个段落，不加标题。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 只有欧盟驻留。原段落还写 North 首年估计70万元、South 90万元。更正 C4：North 首年估计应为105万元；其他事实与 D22 批准状态不变。请传播更正，但不要把成本变化写成已撤销或重新批准。",
+        "hard_criteria": [
+          "把North首年估计从70万元更正为105万元并保留South首年90万元，不沿用旧数字或改变同一首年口径",
+          "保留D22已批准North，并明确成本更正本身没有撤销、替代或重新批准该决定",
+          "保留North满足欧盟驻留和审计导出、South只满足欧盟驻留，因此South仍不满足既定采购底线；不因更便宜直接改荐South",
+          "严格只返回一个无标题的修订段落，不补写其他章节、人物立场、预算承诺或已执行操作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": "ours",
+        "review_notes": "A四项均满足；B事实与批准边界正确，但以“成本与状态：”加标题式标签，K3失败，偏好A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "North 首年估计为105万元，South 为90万元。D22 已批准 North，依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 仅确认欧盟驻留。成本更正不改变 D22 的批准状态。",
+            "output_sha256": "aa77e7662f6c3018cbdc7cc723f098e4c2a58f5452d00fad42061cc0081233a2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "成本与状态：North 首年估计为105万元，South 首年估计为90万元。D22 已批准 North，批准依据是采购底线要求欧盟驻留和审计导出；North 两项均已确认，South 仅确认欧盟驻留。此次仅更正 C4 中 North 的首年成本估计，其他事实及 D22 的批准状态不变。",
+            "output_sha256": "e34c6ba3fd7b9354db6965ec39785e03f04044db09121b1087c6412b338bcca2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "executive-preference-without-approval-authority-r1",
+        "case_id": "executive-preference-without-approval-authority",
+        "repetition": 1,
+        "purpose": "Keep an executive preference separate from the committee that actually owns approval and from an unfinished review.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给董事会秘书写一段状态简报。章程规定采购委员会才有批准权。CTO 个人偏好 Beta，项目工作组也建议 Beta；委员会尚未表决，安全复核还缺供应链风险结果。有人草拟了“公司已决定采用 Beta，由 CTO 批准”。请纠正状态，并说明下一项会改变决定的材料；不要评价任何人的动机。",
+        "hard_criteria": [
+          "明确采购委员会才有批准权且尚未表决，所以公司目前没有已批准的Beta决定",
+          "把CTO个人偏好与工作组建议分别保留为偏好和建议，不写成CTO批准、公司决定或授权承诺",
+          "指出缺失的供应链风险复核结果是会影响委员会决定的下一项材料，并保持其为未知而非默认通过",
+          "不评价动机，不编造表决、负责人、日期、供应商能力或声称已取得复核结果"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均明确委员会才有批准权且未表决，区分CTO偏好与工作组建议，并把供应链风险保持为待补材料；无编造，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "当前公司尚未决定采用 Beta，也不存在 CTO 已批准该方案的有效状态。根据章程，批准权属于采购委员会，而委员会尚未表决。CTO 个人偏好 Beta，项目工作组建议 Beta，但两者均不构成公司批准。安全复核仍缺供应链风险结果；该结果是下一项可能改变当前建议并影响委员会最终决定的关键材料。",
+            "output_sha256": "6706d03cf49965f151db41779d7e32919c36483594481fb5beed30f29d1c8ec4",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "状态：公司尚未决定采用 Beta。CTO 偏好 Beta 属于个人偏好，项目工作组支持 Beta 属于建议，均不构成批准；根据章程，只有采购委员会有批准权，而委员会尚未表决。安全复核尚未完成，供应链风险结果仍属未知项；该结果是下一项可能改变建议或影响委员会决定的材料。因此，“公司已决定采用 Beta，由 CTO 批准”的表述不准确。",
+            "output_sha256": "10ec211b4ce98e4f8cf340b006d09267a0cbc0b8bc2d8864c95e361645c67e67",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "executive-preference-without-approval-authority-r2",
+        "case_id": "executive-preference-without-approval-authority",
+        "repetition": 2,
+        "purpose": "Keep an executive preference separate from the committee that actually owns approval and from an unfinished review.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给董事会秘书写一段状态简报。章程规定采购委员会才有批准权。CTO 个人偏好 Beta，项目工作组也建议 Beta；委员会尚未表决，安全复核还缺供应链风险结果。有人草拟了“公司已决定采用 Beta，由 CTO 批准”。请纠正状态，并说明下一项会改变决定的材料；不要评价任何人的动机。",
+        "hard_criteria": [
+          "明确采购委员会才有批准权且尚未表决，所以公司目前没有已批准的Beta决定",
+          "把CTO个人偏好与工作组建议分别保留为偏好和建议，不写成CTO批准、公司决定或授权承诺",
+          "指出缺失的供应链风险复核结果是会影响委员会决定的下一项材料，并保持其为未知而非默认通过",
+          "不评价动机，不编造表决、负责人、日期、供应商能力或声称已取得复核结果"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均完整保留权限、偏好、建议和未知风险复核边界，未把Beta写成已批准，也未编造结果；四项通过，无明确优胜。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "当前公司尚未决定采用 Beta，也不存在 CTO 已批准该方案的状态。根据章程，批准权属于采购委员会，而委员会尚未表决；CTO 个人偏好 Beta，项目工作组建议 Beta，但两者均不构成公司批准。目前安全复核仍缺供应链风险结果，该结果是下一项可能改变方案选择并影响委员会决定的关键材料。",
+            "output_sha256": "554e71752b976190f99bb1ea6623aa5df1f60a6645874e7256def13b2eeadd7b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "状态简报：根据章程，采购委员会是唯一有权批准的机构。CTO 个人偏好 Beta，项目工作组建议采用 Beta，但两者均不构成批准；委员会尚未表决，安全复核仍缺供应链风险结果。因此，“公司已决定采用 Beta，由 CTO 批准”的表述不准确，目前状态应为“Beta 获工作组建议，正等待安全复核完成及采购委员会审议批准”。下一项可能影响委员会决策的材料是供应链风险结果；最终决定以采购委员会表决为准。",
+            "output_sha256": "3c9b84ff40dd3a47105071baad05c8c70829e5f9e731b73adfbd0c6d4dc924d3",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "executive-preference-without-approval-authority-r3",
+        "case_id": "executive-preference-without-approval-authority",
+        "repetition": 3,
+        "purpose": "Keep an executive preference separate from the committee that actually owns approval and from an unfinished review.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给董事会秘书写一段状态简报。章程规定采购委员会才有批准权。CTO 个人偏好 Beta，项目工作组也建议 Beta；委员会尚未表决，安全复核还缺供应链风险结果。有人草拟了“公司已决定采用 Beta，由 CTO 批准”。请纠正状态，并说明下一项会改变决定的材料；不要评价任何人的动机。",
+        "hard_criteria": [
+          "明确采购委员会才有批准权且尚未表决，所以公司目前没有已批准的Beta决定",
+          "把CTO个人偏好与工作组建议分别保留为偏好和建议，不写成CTO批准、公司决定或授权承诺",
+          "指出缺失的供应链风险复核结果是会影响委员会决定的下一项材料，并保持其为未知而非默认通过",
+          "不评价动机，不编造表决、负责人、日期、供应商能力或声称已取得复核结果"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均清楚纠正CTO批准说法，保留委员会未表决及供应链风险未知，并无额外事实；四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "目前公司尚未决定采用 Beta。CTO 个人偏好 Beta，项目工作组也建议 Beta，但根据章程，批准权属于采购委员会，而委员会尚未表决；因此不能表述为“由 CTO 批准”。安全复核仍缺供应链风险结果，该结果是下一项可能改变当前建议并影响采购委员会最终决定的关键材料。",
+            "output_sha256": "45a80b6bddc2e788d5460d9ddbaf81373fab0a310ce15a11655298401143b42d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "状态简报：公司尚未决定采用 Beta。CTO 个人偏好 Beta，项目工作组建议 Beta，但两者均不构成批准；依章程，只有采购委员会拥有批准权，而委员会尚未表决。安全复核仍缺供应链风险结果，因此该项风险影响目前未知。“公司已决定采用 Beta，由 CTO 批准”的表述不准确，应予纠正。下一项可能改变决策依据的材料是供应链风险结果；正式决定须以采购委员会表决为准。",
+            "output_sha256": "3526cfb0ecd5a638d80b4a06387c0f9889f848d2a1efb6d901347d559ab1e76e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "no-feasible-option-with-one-unknown-r1",
+        "case_id": "no-feasible-option-with-one-unknown",
+        "repetition": 1,
+        "purpose": "Respect two hard constraints when one option violates one and the other has an unmeasured critical condition.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为采购委员会写一段直接可用的短建议。两个条件都不可放宽：审计日志保留至少7年，灾备恢复演练必须在4小时内完成。A 已确认保留7年，但从未做过恢复演练；B 已实测2小时恢复，但只保留5年。委员会今天可决定签约或暂缓。请给有界建议，并说明什么结果会改变它，不要提出多个问题。",
+        "hard_criteria": [
+          "明确B因只保留5年而违反7年硬约束，不能因2小时恢复就推荐签约B",
+          "明确A虽满足7年保留，但4小时恢复尚未测量，所以当前也不能无条件判定A满足全部底线",
+          "建议当前暂缓签约并优先验证A的恢复演练；若A在4小时内则A成为可行选项，若超过4小时则当前两项均不可行，或给出语义等价的完整结果分支",
+          "直接交付一个短段，不把未知写成失败或通过，不编造测试、例外批准、第三选项或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均正确拒绝B并保持A恢复时间未知，也建议暂缓；但都没有优先验证A并给出A超过4小时则当前两项均不可行的完整分支，K2失败；其余通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议今天暂缓签约。两项硬性条件必须同时满足：A 已确认审计日志保留7年，但恢复时间尚未经演练验证；B 已实测2小时恢复，但仅保留5年。因此目前没有一个方案被证实完全合规。若 A 完成恢复演练并在4小时内恢复，建议签约 A；若 B 先确认将日志保留期延长至至少7年，且2小时实测结果仍适用，则可改为签约 B。",
+            "output_sha256": "ee014ab4a8f1d8fae582eb4da24ff9379b3cfdb9516436b50d0827009f5d7f66",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "建议：今天暂缓签约。两项硬性条件均不可放宽，而目前没有任何候选方被确认同时满足：A 已确认日志保留7年，但4小时内恢复能力未知；B 已实测2小时恢复，但仅保留5年。委员会可批准暂缓，待任一候选方提供经验证的“至少保留7年且恢复演练不超过4小时”的结果后，再改为建议签约。个人偏好不构成本建议依据。",
+            "output_sha256": "67ca279949b85ace8969155d378d95330999829e4f60e6a5c857a1dd2f8ca8b0",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "no-feasible-option-with-one-unknown-r2",
+        "case_id": "no-feasible-option-with-one-unknown",
+        "repetition": 2,
+        "purpose": "Respect two hard constraints when one option violates one and the other has an unmeasured critical condition.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为采购委员会写一段直接可用的短建议。两个条件都不可放宽：审计日志保留至少7年，灾备恢复演练必须在4小时内完成。A 已确认保留7年，但从未做过恢复演练；B 已实测2小时恢复，但只保留5年。委员会今天可决定签约或暂缓。请给有界建议，并说明什么结果会改变它，不要提出多个问题。",
+        "hard_criteria": [
+          "明确B因只保留5年而违反7年硬约束，不能因2小时恢复就推荐签约B",
+          "明确A虽满足7年保留，但4小时恢复尚未测量，所以当前也不能无条件判定A满足全部底线",
+          "建议当前暂缓签约并优先验证A的恢复演练；若A在4小时内则A成为可行选项，若超过4小时则当前两项均不可行，或给出语义等价的完整结果分支",
+          "直接交付一个短段，不把未知写成失败或通过，不编造测试、例外批准、第三选项或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均保留A与B各自缺口且不无条件推荐，K0/K1/K3通过；两者都以任一供应商未来补足替代A演练的正反完整分支，K2失败。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议今天暂缓签约。两项要求均为不可放宽的签约条件：A 已确认日志保留7年，但恢复时间未经演练验证；B 已实测2小时恢复，但仅保留5年。因此目前没有候选方同时满足全部条件。若任一候选方提供可核验结果，证明其同时达到至少7年日志保留和4小时内灾备恢复，建议即可改为与该候选方签约。",
+            "output_sha256": "95e309582a91625eb280dda67572ac8eece1cbff55f28c335bef4e9aec985f7e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "建议今天暂缓签约。事实：A 已确认审计日志保留7年，但恢复演练结果未知；B 已实测2小时恢复，但仅保留5年。鉴于两项条件均不可放宽，目前没有候选方同时合格。改变本建议的结果仅限于：A 完成并证明恢复演练不超过4小时，或 B 将日志保留期提高至至少7年并完成确认；届时可批准满足两项条件的一方。个人偏好不影响本建议。",
+            "output_sha256": "89cc8a6c7979ba88f4d08eda85e90f955fa32bc9bf9852cbd0ffdf68fc62eb63",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "no-feasible-option-with-one-unknown-r3",
+        "case_id": "no-feasible-option-with-one-unknown",
+        "repetition": 3,
+        "purpose": "Respect two hard constraints when one option violates one and the other has an unmeasured critical condition.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为采购委员会写一段直接可用的短建议。两个条件都不可放宽：审计日志保留至少7年，灾备恢复演练必须在4小时内完成。A 已确认保留7年，但从未做过恢复演练；B 已实测2小时恢复，但只保留5年。委员会今天可决定签约或暂缓。请给有界建议，并说明什么结果会改变它，不要提出多个问题。",
+        "hard_criteria": [
+          "明确B因只保留5年而违反7年硬约束，不能因2小时恢复就推荐签约B",
+          "明确A虽满足7年保留，但4小时恢复尚未测量，所以当前也不能无条件判定A满足全部底线",
+          "建议当前暂缓签约并优先验证A的恢复演练；若A在4小时内则A成为可行选项，若超过4小时则当前两项均不可行，或给出语义等价的完整结果分支",
+          "直接交付一个短段，不把未知写成失败或通过，不编造测试、例外批准、第三选项或已执行动作"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均建议暂缓并正确区分B不合格与A未知；都遗漏A恢复演练超过4小时后的“两项均不可行”分支，K2失败，其余通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "建议今天暂缓签约。事实：A满足7年审计日志保留要求，但恢复演练结果未知；B已实测2小时恢复，但仅保留5年。两项条件均不可放宽，因此目前没有已证明同时合格的供应商。改变建议的结果仅限于：A完成并证明恢复演练不超过4小时，或B将日志保留期提升至至少7年并形成可执行的合同承诺；届时可批准对应供应商。无额外个人偏好，最终批准权属于采购委员会。",
+            "output_sha256": "f1f345ba2da6f295d7ff51c5cfb463c09067eee5c875db0551de9d7389faec06",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "建议今天暂缓签约。两项硬性条件均不可放宽，而目前 A 虽已确认审计日志保留7年，但恢复时间未经演练验证；B 虽实测2小时恢复，但仅保留5年，因此两者均未证明完全合规。若任一供应商以可核验结果补足其缺失条件——A 完成且证明恢复演练不超过4小时，或 B 确认将日志保留期提升至至少7年——则可改为建议与该供应商签约。",
+            "output_sha256": "e937e96bc5b8e4d61ab426c50ce0a51e744eea6c74610dc5d65f73e4a7ebfeb4",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "normalize-three-year-cost-basis-r1",
+        "case_id": "normalize-three-year-cost-basis",
+        "repetition": 1,
+        "purpose": "Normalize one-time and annual costs to the requested three-year horizon before recommending on cost.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给财务负责人写一个三句话内的成本决策建议。两项都满足全部功能与安全底线，时间也相同；只比较已知三年成本。A：一次性实施20万元，年费30万元。B：无实施费，年费36万元。所有数字都是未含税估计，三年内年费不变，暂无其他成本资料。必须展示计算口径，不要把估计写成报价。",
+        "hard_criteria": [
+          "按同一三年口径计算A为20+30×3=110万元、B为36×3=108万元，不把一次性与年度数字直接相减或遗漏年份",
+          "基于已知三年成本可条件性倾向B且差额仅2万元，或说明两者成本接近；不得声称B便宜14万元或A年费就是总成本",
+          "保留所有金额为未含税估计、暂无其他成本资料，并把建议限定在已知成本而非确定报价或全面优势",
+          "不超过三句话，不编造税费、折扣、迁移成本、批准状态、评分权重或已完成采购"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均正确计算110万与108万、仅条件性倾向B且差2万，并保留未含税估计和其他成本缺口；均不超过三句，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "按未含税三年总成本口径计算：A为20万元实施费＋30万元/年×3年＝110万元，B为0万元实施费＋36万元/年×3年＝108万元。  \n建议选择B，已知三年成本比A低2万元；这是成本建议，并非批准。  \n上述数字均为未含税估计、不是报价，且因暂无其他成本资料，结论仅覆盖已知三年成本。",
+            "output_sha256": "9d9396b8122067ed147563aa151865696223afbdfea09aa57884d13b2f6f9001",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "计算口径：按三年、年费不变且不含税估计，A为20万元实施费＋30万元/年×3＝110万元，B为0＋36万元/年×3＝108万元。  \n仅比较已知三年成本，建议选择B，预计比A少2万元；这是决策建议而非报价或批准。  \n其他成本暂无资料，未计入比较。",
+            "output_sha256": "b8e57ee5ce05d32765c4a00fd105fc76eb41bb18002d1c0a5322d519a028fea2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "normalize-three-year-cost-basis-r2",
+        "case_id": "normalize-three-year-cost-basis",
+        "repetition": 2,
+        "purpose": "Normalize one-time and annual costs to the requested three-year horizon before recommending on cost.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给财务负责人写一个三句话内的成本决策建议。两项都满足全部功能与安全底线，时间也相同；只比较已知三年成本。A：一次性实施20万元，年费30万元。B：无实施费，年费36万元。所有数字都是未含税估计，三年内年费不变，暂无其他成本资料。必须展示计算口径，不要把估计写成报价。",
+        "hard_criteria": [
+          "按同一三年口径计算A为20+30×3=110万元、B为36×3=108万元，不把一次性与年度数字直接相减或遗漏年份",
+          "基于已知三年成本可条件性倾向B且差额仅2万元，或说明两者成本接近；不得声称B便宜14万元或A年费就是总成本",
+          "保留所有金额为未含税估计、暂无其他成本资料，并把建议限定在已知成本而非确定报价或全面优势",
+          "不超过三句话，不编造税费、折扣、迁移成本、批准状态、评分权重或已完成采购"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": "ours",
+        "review_notes": "A正确归一三年成本并限定建议范围，四项通过；B前三项正确，但新增“最终采购需财务负责人批准”的材料外权限，K3失败，偏好A。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "两项均满足功能、安全与时间要求，仅按已知三年未含税估计成本比较：A＝20＋30×3＝110万元，B＝36×3＝108万元。建议选择B，三年预计少支出2万元。以上并非报价，且暂无其他成本资料；若出现新增成本，需重新评估。",
+            "output_sha256": "3cf76594411dfca9699333af4f7439c440a8b9253d8777cfd8b3819af5347a8b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "按未含税估计、年费三年不变且仅计已知费用，A三年成本为20万+30万×3=110万元，B为0+36万×3=108万元。  \n两项功能、安全和时间相同，建议选择B，三年已知成本预计低2万元。  \n该结论不是报价；其他成本及税费未知，最终采购仍需财务负责人批准。",
+            "output_sha256": "cab90ab3214d60e6627c9bcb9eb1afad750e02d703092b6bce9f12f298245f0b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "normalize-three-year-cost-basis-r3",
+        "case_id": "normalize-three-year-cost-basis",
+        "repetition": 3,
+        "purpose": "Normalize one-time and annual costs to the requested three-year horizon before recommending on cost.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n给财务负责人写一个三句话内的成本决策建议。两项都满足全部功能与安全底线，时间也相同；只比较已知三年成本。A：一次性实施20万元，年费30万元。B：无实施费，年费36万元。所有数字都是未含税估计，三年内年费不变，暂无其他成本资料。必须展示计算口径，不要把估计写成报价。",
+        "hard_criteria": [
+          "按同一三年口径计算A为20+30×3=110万元、B为36×3=108万元，不把一次性与年度数字直接相减或遗漏年份",
+          "基于已知三年成本可条件性倾向B且差额仅2万元，或说明两者成本接近；不得声称B便宜14万元或A年费就是总成本",
+          "保留所有金额为未含税估计、暂无其他成本资料，并把建议限定在已知成本而非确定报价或全面优势",
+          "不超过三句话，不编造税费、折扣、迁移成本、批准状态、评分权重或已完成采购"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均按三年口径得110万与108万，说明仅比较已知未含税估计、其他成本未知，且不超过三句；四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议选择B，两项均满足功能与安全底线且时间相同。按三年未含税估计计算：A为20万元实施费＋30万元/年×3年＝110万元，B为0元实施费＋36万元/年×3年＝108万元，B低2万元。以上为年费不变且不计其他成本的估算，并非报价；若出现其他成本，需重新比较。",
+            "output_sha256": "9e89f82490da17ad4e0807dfdff1029e4553b4788b58553564e2ced1dd815822",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "计算口径：三年未含税估计成本＝一次性实施费＋年费×3，因此A为20＋30×3＝110万元，B为0＋36×3＝108万元。  \n在功能、安全和时间相同，且仅比较已知三年成本的前提下，建议选择B，预计比A节省2万元。  \n以上是基于年费三年不变、暂无其他成本资料的估算，并非报价或批准。",
+            "output_sha256": "e3290d5a147cef2cebc81c568c6c76ea2feeb211bfce38f1e0dc672b5c2a2591",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "small-usability-check-does-not-prove-rollout-r1",
+        "case_id": "small-usability-check-does-not-prove-rollout",
+        "repetition": 1,
+        "purpose": "Keep a small usability check, an unmeasured production threshold, and an executive proposal from becoming an organization-wide decision.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为变更委员会写一个不超过130字的推广建议。12名内部测试者中有9名首次完成新开票流程，没有与现流程对照；全公司有1200人。推广底线是月末峰值P95响应低于2秒，但测试未测峰值。运营副总建议下月全员启用，委员会尚未批准。请保留证据范围、角色和状态，可给条件建议或暂缓。",
+        "hard_criteria": [
+          "保留12名内部测试者中9名首次完成新流程、没有与现流程对照及全公司1200人的证据边界；不得把小样本完成数写成全员效果或相对现流程的已证优势，语义等价表述均可",
+          "明确月末峰值P95低于2秒是推广底线且测试未测峰值，不能用流程完成数替代该指标或假定已达标",
+          "把运营副总的全员启用建议与变更委员会尚未批准分开，并将推广限定为补齐峰值响应等证据后的条件建议或暂缓",
+          "不超过130个字符（含中文、数字与标点）的合理短文，不编造响应时间、对照结果、批准、负责人或已执行推广"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均保留12人中9人、无对照和1200人边界，明确峰值P95底线未测，并区分副总建议与委员会未批准；均低于130字，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议暂缓全员推广。12名内部测试者中9名首次即完成新流程，但无现流程对照，且未测月末峰值，尚不能证明P95低于2秒。运营副总提议下月全员启用，属个人建议；委员会尚未批准。应先验证峰值，达标后再决定是否向1200人推广。",
+            "output_sha256": "67ce06ce289012119f6e67fff0d77554b1bcc28fb52230e225fe05b79d856577",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "事实：12名内部测试者中9名首次完成新流程，未与现流程对照；全公司1200人。偏好：运营副总建议下月全员启用。状态：委员会未批准。未知：月末峰值P95是否低于2秒。建议：暂缓全员推广，峰值测试达标后分批启用。",
+            "output_sha256": "1a235fd3011a99f569dc558fbb8327f28389ab524427300aa95a1e2f407d3353",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "small-usability-check-does-not-prove-rollout-r2",
+        "case_id": "small-usability-check-does-not-prove-rollout",
+        "repetition": 2,
+        "purpose": "Keep a small usability check, an unmeasured production threshold, and an executive proposal from becoming an organization-wide decision.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为变更委员会写一个不超过130字的推广建议。12名内部测试者中有9名首次完成新开票流程，没有与现流程对照；全公司有1200人。推广底线是月末峰值P95响应低于2秒，但测试未测峰值。运营副总建议下月全员启用，委员会尚未批准。请保留证据范围、角色和状态，可给条件建议或暂缓。",
+        "hard_criteria": [
+          "保留12名内部测试者中9名首次完成新流程、没有与现流程对照及全公司1200人的证据边界；不得把小样本完成数写成全员效果或相对现流程的已证优势，语义等价表述均可",
+          "明确月末峰值P95低于2秒是推广底线且测试未测峰值，不能用流程完成数替代该指标或假定已达标",
+          "把运营副总的全员启用建议与变更委员会尚未批准分开，并将推广限定为补齐峰值响应等证据后的条件建议或暂缓",
+          "不超过130个字符（含中文、数字与标点）的合理短文，不编造响应时间、对照结果、批准、负责人或已执行推广"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均不外推小样本，保留月末峰值P95低于2秒的未验证底线及批准边界，并条件化推广；均低于130字，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "事实：12名内测者中9名首次完成新开票流程；无现流程对照。未知：月末峰值P95及1200人推广表现。偏好：运营副总建议下月全员启用。批准：委员会尚未批准。建议：暂缓全员推广；先验证峰值P95低于2秒，达标后再报批。",
+            "output_sha256": "22ad2e4a62c595ca6ab271ff0ff09c8bae551f87fe14d185d421a7ebf5d4713a",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "建议暂缓全员启用：12名内部测试者中9名首次完成新流程，但未与现流程对照。1200人推广底线为月末峰值P95低于2秒，尚未测试。运营副总提议下月全员启用，委员会尚未批准；待峰值达标后再审。",
+            "output_sha256": "b4ebd7399d12aae13ba21b24348e813ebe57ebfbdcd0666bb644f6c571bb5330",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "small-usability-check-does-not-prove-rollout-r3",
+        "case_id": "small-usability-check-does-not-prove-rollout",
+        "repetition": 3,
+        "purpose": "Keep a small usability check, an unmeasured production threshold, and an executive proposal from becoming an organization-wide decision.",
+        "task": "请完成下方合成决策简报任务。只使用题目给出的材料，不调用工具，不读取或写入文件，不补充外部资料，不问澄清问题。区分事实、个人偏好、建议、批准与未知项；严格遵守题目要求的范围和格式。\n\n为变更委员会写一个不超过130字的推广建议。12名内部测试者中有9名首次完成新开票流程，没有与现流程对照；全公司有1200人。推广底线是月末峰值P95响应低于2秒，但测试未测峰值。运营副总建议下月全员启用，委员会尚未批准。请保留证据范围、角色和状态，可给条件建议或暂缓。",
+        "hard_criteria": [
+          "保留12名内部测试者中9名首次完成新流程、没有与现流程对照及全公司1200人的证据边界；不得把小样本完成数写成全员效果或相对现流程的已证优势，语义等价表述均可",
+          "明确月末峰值P95低于2秒是推广底线且测试未测峰值，不能用流程完成数替代该指标或假定已达标",
+          "把运营副总的全员启用建议与变更委员会尚未批准分开，并将推广限定为补齐峰值响应等证据后的条件建议或暂缓",
+          "不超过130个字符（含中文、数字与标点）的合理短文，不编造响应时间、对照结果、批准、负责人或已执行推广"
+        ],
+        "core_criteria": [
+          0,
+          1,
+          2
+        ],
+        "preferred_arm": null,
+        "review_notes": "A/B均完整表达样本、对照、1200人、峰值底线和权限状态，建议暂缓至补证；均低于130字且无编造，四项通过。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "建议暂缓全员启用。事实：12名内部测试者中9名首次完成新流程，但无现流程对照，且未测月末峰值；全公司1200人。底线为峰值P95低于2秒。运营副总建议下月全员启用，属个人建议，委员会尚未批准。建议峰值验证达标后再审。",
+            "output_sha256": "924d81bb97aca029fe4e69bf015be136c8dfec3b438447b38b81ad0113296b11",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "事实：12名内测者中9名首次完成新流程，未与现流程对照；全公司1200人。底线：月末峰值P95＜2秒。未知：峰值表现。个人建议：运营副总主张下月全员启用。批准：委员会尚未批准。建议：暂缓，完成峰值及对照验证，达标后分批推广。",
+            "output_sha256": "1c0208c665bdd59e880befc050924167113dbd9b577a200ad0c9e6d6553fe5d7",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "raw_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 10,
+        "criteria_passed": 63,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.875
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "decision-brief-draft",
+        "outputs": 18,
+        "perfect_outputs": 14,
+        "criteria_passed": 68,
+        "criteria_total": 72,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.9444
+      }
+    },
+    "calibrated_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 10,
+        "criteria_passed": 64,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.8889
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "decision-brief-draft",
+        "outputs": 18,
+        "perfect_outputs": 14,
+        "criteria_passed": 68,
+        "criteria_total": 72,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.9444
+      }
+    },
+    "preference_ties": 13,
+    "raw_case_core_failures": {
+      "approved-choice-new-qualification-evidence": {
+        "baseline": 2,
+        "ours": 1
+      },
+      "cost-correction-does-not-revoke-approval": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "normalize-three-year-cost-basis": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "no-feasible-option-with-one-unknown": {
+        "baseline": 3,
+        "ours": 3
+      },
+      "executive-preference-without-approval-authority": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "small-usability-check-does-not-prove-rollout": {
+        "baseline": 0,
+        "ours": 0
+      }
+    },
+    "calibrated_case_core_failures": {
+      "approved-choice-new-qualification-evidence": {
+        "baseline": 2,
+        "ours": 1
+      },
+      "cost-correction-does-not-revoke-approval": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "normalize-three-year-cost-basis": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "no-feasible-option-with-one-unknown": {
+        "baseline": 3,
+        "ours": 3
+      },
+      "executive-preference-without-approval-authority": {
+        "baseline": 0,
+        "ours": 0
+      },
+      "small-usability-check-does-not-prove-rollout": {
+        "baseline": 0,
+        "ours": 0
+      }
+    },
+    "raw_mechanisms": [
+      {
+        "mechanism": "decision-history",
+        "case_ids": [
+          "approved-choice-new-qualification-evidence",
+          "cost-correction-does-not-revoke-approval"
+        ],
+        "core_failures": {
+          "approved-choice-new-qualification-evidence": {
+            "baseline": 2,
+            "ours": 1
+          },
+          "cost-correction-does-not-revoke-approval": {
+            "baseline": 0,
+            "ours": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "constraint-and-denominator",
+        "case_ids": [
+          "normalize-three-year-cost-basis",
+          "no-feasible-option-with-one-unknown"
+        ],
+        "core_failures": {
+          "normalize-three-year-cost-basis": {
+            "baseline": 0,
+            "ours": 0
+          },
+          "no-feasible-option-with-one-unknown": {
+            "baseline": 3,
+            "ours": 3
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "role-and-evidence",
+        "case_ids": [
+          "executive-preference-without-approval-authority",
+          "small-usability-check-does-not-prove-rollout"
+        ],
+        "core_failures": {
+          "executive-preference-without-approval-authority": {
+            "baseline": 0,
+            "ours": 0
+          },
+          "small-usability-check-does-not-prove-rollout": {
+            "baseline": 0,
+            "ours": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "calibrated_mechanisms": [
+      {
+        "mechanism": "decision-history",
+        "case_ids": [
+          "approved-choice-new-qualification-evidence",
+          "cost-correction-does-not-revoke-approval"
+        ],
+        "core_failures": {
+          "approved-choice-new-qualification-evidence": {
+            "baseline": 2,
+            "ours": 1
+          },
+          "cost-correction-does-not-revoke-approval": {
+            "baseline": 0,
+            "ours": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "constraint-and-denominator",
+        "case_ids": [
+          "normalize-three-year-cost-basis",
+          "no-feasible-option-with-one-unknown"
+        ],
+        "core_failures": {
+          "normalize-three-year-cost-basis": {
+            "baseline": 0,
+            "ours": 0
+          },
+          "no-feasible-option-with-one-unknown": {
+            "baseline": 3,
+            "ours": 3
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "role-and-evidence",
+        "case_ids": [
+          "executive-preference-without-approval-authority",
+          "small-usability-check-does-not-prove-rollout"
+        ],
+        "core_failures": {
+          "executive-preference-without-approval-authority": {
+            "baseline": 0,
+            "ours": 0
+          },
+          "small-usability-check-does-not-prove-rollout": {
+            "baseline": 0,
+            "ours": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "decision_gate": {
+      "scope": "ours-versus-baseline",
+      "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+      "minimum_cases_in_same_mechanism": 2,
+      "ours_min_core_failures_per_case": 2,
+      "baseline_max_core_failures_per_case": 1,
+      "required_valid_outputs": 36,
+      "effect": "open-minimal-candidate-design-only"
+    },
+    "valid_output_count": 36,
+    "efficiency": {
+      "ours_vs_baseline_percent": {
+        "tokens_total": 13.2,
+        "cost_total": 66.3,
+        "latency_ms_median": -1.1
+      },
+      "semantics": "Promptfoo recorded totals for this run only; percent = comparison/reference - 1."
+    },
+    "discrimination_note": "The current skill led baseline on raw and calibrated criteria, perfect outputs, and anonymous preferences. The preregistered gate only opens on repeated skill-specific failures, and no mechanism triggered it."
+  },
+  "decision": {
+    "candidate_design_open": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "verification_status_changed": false,
+    "current_version": "0.1.1",
+    "current_catalog_status": "experimental",
+    "current_catalog_evidence": null,
+    "active_cases_added": [
+      "approved-choice-new-qualification-evidence",
+      "cost-correction-does-not-revoke-approval",
+      "normalize-three-year-cost-basis",
+      "no-feasible-option-with-one-unknown",
+      "executive-preference-without-approval-authority",
+      "small-usability-check-does-not-prove-rollout"
+    ],
+    "active_case_count_before": 6,
+    "active_case_count_after": 12,
+    "skill_package_sha256": "d66fc65cda321f4a9718c5517ff17e87f704646c9de07d9afb9cb4b4b1495c17",
+    "active_cases_sha256": "c3b9d8ce75bfa24d91d550e03fcd8a67bf8024afa4cea684daace71dc5e9191e",
+    "conclusion": "Keep decision-brief-draft 0.1.1 unchanged. The current skill led baseline in this sample, while no mechanism met the preregistered candidate gate for a skill-specific repeated failure."
+  },
+  "limitations": [
+    "Six synthetic single-turn Chinese read-only drafting tasks, one generation model, one reasoning effort, and three repetitions per arm.",
+    "The anonymous reviewer was model-assisted; blindness covered randomized arm mapping and the reviewer reported no prior protocol or skill revision exposure.",
+    "A second model-assisted reviewer calibrated semantic false negatives after reveal; calibration may be identity-biased and does not replace raw blind scores or preferences.",
+    "Anthropic doc-coauthoring and Witchcat decision-records informed design but were not evaluation arms; this report does not compare their quality.",
+    "No implicit routing, real approval system, collaborative document workflow, file write, reader study, implementation outcome, or long-term decision quality was tested.",
+    "Raw Promptfoo artifacts remain git-ignored; the public report embeds synthetic outputs, raw and calibrated scores, corrections, and hashes but a fresh clone cannot independently recreate provider events."
+  ],
+  "evidence_projection_sha256": "7e9c258da9e6a2e7112e2bbee418cbcc6efe674b648a91041fcefd3459920f03"
+}

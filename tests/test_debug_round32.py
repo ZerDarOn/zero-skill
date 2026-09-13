@@ -327,7 +327,9 @@ class DebugRound32Tests(unittest.TestCase):
             )
             for item in catalog["skills"]
         )
-        self.assertEqual(total, 172)
+        reported_total = self.report["scope"]["collection_active_case_count"]
+        self.assertEqual(reported_total, 172)
+        self.assertGreaterEqual(total, reported_total)
         decision = self.report["decision"]
         self.assertEqual(decision["active_cases_sha256"], sha(ACTIVE))
         self.assertEqual(

@@ -18,7 +18,7 @@
 
 第五次吸收新增 `cases/react-performance-review.json` 与 `cases/meeting-communication-review.json`，各有四个单轮合成用例，覆盖请求依赖、派生状态、缓存证据、实测优先级、轮次与时长、谨慎表达、比较分母和有界改写。
 
-第六次吸收新增 `cases/decision-brief-draft.json` 与 `cases/file-organization-plan.json`，各有四个单轮合成用例，覆盖建议与批准边界、硬约束、有界修订、陌生读者上下文、重复证据、目标冲突、项目依赖和日期语义。
+第六次吸收新增 `cases/decision-brief-draft.json` 与 `cases/file-organization-plan.json`，最初各有四个单轮合成用例。决策简报经第二轮增加两题、第三十三轮增加六题后共十二例，覆盖建议与批准边界、硬约束、有界修订、陌生读者上下文、决策历史、比较口径、角色权限和有限证据；文件整理现有六例，覆盖重复证据、目标冲突、项目依赖、日期语义、授权范围和大小写冲突。
 
 第七次吸收新增 `cases/study-practice-plan.json` 与 `cases/comic-storyboard-draft.json`，各有四个单轮合成用例，覆盖时段容量、信心与表现、剩余计划调整、容量不足取舍、动作连续、比喻边界、创作台词归属和单格无字修订。
 
@@ -218,3 +218,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第三十二轮当前故障证据排查与 Systematic Debugging 前向盲测
 
 第三十二轮比较无 Skill、当前 `debug-evidence-triage` 0.1.1 与 Superpowers 固定提交的 `systematic-debugging`，每臂在六个新合成只读诊断任务上重复三次。54份输出全部有效；原始标准分为51/72、45/72、44/72，完整输出为4/18、1/18、1/18，匿名唯一偏好为5、1、0，另有12项持平。第二个模型辅助任务逐项复核76个原始失败判断，确认10项为语义等价的误判；保留原始评分并列出校准后的53/72、50/72、47/72和6/18、3/18、4/18。两种口径下 baseline 均领先，且观察覆盖、因果区分和执行身份连续性均未达到预注册的双题门槛，因此保持0.1.1、`experimental`、`evidence: null`。六题加入活动回归，故障证据排查从13例增至19例，全仓增至172例。上游包闭合了同目录引用，但未纳入后续兄弟技能，本结果只适用于共同的只读诊断切片。详见[第三十二轮报告](../docs/quality-polish-round-32.md)与[机器证据](reports/debug-current-systematic-round-32-diagnostic.json)。
+
+## 第三十三轮复杂决策边界前向盲测
+
+第三十三轮比较无 Skill 与当前 `decision-brief-draft` 0.1.1，每臂在六个新合成复杂决策任务上重复三次。36份输出全部有效；原始标准分为63/72、68/72，完整输出为10/18、14/18，5次匿名唯一偏好全部给当前 Skill，另有13项持平。第二个模型辅助任务逐项复核13个原始失败判断，确认1项 baseline 判断已用等价语义满足标准；保留原始评分并列出校准后的64/72、68/72，完整输出与偏好不变。决策历史、约束与口径、角色与证据三个机制都没有出现当前包在配对两题重复特有失败的预注册模式，因此保持0.1.1、`experimental`、`evidence: null`。六题加入活动回归，决策简报从6例增至12例，全仓增至178例。结果只适用于单轮文本切片；Anthropic 与 Witchcat 参考没有作为计分 arm。详见[第三十三轮报告](../docs/quality-polish-round-33.md)与[机器证据](reports/decision-brief-complex-round-33-diagnostic.json)。

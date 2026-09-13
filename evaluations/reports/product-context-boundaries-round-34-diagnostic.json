@@ -1,0 +1,2177 @@
+{
+  "schema_version": 1,
+  "report_id": "product-context-boundaries-round-34-diagnostic",
+  "generated_at": "2026-09-13T21:37:36.247317+00:00",
+  "scope": {
+    "skill_id": "product-context-brief",
+    "version": "0.1.0",
+    "catalog_status": "experimental",
+    "catalog_evidence": null,
+    "prior_active_case_count": 7,
+    "active_case_count": 13,
+    "collection_active_case_count": 184,
+    "formal_outputs": 54,
+    "blind_review_items": 18,
+    "criterion_booleans": 216
+  },
+  "experiment": {
+    "comparison_id": "product-context-boundaries-three-arm-27",
+    "run_id": "product-context-boundaries-three-arm-27-formal-20260914-v1",
+    "freeze_commit": "977af538a891126ad560e7286dd3cd9b778ef2ef",
+    "promptfoo_version": "0.123.0",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "preflight": {
+      "run_id": "product-context-boundaries-three-arm-27-preflight-20260914-v1",
+      "summary_sha256": "7325ea2b591853417b7afc6539177f4bdcfee0a3d1550f4f56eb79f0558d8025",
+      "run_meta_sha256": "f920988db9620b3d14194e60ab1c647e0f3ff0c7110523278b9813ae7ab21208",
+      "infrastructure_valid": true,
+      "output_count": 3
+    },
+    "source_hashes": {
+      "promptfoo.json": "82731f1012a1421d3e88c7c591c836bf40bd2c3afc80a805de8477f025cfe768",
+      "cases.json": "109c493b3a13d178d67128dd0d181d47209ffbfbfa26c6f9cdb212aac897b7de",
+      "active-cases.json": "23e1f6107ba0390db403396d9eae791d81b948a9fe5d647ce55f043513d6d5ce",
+      "ours/SKILL.md": "4ac3a2e079310984f19fd09688ba04b0b10259c391e2510b8f16b077131a50e1",
+      "upstream/SKILL.md": "6dfd6bd485f62448385844cb9eceefcee0977c843d7a1c9e6077590d4e19d1ec",
+      "upstream/LICENSE": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+      "upstream/provenance.json": "49bab9352c7b3c6185418d9443c7f5cdc2d895d5406d7fb7b2ea415aa13d8f91",
+      "prepare_skill_comparison.py": "4eca5a4c2caeffbeca6663ecf49ce8f9e293f86372593abfb3d794ea1d1b788b"
+    },
+    "prepared_hashes": {
+      "config": "7bf0aaee00b0b4a95a48e6ea4b64638ce9880403b8a6a6c25e6a5835ae1e0957",
+      "tests": "54592764c1f7b8c4169ba74a9c9a913f3b95c5dfce2649181c993350dce230ac"
+    },
+    "artifact_hashes": {
+      "frozen.json": "6d20cea85d1b096e2093d46e519f8b226a8b4e37c87344b4cb4e18ea92298c58",
+      "run-meta.json": "81f8c58a2a859ae8aa9f7a8c795d3e0cbea7a2a80d974ee99a5291e4ecc53d88",
+      "results.json": "11f9916d5139cab02cb2ac45f191530e96949bb133c0bf3ed760808047be7445",
+      "results.html": "951bea8f5b03afcabd3d7bc9e98474cbef13098111a369116b888fa9d8ae8135",
+      "summary.json": "351721340a5ad88b695e6ae2fd8b771dba4bc9a52c5ac6e40cf6d042e61c2606",
+      "blind-review.json": "bed80c8e3ed741f158152561b03fce4a16add9ea2267eada9cbda816d9dc8db2",
+      "blind-review-key.json": "7e58196fb5a6cb576dd1013ac688f78b0952ebd68ee3380ee4b25162e2b6115d",
+      "blind-review-form.json": "920b215c2b3dfd701070012373de97763cdcaa9f8d5d20277fefc0ecd78689ad",
+      "blind-review-completed-independent.json": "66609d37f1a7b0c354da3b642e0d1c00946d1edf9ad76a727fc2b12dc78a426d",
+      "review-result-independent.json": "30452b9437f28e0d5d43e1a006c387c2db2575a4ad9fe847cdfc70416016d0d4",
+      "review-calibration-independent.json": "a4308208a071a7126940a6f2cb4a39ef55d142ef1f5fd70eee70b4d0dfdb5f5e"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "1f6ca42e4a326511536026a9f0f0d78758bd05462d38b886dd487c19663ff7ad",
+      "postscore-decision-review-independent.md": "e70a78d3a9ca2575c771d43833ffe167f7a8ea04af2e233049a19c5269034c31"
+    },
+    "blind_reviewer": {
+      "kind": "independent-model-assisted-blind-review",
+      "task_name": "round34_blind_review",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "independent_human": false,
+      "blind_to_arm_mapping": true,
+      "allowed_files": [
+        "evaluations/runs/product-context-boundaries-three-arm-27-formal-20260914-v1/blind-review.json",
+        "evaluations/runs/product-context-boundaries-three-arm-27-formal-20260914-v1/blind-review-form.json"
+      ],
+      "blind_file_boundary_clean": true,
+      "unexpected_files_read": [],
+      "completed_at": "2026-09-13T21:26:37.097062+00:00",
+      "notes": "仅按匿名包中的冻结hard_criteria评分；语义等价可接受，明确逐字保护按原文字节判断。"
+    },
+    "semantic_calibration": {
+      "schema_version": 1,
+      "comparison_id": "product-context-boundaries-three-arm-27",
+      "calibration_kind": "post-reveal-semantic-false-to-true-only",
+      "reviewer": {
+        "kind": "model-assisted-independent-task",
+        "model": "gpt-6",
+        "independent_human": false,
+        "was_original_anonymous_scorer": false,
+        "blind_to_arm_mapping": false,
+        "post_reveal": true,
+        "scope_note": "Reviewed the only original false judgment after reveal. The judgment remains false; no criterion was relaxed or tightened, no true judgment was reviewed or changed, and preferences were not re-evaluated."
+      },
+      "source_bindings": {
+        "comparison/promptfoo.json": "82731f1012a1421d3e88c7c591c836bf40bd2c3afc80a805de8477f025cfe768",
+        "comparison/cases.json": "109c493b3a13d178d67128dd0d181d47209ffbfbfa26c6f9cdb212aac897b7de",
+        "blind-review.json": "bed80c8e3ed741f158152561b03fce4a16add9ea2267eada9cbda816d9dc8db2",
+        "blind-review-key.json": "7e58196fb5a6cb576dd1013ac688f78b0952ebd68ee3380ee4b25162e2b6115d",
+        "blind-review-completed-independent.json": "66609d37f1a7b0c354da3b642e0d1c00946d1edf9ad76a727fc2b12dc78a426d",
+        "review-result-independent.json": "30452b9437f28e0d5d43e1a006c387c2db2575a4ad9fe847cdfc70416016d0d4",
+        "summary.json": "351721340a5ad88b695e6ae2fd8b771dba4bc9a52c5ac6e40cf6d042e61c2606"
+      },
+      "original_false_count": 1,
+      "correction_count": 0,
+      "retained_false_count": 1,
+      "retained_false": [
+        {
+          "review_id": "retirement-banner-does-not-collapse-cohorts-r2",
+          "candidate_id": "C",
+          "arm_id": "baseline",
+          "criterion_index": 1,
+          "value": false,
+          "reason": "The answer preserves the two account cohorts and their dates, but it does not state, even in equivalent terms, that the banner lacks account scope and a migration date and therefore cannot by itself overturn the contracted-account window. Calling the banner a local display visible to all administrators and asking for its correction time instead assumes that the banner needs correction. Treating this as true would relax the frozen compound criterion."
+        }
+      ],
+      "corrections": []
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.1960264,
+          "latency_ms_median": 8207.0,
+          "tokens_total": {
+            "cached": 153216,
+            "completion": 3383,
+            "prompt": 169986,
+            "total": 173369
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 17,
+          "criteria_passed": 71,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9861
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 17,
+          "criteria_passed": 71,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9861
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "product-context-brief",
+        "package_evidence_path": "skills/productivity/product-context-brief",
+        "skill_package_sha256": "f821cb134112decd46c07b8b50d5fef7e03c4bbae91d6af68344e45552dbc4c5",
+        "runtime": {
+          "id": "ours",
+          "skill": "product-context-brief",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2626864,
+          "latency_ms_median": 9361.5,
+          "tokens_total": {
+            "cached": 160256,
+            "completion": 3764,
+            "prompt": 191082,
+            "total": 194846
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "ours",
+          "skill": "product-context-brief",
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 1,
+          "criterion_pass_rate": 1.0
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "ours",
+          "skill": "product-context-brief",
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 1,
+          "criterion_pass_rate": 1.0
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "product-marketing",
+        "package_evidence_path": "evaluations/fixtures/upstreams/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/product-marketing",
+        "skill_package_sha256": "802ecb5ec6a435db0ea22a1b95a67450bd0e4c5d3c8f3d8f8ef5525ef77c49de",
+        "runtime": {
+          "id": "upstream",
+          "skill": "product-marketing",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2949688,
+          "latency_ms_median": 9309.0,
+          "tokens_total": {
+            "cached": 182912,
+            "completion": 3905,
+            "prompt": 218838,
+            "total": 222743
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "upstream",
+          "skill": "product-marketing",
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 1.0
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "upstream",
+          "skill": "product-marketing",
+          "outputs": 18,
+          "perfect_outputs": 18,
+          "criteria_passed": 72,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 1.0
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "approval-threshold-excludes-current-quote-r1",
+        "case_id": "approval-threshold-excludes-current-quote",
+        "repetition": 1,
+        "purpose": "Apply a monetary approval threshold to the current quote while keeping user, champion, contract executor, and unknown approver distinct.",
+        "hard_criteria": [
+          "区分财务分析师是实际用户、RevOps负责人是推动者或推荐者，不互换两者",
+          "应用100万元阈值：128万元报价超出财务副总权限，其支持继续评估不等于本次最终批准",
+          "把采购专员限定为获批后的合同签署执行者，并明确当前最终批准人和付款预算归属均未知",
+          "恰好4行且每行符合“角色：结论”，不编造折扣、权限、预算所有者、批准或签约"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均区分实际用户、推动者、有限审批者、未知最终批准人与预算归属及获批后签署者；均恰好4行且未编造。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "实际用户：财务分析师，每天使用报表。\n推动者：RevOps 负责人，收集需求并推荐 Nova。\n财务审批者：财务副总仅支持继续评估，审批上限100万元，无法批准128万元报价；最终批准者及预算归属未知。\n合同签署者：采购专员，仅在获得有权批准后签署合同，不承担审批决策。",
+            "output_sha256": "a2903e787f8c7838335c0fcfbad150633722613b58cb78cf8b229ccef53f7b7b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "实际用户：财务分析师，每天使用报表。  \n推动者：RevOps 负责人，收集需求并推荐 Nova。  \n最终决策者：未知；财务副总仅支持继续评估，且无权批准当前128万元报价，采购专员仅在获批后签约。  \n付款方：未知；付款预算归属未确认。",
+            "output_sha256": "a667ab840634583d924924c9cbfb39ded2c0bbd867655ae7b471edc4eadf9eca",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "财务分析师：实际用户，每天使用报表。  \nRevOps 负责人：推动者，负责收集需求并推荐 Nova。  \n财务副总：支持继续评估，但无权批准128万元报价；最终批准人及付款预算归属未知。  \n采购专员：合同签署者，仅在获得有权批准后签署。",
+            "output_sha256": "0f9101cc422fa0776a630b7a2004e4df0bc983b2e5cafa044f6a4ccd3c079619",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approval-threshold-excludes-current-quote-r2",
+        "case_id": "approval-threshold-excludes-current-quote",
+        "repetition": 2,
+        "purpose": "Apply a monetary approval threshold to the current quote while keeping user, champion, contract executor, and unknown approver distinct.",
+        "hard_criteria": [
+          "区分财务分析师是实际用户、RevOps负责人是推动者或推荐者，不互换两者",
+          "应用100万元阈值：128万元报价超出财务副总权限，其支持继续评估不等于本次最终批准",
+          "把采购专员限定为获批后的合同签署执行者，并明确当前最终批准人和付款预算归属均未知",
+          "恰好4行且每行符合“角色：结论”，不编造折扣、权限、预算所有者、批准或签约"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均区分实际用户、推动者、有限审批者、未知最终批准人与预算归属及获批后签署者；均恰好4行且未编造。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "财务分析师：实际用户，每天使用报表。  \nRevOps 负责人：推动者，负责收集需求并推荐 Nova。  \n财务副总：评估支持者及有限审批者，仅能批准年费不超过100万元；当前128万元报价的最终批准人及付款预算归属均未知。  \n采购专员：合同签署执行者，仅在采购获得授权后签署，不是已确认的批准者。",
+            "output_sha256": "16a2e0597eae6e11de63ccf9dcf6702430d47b1f779cf9ec02391d23641abe1a",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "财务分析师：实际用户，每天使用报表。\nRevOps 负责人：推动者，负责收集需求并推荐 Nova。\n财务副总：支持继续评估，但无权批准当前128万元年费报价。\n采购专员：条件性签署者；最终批准人及付款预算归属尚未确认。",
+            "output_sha256": "a06d1134712a3242ec51082e71a99444304f919779a8bab7965851bc48896aca",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "实际用户：财务分析师，每天使用报表。  \n推动者/推荐者：RevOps 负责人，负责收集需求并推荐 Nova。  \n有限审批者：财务副总仅支持继续评估，且只能批准年费不超过100万元；当前128万元报价超出其权限。  \n最终决策者/付款方/签署者：超过100万元的最终批准人和付款预算归属未知；采购专员仅在获批后签署合同。",
+            "output_sha256": "7d7b1d93d4be55bfce60f8153e3fb551f0b6ccb582e3d60d3107f3d6049b3cb1",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approval-threshold-excludes-current-quote-r3",
+        "case_id": "approval-threshold-excludes-current-quote",
+        "repetition": 3,
+        "purpose": "Apply a monetary approval threshold to the current quote while keeping user, champion, contract executor, and unknown approver distinct.",
+        "hard_criteria": [
+          "区分财务分析师是实际用户、RevOps负责人是推动者或推荐者，不互换两者",
+          "应用100万元阈值：128万元报价超出财务副总权限，其支持继续评估不等于本次最终批准",
+          "把采购专员限定为获批后的合同签署执行者，并明确当前最终批准人和付款预算归属均未知",
+          "恰好4行且每行符合“角色：结论”，不编造折扣、权限、预算所有者、批准或签约"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均区分实际用户、推动者、有限审批者、未知最终批准人与预算归属及获批后签署者；均恰好4行且未编造。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "实际用户：财务分析师每天使用报表。\n推动者：RevOps 负责人收集需求并推荐 Nova。\n最终决策者：未知；财务副总仅支持继续评估，且其审批上限为年费100万元，低于Nova当前128万元报价。\n付款方：未知；付款预算归属未确认，采购专员仅在获得有权批准后签署合同。",
+            "output_sha256": "6a49be7a1c0a7fb993765e8547aa3504cd686bc2b44224b8f9f5215a7ea5c05b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "财务分析师：实际用户，每天使用报表。\nRevOps 负责人：推动者，负责收集需求并推荐 Nova。\n财务副总：支持继续评估，但无权批准当前128万元报价；超过100万元的最终批准者及预算归属未知。\n采购专员：合同签署者，仅在采购获得有权者批准后签署，并非批准者。",
+            "output_sha256": "f8e37f0acae848be2820ad808528d2bed079712536f3f8e5e2f5c89551770d39",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "实际用户：财务分析师，每天使用报表。\n推动者：RevOps 负责人，收集需求并推荐 Nova。\n有限审批者：财务副总支持继续评估，但仅能批准年费不超过100万元；Nova报价128万元，最终批准者及预算归属未确认。\n合同签署者：采购专员，仅在获得有权批准后签署合同。",
+            "output_sha256": "53d01c69e86462c1e5aca154decd9023f854b6f8fbe53ef3a062d59117e1af0c",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approved-document-bounded-revision-r1",
+        "case_id": "approved-document-bounded-revision",
+        "repetition": 1,
+        "purpose": "Apply two authorized section edits while preserving an approved document's metadata, protected sections, and changelog exactly.",
+        "hard_criteria": [
+          "Target Audience更新为现场协调员是日常用户、区域经理只查看汇总，不保留区域经理为主要用户",
+          "Goals更新为10月全面推广是运营团队提议且尚未经变更委员会批准，不写成已批准计划",
+          "Product Overview、Proof Points、Brand Voice、Document version、Last updated、Changelog及整体章节顺序逐字保留",
+          "返回完整文档且只改两个授权章节，不新增版本、日期、变更记录、证据、保存声明或确认问题"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均只更新Target Audience与Goals；受保护行、章节顺序和完整文档均逐字保留，未增加保存或变更声明。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n10月全面推广由运营团队提议，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "e38a5988c3b97f89ea39a0875599e69596a5e519b679a466b55513d8aa9e576d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approved-document-bounded-revision-r2",
+        "case_id": "approved-document-bounded-revision",
+        "repetition": 2,
+        "purpose": "Apply two authorized section edits while preserving an approved document's metadata, protected sections, and changelog exactly.",
+        "hard_criteria": [
+          "Target Audience更新为现场协调员是日常用户、区域经理只查看汇总，不保留区域经理为主要用户",
+          "Goals更新为10月全面推广是运营团队提议且尚未经变更委员会批准，不写成已批准计划",
+          "Product Overview、Proof Points、Brand Voice、Document version、Last updated、Changelog及整体章节顺序逐字保留",
+          "返回完整文档且只改两个授权章节，不新增版本、日期、变更记录、证据、保存声明或确认问题"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均只更新Target Audience与Goals；受保护行、章节顺序和完整文档均逐字保留，未增加保存或变更声明。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n10月全面推广由运营团队提议，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "e38a5988c3b97f89ea39a0875599e69596a5e519b679a466b55513d8aa9e576d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "approved-document-bounded-revision-r3",
+        "case_id": "approved-document-bounded-revision",
+        "repetition": 3,
+        "purpose": "Apply two authorized section edits while preserving an approved document's metadata, protected sections, and changelog exactly.",
+        "hard_criteria": [
+          "Target Audience更新为现场协调员是日常用户、区域经理只查看汇总，不保留区域经理为主要用户",
+          "Goals更新为10月全面推广是运营团队提议且尚未经变更委员会批准，不写成已批准计划",
+          "Product Overview、Proof Points、Brand Voice、Document version、Last updated、Changelog及整体章节顺序逐字保留",
+          "返回完整文档且只改两个授权章节，不新增版本、日期、变更记录、证据、保存声明或确认问题"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均只更新Target Audience与Goals；受保护行、章节顺序和完整文档均逐字保留，未增加保存或变更声明。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n运营团队提议10月全面推广，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "4a9cbc8db04a5f4d3110ccd2e223914f3bbb0cd2c31dd1400ec26d0eaa320948",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：现场协调员；区域经理只查看汇总。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n10月全面推广由运营团队提议，尚未经变更委员会批准。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。",
+            "output_sha256": "e38a5988c3b97f89ea39a0875599e69596a5e519b679a466b55513d8aa9e576d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "incompatible-studies-cannot-be-pooled-r1",
+        "case_id": "incompatible-studies-cannot-be-pooled",
+        "repetition": 1,
+        "purpose": "Preserve two studies with different units and outcomes instead of pooling their denominators into a stronger marketing claim.",
+        "hard_criteria": [
+          "分别保留U1的4周、18家诊所、12家主观反馈及无统一计数，不把诊所改称个人参与者",
+          "分别保留U2的2周、10名协调员、8人首次完成指定操作及无现流程对照，不把完成操作改成运营改善",
+          "拒绝把两项研究合并成28中20或普遍有效的证明，并保持观察范围和限制",
+          "只输出一个无标题段落且不超过150个字符，不编造因果、统一指标、对照结论或已发布文案"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均分别保留两项研究的周期、单位、数量与限制，未合并为28中20，也未声称普遍有效；均为单段且在字数内。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "4周试点覆盖18家诊所，12家称遗漏回电变少，但无统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但无现流程对照。两项证据口径不同，不能合并，也不足以证明产品普遍有效或改善运营结果。",
+            "output_sha256": "3e3428fefed98597401d0c5a6b20990acd96003a049ac5046f03ae53bc5c4b0e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "4周试点覆盖18家诊所，12家反馈遗漏回电减少，但未统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作；因缺少现流程对照，不能据此推断运营成效或产品普遍有效。",
+            "output_sha256": "fdcd41782e8ff18b3dd323bf6aa2220e0f58c448919d10f0483211bf2dbac0fc",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "4周试点覆盖18家诊所，其中12家表示遗漏回电减少，但未统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但无现流程对照。两项证据口径不同，不能合并为运营改善或产品普遍有效的证明。",
+            "output_sha256": "54dc50d8852402351accdf52b96208b853b7c6ad4774cee23981fb1e857742b1",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "incompatible-studies-cannot-be-pooled-r2",
+        "case_id": "incompatible-studies-cannot-be-pooled",
+        "repetition": 2,
+        "purpose": "Preserve two studies with different units and outcomes instead of pooling their denominators into a stronger marketing claim.",
+        "hard_criteria": [
+          "分别保留U1的4周、18家诊所、12家主观反馈及无统一计数，不把诊所改称个人参与者",
+          "分别保留U2的2周、10名协调员、8人首次完成指定操作及无现流程对照，不把完成操作改成运营改善",
+          "拒绝把两项研究合并成28中20或普遍有效的证明，并保持观察范围和限制",
+          "只输出一个无标题段落且不超过150个字符，不编造因果、统一指标、对照结论或已发布文案"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均分别保留两项研究的周期、单位、数量与限制，未合并为28中20，也未声称普遍有效；均为单段且在字数内。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "4周试点覆盖18家诊所，其中12家反馈遗漏回电变少，但无统一计数；另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但未与现有流程对照。两项证据口径不同，不能合并，也不足以证明产品普遍有效或改善运营结果。",
+            "output_sha256": "2e0e0e21bf6801dca220e31b41362950c5aa91344ecdd43fc707e4f2eda5ad11",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "4周试点覆盖18家诊所，12家称遗漏回电减少，但无统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但无现流程对照。两项证据不可合并，亦不足以证明产品普遍改善运营结果。",
+            "output_sha256": "0788c6c3836dc5f649f251d80bb9937cb2814127bc401d863552c729af755359",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "4周试点覆盖18家诊所，其中12家表示遗漏回电减少，但未统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但无现流程对照。两项结果口径不同，不能合并，也不足以证明产品普遍有效。",
+            "output_sha256": "6e6031d336be01e3de7c21b1c8d85f2bf52ef61a0d27199592318a1c178174ec",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "incompatible-studies-cannot-be-pooled-r3",
+        "case_id": "incompatible-studies-cannot-be-pooled",
+        "repetition": 3,
+        "purpose": "Preserve two studies with different units and outcomes instead of pooling their denominators into a stronger marketing claim.",
+        "hard_criteria": [
+          "分别保留U1的4周、18家诊所、12家主观反馈及无统一计数，不把诊所改称个人参与者",
+          "分别保留U2的2周、10名协调员、8人首次完成指定操作及无现流程对照，不把完成操作改成运营改善",
+          "拒绝把两项研究合并成28中20或普遍有效的证明，并保持观察范围和限制",
+          "只输出一个无标题段落且不超过150个字符，不编造因果、统一指标、对照结论或已发布文案"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均分别保留两项研究的周期、单位、数量与限制，未合并为28中20，也未声称普遍有效；均为单段且在字数内。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "4周试点覆盖18家诊所，其中12家表示遗漏回电减少，但无统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但缺少现有流程对照。两项证据口径不同，不能合并，也不足以证明产品普遍有效。",
+            "output_sha256": "bfa5bd0f3aa3f50a5caf68f38eba5085cd88284bb778e09b075cbd2cf2e8eb0b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "4周试点覆盖18家诊所，12家称遗漏回电减少，但无统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作，但无现流程对照。两项证据口径不同，不可合并为运营改善，也不能证明产品普遍有效。",
+            "output_sha256": "16482fb3f09e9305d757fcb84eaee8b7de90b0600e9ab87b9f4575c06a8f6b04",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "4周试点覆盖18家诊所，12家反馈遗漏回电减少，但未统一计数。另一次2周可用性检查中，10名前台协调员有8人首次完成指定操作；因无现流程对照，不能据此证明运营结果改善或产品普遍有效。",
+            "output_sha256": "b1f922e4ff6f90dbe6a68ae685c1aeefed7f44095fb9fc9fce23a4c52f20d7e7",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "privacy-veto-is-not-purchase-approval-r1",
+        "case_id": "privacy-veto-is-not-purchase-approval",
+        "repetition": 1,
+        "purpose": "Separate daily use, advocacy, a domain-specific veto, purchasing approval, and payment execution.",
+        "hard_criteria": [
+          "五行分别覆盖门诊护士用户、护理部主任推动者、数据保护官隐私把关、采购委员会决策者、财务共享中心付款执行",
+          "明确数据保护官只有隐私否决或把关权限、没有采购批准权，且隐私复核仍未完成",
+          "明确采购委员会决定是否采购，财务共享中心仅在获批后执行付款；不把建议、否决权或付款动作当成批准",
+          "输出两列表格且表头外恰好5个数据行（Markdown分隔线不计），不编造复核结果、预算归属、委员会决定或已付款"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均以两列表格和5个数据行区分用户、推动者、隐私否决、采购决策与付款执行，未把建议、否决或付款写成批准。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 用户 | 门诊护士每天录入随访。 |\n| 推动者／推荐者 | 护理部主任建议采用 CareArc；建议不等于采购批准。 |\n| 隐私否决者 | 数据保护官可否决隐私不合格方案，但无预算或采购批准权；隐私复核尚未完成。 |\n| 采购决策者 | 医院采购委员会决定是否采购。 |\n| 付款执行方 | 财务共享中心在获批后执行付款；付款执行不等于采购批准。 |",
+            "output_sha256": "bf48d80db283b1591dafa094ee0cd5f5e34d3e485dcf113364baf09b8351924e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 门诊护士 | 每天录入随访，是用户。 |\n| 护理部主任 | 建议采用 CareArc，是推动者；不代表采购批准。 |\n| 数据保护官 | 可否决隐私不合格方案；无预算或采购批准权；目前隐私复核未完成。 |\n| 医院采购委员会 | 决定是否采购。 |\n| 财务共享中心 | 在获批后执行付款；不负责采购批准。 |",
+            "output_sha256": "15ccabc92ba9fd5aa097a3e47f1973b1537dd2e9ed0946c6ea5026e89b64de27",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 门诊护士 | 用户；每天录入随访 |\n| 护理部主任 | 推动者；建议采用 CareArc，不具有采购批准含义 |\n| 数据保护官 | 隐私审查者；可否决隐私不合格方案，但无预算或采购批准权；隐私复核尚未完成 |\n| 医院采购委员会 | 采购决策者；决定是否采购 |\n| 财务共享中心 | 付款执行者；仅在获批后执行付款，不负责采购批准 |",
+            "output_sha256": "2d4fbff7b23f4d8de12ab2ab72bba73f784620018afba59a2d56ff2a1568a3cf",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "privacy-veto-is-not-purchase-approval-r2",
+        "case_id": "privacy-veto-is-not-purchase-approval",
+        "repetition": 2,
+        "purpose": "Separate daily use, advocacy, a domain-specific veto, purchasing approval, and payment execution.",
+        "hard_criteria": [
+          "五行分别覆盖门诊护士用户、护理部主任推动者、数据保护官隐私把关、采购委员会决策者、财务共享中心付款执行",
+          "明确数据保护官只有隐私否决或把关权限、没有采购批准权，且隐私复核仍未完成",
+          "明确采购委员会决定是否采购，财务共享中心仅在获批后执行付款；不把建议、否决权或付款动作当成批准",
+          "输出两列表格且表头外恰好5个数据行（Markdown分隔线不计），不编造复核结果、预算归属、委员会决定或已付款"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均以两列表格和5个数据行区分用户、推动者、隐私否决、采购决策与付款执行，未把建议、否决或付款写成批准。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 用户：门诊护士 | 每天录入随访。 |\n| 推动者：护理部主任 | 建议采用 CareArc；建议不等于采购批准。 |\n| 隐私否决者：数据保护官 | 可否决隐私不合格方案；目前隐私复核未完成，且无预算或采购批准权。 |\n| 最终采购决策者：医院采购委员会 | 决定是否采购。 |\n| 付款执行方：财务共享中心 | 仅在获批后执行付款；付款执行不等于采购批准。 |",
+            "output_sha256": "3ab09efdca108581ec796a44f3360bb2e1faf0bc78e59aeccc4f7ff5e93d9bd2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 用户：门诊护士 | 每天录入随访。 |\n| 推动者：护理部主任 | 建议采用 CareArc；不代表拥有采购批准权。 |\n| 隐私否决者：数据保护官 | 可否决隐私不合格方案；无预算或采购批准权；隐私复核尚未完成。 |\n| 采购决策者：医院采购委员会 | 决定是否采购。 |\n| 付款执行者：财务共享中心 | 仅在获批后执行付款，不负责采购批准。 |",
+            "output_sha256": "959eea80c10f5b70cb03a9df33ca3e6c5b8899d26294b1422928323757959c6b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 门诊护士 | 用户；每天录入随访。 |\n| 护理部主任 | 推动者；建议采用 CareArc，不代表采购批准。 |\n| 数据保护官 | 可否决隐私不合格方案；无预算或采购批准权；隐私复核尚未完成。 |\n| 医院采购委员会 | 决定是否采购。 |\n| 财务共享中心 | 在采购获批后执行付款，不负责采购批准。 |",
+            "output_sha256": "25bca5c18e3cea24e3b6d8482ee2ee0ca7a5f3506bba6bf472be0b59ecf4ee2d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "privacy-veto-is-not-purchase-approval-r3",
+        "case_id": "privacy-veto-is-not-purchase-approval",
+        "repetition": 3,
+        "purpose": "Separate daily use, advocacy, a domain-specific veto, purchasing approval, and payment execution.",
+        "hard_criteria": [
+          "五行分别覆盖门诊护士用户、护理部主任推动者、数据保护官隐私把关、采购委员会决策者、财务共享中心付款执行",
+          "明确数据保护官只有隐私否决或把关权限、没有采购批准权，且隐私复核仍未完成",
+          "明确采购委员会决定是否采购，财务共享中心仅在获批后执行付款；不把建议、否决权或付款动作当成批准",
+          "输出两列表格且表头外恰好5个数据行（Markdown分隔线不计），不编造复核结果、预算归属、委员会决定或已付款"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均以两列表格和5个数据行区分用户、推动者、隐私否决、采购决策与付款执行，未把建议、否决或付款写成批准。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 门诊护士 | 用户；每天录入随访 |\n| 护理部主任 | 推动者；建议采用 CareArc |\n| 数据保护官 | 隐私审查者；可否决隐私不合格方案，但无预算或采购批准权；隐私复核尚未完成 |\n| 医院采购委员会 | 采购决策者；决定是否采购 |\n| 财务共享中心 | 付款执行者；在采购获批后执行付款 |",
+            "output_sha256": "a6db3e91629d8d52aead98ce0bf7b56e9575f8634c71fd52d9df5b1cce4efee3",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 门诊护士 | 每天录入随访，是用户。 |\n| 护理部主任 | 建议采用 CareArc，是推动者；建议不等于采购批准。 |\n| 数据保护官 | 可否决隐私不合格方案，但无预算或采购批准权；目前隐私复核未完成。 |\n| 医院采购委员会 | 决定是否采购，拥有采购决策权。 |\n| 财务共享中心 | 在获批后执行付款；付款执行不等于采购批准。 |",
+            "output_sha256": "7ebfe203954ad2fead56b73b1f4601c3dda751dfeaff391ba32478d5aed11920",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "| 角色 | 当前证据 |\n|---|---|\n| 用户 | 门诊护士每天录入随访。 |\n| 推动者 | 护理部主任建议采用 CareArc；建议不等于采购批准。 |\n| 隐私否决者 | 数据保护官可以否决隐私不合格方案，但没有预算或采购批准权；目前隐私复核未完成。 |\n| 采购决策者 | 医院采购委员会决定是否采购。 |\n| 付款执行方 | 财务共享中心在获批后执行付款；付款执行不等于采购批准。 |",
+            "output_sha256": "bdf4af76b7cc3ee72209927789348a9e9906cea766d1557ba7bf150e6440605d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "retirement-banner-does-not-collapse-cohorts-r1",
+        "case_id": "retirement-banner-does-not-collapse-cohorts",
+        "repetition": 1,
+        "purpose": "Preserve distinct new-account and contracted-account availability windows when a generic retirement banner lacks entitlement detail.",
+        "hard_criteria": [
+          "按S1区分9月1日起不再向新账户提供Ledger Sync，与120个已有合同账户仍可用到12月31日；不得把两类账户合并为全部可用或全部停用",
+          "明确S2横幅虽日期较新且称已退役，但缺少账户范围和迁移日期，不能单独推翻已有合同账户的可用窗口；不得断言横幅必然错误",
+          "给客服的当前口径同时保留新账户停售与已有合同账户限期可用，并把12月31日后的安排或具体迁移日期保持为待确认",
+          "单段且不超过120个字符，不提问、不编造账户权益、迁移日期、停用动作或已完成核实"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均保留新账户停售与120个合同账户至12月31日的不同窗口，并把横幅范围、迁移或后续安排保持为待确认；均合规。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "客服口径：9月1日起，新账户不再提供Ledger Sync；120个已有合同账户可用至12月31日。后台“已退役”横幅面向所有管理员，未体现账户范围。待确认：迁移日期及12月31日后的安排。",
+            "output_sha256": "c6456beb3364269e91ae679d6df6053f696ff7f12d4af63f02d0c2edc46744a6",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "客服口径：新账户自9月1日起不再提供Ledger Sync；120个已有合同账户可用至12月31日。9月6日“已退役”横幅仅为后台展示，未说明适用范围。待确认：横幅措辞及迁移安排。",
+            "output_sha256": "2232f210c7095095ddc1c203f0022aa8236a8140ddf9bbd990be34b652db4965",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "当前口径：9月1日起新账户不再提供Ledger Sync；120个已有合同账户可用至12月31日。后台“已退役”横幅仅为全管理员可见的局部提示。待确认：12月31日后安排、适用账户范围及迁移日期。",
+            "output_sha256": "cd5ac603cfa1c4db104ea9434b1e02e4beda209bd38d2f64782b8b626e4a46dd",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "retirement-banner-does-not-collapse-cohorts-r2",
+        "case_id": "retirement-banner-does-not-collapse-cohorts",
+        "repetition": 2,
+        "purpose": "Preserve distinct new-account and contracted-account availability windows when a generic retirement banner lacks entitlement detail.",
+        "hard_criteria": [
+          "按S1区分9月1日起不再向新账户提供Ledger Sync，与120个已有合同账户仍可用到12月31日；不得把两类账户合并为全部可用或全部停用",
+          "明确S2横幅虽日期较新且称已退役，但缺少账户范围和迁移日期，不能单独推翻已有合同账户的可用窗口；不得断言横幅必然错误",
+          "给客服的当前口径同时保留新账户停售与已有合同账户限期可用，并把12月31日后的安排或具体迁移日期保持为待确认",
+          "单段且不超过120个字符，不提问、不编造账户权益、迁移日期、停用动作或已完成核实"
+        ],
+        "preferred_candidate": "B",
+        "blind_notes": "A/B满足四项。C保留两类账户窗口和迁移待确认，但把横幅称为局部展示并预设修正时间，未明确其缺少账户范围与迁移日期、不能单独推翻合同窗口，故C的criterion 1失败。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "客服口径：9月1日起，新账户不再提供 Ledger Sync；120个已有合同账户可用至12月31日。全管理员可见的“已退役”横幅不代表所有账户均已停用。待确认：横幅修正及现有账户迁移安排。",
+            "output_sha256": "24d922e7aa86371beed57e43f20aa0a5ea5adfa44fd2a32a268d56d7cbd3139d",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "客服口径：Ledger Sync自9月1日起不再向新账户提供；120个已有合同账户可用至12月31日。9月6日“已退役”横幅仅为后台提示。待确认：横幅适用范围、迁移日期及文案是否有误。",
+            "output_sha256": "e244001f6ef2f6273212aa1a0046bfdb8f8ed52633d6b7232a3627b40d73a8a6",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": true,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "客服口径：9月1日起新账户不再提供Ledger Sync；120个已有合同账户可用至12月31日。后台“已退役”横幅仅是全管理员可见的局部展示。待确认：迁移安排及横幅修正时间。",
+            "output_sha256": "3657c659f0efd65d2d6d3eeff915d5c546663427202dd094dfaa50d09558dc2d",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "preferred": false,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "retirement-banner-does-not-collapse-cohorts-r3",
+        "case_id": "retirement-banner-does-not-collapse-cohorts",
+        "repetition": 3,
+        "purpose": "Preserve distinct new-account and contracted-account availability windows when a generic retirement banner lacks entitlement detail.",
+        "hard_criteria": [
+          "按S1区分9月1日起不再向新账户提供Ledger Sync，与120个已有合同账户仍可用到12月31日；不得把两类账户合并为全部可用或全部停用",
+          "明确S2横幅虽日期较新且称已退役，但缺少账户范围和迁移日期，不能单独推翻已有合同账户的可用窗口；不得断言横幅必然错误",
+          "给客服的当前口径同时保留新账户停售与已有合同账户限期可用，并把12月31日后的安排或具体迁移日期保持为待确认",
+          "单段且不超过120个字符，不提问、不编造账户权益、迁移日期、停用动作或已完成核实"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均保留两类账户窗口，未把横幅当成全面停用，并明确账户范围、迁移或后续安排仍待确认；均合规。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "客服口径：Ledger Sync未全面退役。9月1日起新账户不再提供；120个已有合同账户可用至12月31日。9月6日横幅表述不完整。待确认：具体账户范围、迁移日期及后续安排。",
+            "output_sha256": "d62614f60e0b004aafd914d7fc21d8c680f233d9d9e519dbd44edeb114463fd3",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "upstream",
+            "output": "客服口径：9月1日起，新账户不再提供 Ledger Sync；120个已有合同账户仍可用至12月31日。“已退役”横幅不代表全部账户已停用。待确认：横幅适用账户范围及迁移日期。",
+            "output_sha256": "f5c26601cd240039ed4688bdca483dbd76a30ca1f6adc8d8323681ebf9a6d5ef",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "baseline",
+            "output": "当前客服口径：9月1日起，新账户不再提供Ledger Sync；120个已有合同账户可用至12月31日。9月6日“已退役”横幅仅为观察，待确认其含义、适用账户及迁移安排。",
+            "output_sha256": "c736b3b8cafdca1a275ad23f0b813f3b4b246b2d462b0c8f8f36a284d96dba53",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-incident-does-not-revoke-availability-r1",
+        "case_id": "scoped-incident-does-not-revoke-availability",
+        "repetition": 1,
+        "purpose": "Keep a scoped unresolved incident from becoming a product-wide withdrawal of a generally available capability.",
+        "hard_criteria": [
+          "保留R1中审计导出已向Business和Enterprise正式开放的总体发布状态，不把能力写成从未上线或已全面撤回",
+          "把R2限定为欧盟分片4个Enterprise租户的调查中故障并保留恢复时间未知；不得外推到其他租户",
+          "把R3保留为销售笔记中的解释而非已核实产品状态，并使当前表述同时容纳总体开放与局部未恢复事件",
+          "恰好3条要点，不编造根因、恢复承诺、受影响总数、关闭发布或已执行操作"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均同时保留总体正式开放、欧盟分片4个Enterprise租户的调查中故障与未知恢复时间，并将销售说法限定为未核实观察；均为3条。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "ours",
+            "output": "1. 当前事实（R1，8月12日正式发布登记）：审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 局部事件（R2，8月20日支持事件，调查中）：欧盟分片有4个 Enterprise 租户导出失败；恢复时间未知。目前没有其他租户受影响的报告，但不能据此确认其他租户均未受影响。\n3. 来源受限的判断（R3，8月21日销售笔记）：销售笔记称“看来审计导出对所有客户都不可用。”这是销售侧判断，并非已确认的产品整体状态；是否影响所有客户仍未知。",
+            "output_sha256": "30e34bdc19db20f94b30b60e0c2ccf0638382034cabd9ef55d0d688d39e4b288",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "1. 【当前事实｜R1，8月12日正式发布登记】审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 【局部事件｜R2，8月20日支持事件】欧盟分片的4个 Enterprise 租户导出失败，仍在调查，恢复时间未知；目前没有其他租户受影响的报告。\n3. 【未证实观察｜R3，8月21日销售笔记】“看来审计导出对所有客户都不可用”仅为销售侧记录，现有材料不足以确认该判断，不能据此扩大R2的影响范围或替任何团队下结论。",
+            "output_sha256": "54f54c9b7dac9e9948103b777f34385eb7aa5763cf29b038ee61112301c4e8ae",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "1. 8月12日正式发布登记：审计导出已向 Business 和 Enterprise 套餐正式开放。\n2. 8月20日支持事件（调查中）：欧盟分片有4个 Enterprise 租户导出失败；恢复时间未知，目前没有其他租户受影响的报告。\n3. 8月21日销售笔记称“看来审计导出对所有客户都不可用”；这是销售侧的局部观察，现有材料不足以确认该结论。",
+            "output_sha256": "79095bf84a09e55af83e5c3af6e1479002d8971ffeed9d9af1297254d3fdb679",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-incident-does-not-revoke-availability-r2",
+        "case_id": "scoped-incident-does-not-revoke-availability",
+        "repetition": 2,
+        "purpose": "Keep a scoped unresolved incident from becoming a product-wide withdrawal of a generally available capability.",
+        "hard_criteria": [
+          "保留R1中审计导出已向Business和Enterprise正式开放的总体发布状态，不把能力写成从未上线或已全面撤回",
+          "把R2限定为欧盟分片4个Enterprise租户的调查中故障并保留恢复时间未知；不得外推到其他租户",
+          "把R3保留为销售笔记中的解释而非已核实产品状态，并使当前表述同时容纳总体开放与局部未恢复事件",
+          "恰好3条要点，不编造根因、恢复承诺、受影响总数、关闭发布或已执行操作"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均同时保留总体正式开放、欧盟分片4个Enterprise租户的调查中故障与未知恢复时间，并将销售说法限定为未核实观察；均为3条。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "baseline",
+            "output": "1. 【正式发布｜8月12日】审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 【支持事件｜8月20日，调查中】欧盟分片有 4 个 Enterprise 租户导出失败，恢复时间未知；目前没有其他租户受影响的报告。\n3. 【销售笔记｜8月21日】“看来审计导出对所有客户都不可用”仅为销售侧记录，超出了当前支持事件的已知影响范围，尚未得到证实。",
+            "output_sha256": "4c4be3eb46b57c222c1e10b2c31cc3bf8cf4f05ba698698b158fe5ff36df7e4b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "ours",
+            "output": "1. 【当前事实｜R1，8月12日】审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 【局部事件｜R2，8月20日，调查中】欧盟分片有4个 Enterprise 租户导出失败；恢复时间未知。目前没有其他租户受影响的报告，但不能据此确认其他租户均未受影响。\n3. 【销售笔记｜R3，8月21日】“看来审计导出对所有客户都不可用。”这是销售笔记中的判断，与 R1 的正式发布登记及 R2 的有限事件范围不一致；其依据与准确性未知。",
+            "output_sha256": "34b5baddc7d205d913b7c5595eea3cc977f7a1d5b27af426cc72340d61fde04b",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "upstream",
+            "output": "1. 8月12日正式发布登记：审计导出已向 Business 和 Enterprise 套餐正式开放。\n2. 8月20日支持事件（调查中）：欧盟分片的4个 Enterprise 租户导出失败，恢复时间未知；目前没有其他租户受影响的报告。\n3. 8月21日销售笔记称：“看来审计导出对所有客户都不可用。”该说法仅代表销售笔记中的观察，尚无材料支持将其作为整体产品结论。",
+            "output_sha256": "ff46bcb4a5d1358c2974dc90f49c2a363365181473f0d82cccde3b2a3b23e6c7",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "scoped-incident-does-not-revoke-availability-r3",
+        "case_id": "scoped-incident-does-not-revoke-availability",
+        "repetition": 3,
+        "purpose": "Keep a scoped unresolved incident from becoming a product-wide withdrawal of a generally available capability.",
+        "hard_criteria": [
+          "保留R1中审计导出已向Business和Enterprise正式开放的总体发布状态，不把能力写成从未上线或已全面撤回",
+          "把R2限定为欧盟分片4个Enterprise租户的调查中故障并保留恢复时间未知；不得外推到其他租户",
+          "把R3保留为销售笔记中的解释而非已核实产品状态，并使当前表述同时容纳总体开放与局部未恢复事件",
+          "恰好3条要点，不编造根因、恢复承诺、受影响总数、关闭发布或已执行操作"
+        ],
+        "preferred_candidate": null,
+        "blind_notes": "A/B/C均同时保留总体正式开放、欧盟分片4个Enterprise租户的调查中故障与未知恢复时间，并将销售说法限定为未核实观察；均为3条。",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "arm_id": "upstream",
+            "output": "1. 8月12日正式发布登记：审计导出已向 Business 和 Enterprise 套餐正式开放。\n2. 8月20日支持事件（调查中）：欧盟分片有4个 Enterprise 租户导出失败，恢复时间尚不明确；目前没有其他租户受影响的报告。\n3. 8月21日销售笔记：“看来审计导出对所有客户都不可用。”该表述仅为销售笔记中的观察，是否适用于所有客户尚未确认。",
+            "output_sha256": "aba3fff44615f16f322e2f20648b643fad0d3a04a6a2439e4b0cabb0876c98a1",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "B",
+            "arm_id": "baseline",
+            "output": "1. 当前事实（R1，8月12日正式发布登记）：审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 局部事件（R2，8月20日支持事件，调查中）：欧盟分片有4个 Enterprise 租户导出失败，恢复时间未知；目前没有其他租户受影响的报告，但不代表已确认无其他影响。\n3. 未验证观察（R3，8月21日销售笔记）：销售记录称“看来审计导出对所有客户都不可用”；该说法仅属销售侧观察，不能据此认定整体不可用。",
+            "output_sha256": "7c069b732450d927817013590b68b5f58f9a721b78550536923b55e0891d3b5f",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          },
+          {
+            "candidate_id": "C",
+            "arm_id": "ours",
+            "output": "1. 【当前能力｜R1，8月12日正式发布登记】审计导出已正式向 Business 和 Enterprise 套餐开放。\n2. 【局部事件｜R2，8月20日支持事件，调查中】欧盟分片有4个 Enterprise 租户导出失败，恢复时间未知；目前没有其他租户受影响的报告，但这不等同于确认其他租户均未受影响。\n3. 【内部观察｜R3，8月21日销售笔记】“看来审计导出对所有客户都不可用。”这是销售笔记中的判断，不能据此认定所有客户均不可用；实际影响范围仍待调查确认。",
+            "output_sha256": "71f5740e0d25f3f473e3a4b1fe1ce53b6f847e82b4b63b485bdf5c953339cdfd",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "preferred": false,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "calibrations": []
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "raw_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 17,
+        "criteria_passed": 71,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.9861
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "product-context-brief",
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 1,
+        "criterion_pass_rate": 1.0
+      },
+      "upstream": {
+        "arm_id": "upstream",
+        "skill": "product-marketing",
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 1.0
+      }
+    },
+    "calibrated_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 17,
+        "criteria_passed": 71,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.9861
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "product-context-brief",
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 1,
+        "criterion_pass_rate": 1.0
+      },
+      "upstream": {
+        "arm_id": "upstream",
+        "skill": "product-marketing",
+        "outputs": 18,
+        "perfect_outputs": 18,
+        "criteria_passed": 72,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 1.0
+      }
+    },
+    "preference_ties": 17,
+    "raw_case_core_failures": {
+      "scoped-incident-does-not-revoke-availability": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "retirement-banner-does-not-collapse-cohorts": {
+        "baseline": 1,
+        "ours": 0,
+        "upstream": 0
+      },
+      "approval-threshold-excludes-current-quote": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "privacy-veto-is-not-purchase-approval": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "incompatible-studies-cannot-be-pooled": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "approved-document-bounded-revision": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      }
+    },
+    "calibrated_case_core_failures": {
+      "scoped-incident-does-not-revoke-availability": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "retirement-banner-does-not-collapse-cohorts": {
+        "baseline": 1,
+        "ours": 0,
+        "upstream": 0
+      },
+      "approval-threshold-excludes-current-quote": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "privacy-veto-is-not-purchase-approval": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "incompatible-studies-cannot-be-pooled": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "approved-document-bounded-revision": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      }
+    },
+    "raw_mechanisms": [
+      {
+        "mechanism": "publication-scope",
+        "case_ids": [
+          "scoped-incident-does-not-revoke-availability",
+          "retirement-banner-does-not-collapse-cohorts"
+        ],
+        "core_failures": {
+          "scoped-incident-does-not-revoke-availability": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "retirement-banner-does-not-collapse-cohorts": {
+            "baseline": 1,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "stakeholder-authority",
+        "case_ids": [
+          "approval-threshold-excludes-current-quote",
+          "privacy-veto-is-not-purchase-approval"
+        ],
+        "core_failures": {
+          "approval-threshold-excludes-current-quote": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "privacy-veto-is-not-purchase-approval": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "bounded-evidence-update",
+        "case_ids": [
+          "incompatible-studies-cannot-be-pooled",
+          "approved-document-bounded-revision"
+        ],
+        "core_failures": {
+          "incompatible-studies-cannot-be-pooled": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "approved-document-bounded-revision": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "calibrated_mechanisms": [
+      {
+        "mechanism": "publication-scope",
+        "case_ids": [
+          "scoped-incident-does-not-revoke-availability",
+          "retirement-banner-does-not-collapse-cohorts"
+        ],
+        "core_failures": {
+          "scoped-incident-does-not-revoke-availability": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "retirement-banner-does-not-collapse-cohorts": {
+            "baseline": 1,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "stakeholder-authority",
+        "case_ids": [
+          "approval-threshold-excludes-current-quote",
+          "privacy-veto-is-not-purchase-approval"
+        ],
+        "core_failures": {
+          "approval-threshold-excludes-current-quote": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "privacy-veto-is-not-purchase-approval": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "bounded-evidence-update",
+        "case_ids": [
+          "incompatible-studies-cannot-be-pooled",
+          "approved-document-bounded-revision"
+        ],
+        "core_failures": {
+          "incompatible-studies-cannot-be-pooled": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "approved-document-bounded-revision": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "decision_gate": {
+      "scope": "ours-versus-baseline",
+      "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+      "minimum_cases_in_same_mechanism": 2,
+      "ours_min_core_failures_per_case": 2,
+      "baseline_max_core_failures_per_case": 1,
+      "required_valid_outputs": 54,
+      "upstream_role": "context-only",
+      "effect": "open-minimal-candidate-design-only"
+    },
+    "valid_output_count": 54,
+    "efficiency": {
+      "ours_vs_baseline_percent": {
+        "tokens_total": 12.4,
+        "cost_total": 34.0,
+        "latency_ms_median": 14.1
+      },
+      "upstream_vs_baseline_percent": {
+        "tokens_total": 28.5,
+        "cost_total": 50.5,
+        "latency_ms_median": 13.4
+      },
+      "ours_vs_upstream_percent": {
+        "tokens_total": -12.5,
+        "cost_total": -10.9,
+        "latency_ms_median": 0.6
+      },
+      "semantics": "Promptfoo recorded totals for this run only; percent = comparison/reference - 1."
+    },
+    "discrimination_note": "The current and upstream skills were perfect on all frozen criteria; baseline missed one source-scope criterion. This near-ceiling sample does not establish broad superiority, and no preregistered mechanism opened a local candidate design."
+  },
+  "decision": {
+    "candidate_design_open": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "verification_status_changed": false,
+    "current_version": "0.1.0",
+    "current_catalog_status": "experimental",
+    "current_catalog_evidence": null,
+    "active_cases_added": [
+      "scoped-incident-does-not-revoke-availability",
+      "retirement-banner-does-not-collapse-cohorts",
+      "approval-threshold-excludes-current-quote",
+      "privacy-veto-is-not-purchase-approval",
+      "incompatible-studies-cannot-be-pooled",
+      "approved-document-bounded-revision"
+    ],
+    "active_case_count_before": 7,
+    "active_case_count_after": 13,
+    "skill_package_sha256": "f821cb134112decd46c07b8b50d5fef7e03c4bbae91d6af68344e45552dbc4c5",
+    "active_cases_sha256": "23e1f6107ba0390db403396d9eae791d81b948a9fe5d647ce55f043513d6d5ce",
+    "conclusion": "Keep product-context-brief 0.1.0 unchanged. The current skill and fixed upstream both reached the ceiling on this sample, baseline missed one criterion, and no mechanism met the preregistered candidate gate."
+  },
+  "limitations": [
+    "Six synthetic single-turn Chinese read-only product-context tasks, one generation model, one reasoning effort, and three repetitions per arm.",
+    "The anonymous reviewer was model-assisted rather than an independent human; blindness covered randomized arm mapping and the reviewer reported respecting the requested file boundary.",
+    "A second model-assisted reviewer checked only the single false judgment after reveal; identity knowledge may bias calibration, and true judgments were not independently re-audited.",
+    "The common prompt narrowed upstream product-marketing to its shared one-shot text organization slice; this report does not rank its full discovery, collaboration, versioning, or save workflow.",
+    "Explicit invocation produced no required skill-call trace, so the run does not prove that every ours or upstream trajectory loaded its package instructions.",
+    "No implicit routing, real release or authorization system, file write, multi-turn collaboration, customer study, or marketing outcome was tested.",
+    "Raw Promptfoo artifacts remain git-ignored; the public report embeds synthetic outputs, scores, calibration, and hashes, but a fresh clone cannot independently recreate provider events."
+  ],
+  "evidence_projection_sha256": "522d357dad423b0a2a2a76fda1eabaf59fa14d812256f300b5bab8d540584034"
+}

@@ -133,6 +133,120 @@
         "把样本更正后反馈数也改掉或编造成量化提效",
         "保留 CFO 已确定的最终批准权"
       ]
+    },
+    {
+      "id": "scoped-incident-does-not-revoke-availability",
+      "prompt": "给销售与支持写恰好3条当前产品背景。R1（正式发布登记，8月12日）：审计导出已向 Business 和 Enterprise 套餐正式开放。R2（支持事件，8月20日，调查中）：欧盟分片的4个 Enterprise 租户导出失败，尚无恢复时间；没有报告其他租户受影响。R3（销售笔记，8月21日）：‘看来审计导出对所有客户都不可用。’请保留来源范围和未知状态，不替任何团队下结论。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "scoped-incident-does-not-revoke-availability"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "保留R1中审计导出已向Business和Enterprise正式开放的总体发布状态，不把能力写成从未上线或已全面撤回",
+        "把R2限定为欧盟分片4个Enterprise租户的调查中故障并保留恢复时间未知；不得外推到其他租户",
+        "把R3保留为销售笔记中的解释而非已核实产品状态，并使当前表述同时容纳总体开放与局部未恢复事件"
+      ],
+      "must_avoid": [
+        "把4个欧盟分片Enterprise租户的局部故障外推为所有客户不可用或已撤回总体发布",
+        "把R3销售解释改写成已核实状态，或忽略恢复时间未知和其他租户未报告受影响",
+        "超过三条，或编造根因、恢复承诺、受影响总数、关闭发布和已执行动作"
+      ]
+    },
+    {
+      "id": "retirement-banner-does-not-collapse-cohorts",
+      "prompt": "写一段不超过120字的当前能力说明。S1（权益登记，9月3日）：9月1日起，新账户不再提供 Ledger Sync；120个已有合同账户仍可用到12月31日。S2（9月6日后台横幅）：‘Ledger Sync 已退役。’横幅对所有管理员可见，但没有账户范围或迁移日期。不能查资料；请给客服当前口径及仍待确认项。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "retirement-banner-does-not-collapse-cohorts"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "按S1区分9月1日起不再向新账户提供Ledger Sync，与120个已有合同账户仍可用到12月31日；不得把两类账户合并为全部可用或全部停用",
+        "明确S2横幅虽日期较新且称已退役，但缺少账户范围和迁移日期，不能单独推翻已有合同账户的可用窗口；不得断言横幅必然错误",
+        "给客服的当前口径同时保留新账户停售与已有合同账户限期可用，并把12月31日后的安排或具体迁移日期保持为待确认"
+      ],
+      "must_avoid": [
+        "把新账户与120个已有合同账户合并成全部可用或全部停用",
+        "仅凭模糊横幅推翻已有合同账户至12月31日的窗口，或断言横幅必然错误",
+        "超过120字，或编造账户权益、迁移日期、停用动作和已完成核实"
+      ]
+    },
+    {
+      "id": "approval-threshold-excludes-current-quote",
+      "prompt": "只用4行整理购买角色，每行格式为“角色：结论”。材料：财务分析师每天使用报表，是实际用户；RevOps 负责人收集需求并推荐 Nova，是推动者；财务副总说‘我支持继续评估’，且只能批准年费不超过100万元的采购；Nova 当前年费报价128万元；采购专员只在有权批准后签署合同。超过100万元由谁最终批准、付款预算归谁都未确认。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "approval-threshold-excludes-current-quote"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "区分财务分析师是实际用户、RevOps负责人是推动者或推荐者，不互换两者",
+        "应用100万元阈值：128万元报价超出财务副总权限，其支持继续评估不等于本次最终批准",
+        "把采购专员限定为获批后的合同签署执行者，并明确当前最终批准人和付款预算归属均未知"
+      ],
+      "must_avoid": [
+        "把财务副总的支持或不超过100万元权限写成对128万元报价的最终批准",
+        "把采购专员的获批后签署写成采购批准，或擅自认定最终批准人和付款预算归属",
+        "不按四行角色格式，或编造折扣、权限、预算所有者、批准和签约"
+      ]
+    },
+    {
+      "id": "privacy-veto-is-not-purchase-approval",
+      "prompt": "整理成两列表格“角色｜当前证据”，表头外恰好5个数据行（Markdown分隔线不计）。材料：门诊护士每天录入随访，是用户；护理部主任建议采用 CareArc，是推动者；数据保护官可以否决隐私不合格方案，但没有预算或采购批准权，目前隐私复核未完成；医院采购委员会决定是否采购；财务共享中心在获批后执行付款。不要把审查、建议或付款执行写成采购批准。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "privacy-veto-is-not-purchase-approval"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "五行分别覆盖门诊护士用户、护理部主任推动者、数据保护官隐私把关、采购委员会决策者、财务共享中心付款执行",
+        "明确数据保护官只有隐私否决或把关权限、没有采购批准权，且隐私复核仍未完成",
+        "明确采购委员会决定是否采购，财务共享中心仅在获批后执行付款；不把建议、否决权或付款动作当成批准"
+      ],
+      "must_avoid": [
+        "把护理部主任建议、数据保护官否决权或财务付款执行写成采购批准",
+        "把未完成的隐私复核写成通过，或改写采购委员会的决定权限",
+        "不按表头外五个数据行输出，或编造预算归属、委员会决定和已付款"
+      ]
+    },
+    {
+      "id": "incompatible-studies-cannot-be-pooled",
+      "prompt": "只返回修订后的 Evidence 一个段落，不加标题，150字以内。U1：4周试点覆盖18家诊所，其中12家称遗漏回电变少，但没有统一计数。U2：另一次2周可用性检查有10名前台协调员，其中8人首次完成指定操作；没有现流程对照。现稿误写为‘28个参与者中20个改善了运营结果，证明产品普遍有效。’请纠正，保留两项证据各自口径。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "incompatible-studies-cannot-be-pooled"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "分别保留U1的4周、18家诊所、12家主观反馈及无统一计数，不把诊所改称个人参与者",
+        "分别保留U2的2周、10名协调员、8人首次完成指定操作及无现流程对照，不把完成操作改成运营改善",
+        "拒绝把两项研究合并成28中20或普遍有效的证明，并保持观察范围和限制"
+      ],
+      "must_avoid": [
+        "把18家诊所与10名协调员合并成28个同类参与者或20个运营改善",
+        "把首次完成操作改写成运营结果，或把两项观察写成普遍有效和因果证明",
+        "超过150字、添加标题，或编造统一指标、对照结论和已发布文案"
+      ]
+    },
+    {
+      "id": "approved-document-bounded-revision",
+      "prompt": "按更正C7只更新 Target Audience 与 Goals，返回完整文档；其他行及顺序逐字不变。该稿仍在审批中，本次禁止改 Document version、Last updated 或 Changelog，也不要保存文件。\n\n# Product Context\nDocument version: v7\nLast updated: 2026-08-30\n\n## Product Overview\nMira 把现场巡检记录汇总为待办。\n\n## Target Audience\n主要用户：区域经理。\n\n## Proof Points\nP3：6个站点试用3周，其中4个称交接更清楚；未统一计时。\n\n## Goals\n已批准10月全面推广。\n\n## Brand Voice\n直接、谨慎。\n\n## Changelog\n- v7 (2026-08-30) — 初稿待审批。\n\nC7（研究负责人，9月8日）：实际日常用户是现场协调员，区域经理只查看汇总；10月全面推广只是运营团队提议，尚未经变更委员会批准。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "approved-document-bounded-revision"
+      },
+      "expected_route": "product-context-brief",
+      "must_include": [
+        "Target Audience更新为现场协调员是日常用户、区域经理只查看汇总，不保留区域经理为主要用户",
+        "Goals更新为10月全面推广是运营团队提议且尚未经变更委员会批准，不写成已批准计划",
+        "Product Overview、Proof Points、Brand Voice、Document version、Last updated、Changelog及整体章节顺序逐字保留"
+      ],
+      "must_avoid": [
+        "改动Product Overview、Proof Points、Brand Voice、Document version、Last updated、Changelog或章节顺序",
+        "继续把区域经理写成主要用户，或把运营提议写成已批准推广",
+        "新增版本、日期、变更记录、证据、保存声明或确认问题"
+      ]
     }
   ]
 }

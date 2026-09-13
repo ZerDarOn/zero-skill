@@ -279,7 +279,8 @@ class DecisionBriefRound33Tests(unittest.TestCase):
             )
             for item in catalog["skills"]
         )
-        self.assertEqual(total, 178)
+        self.assertEqual(self.report["scope"]["collection_active_case_count"], 178)
+        self.assertGreaterEqual(total, 178)
         decision = self.report["decision"]
         self.assertEqual(decision["active_cases_sha256"], sha(ACTIVE))
         self.assertEqual(

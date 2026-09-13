@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import runpy
+import subprocess
 import tempfile
 import unittest
 
@@ -29,6 +30,7 @@ EXPECTED_PROTOCOL_SHA256 = (
 EXPECTED_CASES_SHA256 = (
     "08073406fd3fa237a051e6d4a1e59cff05b331e99cbc44007524e39df5b8915a"
 )
+FREEZE_COMMIT = "b5b45539fe9b7adddf2ca2199ab6c6011cf8461d"
 
 
 def sha256_file(path: Path) -> str:
@@ -108,7 +110,7 @@ class ArticleVisualDiscriminativeComparisonTests(unittest.TestCase):
             ],
         )
 
-    def test_cases_cover_three_new_mechanisms_without_reusing_active_ids(self):
+    def test_cases_cover_three_new_mechanisms_without_reusing_ids_at_freeze(self):
         counts = {}
         for case in self.cases:
             counts[case["mechanism"]] = counts.get(case["mechanism"], 0) + 1
@@ -124,11 +126,17 @@ class ArticleVisualDiscriminativeComparisonTests(unittest.TestCase):
                 "compound-plan-state": 2,
             },
         )
-        active = json.loads(
-            (
-                ROOT / "evaluations" / "cases" / "article-visual-plan.json"
-            ).read_text(encoding="utf-8")
-        )
+        frozen_active_bytes = subprocess.run(
+            [
+                "git",
+                "show",
+                f"{FREEZE_COMMIT}:evaluations/cases/article-visual-plan.json",
+            ],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        ).stdout
+        active = json.loads(frozen_active_bytes.decode("utf-8"))
         self.assertTrue(
             {case["id"] for case in self.cases}.isdisjoint(
                 {case["id"] for case in active["cases"]}

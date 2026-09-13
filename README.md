@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十九轮文章配图规划三方前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共154项。无 Skill、`article-visual-plan` 0.1.0 与固定 Baoyu 上游在六题三次重复中均为72/72，形成天花板效应；因此 Skill、版本、catalog 与 evidence 不变，只把六个冻结前向题加入活动回归。
+当前阶段：**第三十轮文章配图规划鉴别性前向盲测**。已有十六个可试用的 `experimental` 技能，活动用例共160项。无 Skill、`article-visual-plan` 0.1.0 与固定 Baoyu 上游在六题三次重复中均为70/72、16/18完整；当前包有一次孤立核心遗漏，但没有机制达到预注册改版门槛。因此 Skill、版本、catalog 与 evidence 不变，六个冻结前向题加入活动回归。
 
 ## 从这里开始
+
+- [第三十轮质量打磨：文章配图规划鉴别性前向盲测](docs/quality-polish-round-30.md)
+- [文章配图第三十轮机器诊断](evaluations/reports/article-visual-plan-discriminative-round-30-diagnostic.json)
 
 - [第二十九轮质量打磨：文章配图规划三方前向盲测](docs/quality-polish-round-29.md)
 - [文章配图第二十九轮机器诊断](evaluations/reports/article-visual-plan-three-arm-round-29-diagnostic.json)

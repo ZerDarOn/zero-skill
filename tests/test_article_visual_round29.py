@@ -46,6 +46,7 @@ UPSTREAM_FIXTURE = (
 EXPECTED_PROJECTION_SHA256 = (
     "e7b528f9efdc6f80e4668082c830e4ff6d5061497253e92d08db91bf96d13c52"
 )
+ROUND29_RESULT_COMMIT = "9848e18f014eca4c88e47864b59d5d60c9525a8a"
 VALIDATOR = runpy.run_path(str(ROOT / "scripts" / "validate_collection.py"))
 ARM_ORDER = {"baseline": 0, "ours": 1, "upstream": 2}
 
@@ -244,13 +245,25 @@ class ArticleVisualRound29Tests(unittest.TestCase):
         source_paths = {
             "promptfoo.json": COMPARISON / "promptfoo.json",
             "cases.json": COMPARISON / "cases.json",
-            "active-cases.json": ACTIVE_CASES,
             "SKILL.md": SKILL_PACKAGE / "SKILL.md",
             "upstream-provenance.json": UPSTREAM_FIXTURE / "provenance.json",
         }
-        self.assertEqual(set(bindings), set(source_paths))
+        self.assertEqual(set(bindings), {*source_paths, "active-cases.json"})
         for name, path in source_paths.items():
             self.assertEqual(sha256_file(path), bindings[name], name)
+        historical_active = subprocess.run(
+            [
+                "git",
+                "show",
+                f"{ROUND29_RESULT_COMMIT}:evaluations/cases/article-visual-plan.json",
+            ],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        ).stdout
+        self.assertEqual(
+            sha256_bytes(historical_active), bindings["active-cases.json"]
+        )
 
         for name, expected in experiment["review_hashes"].items():
             self.assertEqual(sha256_file(COMPARISON / name), expected, name)
@@ -389,7 +402,6 @@ class ArticleVisualRound29Tests(unittest.TestCase):
     def test_regression_cases_are_forward_only_and_catalog_stays_experimental(self):
         active = json.loads(ACTIVE_CASES.read_text(encoding="utf-8"))
         active_by_id = {case["id"]: case for case in active["cases"]}
-        self.assertEqual(len(active_by_id), 10)
         for case in self.frozen_cases:
             published = active_by_id[case["id"]]
             self.assertEqual(published["prompt"], case["prompt"])
@@ -407,10 +419,10 @@ class ArticleVisualRound29Tests(unittest.TestCase):
             len(json.loads((ROOT / item["evaluation"]).read_text(encoding="utf-8"))["cases"])
             for item in catalog["skills"]
         )
-        self.assertEqual(total, 154)
+        self.assertGreaterEqual(total, 154)
         decision = self.report["decision"]
-        self.assertEqual(decision["active_case_count_after"], len(active_by_id))
-        self.assertEqual(decision["active_cases_sha256"], sha256_file(ACTIVE_CASES))
+        self.assertEqual(decision["active_case_count_after"], 10)
+        self.assertEqual(decision["active_cases_sha256"], "779c8572b1d316255fe4d52bcbe64614fc818abf94158cbadc96f1dd7084082d")
         self.assertFalse(decision["skill_changed"])
         self.assertFalse(decision["version_changed"])
         self.assertFalse(decision["verification_status_changed"])

@@ -1,0 +1,1387 @@
+{
+  "schema_version": 1,
+  "report_id": "article-visual-plan-discriminative-round-30-diagnostic",
+  "generated_at": "2026-09-13T01:28:34.013177+00:00",
+  "scope": {
+    "skill_id": "article-visual-plan",
+    "version": "0.1.0",
+    "catalog_status": "experimental",
+    "catalog_evidence": null,
+    "prior_active_case_count": 10,
+    "active_case_count": 16,
+    "collection_active_case_count": 160,
+    "formal_outputs": 54,
+    "blind_review_items": 18,
+    "criterion_booleans": 216
+  },
+  "experiment": {
+    "comparison_id": "article-visual-plan-discriminative-23",
+    "run_id": "article-visual-plan-discriminative-23-formal-20260913-v1",
+    "freeze_commit": "b5b45539fe9b7adddf2ca2199ab6c6011cf8461d",
+    "promptfoo_version": "0.123.0",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "preflight": {
+      "run_id": "article-visual-plan-discriminative-23-preflight-20260913-v1",
+      "outputs": 3,
+      "infrastructure_valid": true,
+      "summary_sha256": "740bda27e2a3c668857b5d83a5fc117a486c008937aed713161c5734ea6dbd3c",
+      "scored": false
+    },
+    "source_hashes": {
+      "promptfoo.json": "85a3b9acb6a1b039ae59973042b961362a265b5cbbe5bbeecb47ed99cb691faf",
+      "cases.json": "08073406fd3fa237a051e6d4a1e59cff05b331e99cbc44007524e39df5b8915a",
+      "active-cases.json": "a21c7f4e96bc7babaa7fc0f4580f43a7c4071ed58b068c881bd3dacbbc76898d",
+      "SKILL.md": "4b909df0d32cad8b8668dfbc757c306141105ddf7e755d07a908b0f949afcd55",
+      "upstream-provenance.json": "5d172e072c1be1196d8a3a2193a5bc517f7afcc2a496363eff1a187ccf38382b"
+    },
+    "prepared_hashes": {
+      "config": "c48fbd00915f34f011ef1aa246690e8ea8b2b768b6046b6288ecb398eb0062f6",
+      "tests": "87279eb3eb45138fce584b334214c63c0e23cbb9914071da2cd17ed05d3dba6c"
+    },
+    "artifact_hashes": {
+      "frozen.json": "e80b13c6d4e0692aea0966ac28d13af6af17eb7933a6eb8437f3c295807d6363",
+      "run-meta.json": "48687b1812c2b929dba8251e24639e04e8668756323a2f4e08ac9dc3f1f96f08",
+      "results.json": "a87620d2563f237820c41011441956ca1418cb707fdc18819164b6b1e1908f4b",
+      "summary.json": "54690583c617ff08f5b053629d7c285f12e071d76a38765da7683680997f63ef",
+      "blind-review.json": "ce7d44bc4b842526282e01704b7c697529fec90b03f8f9cc1cc4e31224749dbc",
+      "blind-review-key.json": "ecf0ca0c8af23a59b980f4fb39686d79a4b4331944b003df4de946fec3a3c3b3",
+      "blind-review-form.json": "2120ad57ba236b802ff986ab49cb89eb2100f8bfe57ed60eb516eb64c2457443",
+      "blind-review-completed-independent.json": "fc0867cf22b0daad40aa44a652b1d6349f56a4b5ed3d5bc5e772ccfd2dd174e8",
+      "review-result-blind-review-completed-independent.json": "6eb6f86a785e260a31410da1d9838000befacf348f82cc4567c5339d31807ae8"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "5448602cb27a27050cb7cb4c01377ec44f3f27cbf3ebbd740cb35df9811f4407",
+      "postscore-decision-review-independent.md": "0d7b68b6c22073708fb3f2efeffe187d42b3f6cf9a605ff43dd929f99dd03722"
+    },
+    "upstream_provenance": {
+      "repository": "https://github.com/JimLiu/baoyu-skills",
+      "commit": "6b7a2e417500561a5ecdd0b168332f4142584617",
+      "license": "MIT",
+      "provenance_sha256": "5d172e072c1be1196d8a3a2193a5bc517f7afcc2a496363eff1a187ccf38382b",
+      "package_sha256": "761701b48cbc7fe9eba501cd9f22bb3989e653417474662bf4d4268741824ea3",
+      "package_license_included": true,
+      "source_bytes_modified": false,
+      "known_source_issues": [
+        "references/usage.md links to references/style-presets.md as though it were relative to the package root; from that file it resolves to a missing references/references/style-presets.md. The actual references/style-presets.md is present and both source bytes are preserved. Output-path templates in SKILL.md and references/workflow.md are examples, not package dependencies."
+      ]
+    },
+    "blind_reviewer": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round30_blind_review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "independent_human": false,
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "allowed_files": [
+        "blind-review.json",
+        "blind-review-form.json"
+      ],
+      "blind_file_boundary_clean": true,
+      "unexpected_files_read": []
+    },
+    "postscore_review": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round30_blind_review",
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "blind": false,
+      "corrections": 0,
+      "finding": "All six false scores stand; all three arms remain tied at 70/72 and no mechanism triggers the frozen gate.",
+      "review_sha256": "0d7b68b6c22073708fb3f2efeffe187d42b3f6cf9a605ff43dd929f99dd03722"
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2129568,
+          "latency_ms_median": 10639.0,
+          "tokens_total": {
+            "cached": 156032,
+            "completion": 3591,
+            "prompt": 175713,
+            "total": 179304
+          }
+        },
+        "blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 16,
+          "criteria_passed": 70,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9722
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "article-visual-plan",
+        "package_evidence_path": "skills/creation/article-visual-plan",
+        "skill_package_sha256": "e02fed142a73421a2cc091bfea0d6faefef4c8035e671d4866e65708e9973a87",
+        "runtime": {
+          "id": "ours",
+          "skill": "article-visual-plan",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2615176,
+          "latency_ms_median": 10024.0,
+          "tokens_total": {
+            "cached": 166144,
+            "completion": 4574,
+            "prompt": 192039,
+            "total": 196613
+          }
+        },
+        "blind_review": {
+          "arm_id": "ours",
+          "skill": "article-visual-plan",
+          "outputs": 18,
+          "perfect_outputs": 16,
+          "criteria_passed": 70,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9722
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "baoyu-article-illustrator",
+        "package_evidence_path": "evaluations/fixtures/upstreams/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator",
+        "skill_package_sha256": "761701b48cbc7fe9eba501cd9f22bb3989e653417474662bf4d4268741824ea3",
+        "runtime": {
+          "id": "upstream",
+          "skill": "baoyu-article-illustrator",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.4157072,
+          "latency_ms_median": 10962.0,
+          "tokens_total": {
+            "cached": 190208,
+            "completion": 4483,
+            "prompt": 252699,
+            "total": 257182
+          }
+        },
+        "blind_review": {
+          "arm_id": "upstream",
+          "skill": "baoyu-article-illustrator",
+          "outputs": 18,
+          "perfect_outputs": 16,
+          "criteria_passed": 70,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.9722
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "delete-and-insert-with-stable-ids-r1",
+        "case_id": "delete-and-insert-with-stable-ids",
+        "mechanism": "compound-plan-state",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "delete-and-insert-with-stable-ids-r2",
+        "case_id": "delete-and-insert-with-stable-ids",
+        "mechanism": "compound-plan-state",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "delete-and-insert-with-stable-ids-r3",
+        "case_id": "delete-and-insert-with-stable-ids",
+        "mechanism": "compound-plan-state",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V1 | 位置：开头后 | 共同风格：单色蓝图 | 简述：入口‘收到材料’。\nV7 | 位置：P6 后 | 共同风格：单色蓝图 | 简述：三步‘标注→修订→确认’。\nV9 | 位置：P8 后 | 共同风格：单色蓝图 | 简述：双层检查‘作者自查→编辑复核’。\nV10 | 位置：结尾前 | 共同风格：单色蓝图 | 简述：归档盒标签‘版本记录’。",
+            "output_sha256": "2b16330c6923a9fbf8001422497ce3558dfb670c5b5dd853d9257106f18ca78e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "global-style-with-local-content-correction-r1",
+        "case_id": "global-style-with-local-content-correction",
+        "mechanism": "compound-plan-state",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "global-style-with-local-content-correction-r2",
+        "case_id": "global-style-with-local-content-correction",
+        "mechanism": "compound-plan-state",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "global-style-with-local-content-correction-r3",
+        "case_id": "global-style-with-local-content-correction",
+        "mechanism": "compound-plan-state",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "V2 | 位置：导语后 | 共同风格：暖灰报刊拼贴 | 简述：标题卡‘从请求开始’。\nV5 | 位置：背景段后 | 共同风格：暖灰报刊拼贴 | 简述：三张并列卡片‘收集’‘整理’‘交接’。\nV8 | 位置：流程段后 | 共同风格：暖灰报刊拼贴 | 简述：评分→调整队列优先级→人工复核→通过后发布。\nV13 | 位置：结论前 | 共同风格：暖灰报刊拼贴 | 简述：闭环‘记录→复核→沉淀→记录’。",
+            "output_sha256": "276166b8c38ae4b56c203d670db4e8032f75ce249d16f4114d6d71adf21fe30d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "owner-corrected-human-review-flow-r1",
+        "case_id": "owner-corrected-human-review-flow",
+        "mechanism": "source-revision-control",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：置于服务负责人更正说明之后。\n\n目的：以文章最终口径澄清真实审批流程，纠正旧培训页“超过 80 分自动批准并发布”的错误表述。\n\n画面简述：中文 16:9 横向流程图：申请人提交请求 → 系统评分 → 按评分调整队列优先级 → 人工复核；复核通过则发布，未通过则退回申请人修改。特别标注“评分不触发自动批准”“所有请求均须人工复核”。",
+            "output_sha256": "635c5b7407481455e44f8ac6630ee7385ecdfb5bbb8269304e0321088c736330",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：置于文末“服务负责人更正”段落之后。\n\n目的：以最终口径澄清真实审批与发布流程，纠正“评分超过 80 会自动批准”的旧说法。\n\n画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 评分调整队列优先级 → 进入队列 → 人工复核”，随后分为两支：“人工通过 → 发布”和“未通过 → 退回申请人修改”。在评分节点旁明确标注“仅影响优先级，不触发自动批准”，全图不设置“80 分”阈值或任何自动批准路径。",
+            "output_sha256": "cefff5ede216d3bced01efd4581014d5dcda85cb79d6e4c7267edf91fd98cb46",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：文章结尾“服务负责人更正”段落之后。\n\n目的：以最终口径澄清真实审批流程，纠正“评分超过 80 自动批准并发布”的旧说法。\n\n画面简述：中文 16:9 横向流程图：提交请求 → 评分仅调整队列优先级 → 进入队列 → 人工复核；复核通过 → 发布，未通过 → 退回申请人修改 → 重新提交。醒目标注“系统从不自动批准”。",
+            "output_sha256": "f464f32fd202cb27cca5b370d1db0283a012d989aaac4cfa0ef28131f269d0cd",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "owner-corrected-human-review-flow-r2",
+        "case_id": "owner-corrected-human-review-flow",
+        "mechanism": "source-revision-control",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：紧接文末“服务负责人更正”之后。\n\n目的：以文章最终口径澄清真实审批流程，纠正旧培训页中“评分超过 80 自动批准并发布”的错误说法。\n\n画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 评分并调整队列优先级 → 进入人工复核”，随后分支：“人工通过 → 发布”；“人工未通过 → 退回申请人修改 → 重新提交”。明确标注“评分不决定批准”“系统从不自动批准”。",
+            "output_sha256": "0f5fff24c9d8a2e106b47412579d5749d6fb84573f33fbb688b3f34c05ab038a",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "- 位置：紧接服务负责人更正段落之后。\n- 目的：以文章最终口径澄清真实审批流程，纠正“评分超过 80 自动批准并发布”的旧说法。\n- 画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 评分并调整队列优先级 → 进入人工复核”，随后分支为“人工通过 → 发布”和“人工未通过 → 退回申请人修改 → 重新提交”。明确标注“评分不决定批准”“系统从不自动批准”，不设置“超过 80 分自动发布”路径。",
+            "output_sha256": "39d640c2b6e7ce802acbdec6e2e636be10456dabf6c95e4ff50ca67a57b8e7c7",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：文章结尾“服务负责人更正”段落之后。\n\n目的：以最终口径澄清真实审批流程，纠正“评分超过 80 会自动批准并发布”的旧说法。\n\n画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 系统评分 → 按评分调整队列优先级 → 人工复核”，随后分支为“人工通过 → 发布”和“未通过 → 退回申请人修改 → 重新提交”。突出标注“评分仅影响排队优先级”“所有请求均须人工复核”“不存在自动批准”。",
+            "output_sha256": "f78ca9cc32fdf04f65c05db16c10e9929b57f62b3cdb43653f95a4bba96fbe9d",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "owner-corrected-human-review-flow-r3",
+        "case_id": "owner-corrected-human-review-flow",
+        "mechanism": "source-revision-control",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：文章结尾的服务负责人更正之后。\n\n目的：以最终口径澄清真实审批流程，避免旧培训页中“评分超过 80 自动批准并发布”的错误表述。\n\n画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 评分并调整队列优先级 → 进入人工复核”，随后分支：“人工通过 → 发布”；“人工未通过 → 退回申请人修改 → 重新提交”。明确标注“评分仅影响队列优先级，系统不会自动批准”。",
+            "output_sha256": "074d4a9f84c1ff235e6384b96945e12c93015612d697694f97c2c726b8f85191",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              false
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "- 位置：紧接服务负责人更正之后。\n- 目的：以文章最终口径澄清真实审批流程，消除“评分超过 80 会自动批准并发布”的误解。\n- 画面简述：中文 16:9 横向流程图。主流程为“提交请求 → 系统评分 → 按评分调整队列优先级 → 人工复核”，随后分支：“通过 → 发布”“未通过 → 退回申请人修改”。评分节点旁明确标注“仅影响队列优先级，不触发自动批准”，全图不设置“80 分”阈值或任何自动发布路径。",
+            "output_sha256": "a7adde8888527a4255e6beeda0bfd156000c6783b4498bc6762f4db633abaefa",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：服务负责人更正说明之后。\n\n目的：以最终口径澄清真实审核发布流程，纠正“评分超过 80 自动批准并发布”的旧说法。\n\n画面简述：中文 16:9 横向流程图：申请人提交请求 → 系统评分 → 按评分调整队列优先级 → 人工复核 → 分支判断；“通过”进入发布，“未通过”退回申请人修改。突出标注“评分仅影响排序”“所有请求均须人工复核”“不存在自动批准”。",
+            "output_sha256": "33314e67536226858e6b5e31cb2a8ed09359cd7fde69e6f1ea47f414c1bd709c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "qualitative-themes-without-intensity-r1",
+        "case_id": "qualitative-themes-without-intensity",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：访谈总结后，1 张中文 16:9 图片。\n\n目的：直观呈现方案 A 与方案 B 各自被提及的优点，同时明确两组结果不可量化比较，避免把模糊表述误读为反馈强弱差异。\n\n画面简述：采用双栏定性热力图。左栏标注“方案 A｜9 人｜导航清楚：很多人提到”，右栏标注“方案 B｜6 人｜搜索方便：有几人提到”；仅用不同纹理区分两个主题，不用颜色深浅、百分比、人数推算或统一色阶表达强弱。底部醒目标注：“两组提问不同；‘很多’和‘有几人’无确切人数，结果不可直接比较。”",
+            "output_sha256": "07b61c5d672d1291cf33dfcfeeb063491671d3bd886cb13fd059d7e094474aad",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：访谈总结之后，1 张中文 16:9 热力图。\n\n目的：直观呈现两组访谈各自提到的反馈主题，同时明确两组提问与描述口径不同，不能比较反馈强弱或判断方案优劣。\n\n画面简述：左右并列两个独立色块区。左侧标注“方案 A｜访谈 9 人”，展示“导航清楚｜很多人提到”；右侧标注“方案 B｜访谈 6 人”，展示“搜索方便｜有几人提到”。色块仅用于区分方案，不用颜色深浅映射人数；不设置统一刻度、百分比、排名或胜负标识。底部注明：“两组提问不同；‘很多’和‘有几人’无确切人数，且无统一标签频次，不可直接比较。”",
+            "output_sha256": "ff171516661396c062c428f534f3209a78e7bee6142eb07448d52a06691ed2e0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：访谈总结后。\n\n目的：直观呈现两组访谈中出现的不同反馈主题，同时避免把模糊表述误读为可比较的频次差异。\n\n画面简述：中文 16:9 双栏定性热力图。左栏“方案 A｜9 人｜导航清楚（很多人提到）”，右栏“方案 B｜6 人｜搜索方便（有几人提到）”。两栏使用同等强度的色块，不按人数深浅编码；中央醒目标注“两组提问不同，‘很多’与‘有几人’无确切人数，不能横向比较频次”。不补充人数、百分比或统一标签频次。",
+            "output_sha256": "e4fb6e78aa71357dd1ad0f373bf1717c9b8f115f1ca8877c42dd5c83332a7162",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "qualitative-themes-without-intensity-r2",
+        "case_id": "qualitative-themes-without-intensity",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：访谈总结后，1 张，16:9。\n\n目的：直观呈现两个方案被提及的不同优点，同时明确两组访谈不可直接比较强弱或频次。\n\n画面简述：中文定性热力图，左右分列方案 A（访谈 9 人）与方案 B（访谈 6 人）；A 栏标注“导航清楚：很多人提到”，B 栏标注“搜索方便：有几人提到”。两处采用不同色块区分类别，但不以颜色深浅、面积或数字表示热度高低。图下注明：“两组提问不同；‘很多’与‘有几人’无确切人数，且未统一标签频次，不可作定量横向比较。”",
+            "output_sha256": "011632cefac78cfb478dbe294311b5cbd1e131bebde34fcce4682ded8ee62ad9",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：访谈总结后，1 张中文 16:9 热力图。\n\n目的：并列呈现两方案被记录的反馈差异，同时明确两组提问不同、定性措辞无法换算人数或直接比较强弱。\n\n画面简述：双列矩阵，列为“方案 A（访谈 9 人）”“方案 B（访谈 6 人）”，行为“导航清楚”“搜索方便”。A 对应格标注“很多人提到｜确切人数不详”，B 对应格标注“有几人提到｜确切人数不详”；其余格标注“材料未提供”。采用等权色块或纹理区分类别，不使用深浅梯度、百分比、统一频次、排名或胜负暗示；底部注明“两组提问不同，结果不可作强弱对比”。",
+            "output_sha256": "9ac094247d7f99a2ef30e873946c6d21c2b4fe2eb9b604d2d31ba8aae90240a8",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：访谈总结后。\n\n目的：直观呈现两套方案收到的不同类型反馈，同时明确两组访谈不可做频次或强弱比较。\n\n画面简述：中文 16:9 双栏热力图。左栏“方案 A｜访谈 9 人”，标注“导航清楚｜很多人提到”；右栏“方案 B｜访谈 6 人”，标注“搜索方便｜有几人提到”。两栏采用不同色相，仅表达反馈主题差异，不用颜色深浅映射人数。底部醒目标注：“两组提问不同；‘很多’与‘有几人’无确切人数，不能横向比较频次或热度。”",
+            "output_sha256": "6e96a5206ae2fdf4a99078c13ea5333dc2fd1efe632a0fcd14dfbadbdc52a199",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "qualitative-themes-without-intensity-r3",
+        "case_id": "qualitative-themes-without-intensity",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：访谈总结后，1 张，16:9。\n\n目的：直观呈现两组访谈各自出现的正向反馈，同时明确样本量、提问方式和模糊表述不同，不能比较反馈强弱或频次。\n\n画面简述：中文双栏定性热力图。左栏“方案 A（9 人）—导航清楚”，右栏“方案 B（6 人）—搜索方便”；两格使用相同中性色，不用颜色深浅暗示数量差异。格内分别保留原始措辞“很多人提到”“有几人提到”。底部醒目标注：“两组提问不同；‘很多’与‘有几人’无确切人数，颜色不代表频次，不可横向比较。”",
+            "output_sha256": "e70bce605a6f74c25286ff80837612a5a752a50da9fbe5f94ef23b2b0c10441f",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：访谈总结之后，放置 1 张中文 16:9 定性热力图。\n\n目的：直观呈现两组反馈主题的差异，同时明确两组结果不可比较强弱或推算比例。\n\n画面简述：左右并列方案 A（9 人）与方案 B（6 人）。A 区仅标注“导航清楚｜很多人提到”，B 区仅标注“搜索方便｜有几人提到”；采用相同色阶，不按样本数或措辞深浅编码热度。图下注明：“两组提问不同；‘很多’与‘有几人’无确切人数，颜色仅区分反馈主题，不代表频次、比例或方案优劣。”",
+            "output_sha256": "b9644a41bd9e6ec46bed9959e35e6180c1ddf8f7ffe8a3ba4a11c0814459d2f0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：访谈总结后。\n\n目的：直观呈现两组反馈主题，同时明确结果不可量化、不可横向比较。\n\n画面简述：中文 16:9 定性热力图。左右分列“方案 A（访谈 9 人）”与“方案 B（另访谈 6 人）”，分别标注原始表述“很多人提到导航清楚”“有几人提到搜索方便”。色块仅区分方案与主题，不用颜色深浅、面积或百分比暗示人数差异；底部醒目标注“两组提问不同；‘很多’和‘有几人’无确切人数，不能直接比较反馈强弱”。",
+            "output_sha256": "fb9d5d613469c5b2b055919eacbfc9054be0fe4875963303cf4823a000f081be",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retracted-metric-evidence-summary-r1",
+        "case_id": "retracted-metric-evidence-summary",
+        "mechanism": "source-revision-control",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "- 插入位置：文章分析段之后。\n\n- 帮助理解的目的：区分“已撤回的成效主张”“当前无法判断的量化结论”和“有限的主观反馈”，避免把 43% 或访谈意见误读为助手成效证据。\n\n- 画面结构：中文 16:9 横版证据摘要图。采用三栏时间线布局：\n  1. **P2｜初始周报**：展示“升级工单减少 43%”，加醒目的“已撤回”标记。\n  2. **P5｜三周后审计**：作为视觉中心，说明“合并工单被重复计数”；结论框写明“现有记录无法判断变化方向或幅度，也无法归因于助手”。\n  3. **P6｜访谈记录**：展示“5 人中 3 人认为交接说明更清楚”，同时标注“主观反馈、无对照组”。\n\n  底部设置总括结论条：**目前没有可靠证据证明助手减少了升级工单；仅有有限的正向主观反馈。**",
+            "output_sha256": "7333892aa3544a3dfc41c4ac26220e261308e8a153fcc6c8bcf47745d1207ef5",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "- 插入位置：文章分析段之后。\n\n- 帮助理解的目的：区分“已撤回的量化结论”“当前无法判断的结果”和“有限的主观反馈”，避免将访谈感受误读为助手降低升级工单的证据。\n\n- 画面结构：中文 16:9 证据摘要图。横向三段式证据链：\n  1. **P2 上线周报**：突出原说法“升级工单减少 43%”，加“原始主张”标签。\n  2. **P5 三周后审计**：指出“合并工单被重复计数”，以醒目的“43% 已撤回”覆盖或划除原数字；并列注明“无法判断变化方向或幅度”“不能归因于助手”。\n  3. **P6 访谈记录**：呈现“5 人中 3 人认为交接说明更清楚”，明确标注“主观反馈”“无对照组”。\n\n  底部设置总结栏：**当前证据状态：量化效果未知，因果关系不成立；仅有有限的正面主观反馈。** 不使用升降曲线、效果比例图或因果箭头。",
+            "output_sha256": "d5f100f0d6574e185700cd346c81b19b8481a4dbaf6d7ca5c81d486a1ce1e091",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "插入位置：文章分析段之后，放置 1 张中文 16:9 证据摘要图。\n\n帮助理解的目的：区分“已撤回的效果数字”“审计后仍无法得出的结论”和“有限的主观反馈”，避免将现有材料误读为助手已减少升级工单。\n\n画面结构：横向三栏证据卡片。左栏“原始周报”：展示“升级工单减少 43%”，加醒目的“已撤回”标记；中栏“审计结论”：说明合并工单被重复计数，现有记录既无法判断升级工单变化的方向或幅度，也无法归因于助手；右栏“访谈反馈”：展示“5 人中 3 人认为交接说明更清楚”，并标注“主观反馈、无对照组”。底部用总结条明确写出：“当前证据仅支持存在部分正向主观反馈，不支持助手减少升级工单的结论。”",
+            "output_sha256": "6f4d78b25d1c1bc0f8daa1b2e882266ef2e174bd7fb92e81eddd6026837208b3",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retracted-metric-evidence-summary-r2",
+        "case_id": "retracted-metric-evidence-summary",
+        "mechanism": "source-revision-control",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "- 插入位置：文章分析段之后。\n\n- 帮助理解的目的：区分“已撤回的量化结论”“目前无法判断的效果”与“有限的主观反馈”，避免把 43% 或访谈结果误读为助手成效证据。\n\n- 画面结构（中文，16:9）：横向三栏证据摘要。左栏标题“原始说法（P2）”，展示“升级工单减少 43%”，加醒目的“已撤回”标记；中栏标题“审计结论（P5）”，以合并工单重复计数为核心，并明确写出“无法判断变化方向或幅度”“不能归因于助手”；右栏标题“访谈反馈（P6）”，展示“5 人中 3 人认为交接说明更清楚”，同时标注“主观反馈、无对照组”。底部横贯全图放总结条：“当前证据不足以证明助手减少了升级工单；仅有有限的正向主观反馈。”",
+            "output_sha256": "5a5e5302798ff595e18d3d5a48f4fdcdab1a3e844cd34e60170d762e762c99ff",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "- **插入位置**：文章分析段后。\n\n- **帮助理解的目的**：区分“已撤回的量化结论”“目前无法判断的实际效果”和“有限的主观反馈”，避免把清晰度反馈误读为工单减少或助手的因果效果。\n\n- **画面结构**：中文 16:9 证据摘要图，采用从左到右的证据时间线：\n  1. **P2 上线周报**：“升级工单减少 43%”，标注“原始主张”。\n  2. **P5 三周后审计**：指出“合并工单被重复计数”，将“43%”醒目标记为“已撤回”；中央结论框写明：“现有记录无法判断升级工单变化的方向或幅度，也不能归因于助手。”\n  3. **P6 访谈记录**：“5 名受访者中 3 人认为交接说明更清楚”，置于独立的“主观反馈”区域，并标注“无对照组、不能证明工单变化或因果关系”。\n\n  底部汇总证据状态：“量化效果未知；因果归因不成立；仅有有限的正向主观反馈。”",
+            "output_sha256": "d3754e12d86f30769f82dc85ed7f8ef683810a1a8cf35f3f8fdbd3a3d4c2b886",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "插入位置：文章分析段后。\n\n帮助理解的目的：区分“已撤回的量化结论”“目前无法判断的实际效果”和“有限的主观反馈”，避免将 43% 或访谈结果误读为助手有效的证据。\n\n画面结构：中文 16:9 横版证据摘要图，标题为“当前证据状态”。从左到右分为三栏：\n\n- P2 原始周报：醒目展示“升级工单减少 43%”，加“已撤回”标记。\n- P5 审计结论：说明合并工单被重复计数；现有记录无法判断升级工单变化的方向或幅度，也无法归因于助手。此栏作为视觉中心。\n- P6 访谈反馈：展示“5 人中 3 人认为交接说明更清楚”，同时标注“主观反馈、无对照组”。\n\n底部总结条：“量化效果未知，因果关系不成立；仅有有限的正向主观反馈。”",
+            "output_sha256": "1474ed3afe39c3dcf7d8c6c5e737487dd93167731253076d32d68db915025e44",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "retracted-metric-evidence-summary-r3",
+        "case_id": "retracted-metric-evidence-summary",
+        "mechanism": "source-revision-control",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "- 插入位置：文章分析段之后。\n\n- 帮助理解的目的：区分“已撤回的宣传结论”“当前可证实的信息”和“有限的主观反馈”，避免把 43% 或访谈意见误读为助手的确定成效。\n\n- 画面结构：中文 16:9 横版证据摘要图。采用三栏时间线/证据卡片布局：\n  - 左栏「P2 上线周报」：展示原说法“升级工单减少 43%”，加醒目的「已撤回」标识。\n  - 中栏「P5 三周后审计」：作为视觉重点，说明合并工单被重复计数；现有记录无法判断升级工单变化的方向或幅度，也无法归因于助手。\n  - 右栏「P6 访谈记录」：展示“5 人中 3 人认为交接说明更清楚”，明确标注「主观反馈」「无对照组」。\n  - 底部结论条：「目前不能证明助手减少了升级工单；仅有部分受访者报告交接说明更清楚。」",
+            "output_sha256": "38db4bc776cfe3c5604599edd554d5973e25bf9edc8cf8d259048be4622f4d94",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "- 插入位置：紧接文章分析段之后。\n\n- 帮助理解的目的：区分“已撤回的量化结论”“目前无法判断的效果”与“有限的主观反馈”，防止将 43% 或访谈结果误读为助手有效的证据。\n\n- 画面结构：中文 16:9 横版证据摘要图。按时间与证据状态从左至右分为三栏：\n  1. **P2 上线周报**：“升级工单减少 43%”，加醒目的“已撤回”标记。\n  2. **P5 三周后审计**：指出合并工单被重复计数；中央结论框写明“现有记录无法判断升级工单变化的方向或幅度，也不能归因于助手”。\n  3. **P6 访谈记录**：“5 人中 3 人认为交接说明更清楚”，标注“主观反馈、无对照组”。\n\n  底部用一条总括带总结：**当前证据不足以证明助手减少了升级工单；仅存在有限的正向体验反馈。** 不使用下降曲线、效果百分比对比或因果箭头。",
+            "output_sha256": "b07f25848439934e986b5245dea36b34789de9e5a9a50e59569333bf787ee4b0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "插入位置：文章分析段之后。\n\n帮助理解的目的：区分“已撤回的效果主张”“目前无法得出的结论”和“有限的主观反馈”，避免将“减少 43%”或“3/5 认为更清楚”误解为助手成效证据。\n\n画面结构：中文 16:9 证据摘要图。横向三栏：\n\n- 左栏「原始主张」：P2 上线周报称“升级工单减少 43%”，加醒目的“已撤回”标记。\n- 中栏「审计结论」：P5 指出合并工单被重复计数；现有记录无法判断升级工单变化的方向或幅度，也无法归因于助手。此栏作为视觉中心。\n- 右栏「有限反馈」：P6 显示 5 名受访者中 3 人认为交接说明“更清楚”，同时标注“主观反馈”“无对照组”。\n\n底部总结条：「当前证据不足以证明助手减少了升级工单；仅有少量正向主观反馈。」",
+            "output_sha256": "e708b09609c047327fabb9677ba6871f2b599591e9c0056de01309f7c8f78fef",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "unequal-cohort-observed-rates-r1",
+        "case_id": "unequal-cohort-observed-rates",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 1,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "- 位置：放在介绍完试点 A、试点 B 数据之后，回答“哪个方案更好”之前；比例 4:3。\n\n- 目的：让读者快速看懂两次观察结果，同时明确不能据此判定自助模式优于引导模式，因为参与者、时间和入选条件均不同，且没有随机分组或交叉测试。\n\n- 画面结构：中文双栏对照图。左栏“第 1 周·试点 A·引导模式”：符合条件 20 人，完成 12 人，完成率 60%；右栏“第 6 周·试点 B·自助模式”：符合更新后条件 18 人，完成 14 人，完成率 77.8%。中间用醒目分隔标注“不同批参与者／条件已更新／时间不同”。底部结论区写：“观察上 B 的完成率更高，但当前设计无法回答哪个方案更好；需在相同条件下随机对照或交叉测试。”",
+            "output_sha256": "987a15334fc5a87fe4dc90955f5d433141a865552833c8bf11a5aee45515a28c",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：比较段中两次试点数据之后、“哪个方案更好”这一问题之前。\n\n目的：并列呈现两次观察及完成率差异，同时明确两批参与者、入选条件和测试时间均不同，因此不能据此直接判定方案优劣。\n\n画面结构：中文 4:3 横图。左右双栏对照：左栏“试点 A｜第 1 周｜引导模式”，显示“12/20 完成（60%）”；右栏“试点 B｜第 6 周｜自助模式”，显示“14/18 完成（约 77.8%）”。两栏下方设置横跨全图的限制条件区，列出“参与者不同”“入选条件已调整”“无随机分组”“无同一人交叉测试”。底部以中性结论框收束：“B 的观察完成率更高，但现有数据不足以回答哪个方案更好。”不使用奖杯、胜负标记、因果箭头或统一尺度柱状图。",
+            "output_sha256": "4f8bd2925a55cc9645cd64a3ba0ef406ca891c83b653bbc4ce497eec2fba9ab5",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：比较段后，紧接“哪个方案更好？”这一问题。\n\n目的：并列呈现两次观察结果，同时明确两批人群与条件不可直接对比，因此不能据此判定方案优劣。\n\n画面结构：中文 4:3 横图。左侧卡片“试点 A｜第 1 周｜引导模式”，显示“12/20 完成（60%）”；右侧卡片“试点 B｜第 6 周｜自助模式”，显示“14/18 完成（77.8%）”。中间不用胜负箭头，改用虚线分隔与问号。底部横向警示区列出“两批参与者不同、入选条件已改变、未随机分组、无同一人交叉测试”，结论标注：“可看懂两次观察，不能回答哪个方案更好”。",
+            "output_sha256": "76c005c09bbfa40516f7dfbe9059d841037cfdc3eeb3d1c2a129fb82fec82761",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "unequal-cohort-observed-rates-r2",
+        "case_id": "unequal-cohort-observed-rates",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 2,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "位置：比较段之后。\n\n目的：并列呈现两次试点的完成情况，同时明确说明数据不可直接用于判断“哪个方案更好”。\n\n画面结构：中文 4:3 横图。左右双栏观察卡片：左侧“试点 A｜第 1 周｜引导模式”，显示“12/20 完成（60%）”；右侧“试点 B｜第 6 周｜自助模式”，显示“14/18 完成（77.8%）”。两栏之间不放胜负箭头。底部设置醒目说明区：“两批参与者不同、入选条件已调整、无随机分组、无同一人交叉测试”，结论标注：“只能描述两次观察，不能据此判定方案优劣。”",
+            "output_sha256": "ee671d04363868947e2d2c6c1757b33ddda76963a18f7ede63eac882c0a636fb",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：紧接两次试点数据的比较段之后。\n\n目的：并列呈现两次观察结果，同时说明因参与者、入选条件和时间不同，无法据此回答“哪个方案更好”。\n\n画面结构：中文 4:3 双栏对照图。左栏“试点 A｜第 1 周｜引导模式”，显示“符合条件 20 人，完成 12 人（60%）”；右栏“试点 B｜第 6 周｜自助模式”，显示“符合更新后条件 18 人，完成 14 人（77.8%）”。两栏之间不使用胜负符号或因果箭头；底部横跨全图设置醒目提示框：“两批参与者不同、入选条件已改变；无随机分组、无同一人交叉测试。结果是两次独立观察，不能直接判定哪个方案更好。”",
+            "output_sha256": "414f652ace08147f09f76470c617808b9ed2dda7d37fab61c8f4dec35528f46e",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：比较段之后，4:3 横图。\n\n目的：呈现两次独立观察：A 完成率 12/20（60%），B 完成率 14/18（77.8%）。明确 B 的观察值更高，但因参与者不同、入选条件变化，且无随机分组或交叉测试，不能据此判断自助模式优于引导模式。\n\n画面结构：左右双栏对照。左栏“第 1 周｜试点 A｜引导模式”，用 20 人图标突出 12 人完成、8 人未完成及 60%；右栏“第 6 周｜试点 B｜自助模式”，用 18 人图标突出 14 人完成、4 人未完成及 77.8%。中间以断开的比较箭头标注“不可直接归因”。底部横条汇总结论：“观察结果：B 高 17.8 个百分点；方案优劣：证据不足”，并列出“不同参与者／条件已更新／非随机／无交叉测试”。",
+            "output_sha256": "72b393332522007a1cbb19645bf626419b9005b03c8080f86e1aebe0ba585b0b",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      },
+      {
+        "review_id": "unequal-cohort-observed-rates-r3",
+        "case_id": "unequal-cohort-observed-rates",
+        "mechanism": "evidence-compatible-encoding",
+        "repetition": 3,
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "- 位置：比较段中，两次试点数据首次完整出现之后。\n- 目的：帮助读者看懂两次独立观察及其完成情况，同时明确由于参与者、入选条件和周次不同，且未随机分组或交叉测试，不能据此回答“哪个方案更好”。\n- 画面结构：中文 4:3 横图。左右并列两张观察卡：左侧“试点 A｜第 1 周｜引导模式”，用 20 个人形中 12 个高亮表示完成（12/20，60%）；右侧“试点 B｜第 6 周｜自助模式”，用 18 个人形中 14 个高亮表示完成（14/18，约 78%）。两卡之间不放胜负箭头或优劣符号；底部横跨全图设置醒目说明框：“两批参与者不同｜入选条件已更新｜非随机分组｜无同一人交叉测试”，结论标注“可分别描述观察结果，不能直接判定哪个方案更好”。",
+            "output_sha256": "68823f2d57b441dfba40ceefad15cbe8f993ce4231a43605a027e1090c0f17f0",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          },
+          {
+            "arm_id": "ours",
+            "skill": "article-visual-plan",
+            "output": "位置：比较段中两次试点数据陈述之后、“哪个方案更好？”这一问题之后。\n\n目的：并列呈现两次观察结果，同时明确参与者、入选条件和时间均不同，因此不能据此判断引导模式与自助模式孰优。\n\n画面结构：中文 4:3。左右两张等宽观察卡，中间不设胜负箭头或统一排名轴。左卡为“第 1 周｜试点 A｜引导模式：12/20 完成”，右卡为“第 6 周｜试点 B｜自助模式：14/18 完成”。两卡下方汇入醒目的限制说明区：“不同参与者｜入选条件已更新｜无随机分组｜无同一人交叉测试”。底部结论框写：“只能描述两次观察；现有证据不足以回答哪个方案更好。”",
+            "output_sha256": "f6dcc261d42c72853ffe29243e00c01564d023ce66c467a99a5fe1a8cb3772c2",
+            "criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "passed": 3,
+            "total": 4,
+            "core_failure": true,
+            "preferred": false
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "baoyu-article-illustrator",
+            "output": "位置：比较段之后。\n\n目的：并列呈现两次试点观察结果，同时明确两批人群、入选条件和时间均不同，不能据此回答“哪个方案更好”。\n\n画面结构：4:3 中文对照信息图。左侧为“第1周·试点A·引导模式”：符合条件20人，完成12人，完成率60%；右侧为“第6周·试点B·自助模式”：符合更新后条件18人，完成14人，完成率77.8%。两栏用独立样本卡片呈现，不画胜负箭头；底部设置醒目结论区：“观察值：B较高；方案优劣：无法判断”，并列标注“参与者不同、条件已调整、无随机分组、无同人交叉测试”。",
+            "output_sha256": "fd9ea7cdac7f78ef52efc4248016e18a023e776885f552db8a3bcbfcf6680df2",
+            "criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "passed": 4,
+            "total": 4,
+            "core_failure": false,
+            "preferred": false
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "case_core_failures": {
+      "retracted-metric-evidence-summary": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "owner-corrected-human-review-flow": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "unequal-cohort-observed-rates": {
+        "baseline": 0,
+        "ours": 1,
+        "upstream": 0
+      },
+      "qualitative-themes-without-intensity": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "global-style-with-local-content-correction": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      },
+      "delete-and-insert-with-stable-ids": {
+        "baseline": 0,
+        "ours": 0,
+        "upstream": 0
+      }
+    },
+    "mechanisms": [
+      {
+        "mechanism": "source-revision-control",
+        "case_ids": [
+          "retracted-metric-evidence-summary",
+          "owner-corrected-human-review-flow"
+        ],
+        "core_failures": {
+          "retracted-metric-evidence-summary": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "owner-corrected-human-review-flow": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "evidence-compatible-encoding",
+        "case_ids": [
+          "unequal-cohort-observed-rates",
+          "qualitative-themes-without-intensity"
+        ],
+        "core_failures": {
+          "unequal-cohort-observed-rates": {
+            "baseline": 0,
+            "ours": 1,
+            "upstream": 0
+          },
+          "qualitative-themes-without-intensity": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      },
+      {
+        "mechanism": "compound-plan-state",
+        "case_ids": [
+          "global-style-with-local-content-correction",
+          "delete-and-insert-with-stable-ids"
+        ],
+        "core_failures": {
+          "global-style-with-local-content-correction": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          },
+          "delete-and-insert-with-stable-ids": {
+            "baseline": 0,
+            "ours": 0,
+            "upstream": 0
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": true,
+        "triggered": false
+      }
+    ],
+    "decision_gate": {
+      "scope": "ours-versus-baseline",
+      "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+      "minimum_cases_in_same_mechanism": 2,
+      "ours_min_core_failures_per_case": 2,
+      "baseline_max_core_failures_per_case": 1,
+      "required_valid_outputs": 54,
+      "upstream_role": "context-only",
+      "effect": "open-minimal-candidate-design-only"
+    },
+    "valid_output_count": 54,
+    "all_preferences_tied": true,
+    "equal_arm_scores": true,
+    "efficiency": {
+      "ours_vs_baseline_percent": {
+        "tokens_total": 9.7,
+        "cost_total": 22.8,
+        "latency_ms_median": -5.8
+      },
+      "upstream_vs_baseline_percent": {
+        "tokens_total": 43.4,
+        "cost_total": 95.2,
+        "latency_ms_median": 3.0
+      },
+      "ours_vs_upstream_percent": {
+        "tokens_total": -23.6,
+        "cost_total": -37.1,
+        "latency_ms_median": -8.6
+      },
+      "semantics": "Promptfoo recorded totals for this run only; percent = comparison/reference - 1."
+    },
+    "ceiling_effect": false,
+    "discrimination_note": "The harder tasks exposed six criterion failures, but aggregate scores were identical and five failures were the same non-core material-extension pattern."
+  },
+  "decision": {
+    "candidate_design_open": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "verification_status_changed": false,
+    "current_version": "0.1.0",
+    "current_catalog_status": "experimental",
+    "current_catalog_evidence": null,
+    "active_cases_added": [
+      "retracted-metric-evidence-summary",
+      "owner-corrected-human-review-flow",
+      "unequal-cohort-observed-rates",
+      "qualitative-themes-without-intensity",
+      "global-style-with-local-content-correction",
+      "delete-and-insert-with-stable-ids"
+    ],
+    "active_case_count_before": 10,
+    "active_case_count_after": 16,
+    "skill_package_sha256": "e02fed142a73421a2cc091bfea0d6faefef4c8035e671d4866e65708e9973a87",
+    "active_cases_sha256": "a21c7f4e96bc7babaa7fc0f4580f43a7c4071ed58b068c881bd3dacbbc76898d",
+    "conclusion": "Keep 0.1.0 unchanged. The discriminative tasks exposed one isolated ours core failure and five non-core failures, with no mechanism-level gate and no arm-level score difference."
+  },
+  "limitations": [
+    "Six synthetic single-turn text-planning tasks, one model, one reasoning effort, and three repetitions per arm.",
+    "The reviewer was model-assisted, knew the frozen protocol and skills, and was blind only to the randomized arm mapping.",
+    "No implicit routing, image generation, rendered image quality, file writeback, editor integration, or real-reader comprehension was tested.",
+    "Equal aggregate scores do not establish relative benefit or a general product ranking.",
+    "Raw Promptfoo artifacts remain git-ignored; the public report embeds synthetic outputs and hashes but a fresh clone cannot independently recreate provider events."
+  ],
+  "evidence_projection_sha256": "e300418ed60d2a3d39baed4679dfeeef26dbcc3bdcbbd027489ae99e6202f152"
+}

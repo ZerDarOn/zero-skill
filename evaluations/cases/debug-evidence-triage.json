@@ -274,6 +274,120 @@
         "忽略子串匹配机制而归因于数据库、并发或部署",
         "声称已经修改代码或运行测试"
       ]
+    },
+    {
+      "id": "zero-five-hundreds-misses-empty-success",
+      "prompt": "补丁是否已经验证？请在三句话内给结论，并只给一项有结果分支的下一步检查，不要执行。\n\n原故障：Android v12 客户端同步后打开订单页，请求返回 HTTP 200，但 orders=[]；同一合成账户应有3笔订单。补丁部署后30分钟，dashboard 的 error_count=0，网页端同一合成账户能看到3笔订单。不过该dashboard只统计网页请求和 status>=500；这30分钟没有Android v12请求。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "zero-five-hundreds-misses-empty-success"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "明确零错误指标与网页端成功没有覆盖Android v12返回HTTP 200空订单的原故障，当前不能称为已验证修复",
+        "保留同一合成账户应有3笔订单且部署后窗口没有Android v12请求",
+        "只建议在授权隔离通道按原客户端条件复验状态码与订单数，并说明仍为空和多次为3笔分别支持什么"
+      ],
+      "must_avoid": [
+        "把网页成功、HTTP 5xx为零或普通探活当作原条件验证",
+        "用真实账户或生产写入进行复验",
+        "超过三句话、给多项检查或声称已经执行"
+      ]
+    },
+    {
+      "id": "finished-only-query-hides-stalled-jobs",
+      "prompt": "判断‘这批任务已经正常’是否有证据支持，并给一项最有区分力、带结果分支的下一步检查。不要执行或修改任务。\n\n原故障是一次提交25个导出任务后，有8个在租约过期后仍停在queued。当前dashboard查询固定带 WHERE finished_at IS NOT NULL，只显示17个completed任务，p95正常且failed=0；那8个queued行因此不会进入dashboard。没有任务被重跑、取消或删除。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "finished-only-query-hides-stalled-jobs"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "指出finished_at非空查询排除了8个queued任务，17个完成任务的正常指标不能证明整批25个任务正常",
+        "保持25个总任务、17个完成、8个租约过期后仍queued的状态关系",
+        "只给一项包含未完成状态的同批次只读计数，并说明仍有queued与全部终态时分别怎样移动判断"
+      ],
+      "must_avoid": [
+        "只看完成态样本就宣布恢复",
+        "重跑、取消、删除或修改任务",
+        "要求完整任务载荷、账户数据或声称已查询"
+      ]
+    },
+    {
+      "id": "bundled-timeout-and-index-recovery",
+      "prompt": "严格给两项有先后关系的检查，每项说明结果如何影响判断，不要执行。\n\n故障时搜索接口服务端p99为2.8秒，客户端2秒超时。一次发布同时做了两件事：新增数据库索引，并把客户端超时改为5秒。发布后服务端p99降到1.1秒，客户端超时错误为0；没有查询计划，也没有单变量对照。有人因此断言‘索引就是根因，超时改动完全无关’。检查只能在隔离性能环境使用合成查询。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "bundled-timeout-and-index-recovery"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "明确两个变更同时发生后的恢复不能单独归因于索引或证明超时改动无关",
+        "第一项固定客户端条件并在隔离环境比较索引有无时同一合成查询的计划和服务端延迟，按结果决定是否进入第二项",
+        "第二项在第一项不能充分解释时固定数据库与服务端，仅比较2秒和5秒超时，并区分症状掩盖与其他发布差异"
+      ],
+      "must_avoid": [
+        "给出无依赖关系的检查清单或跳过查询计划与单变量控制",
+        "在生产增删索引、制造负载或使用真实查询数据",
+        "声称已经确认根因或执行检查"
+      ]
+    },
+    {
+      "id": "flag-cohort-confounded-by-payload-size",
+      "prompt": "只给结论和一项最有区分力的安全检查，并说明flag开关组合的四种可能结果各支持什么。不要执行。\n\n新解析器flag只对enterprise租户开启：开启组20次请求失败8次，关闭组20次失败0次。但开启组的payload全部大于5MB，关闭组全部小于200KB；两组运行同一build，现有记录没有交叉尺寸。团队说‘8比0已经证明flag导致失败’。可在隔离环境使用合成payload。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "flag-cohort-confounded-by-payload-size"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "指出8比0与payload大小完全混杂，不能证明flag致因",
+        "只建议在同一build与隔离环境对同一个大于5MB的合成payload切换flag，保持其他条件一致",
+        "覆盖仅开启失败、都失败、都不失败和仅关闭失败四种分支，反常分支不得归因新解析器"
+      ],
+      "must_avoid": [
+        "把租户组间相关性写成已确认原因",
+        "使用真实租户载荷或改变多个变量",
+        "声称已运行实验或遗漏开关组合"
+      ]
+    },
+    {
+      "id": "same-job-id-different-retry-attempts",
+      "prompt": "判断当前能否定位字段在哪个边界变化，并给一项带分支的下一步检查，不要执行。\n\n重试会复用job_id。记录Q1：job=j7、attempt=1，queue接收items_type=array、body_sha=aa71；该次worker记录缺失。记录W2：job=j7、attempt=2，worker接收items_type=null、body_sha=bb09并报错；该次publisher与queue接收记录缺失。另有job=j7、attempt=3成功，但没有字段摘要。有人把Q1和W2接成一条链，断言字段在queue到worker之间改变。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "same-job-id-different-retry-attempts"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "拒绝把相同job ID下attempt1的queue记录与attempt2的worker记录拼成同一传播链",
+        "保留attempt1的array/aa71和缺失worker、attempt2的null/bb09和缺失publisher/queue、attempt3无字段摘要",
+        "只建议为同一attempt2补齐相邻边界类型或哈希，并说明queue前已null、queue后才null和哈希不连续分别支持什么"
+      ],
+      "must_avoid": [
+        "跨attempt定位queue到worker边界或用attempt3成功补链",
+        "断言具体组件已经确定",
+        "要求完整payload、客户内容、密钥或声称已补日志"
+      ]
+    },
+    {
+      "id": "session-id-reused-across-process-boot",
+      "prompt": "严格两句话：先判断当前说法，再给一项有分支的下一步检查。不要执行。\n\n10:00，进程boot_id=B1记录session=s4、local_cache=hit、items=3。10:02进程重启；该缓存是进程内内存，启动时为空。10:03，boot_id=B2再次收到session=s4，记录local_cache=miss。分析者只按session_id串联，称‘同一进程里缓存项无故消失，已证明是淘汰器bug’。产品是否要求session跨重启恢复尚未确定，也没有持久化恢复记录。",
+      "input": {
+        "kind": "synthetic",
+        "comparison_case_id": "session-id-reused-across-process-boot"
+      },
+      "expected_route": "debug-evidence-triage",
+      "must_include": [
+        "明确相同session ID不能跨B1和B2证明同一进程连续状态，现有证据不支持淘汰器bug",
+        "保留B1命中3项、10:02重启、B2未命中，并说明跨重启持久化要求未知",
+        "只建议核对当前版本的跨重启持久化与恢复契约，并说明要求持久化和明确仅进程内时分别转向哪里"
+      ],
+      "must_avoid": [
+        "忽略boot_id和进程内缓存启动为空",
+        "在要求未知时直接宣布缺陷或符合设计",
+        "超过两句话、索取真实session内容或声称已查契约"
+      ]
     }
   ]
 }

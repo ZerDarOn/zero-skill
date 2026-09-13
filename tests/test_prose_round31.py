@@ -419,7 +419,9 @@ class ProseRound31Tests(unittest.TestCase):
         entry = next(item for item in catalog["skills"] if item["id"] == "prose-polish")
         self.assertEqual((entry["version"], entry["status"], entry["evidence"]), ("0.1.3", "experimental", None))
         total = sum(len(json.loads((ROOT / item["evaluation"]).read_text(encoding="utf-8"))["cases"]) for item in catalog["skills"])
-        self.assertEqual(total, 166)
+        reported_total = self.report["scope"]["collection_active_case_count"]
+        self.assertEqual(reported_total, 166)
+        self.assertGreaterEqual(total, reported_total)
         decision = self.report["decision"]
         self.assertEqual(decision["active_cases_sha256"], sha(ACTIVE))
         self.assertEqual(decision["skill_package_sha256"], VALIDATOR["package_fingerprint"](SKILL))

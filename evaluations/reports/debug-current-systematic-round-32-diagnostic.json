@@ -1,0 +1,2250 @@
+{
+  "schema_version": 1,
+  "report_id": "debug-current-systematic-round-32-diagnostic",
+  "generated_at": "2026-09-13T20:16:18.225342+00:00",
+  "scope": {
+    "skill_id": "debug-evidence-triage",
+    "version": "0.1.1",
+    "catalog_status": "experimental",
+    "catalog_evidence": null,
+    "prior_active_case_count": 13,
+    "active_case_count": 19,
+    "collection_active_case_count": 172,
+    "formal_outputs": 54,
+    "blind_review_items": 18,
+    "criterion_booleans": 216
+  },
+  "experiment": {
+    "comparison_id": "debug-current-systematic-three-arm-25",
+    "run_id": "debug-current-systematic-three-arm-25-formal-20260914-v1",
+    "freeze_commit": "674321cbe70acf6bbafd1cdafb23fda3e34d53da",
+    "promptfoo_version": "0.123.0",
+    "model": "gpt-5.6-sol",
+    "reasoning_effort": "medium",
+    "planned_repetitions": 3,
+    "executed_repetitions": 3,
+    "infrastructure_valid": true,
+    "preflight": {
+      "run_id": "debug-current-systematic-three-arm-25-preflight-20260914-v1",
+      "outputs": 3,
+      "infrastructure_valid": true,
+      "summary_sha256": "31a4c0840994c2d3903e97ba685d8ef02d46f9467bb23c06d13abb9cc4c902bd",
+      "scored": false
+    },
+    "source_hashes": {
+      "promptfoo.json": "71d0d8c472e081d7691368ceb8c19aa3270fef29d90ca293caa93e9c2180d20d",
+      "cases.json": "9ab66e760df491dd34b2826aea5a3ec0e1cd320eeb11e254d9fb04fb7b5e7d18",
+      "active-cases.json": "b1ee9ec43e44076a9ee1676c814b9cdc2dae5a60d4d436b2d0872316aa678ae8",
+      "SKILL.md": "0e3541d602e6073996b779c6fac248109d00d65adfef17896b910552e5485266",
+      "upstream-provenance.json": "3d3d80441045c888e88c036ec36ed5a82714bdb4dccce46271c88462fbdd6cfd"
+    },
+    "prepared_hashes": {
+      "config": "709aab6bed1937447377994734afdd0449f12f68ddb83b9a449c7daa3a21d8a3",
+      "tests": "573cd8f3a58b56863f9ea0b4cfd3a36dfa0942bb2a414e206e7865de4379b0cb"
+    },
+    "artifact_hashes": {
+      "frozen.json": "175ed4d0a04328ae197ae1fb5b1f9e4d45deb83470d8e9e9c622fd03d6cb4938",
+      "run-meta.json": "f371679a94295b01142af1377a9c1e283527f76ae58f887bba9c53e0b53ab029",
+      "results.json": "4acc585cb5f6fa0ab4ea76474b5e9be9c422e40776cf45a91c82e5b1c43f4403",
+      "summary.json": "0ec1192aeb9af1a120bf8f5f4f2b0c806061e77888a6387e340e7f43b80c17f5",
+      "blind-review.json": "cdfe6c40f7cdee29ffd4ca01ba3727a7a13f905f23107771ceed8cbaa210d24f",
+      "blind-review-key.json": "9c76b54ba8bfaf44cbccbd536511352bc6f8c0ef1d8291dc2ac3b3f4b400fa4b",
+      "blind-review-form.json": "fd374b05c0ebea0a446a9842bdd2eb39f1509d1bbc928e8718d6596384fdb483",
+      "blind-review-completed-independent.json": "110b2f7990734fd35f0d18bfe54b62335ac76436d2c9ae42cf5840930689196b",
+      "review-result-blind-review-completed-independent.json": "0a8950190c7a7a54bb0e2487232e337275791c403249ebb1eeac3841d9b70b41",
+      "review-calibration-independent.json": "b774ffc0bdf2ec542ede7c8827d03b7b844ddddab7bf3c7811c90de2f743810e"
+    },
+    "review_hashes": {
+      "prefreeze-review-independent.md": "6d335c48eb826b5ffd9f08438bf4ed928148ec6bab3bff90085132bd186c6f1e",
+      "postscore-decision-review-independent.md": "cf12d8b9cc22ec39098dbdf3a29d87fcab7031ab08daf8d82a157e006826f1f8"
+    },
+    "upstream_provenance": {
+      "repository": "https://github.com/obra/superpowers",
+      "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+      "license": "MIT",
+      "provenance_sha256": "3d3d80441045c888e88c036ec36ed5a82714bdb4dccce46271c88462fbdd6cfd",
+      "package_sha256": "17c82641ac6528efd6c1728206442de6ca345314a176a8448c351191b35ca731",
+      "package_license_included": true,
+      "source_bytes_modified": false,
+      "same_directory_references_closed": true,
+      "excluded_sibling_skills": [
+        "test-driven-development",
+        "verification-before-completion"
+      ],
+      "scripts_executed": false
+    },
+    "blind_reviewer": {
+      "kind": "model-assisted-independent-task",
+      "task_name": "round32_blind_review",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "completed_at": "2026-09-13T20:05:30.418799+00:00",
+      "independent_human": false,
+      "blind_to_arm_mapping": true,
+      "prior_protocol_exposure": true,
+      "prior_skill_revision_exposure": true,
+      "allowed_files": [
+        "blind-review.json",
+        "blind-review-form.json"
+      ],
+      "blind_file_boundary_clean": true,
+      "unexpected_files_read": [],
+      "notes": "Scored only the anonymous packet and blank form against their four frozen hard criteria. Prior protocol and skill exposure is disclosed; no arm mapping or reveal artifact was read. Failures were retained without post hoc relaxation."
+    },
+    "semantic_calibration": {
+      "reviewer": {
+        "kind": "model-assisted-independent-task",
+        "model": "gpt-6",
+        "independent_human": false,
+        "was_original_anonymous_scorer": false,
+        "blind_to_arm_mapping": false,
+        "post_reveal": true,
+        "scope_note": "Reviewed all 76 original false judgments after reveal. Corrections require the candidate answer to already satisfy the frozen criterion semantically; no criterion was relaxed and no new false judgment was added."
+      },
+      "calibration_kind": "post-reveal-semantic-false-to-true-only",
+      "source_bindings": {
+        "blind-review.json": "cdfe6c40f7cdee29ffd4ca01ba3727a7a13f905f23107771ceed8cbaa210d24f",
+        "blind-review-key.json": "9c76b54ba8bfaf44cbccbd536511352bc6f8c0ef1d8291dc2ac3b3f4b400fa4b",
+        "blind-review-completed-independent.json": "110b2f7990734fd35f0d18bfe54b62335ac76436d2c9ae42cf5840930689196b",
+        "review-result-blind-review-completed-independent.json": "0a8950190c7a7a54bb0e2487232e337275791c403249ebb1eeac3841d9b70b41",
+        "summary.json": "0ec1192aeb9af1a120bf8f5f4f2b0c806061e77888a6387e340e7f43b80c17f5",
+        "run-meta.json": "f371679a94295b01142af1377a9c1e283527f76ae58f887bba9c53e0b53ab029",
+        "frozen.json": "175ed4d0a04328ae197ae1fb5b1f9e4d45deb83470d8e9e9c622fd03d6cb4938"
+      },
+      "original_false_count": 76,
+      "correction_count": 10,
+      "retained_false_count": 66,
+      "corrections": [
+        {
+          "review_id": "finished-only-query-hides-stalled-jobs-r2",
+          "candidate_id": "B",
+          "arm_id": "upstream",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "答案查询同一批次全部25个任务的当前状态，并在25个都有终态时明确解释为任务后来恢复、转而核对状态变更记录；这在语义上就是转向快照时点/状态选择解释，无需逐字写出dashboard快照。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r1",
+          "candidate_id": "A",
+          "arm_id": "baseline",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四个同一大payload开关结果均已覆盖；仅关闭失败被写为反驳flag致因并支持关闭路径或随机波动，语义上将其当作反常结果且没有归因新解析器。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r1",
+          "candidate_id": "B",
+          "arm_id": "upstream",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四分支完整；仅关闭失败被解释为反向影响或随机/顺序因素，开关都成功则判为未复现且证据不足，分别等价于先复核实验控制和转向未控制条件。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r1",
+          "candidate_id": "C",
+          "arm_id": "ours",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四分支完整；仅关闭失败明确反驳当前flag方向并保留关闭路径异常或随机因素，开关都成功转向其他条件或偶发性，满足冻结分支而非归因新解析器。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r2",
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四分支完整；仅关闭失败转向随机波动、配置偏差或反向影响，开关都成功转向间歇性或其他组间因素，已用等价语义表达冻结要求。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r2",
+          "candidate_id": "B",
+          "arm_id": "baseline",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四分支完整；仅关闭失败被视为反驳原方向并转向关闭路径或实验波动，开关都成功明确为不复现和不能归因，满足反常结果的控制复核语义。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r2",
+          "candidate_id": "C",
+          "arm_id": "upstream",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "四分支完整；仅关闭失败明确反驳开启flag致因并转向反向效应或未控因素，开关都成功明确不复现且证据不足，没有把反常结果归因新解析器。"
+        },
+        {
+          "review_id": "flag-cohort-confounded-by-payload-size-r3",
+          "candidate_id": "B",
+          "arm_id": "ours",
+          "criterion_index": 2,
+          "from": false,
+          "to": true,
+          "reason": "虽然检查设计另在criterion 1保留失败，但答案针对同一大payload开/关列出了冻结的四种结果；仅关闭失败转向关闭路径或非稳定因素，开关都成功转向未控制条件，criterion 2语义完整。"
+        },
+        {
+          "review_id": "same-job-id-different-retry-attempts-r2",
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "criterion_index": 1,
+          "from": false,
+          "to": true,
+          "reason": "答案逐项保留attempt 1的array/aa71、attempt 2的null/bb09和attempt 3成功但无摘要，并说明两次尝试的相邻组件记录均缺失；该概括在语义上保留了不能跨边界补链的具体缺口。"
+        },
+        {
+          "review_id": "same-job-id-different-retry-attempts-r3",
+          "candidate_id": "A",
+          "arm_id": "ours",
+          "criterion_index": 1,
+          "from": false,
+          "to": true,
+          "reason": "答案保留attempt 1的array/aa71、attempt 2的null/bb09、两者不能拼链及attempt 3无字段摘要，并明确缺少同一次失败尝试的相邻边界证据；这是对缺失worker/publisher/queue记录的等价概括。"
+        }
+      ],
+      "raw_artifacts_modified": false,
+      "preferences_recomputed": false,
+      "review_sha256": "cf12d8b9cc22ec39098dbdf3a29d87fcab7031ab08daf8d82a157e006826f1f8",
+      "calibration_sha256": "b774ffc0bdf2ec542ede7c8827d03b7b844ddddab7bf3c7811c90de2f743810e"
+    },
+    "arms": [
+      {
+        "arm_id": "baseline",
+        "skill": null,
+        "package_evidence_path": null,
+        "skill_package_sha256": null,
+        "runtime": {
+          "id": "baseline",
+          "skill": null,
+          "install_mode": "none",
+          "invocation": "none",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.2679984,
+          "latency_ms_median": 11611.5,
+          "tokens_total": {
+            "cached": 155136,
+            "completion": 6522,
+            "prompt": 174012,
+            "total": 180534
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 4,
+          "criteria_passed": 51,
+          "criteria_total": 72,
+          "preferred_count": 5,
+          "criterion_pass_rate": 0.7083
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "baseline",
+          "skill": null,
+          "outputs": 18,
+          "perfect_outputs": 6,
+          "criteria_passed": 53,
+          "criteria_total": 72,
+          "preferred_count": 5,
+          "criterion_pass_rate": 0.7361
+        }
+      },
+      {
+        "arm_id": "ours",
+        "skill": "debug-evidence-triage",
+        "package_evidence_path": "skills/engineering/debug-evidence-triage",
+        "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+        "runtime": {
+          "id": "ours",
+          "skill": "debug-evidence-triage",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.3312952,
+          "latency_ms_median": 11722.5,
+          "tokens_total": {
+            "cached": 163328,
+            "completion": 7385,
+            "prompt": 192894,
+            "total": 200279
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "ours",
+          "skill": "debug-evidence-triage",
+          "outputs": 18,
+          "perfect_outputs": 1,
+          "criteria_passed": 45,
+          "criteria_total": 72,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.625
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "ours",
+          "skill": "debug-evidence-triage",
+          "outputs": 18,
+          "perfect_outputs": 3,
+          "criteria_passed": 50,
+          "criteria_total": 72,
+          "preferred_count": 1,
+          "criterion_pass_rate": 0.6944
+        }
+      },
+      {
+        "arm_id": "upstream",
+        "skill": "systematic-debugging",
+        "package_evidence_path": "evaluations/fixtures/upstreams/superpowers-systematic-debugging/b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+        "skill_package_sha256": "17c82641ac6528efd6c1728206442de6ca345314a176a8448c351191b35ca731",
+        "runtime": {
+          "id": "upstream",
+          "skill": "systematic-debugging",
+          "install_mode": "project",
+          "invocation": "explicit",
+          "rows": 18,
+          "promptfoo_passed_rows": 18,
+          "provider_errors": 0,
+          "forbidden_tool_rows": 0,
+          "rows_with_expected_skill_call": 0,
+          "skill_calls": [],
+          "attempted_skill_calls": [],
+          "cost_total": 0.4172008,
+          "latency_ms_median": 12046.0,
+          "tokens_total": {
+            "cached": 166272,
+            "completion": 7505,
+            "prompt": 216420,
+            "total": 223925
+          }
+        },
+        "raw_blind_review": {
+          "arm_id": "upstream",
+          "skill": "systematic-debugging",
+          "outputs": 18,
+          "perfect_outputs": 1,
+          "criteria_passed": 44,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.6111
+        },
+        "calibrated_semantic_review": {
+          "arm_id": "upstream",
+          "skill": "systematic-debugging",
+          "outputs": 18,
+          "perfect_outputs": 4,
+          "criteria_passed": 47,
+          "criteria_total": 72,
+          "preferred_count": 0,
+          "criterion_pass_rate": 0.6528
+        }
+      }
+    ],
+    "items": [
+      {
+        "review_id": "bundled-timeout-and-index-recovery-r1",
+        "case_id": "bundled-timeout-and-index-recovery",
+        "mechanism": "causal-discrimination",
+        "repetition": 1,
+        "review_notes": "A/B/C：C0均给出两项有序检查并否定组合发布的单因归因；C1均只比较延迟、未要求查询计划；C2均未限定为第一项解释不足时才执行，也未在无差异时转向其他发布差异；C3均保持隔离、未执行和未确认根因。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "已观察事实：故障时服务端 p99 为 2.8 秒，超过客户端 2 秒超时；发布同时新增索引并将超时改为 5 秒；发布后服务端 p99 为 1.1 秒且客户端超时错误为 0。由于缺少单变量对照，现有记录不能证明“索引是唯一根因、超时改动完全无关”。\n\n解释：索引可能降低服务端延迟；延长超时也可能独立消除客户端超时错误。二者的贡献尚未分离。\n\n1. **尚未执行：隔离索引影响。** 在隔离性能环境中，对相同合成查询、数据和负载固定使用 5 秒客户端超时，仅切换索引有无并比较服务端延迟分布。若启用索引使 p99 从约 2.8 秒降至约 1.1 秒，支持索引是服务端延迟下降的原因；若差异不显著，则“索引是根因”的判断不成立或仍需其他解释。\n\n2. **尚未执行：在第一项确定的无索引基线上隔离超时影响。** 保持索引关闭及其他条件不变，对相同合成查询分别使用 2 秒和 5 秒超时，比较客户端超时错误率。若 5 秒显著减少或消除错误，则超时改动并非“完全无关”，而是在掩盖或容忍慢请求；若两组错误率相同，才支持超时改动对该故障现象没有可测影响。\n\n待验证结论：索引是否造成延迟改善、超时调整是否独立影响错误率，以及索引能否被称为唯一根因，均须以上两项检查后判断。",
+            "output_sha256": "dbd2a4f93e57aa883f59d4565938a3ff68d2fe2d344b0af620a4dde9b96fa97d",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**已观察事实：** 故障时服务端 p99 为 2.8 秒，超过客户端 2 秒超时；同一次发布新增索引并将超时改为 5 秒；之后服务端 p99 为 1.1 秒、客户端超时错误为 0。缺少查询计划和单变量对照。\n\n**解释与待验证结论：** 索引可能降低了服务端延迟，延长超时也可能直接减少客户端错误。现有证据无法证明“索引就是根因，超时改动完全无关”。\n\n1. **尚未执行：索引单变量检查。** 在隔离性能环境中，以相同合成查询、数据规模和负载，固定客户端超时，分别测试有索引与无索引的服务端延迟分布。若索引使 p99 稳定地从约 2.8 秒降至约 1.1 秒，支持索引是延迟改善原因；若差异不明显，则索引根因说法减弱，判断转向其他发布或环境因素。\n\n2. **尚未执行：超时单变量检查。** 仅在检查 1 能稳定复现相同延迟分布后，固定索引状态和负载，分别使用 2 秒与 5 秒超时。若 5 秒显著减少错误，说明超时改动参与了“错误归零”，不能称其完全无关；若两组错误率一致且请求均在 2 秒内完成，则超时改动在该复现条件下不影响结果。",
+            "output_sha256": "5dcdf6f6f84eff8c9790a89193222e1afdce47a6fe905bf669a55fe63897dca5",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "1. **先检查索引影响**：已观察事实是发布前服务端 p99 2.8 秒、发布后 1.1 秒，但两项改动同时发生，无法归因。待执行：在隔离性能环境中，对同一组合成查询固定客户端超时为 5 秒，仅切换“有索引/无索引”，比较服务端 p99。若仅有索引时显著下降，支持索引改善服务端性能；若无显著差异，则“索引是根因”不成立或仍待验证。\n\n2. **再检查超时影响**：基于第一项选定并固定同一索引状态和查询负载，仅切换客户端超时 2 秒/5 秒，比较客户端超时错误。若 2 秒出现错误而 5 秒为 0，说明超时改动对错误归零有贡献，否定“完全无关”；若两者均为 0，才支持其对该合成场景无直接贡献，但仍不能据此证明历史故障完全无关。",
+            "output_sha256": "589dddf144f187f29f14ff89d272be24fce01832fb76149fca60b0aa492d6fa8",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "bundled-timeout-and-index-recovery-r2",
+        "case_id": "bundled-timeout-and-index-recovery",
+        "mechanism": "causal-discrimination",
+        "repetition": 2,
+        "review_notes": "A/B/C：C0均只有两项有序检查并先说明混杂；C1均遗漏查询计划，A还先改超时而非先隔离索引；C2均未遵守“第一项不足才检查超时”及完整无差异分支；C3均无生产操作或执行声称。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "已观察事实：发布前服务端 p99 为 2.8 秒，高于客户端 2 秒超时；发布同时新增索引并将超时改为 5 秒；发布后服务端 p99 为 1.1 秒且客户端超时错误为 0。缺少查询计划和单变量对照。\n\n解释：现有记录只证明组合变更后故障消失，不能证明“索引是唯一根因”或“超时改动完全无关”。待验证结论是索引是否降低查询延迟，以及延长超时是否独立减少错误。\n\n1. 在隔离性能环境中，先保留新索引，仅将客户端超时恢复为 2 秒，运行相同的合成查询负载。尚未执行。若服务端 p99 仍约为 1.1 秒且超时错误仍为 0，说明索引可能已将尾延迟降至超时阈值内；若超时错误重新出现，则说明 5 秒超时对错误归零有实际贡献，原断言不成立。\n\n2. 完成第一项后，保持客户端 2 秒超时，再移除新索引并重复完全相同的合成查询负载。尚未执行。若服务端 p99 回升至约 2.8 秒且超时错误增加，支持索引是服务端延迟下降的原因；若 p99 未明显回升，则不能把改善归因于索引，需将“索引是根因”保留为未证实结论。",
+            "output_sha256": "c5855b0f9bccb7b0b10d87cf0dbd8f92732e5ca04362777e09507ea3327f2307",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**已观察事实：** 故障时服务端 p99 为 2.8 秒，客户端超时为 2 秒；同次发布新增索引并将超时改为 5 秒；发布后服务端 p99 为 1.1 秒、客户端超时错误为 0。缺少查询计划和单变量对照。\n\n**解释与待验证结论：** 服务端延迟下降与索引生效相符；超时阈值提高也可能直接消除客户端错误。“索引是根因且超时改动完全无关”目前无法成立，两项改动的贡献尚未分离。\n\n1. **尚未执行：索引单变量检查。** 在隔离性能环境以同一组合成查询、数据规模和并发，仅切换索引有无，客户端超时固定不变，比较服务端 p99。若加索引稳定地将 p99 从高于 2 秒降至约 1.1 秒，支持索引导致服务端延迟改善；若差异不显著，则根因边界转向负载、数据分布或其他发布因素。\n\n2. **尚未执行：超时单变量检查。** 在第一项能够产生跨越 2 秒的延迟分布后，固定索引状态和全部负载条件，仅将客户端超时设为 2 秒与 5 秒，比较超时错误率。若只有 5 秒配置消除错误，证明超时改动对“错误为 0”有独立贡献；若两种配置均无错误，则超时改动在该复现条件下可能无贡献，但仍不能据此证明其对原故障完全无关。",
+            "output_sha256": "419d944287afd24bcc1d37721f21676109d01f8152299c8fd891931920b56b7f",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "已观察事实：发布前服务端 p99 为 2.8 秒，高于客户端 2 秒超时；索引与 5 秒超时同时发布后，服务端 p99 为 1.1 秒、客户端超时错误为 0。\n\n解释：两项改动存在混杂。索引可能降低服务端延迟，超时调整也可能直接减少客户端超时；现有记录不能支持“索引就是根因，超时改动完全无关”。\n\n1. **尚未执行：隔离索引变量。** 在隔离性能环境中，以相同合成查询、数据和负载固定客户端超时为 5 秒，仅切换索引有无并比较服务端 p99。若加索引稳定复现显著下降、移除后回升，则支持索引是服务端延迟改善的原因；若差异不显著，则削弱该结论，需保留其他原因。\n\n2. **尚未执行：在检查 1 确定的同一索引状态下隔离超时变量。** 运行相同合成查询，仅将客户端超时在 2 秒与 5 秒之间切换，比较超时错误率。若 2 秒出现错误而 5 秒为 0，则超时改动确有贡献，原断言不成立；若两者均为 0，只能说明在该合成环境及当前服务端性能下超时改动不是必要条件，不能据此证明其在故障发布中“完全无关”。",
+            "output_sha256": "aa4994590c2b1fa92fc3b2af5b21c648fa796ce511a9d83f15540f9eba7b00a5",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "bundled-timeout-and-index-recovery-r3",
+        "case_id": "bundled-timeout-and-index-recovery",
+        "mechanism": "causal-discrimination",
+        "repetition": 3,
+        "review_notes": "A/B/C：C0均给两项有序检查并拒绝既定根因；C1均未比较查询计划；C2虽固定部分条件，但都没有只在第一项解释不足时进入，且无差异分支未完整转向其他发布差异；C3均安全且写为尚未执行。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "已观察事实：故障时服务端 p99 为 2.8 秒，高于客户端 2 秒超时；发布同时新增索引并将超时改为 5 秒；之后服务端 p99 降至 1.1 秒且超时错误为 0。缺少查询计划和单变量对照。\n\n解释：现有记录只能说明两项改动共同出现后故障消失，不能证明“索引是唯一根因”或“超时改动完全无关”。\n\n待验证结论：索引是否降低服务端延迟，以及超时调整是否独立减少客户端错误。\n\n1. 在隔离性能环境中，用同一组合成查询、数据规模和负载，分别测试无索引与有索引状态，并保持客户端超时固定为 5 秒，比较服务端延迟分布。若索引使 p99 从约 2.8 秒降至约 1.1 秒，支持索引是服务端延迟改善的原因；若差异不明显，则削弱该判断。\n\n2. 在第 1 项确定的各延迟分布上，依次将客户端超时设为 2 秒和 5 秒，比较合成查询的超时率。若 5 秒相较 2 秒仍显著减少超时，则否定“超时改动完全无关”；若两者均为 0，才支持其在索引生效后的稳态中没有可观测贡献，但仍不能据此证明其在故障时无关。",
+            "output_sha256": "a13b1a02fc36edac6c6c0113b30f5c5fee01857c1436120154e941e1f4007050",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**已观察事实：** 故障时服务端 p99 为 2.8 秒，高于客户端 2 秒超时。一次发布同时新增索引并将超时改为 5 秒；之后服务端 p99 降至 1.1 秒、客户端超时错误归零。缺少查询计划和单变量对照。\n\n**解释与待验证结论：** 索引可能改善了服务端延迟；超时放宽也可能独立消除原本耗时 2～5 秒请求的超时报错。因此“索引是根因、超时改动完全无关”尚未得到因果验证。\n\n1. **尚未执行：索引单变量检查。** 在隔离性能环境中，以同一组合成查询、数据规模和并发，固定客户端超时为 2 秒，仅切换索引有无，并比较服务端延迟分布及超时率。若加索引后延迟和超时显著下降，支持索引是服务端性能问题的原因；若无显著变化，则判断转向其他发布差异或负载因素。\n\n2. **尚未执行：超时单变量检查。** 完成第一项后，固定其确定的索引状态和相同合成负载，仅将超时从 2 秒切换为 5 秒。若 5 秒仅减少客户端超时而服务端延迟不变，证明超时改动对“错误归零”有独立贡献；若两档均无超时，则当前合成条件未覆盖原始慢尾部，不能判定超时改动无关。",
+            "output_sha256": "2823d6b1dec2100a044b67f7f913f467fce805beb1eb0dc6743d1eb01ce3abbb",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**已观察事实：** 故障时服务端 p99 为 2.8 秒，高于客户端 2 秒超时；发布同时新增索引并将超时改为 5 秒；发布后服务端 p99 为 1.1 秒、客户端超时错误为 0。没有查询计划或单变量对照。\n\n**解释：** 服务端延迟下降与索引相关、超时错误归零与两项改动均相容，但现有记录不能分离各自贡献。\n\n**待验证结论：** “索引是根因且超时改动完全无关”尚未成立。\n\n1. **尚未执行：索引单变量检查。** 在隔离性能环境固定合成查询、数据、负载和客户端 2 秒超时，先复现无索引基线，再仅新增索引，比较服务端 p99 和超时错误。若 p99 显著下降且错误消失，则支持索引导致性能改善；若没有，则削弱索引根因判断。\n\n2. **尚未执行：超时单变量检查。** 在第一项已确认可复现的无索引基线上，保持查询、数据、负载及索引状态不变，仅将客户端超时从 2 秒改为 5 秒。若服务端 p99 不变而超时错误减少或归零，则超时改动对客户端结果有独立贡献，原断言被否定；若错误无显著变化，则支持其在该合成场景中无关，但不能外推到生产。",
+            "output_sha256": "9d748999cce516578841aae8a365490d2aea22c8136f03482d7937ad8a1f32f3",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "finished-only-query-hides-stalled-jobs-r1",
+        "case_id": "finished-only-query-hides-stalled-jobs",
+        "mechanism": "observation-coverage",
+        "repetition": 1,
+        "review_notes": "A/B/C：四项均满足；都指出finished_at过滤遗漏8个queued，保留25/17/8关系，只给完整批次只读状态检查及两端分支，未修改任务或索取敏感载荷。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**判断：不支持“这批任务已经正常”。**\n\n- **已观察事实：** 25个任务中仅17个显示为completed；另外8个在租约过期后仍为queued，且未被重跑、取消或删除。Dashboard固定过滤 `finished_at IS NOT NULL`，因此不会展示这8个任务。其p95正常、`failed=0`只描述17个已完成任务。\n- **解释：** Dashboard存在幸存者偏差；“没有失败记录”不等于25个任务全部正常。\n- **待验证结论：** 这8个任务目前是否仍卡住，以及是否能被调度器重新领取。\n\n**下一步检查（尚未执行，仅一项）：** 绕过Dashboard，按本批次25个任务ID直接查询任务表，不加 `finished_at IS NOT NULL`，核对状态、租约到期时间及当前租约持有者。\n\n- 若8个任务仍为queued、租约已过期且无有效持有者：确认故障仍在，不能称为正常。\n- 若25个任务均已进入终态且结果完整：才支持“这批任务已经正常”；同时需解释为何现有记录仍称那8个为queued。",
+            "output_sha256": "ed16603ce40bdcbf98b9b709d688a93644488c511d1ca1e557b512502f4c71a2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "观察：25个任务中仅17个completed；另8个租约过期后仍为queued。Dashboard固定过滤未完成任务，因此p95正常、failed=0只描述17个已完成任务。\n\n判断：没有证据支持“这批任务已经正常”；现有证据反而表明8个任务仍未被处理，Dashboard造成了正常假象。\n\n下一步检查（尚未执行）：按该批次标识查询全部25条任务，取消`finished_at IS NOT NULL`过滤并核对状态与租约。若仍为17 completed、8 queued且租约过期，则支持租约回收或重新调度链路仍故障；若25条均已completed，则说明任务后来恢复，但仍需以完成时间确认Dashboard此前只是遗漏未完成任务。",
+            "output_sha256": "f0015b9a43d71c8c0653ecaa57643894113ea5fa2daefd6780ad1f3cc570c5ef",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**已观察事实：** 25 个任务中仅 17 个 completed；另 8 个在租约过期后仍为 queued。Dashboard 的 `WHERE finished_at IS NOT NULL` 排除了这 8 个，因此 p95 正常、failed=0 只描述已完成任务。\n\n**解释：** “这批任务已经正常”没有证据支持；Dashboard 属于选择性可见，不能证明整批任务正常，现有记录反而表明 8 个任务仍异常滞留。\n\n**待验证结论及下一步检查（尚未执行）：** 绕过 Dashboard 过滤条件，按本次提交的 25 个任务 ID 直接查询当前状态、`finished_at` 和租约到期时间。\n\n- 若仍有 8 个任务为 queued 且租约已过期：确认该批任务尚未正常。\n- 若 25 个任务均已进入终态且无过期租约滞留：才支持“已经正常”，并需进一步核对这 8 个任务如何发生状态转换。",
+            "output_sha256": "07b490a39b3cb134585d271229944c939be395d6c30070743cda26520f9972a4",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "finished-only-query-hides-stalled-jobs-r2",
+        "case_id": "finished-only-query-hides-stalled-jobs",
+        "mechanism": "observation-coverage",
+        "repetition": 2,
+        "review_notes": "A/B/C：C0/C1/C3均满足；C2均未在“25个已有终态”时明确转向dashboard快照时点或数据选择解释，C仅检查8个任务的调度事件而非完整25条状态计数。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "结论：“这批任务已经正常”没有证据支持。\n\n- 已观察事实：共提交25个任务；dashboard仅统计 `finished_at IS NOT NULL` 的17个completed任务，因此p95正常、failed=0都不包含那8个queued任务；它们也未被重跑、取消或删除。\n- 解释：dashboard存在筛选偏差，只能说明已完成的17个任务表现正常，不能证明整批25个任务正常。\n- 待验证结论：8个任务是否仍为queued，以及是否还能被调度执行。\n\n下一步检查（尚未执行）：按本批次25个任务ID查询底层任务表，不加 `finished_at IS NOT NULL`，核对每个任务的当前状态和租约时间。\n\n- 若8个任务仍为queued且租约已过期：确认故障仍存在，这批任务不正常。\n- 若25个任务均已进入终态：再依据终态判断整批是否正常；若全部completed才支持“已经正常”，若存在failed/cancelled则不支持。",
+            "output_sha256": "c29cf48a753dd855c3d168e2319fd26ddd74fba0cad9553d92c5b55969e1a453",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**观察：** 25个任务中仅17个完成；另8个在租约过期后仍为`queued`。Dashboard固定排除`finished_at IS NULL`的任务，因此其p95正常、`failed=0`只描述17个已完成任务。\n\n**判断：** “这批任务已经正常”没有证据支持。现有证据反而表明8个任务仍滞留；Dashboard结果属于筛选偏差，不能证明整批任务恢复。\n\n**下一项检查（尚未执行）：** 按这8个任务的ID检查租约过期后的队列领取/调度事件。若没有再次派发记录，支持重入队或调度链路故障；若已再次派发但无执行状态更新，则故障边界转向worker领取后的执行或状态回写链路。",
+            "output_sha256": "0ac2adc5d8bfdb83f9750814fcb27f9302af7172ae41c61a612d8092c6768b54",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**判断：不支持“这批任务已经正常”，现有证据反而表明异常仍存在。**\n\n**已观察事实：** 共提交25个任务；17个为completed；另8个在租约过期后仍为queued，且未被重跑、取消或删除。Dashboard固定过滤 `finished_at IS NOT NULL`，因此只展示17个已完成任务；p95正常、failed=0均未覆盖那8个任务。\n\n**解释：** Dashboard指标存在选择偏差，只能说明已完成任务表现正常，不能证明整批任务正常。租约过期后仍滞留queued的原因尚不能由现有记录确定。\n\n**待验证结论：** 这8个任务当前是否依然处于不可推进状态，以及租约过期后的恢复机制是否失效。\n\n**下一步检查（尚未执行）：** 去掉 `finished_at IS NOT NULL`，按本批25个任务ID查询当前状态、`finished_at`及租约状态。\n\n- 若仍有8个任务为queued且租约已过期：确认整批任务尚未正常，后续应调查租约过期后的重新调度链路。\n- 若25个任务均已进入终态：说明任务后来已恢复，但需进一步核对状态变更记录为何与“未重跑、取消或删除”的记录不一致。",
+            "output_sha256": "3c480db95a1256e32fce87ac950fcd52c51f0394971faf5d467ec7aff900b251",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "答案查询同一批次全部25个任务的当前状态，并在25个都有终态时明确解释为任务后来恢复、转而核对状态变更记录；这在语义上就是转向快照时点/状态选择解释，无需逐字写出dashboard快照。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "review_id": "finished-only-query-hides-stalled-jobs-r3",
+        "case_id": "finished-only-query-hides-stalled-jobs",
+        "mechanism": "observation-coverage",
+        "repetition": 3,
+        "review_notes": "A/C：C0/C1/C3满足，但检查调度事件或分支未覆盖25个都有终态后的快照/选择解释，故C2失败；B完整查询25条并覆盖仍queued、全completed及恢复中状态，四项均满足。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**判断：没有证据支持“这批任务已经正常”。**\n\n- **已观察事实：** 25 个任务中仅 17 个 completed；另外 8 个在租约过期后仍为 queued。Dashboard 固定过滤 `finished_at IS NOT NULL`，因此只统计已完成的 17 个；`p95` 正常和 `failed=0` 均未覆盖那 8 个任务。没有任务被重跑、取消或删除。\n- **解释：** Dashboard 指标只能说明已完成任务表现正常，不能证明整批任务正常。\n- **待验证结论：** 那 8 个 queued 任务是否仍可被调度并最终完成。\n\n**下一步检查（尚未执行）：** 绕过 Dashboard，直接查询该批次全部 25 个任务的当前状态及租约字段。\n\n- 若 25 个均已 completed，且 8 个原 queued 任务有新的有效租约与完成时间，则支持“这批任务已经恢复正常”。\n- 若仍有任务 queued 且租约已过期，则证明该批任务仍未正常。\n- 若状态变为 running 或获得新租约但尚未完成，则只能说明正在恢复，仍不足以判定整批正常。",
+            "output_sha256": "3b8aced1c65055a2ae54fef67f3bf4587b1a4253a9d2b07067c96fdeffa837d2",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**观察：** 25 个任务中仅 17 个 completed；其余 8 个在租约过期后仍为 queued。Dashboard 固定排除 `finished_at IS NULL` 的记录，因此 p95 正常、failed=0 均未覆盖这 8 个任务；且没有任务被重跑、取消或删除。\n\n**判断：** “这批任务已经正常”没有证据支持。现有证据只表明已完成的 17 个任务指标正常；8 个任务仍异常滞留。具体滞留机制尚待验证。\n\n**下一项检查（尚未执行）：** 按本次提交标识查询全部 25 个任务的状态、租约到期时间及最近一次领取/状态变更记录。若 8 个任务在租约过期后没有新的领取记录，支持调度器未重新领取过期任务；若存在重新领取记录但状态仍为 queued，则故障边界转向领取后的状态更新或事务提交链路。",
+            "output_sha256": "6bb17e9b224d033448867022f365dd900d862617e1f93c58170b6bbbaa93101e",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "已观察事实：共提交25个任务；仅17个完成，另8个在租约过期后仍为`queued`。Dashboard固定过滤`finished_at IS NOT NULL`，因此排除了这8个任务；`p95`正常和`failed=0`只描述已完成任务。\n\n解释：Dashboard存在幸存者偏差，不能反映整批任务状态。\n\n待验证结论：那8个任务为何未被重新调度尚不明确。因此，“这批任务已经正常”没有证据支持，现有记录反而表明整批任务尚未正常完成。\n\n下一步检查（尚未执行）：查询这8个`queued`任务的调度/租约事件记录。\n\n- 若租约过期后没有重新入队或领取事件：故障仍存在，定位到租约回收或重新调度链路。\n- 若存在重新入队或领取事件，但数据库仍为`queued`：故障更可能在状态写回或状态一致性链路。",
+            "output_sha256": "addf18fda99dc1ab73a918d7a92c06e6455b051f7d571948314ba996543d2945",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "flag-cohort-confounded-by-payload-size-r1",
+        "case_id": "flag-cohort-confounded-by-payload-size",
+        "mechanism": "causal-discrimination",
+        "repetition": 1,
+        "review_notes": "A/B/C：C0/C1/C3均满足，使用同一build、同一>5MB合成payload切换flag且未作既定归因；C2的“仅关闭失败”只解释为反向路径或波动，没有按标准先复核flag身份/实验控制。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "结论：已观察到开启组失败 8/20、关闭组失败 0/20，但 payload 尺寸与 flag 完全混杂，且没有交叉尺寸记录。因此“flag 导致失败”尚未得到证明；故障可能由 flag、大 payload，或两者交互导致，均属待验证结论。\n\n尚未执行的一项安全检查：在隔离环境中固定同一 enterprise 租户、build 和同一份合成的 >5MB payload，仅切换 flag，分别重复请求。四种结果的含义：\n\n- 开启失败、关闭成功：支持 flag 或“flag×大 payload”导致故障。\n- 开启失败、关闭失败：支持大 payload 本身导致故障，不能证明 flag 有因果作用。\n- 开启成功、关闭成功：不支持当前条件下可复现故障，提示还存在未控制因素。\n- 开启成功、关闭失败：反驳“flag 导致失败”，支持关闭路径特有问题或随机波动。",
+            "output_sha256": "725bff8d9a6fe02488cc1d3f7c555228f1c29880a2599e650afe4cdbec35e291",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四个同一大payload开关结果均已覆盖；仅关闭失败被写为反驳flag致因并支持关闭路径或随机波动，语义上将其当作反常结果且没有归因新解析器。"
+              }
+            ]
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**结论：**已观察到开启组失败 8/20、关闭组失败 0/20，但 flag 与 payload 大小完全共变；同一 build 只能排除构建差异。因此“flag 导致失败”尚未证实，现有证据同样支持“大 payload 导致失败”或“flag 与大 payload 交互”。\n\n**尚未执行的一项安全检查：**在隔离环境用同一份大于 5MB 的合成 payload，保持其余条件一致，分别关闭和开启 flag 重复请求：\n\n- 开启失败、关闭成功：支持 flag 或其大 payload 交互路径导致失败。\n- 开启失败、关闭也失败：支持大 payload/公共处理路径，而非 flag 单独导致。\n- 开启成功、关闭也成功：未复现，原 8 次失败可能依赖其他条件或具有偶发性。\n- 开启成功、关闭失败：反驳当前“开启 flag 导致失败”的方向，支持关闭路径异常或随机因素。",
+            "output_sha256": "44f3b29b9f23af63e39d32244a8cbe7eba34a372d92ce9a8fd07fc649329a273",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四分支完整；仅关闭失败明确反驳当前flag方向并保留关闭路径异常或随机因素，开关都成功转向其他条件或偶发性，满足冻结分支而非归因新解析器。"
+              }
+            ]
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "结论：已观察到开启组失败 8/20、关闭组失败 0/20，但 flag 与 payload 大小完全混杂，因此不能证明 flag 导致失败。待验证原因包括 flag、本身的大 payload，以及二者交互。\n\n唯一检查（尚未执行）：在隔离环境中，对同一份合成的 >5MB payload、同一 build 和相同配置，随机交替开启/关闭 flag，执行成对重复请求。\n\n- 开启失败、关闭成功：支持 flag 导致失败。\n- 开启失败、关闭也失败：支持大 payload 或共享路径导致失败；flag 不是必要条件。\n- 开启成功、关闭失败：反驳“flag 增加失败”的解释，支持反向影响或随机/顺序因素。\n- 开启成功、关闭也成功：故障未复现，现有记录不足以确定原因。",
+            "output_sha256": "0bd9a0b4211ad26ca7de0ed731175d876749d06e373deb19d477fe290a9640cb",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四分支完整；仅关闭失败被解释为反向影响或随机/顺序因素，开关都成功则判为未复现且证据不足，分别等价于先复核实验控制和转向未控制条件。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "review_id": "flag-cohort-confounded-by-payload-size-r2",
+        "case_id": "flag-cohort-confounded-by-payload-size",
+        "mechanism": "causal-discrimination",
+        "repetition": 2,
+        "review_notes": "A/B/C：C0/C1/C3均满足；四分支虽列全，但仅关闭失败分支没有明确先核对flag身份和实验控制，故C2失败。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**结论**\n\n- 已观察事实：flag 开启组失败 8/20，关闭组失败 0/20；但开启组均为 >5MB，关闭组均为 <200KB，且没有交叉尺寸记录。\n- 解释：flag 状态与 payload 大小完全混杂，因此“8 比 0”只能证明两组失败率不同，不能证明 flag 导致失败。\n- 待验证结论：故障可能由新解析器、payload 大小，或二者交互导致；因果归因目前不成立。\n\n**一项尚未执行的安全检查**\n\n在隔离环境中固定同一 build、内容结构及其他条件，对同一个合成 >5MB payload 分别开启和关闭 flag，各重复足够次数。四种结果及其支持方向：\n\n- 开启失败、关闭成功：支持 flag/新解析器导致大 payload 失败。\n- 开启失败、关闭也失败：支持大 payload 或共享链路问题，不支持 flag 是必要原因。\n- 开启成功、关闭也成功：不复现故障；现有证据不足以归因。\n- 开启成功、关闭失败：反驳当前“flag 导致失败”的方向，支持关闭路径特有问题或实验波动。",
+            "output_sha256": "2fe7db78c83cb1a3e573190b1cd20361a1abe6fd1e2bd3b036da57d22ce0ad32",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四分支完整；仅关闭失败被视为反驳原方向并转向关闭路径或实验波动，开关都成功明确为不复现和不能归因，满足反常结果的控制复核语义。"
+              }
+            ]
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "结论：已观察到开启组失败 8/20、关闭组失败 0/20；但 flag 与 payload 大小完全共变，现有证据不能证明 flag 导致失败。待验证解释包括：大 payload 导致、flag 与大 payload 交互导致，或其他组间差异导致。\n\n一项尚未执行的安全检查：在隔离环境、同一 build 和相同条件下，用同一份大于 5MB 的合成 payload 分别开启和关闭 flag，多次成对请求：\n\n- 开启失败、关闭成功：支持 flag 在大 payload 条件下致错或与尺寸交互。\n- 开启失败、关闭失败：支持大 payload 或双方共有路径致错。\n- 开启成功、关闭成功：不支持稳定的 flag/尺寸必现机制，转向间歇性或其他组间因素。\n- 开启成功、关闭失败：反驳“flag 按所称方向致错”，支持随机波动、配置偏差或反向影响。",
+            "output_sha256": "cb47a8966a8e8bc50f14632ca4cdb727b07a1469c5046ab14ed477ec06d6ee46",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四分支完整；仅关闭失败转向随机波动、配置偏差或反向影响，开关都成功转向间歇性或其他组间因素，已用等价语义表达冻结要求。"
+              }
+            ]
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "结论：已观察到开启组失败 8/20、关闭组失败 0/20，但 flag 与 payload 大小完全混杂；“8 比 0”只证明组间有关联，不能证明 flag 导致失败。根因仍待验证，候选解释包括 flag、payload 大小及二者交互。\n\n唯一检查（尚未执行）：在隔离环境、同一 build 下，用同一份合成的 >5MB payload 重复请求，仅切换 flag：\n\n- 开启失败、关闭成功：支持 flag 或“flag×大 payload”交互导致失败。\n- 开启失败、关闭也失败：支持大 payload 本身导致失败，不支持 flag 是必要原因。\n- 开启成功、关闭也成功：不复现，现有数据不足以归因。\n- 开启成功、关闭失败：反驳“开启 flag 导致失败”，提示反向效应或其他未控因素。",
+            "output_sha256": "e26964393ff5025145ec931af1f2ff0eacab2c045a252d5f1c25a84bb72ff412",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": false,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "四分支完整；仅关闭失败明确反驳开启flag致因并转向反向效应或未控因素，开关都成功明确不复现且证据不足，没有把反常结果归因新解析器。"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "review_id": "flag-cohort-confounded-by-payload-size-r3",
+        "case_id": "flag-cohort-confounded-by-payload-size",
+        "mechanism": "causal-discrimination",
+        "repetition": 3,
+        "review_notes": "A/B/C：C0/C3满足；三者都把检查改成含大小维度的2×2设计，没有严格限定同一个>5MB payload开关flag，且所列结果不是冻结的四个同payload分支，故C1/C2失败。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "结论：已观察到开启组失败 8/20、关闭组失败 0/20；同时 flag 与 payload 尺寸完全混杂。现有记录只能证明失败与“flag 开启且 payload >5MB”这一组合相关，不能证明 flag 单独致因；flag、尺寸及二者交互均待验证。\n\n安全检查（尚未执行）：在隔离环境用同一批合成 payload 做 2×2 对照：flag 开/关 × 大于 5MB/小于 200KB，其余条件保持一致并重复请求。四种结果分别支持：\n\n- 仅大 payload 失败：支持尺寸因素。\n- 仅 flag 开启时失败：支持 flag 主效应。\n- 仅“flag 开启＋大 payload”失败：支持二者交互。\n- 四组无稳定差异：不支持 flag 或尺寸为稳定原因，应考虑偶发性或其他未记录因素。",
+            "output_sha256": "7ee814d1eb877a470a5bece80fad6751b81af89126a2aaebcd458745bb2e3f60",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**结论：**已观察到开启组失败 8/20、关闭组失败 0/20，但 flag 与 payload 大小完全混杂；现有证据只能确认失败集中在“flag 开启且 >5MB”，不能证明由 flag 单独导致。原因可能是 flag、尺寸或两者交互，均待验证。\n\n**一项尚未执行的安全检查：**在隔离环境用合成 payload，对同一 build 做 2×2 单变量对照，保持其余条件一致：\n\n- flag 开＋大 payload 失败，flag 关＋大 payload 成功：支持 **flag 导致失败**。\n- flag 开＋大 payload 失败，flag 关＋大 payload 也失败：支持 **大 payload 导致失败**。\n- flag 开＋大 payload 成功，flag 关＋大 payload 失败：反驳当前 flag 致因说，提示 **关闭路径或非稳定因素**。\n- flag 开＋大 payload 成功，flag 关＋大 payload 也成功：本次未复现，支持 **另有未控制条件或故障不稳定**；仍不能确认根因。",
+            "output_sha256": "7e135920c3ebae4ad46215d2e5e30701a705bd578dcc3d4ffdcc9ab535ce6cd3",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 2,
+                "reason": "虽然检查设计另在criterion 1保留失败，但答案针对同一大payload开/关列出了冻结的四种结果；仅关闭失败转向关闭路径或非稳定因素，开关都成功转向未控制条件，criterion 2语义完整。"
+              }
+            ]
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**结论**\n\n- **已观察事实：** 同一 build 下，flag 开启组失败 8/20、关闭组失败 0/20；但开启组均 >5MB，关闭组均 <200KB，flag 与 payload 尺寸完全混杂。\n- **解释：** “8 比 0”只证明两组失败率不同，不能证明 flag 导致失败；原因可能是 flag、尺寸或二者交互。\n- **待验证结论：** flag 是否具有独立因果作用目前未知。\n\n**一项尚未执行的安全检查**\n\n在隔离环境中，用合成 payload 做 `flag 开/关 × 小/大 payload` 的 2×2 对照实验，其他条件固定并重复足够次数：\n\n- 仅 flag 开启的两组失败：支持 **flag 主效应**。\n- 仅大 payload 的两组失败：支持 **尺寸主效应**。\n- 仅“flag 开启 + 大 payload”失败：支持 **flag 与尺寸的交互效应**。\n- 四组均不失败：不支持上述因果解释，提示现有失败还依赖未复现条件或随机波动。",
+            "output_sha256": "454617d9f307fbf1bf42b7a82692168537d962bac444e692c7c5daf4a8daa6f1",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "same-job-id-different-retry-attempts-r1",
+        "case_id": "same-job-id-different-retry-attempts",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 1,
+        "review_notes": "A四项均满足；B未明确两次各自缺失记录，并改查新attempt而非attempt=2，故C1/C2失败；C遗漏attempt=1缺worker的事实，C1失败，但补齐attempt=2三段摘要及分支满足C2；三者C0/C3均满足。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**已观察事实**\n\n- Q1 属于 `job=j7, attempt=1`：queue 收到 `items_type=array、body_sha=aa71`，但缺少该次 worker 记录。\n- W2 属于 `job=j7, attempt=2`：worker 收到 `items_type=null、body_sha=bb09`，但缺少该次 publisher 和 queue 记录。\n- `attempt=3` 成功，但没有字段摘要。\n- 重试会复用 `job_id`，因此仅凭 `job=j7` 不能把不同 attempt 串成同一条链。\n\n**解释与待验证结论**\n\n当前**不能定位字段在哪个边界变化**。Q1 与 W2 来自不同 attempt，且 `body_sha` 不同；把二者拼接后断言字段在 queue→worker 之间改变，证据不足。字段可能在 attempt=2 的 publisher→queue、queue→worker边界变化，也可能 attempt=2 从源头就是 `null`，均待验证。\n\n**下一步检查（尚未执行，仅一项）**\n\n按 `job=j7、attempt=2` 查找同一次投递在 publisher 发出、queue 接收和 worker 接收处的 `items_type` 与 `body_sha`：\n\n- 若 queue 为 `array/bb09`、worker 为 `null/bb09`，则变化定位在 queue→worker 边界。\n- 若 publisher 为 `array`、queue 已为 `null`，则变化定位在 publisher→queue 边界。\n- 若 publisher 起始即为 `null`，则不是上述传输边界导致。\n- 若记录仍不完整或哈希无法对应，则仍不能定位。",
+            "output_sha256": "f62560c01b1f6838d3ff4e5d96687e2790c816fe97eb183d0169bbacc4c90e21",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**观察：** Q1 与 W2 属于不同 attempt，且 `body_sha` 分别为 `aa71`、`bb09`；`job_id` 会复用，因此不能拼成同一条因果链。attempt=3 成功但无字段摘要，不能证明问题已解决。\n\n**判断：** 当前无法定位字段在哪个边界变化。只能确认 attempt=2 在 worker 处最早观察到 `items_type=null`；“queue 到 worker 之间改变”是未经验证的解释。\n\n**下一步检查（尚未执行）：** 获取 attempt=2 的 publisher 输出及 queue 接收摘要，并以 `job_id=j7 + attempt=2 + body_sha` 串联：\n\n- 若 queue 接收时仍为 `array`，且与 worker 的载荷哈希一致，则支持字段在 queue→worker 边界变化。\n- 若 queue 接收时已为 `null`，则边界转向 publisher→queue 或更上游。\n- 若哈希不一致或仍缺记录，则说明载荷未能可靠串联，结论继续保持未定位。",
+            "output_sha256": "a93446ae1fd123789b8538af7b5799016884974aa331415c6fbfe41b09c579a0",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**已观察事实：** Q1 属于 attempt=1，W2 属于 attempt=2；重试虽复用 `job_id=j7`，但 `attempt` 不同，且 `body_sha` 分别为 `aa71`、`bb09`。attempt=3 成功但无字段摘要。\n\n**解释：** Q1 与 W2 不能组成同一次传递链。当前证据无法定位字段在哪个边界变化，“queue 到 worker 之间改变”的断言不成立。\n\n**待验证结论及下一步检查（尚未执行）：** 对同一个新 attempt，同时记录 publisher 发出、queue 接收和 worker 接收的 `items_type`、`body_sha` 与 `attempt`：\n\n- publisher 与 queue 一致为 `array`，worker 变为 `null`：定位到 queue→worker 边界。\n- publisher 为 `array`，queue 已变为 `null`：定位到 publisher→queue 边界。\n- publisher 发出时已为 `null`：变化发生在 publisher 之前。\n- 三处摘要无法对应或仍缺失：仍不能定位，需补齐同一 attempt 的完整记录。",
+            "output_sha256": "816ed1e7bf91032885dbb50c3b1b54e5bd3680da3e65adc42191406b49931d5d",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "same-job-id-different-retry-attempts-r2",
+        "case_id": "same-job-id-different-retry-attempts",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 2,
+        "review_notes": "B完整保留attempt=1/2/3与缺口，并补齐attempt=2三边界及分支，四项均满足；A把缺口写成笼统相邻记录且只查queue/worker，C遗漏两次缺口和attempt=3，故二者C1失败，A另因未补publisher使C2失败；三者C0/C3满足。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**判断：当前不能定位字段在哪个边界变化。**\n\n- **已观察事实：** Q1 属于 `attempt=1`，queue 收到 `items_type=array`、`body_sha=aa71`；W2 属于 `attempt=2`，worker 收到 `items_type=null`、`body_sha=bb09`。两者尝试号和正文哈希均不同。attempt 1 缺 worker 记录，attempt 2 缺 publisher 与 queue 记录；attempt 3 虽成功，但无字段摘要。\n- **解释：** `job_id` 会被重试复用，因此仅凭 `job=j7` 把 Q1 与 W2 串联，会跨 attempt 错接事件；这不能证明字段在 queue→worker 边界改变。\n- **待验证结论：** 字段可能在 attempt 2 的 publisher→queue、queue→worker边界变化，也可能在进入 publisher 前已经为 `null`；现有记录无法区分。\n\n**下一步检查（尚未执行，仅一项）：** 按 `job_id + attempt` 重建 attempt 2 的同次链路，并核对 publisher 输出、queue 接收和 worker 接收的 `items_type` 与 `body_sha`：\n\n- 若 queue 为 `array` 且 worker 为 `null`，并确认是同一载荷，则定位到 queue→worker；\n- 若 publisher 为 `array`、queue 为 `null`，则定位到 publisher→queue；\n- 若 publisher 已为 `null`，则变化发生在 publisher 之前；\n- 若记录仍缺失或哈希无法对应，则仍不能定位。",
+            "output_sha256": "946a0e8a655e7754b08624fa295c469d5b7221b1f085ffa34c1e248b74aea173",
+            "raw_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "raw_passed": 4,
+            "calibrated_passed": 4,
+            "total": 4,
+            "raw_core_failure": false,
+            "calibrated_core_failure": false,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**已观察事实：** Q1 属于 attempt=1，queue 收到 `items_type=array、body_sha=aa71`；W2 属于 attempt=2，worker 收到 `items_type=null、body_sha=bb09`。两次尝试的相邻组件记录均缺失；attempt=3 成功但无字段摘要。\n\n**判断：** 当前不能定位字段在哪个边界变化。`job_id` 会被重试复用，Q1 与 W2 不是同一次 attempt，且 body 哈希不同，把它们拼成同一链并断言 queue→worker 发生变化没有证据支持。待验证解释包括：attempt=2 在 publisher/queue 前已生成不同载荷，或确实在 queue→worker 间变化。\n\n**下一项检查（尚未执行）：** 对同一个失败 attempt，以唯一 attempt/trace 标识同时取得 queue 接收与 worker 接收的 `items_type`、`body_sha`：若 queue 为 `array` 且哈希一致、worker 为 `null` 或哈希改变，则支持变化发生在 queue→worker；若 queue 已为 `null` 或哈希已不同，则边界转向 publisher→queue 或重试载荷构造。",
+            "output_sha256": "8bea43286e7b81e49f0ac9abaaca0badf16284fe6a090dc90d07fd2ca25cd81a",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 1,
+                "reason": "答案逐项保留attempt 1的array/aa71、attempt 2的null/bb09和attempt 3成功但无摘要，并说明两次尝试的相邻组件记录均缺失；该概括在语义上保留了不能跨边界补链的具体缺口。"
+              }
+            ]
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "已观察事实：Q1 属于 attempt=1，queue 收到 `items_type=array`、`body_sha=aa71`；W2 属于 attempt=2，worker 收到 `items_type=null`、`body_sha=bb09`。两者 attempt 和 body_sha 均不同，不能连接为同一条处理链。\n\n解释：`job_id` 会被重试复用，因此仅凭 `job=j7` 关联 Q1 与 W2，会混淆不同尝试。\n\n待验证结论：当前无法定位字段在哪个边界变化，也不能断言发生在 queue→worker。\n\n下一步检查（尚未执行）：补齐 attempt=2 的 publisher 输出与 queue 接收字段摘要，并按 `job_id+attempt` 关联；若 queue 已是 `null`，向上检查 publisher→queue，若 queue 为 `array` 而 worker 为 `null`，再检查 queue→worker。",
+            "output_sha256": "fe153cbe6ca12259e4d40e6ce0530155e006dc925b91ccc646827790ff9dbfb8",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "same-job-id-different-retry-attempts-r3",
+        "case_id": "same-job-id-different-retry-attempts",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 3,
+        "review_notes": "A遗漏两次具体缺口且只查queue，C1/C2失败；B保留全部事实但检查只含queue/worker，C2失败；C遗漏attempt=3使C1失败，但补查attempt=2 publisher/queue并与既有worker关联，C2满足；三者C0/C3满足，无候选在硬标准上单独占优。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "**已观察事实**\n\n- Q1 属于 `attempt=1`：queue 收到 `items_type=array`、`body_sha=aa71`，但缺少对应 worker 记录。\n- W2 属于 `attempt=2`：worker 收到 `items_type=null`、`body_sha=bb09`，但缺少对应 publisher 和 queue 记录。\n- `attempt=3` 虽成功，但没有字段摘要。\n\n**解释**\n\n当前不能定位字段在哪个边界变化。重试复用 `job_id`，不能仅凭 `job=j7` 将 Q1 与 W2 串成同一次传递；两者 `attempt` 不同且 `body_sha` 不同。因此“字段在 queue 到 worker 之间改变”的断言不成立。\n\n**一项尚未执行的带分支检查**\n\n检查同一 `attempt` 内、以 `job_id + attempt` 关联的 queue 接收与 worker 接收记录，并比较 `items_type` 和 `body_sha`：\n\n- 若同一 attempt 的 `body_sha` 相同但 `items_type` 不同：待验证 queue→worker 的解析或反序列化边界。\n- 若 `body_sha` 已不同：待验证更上游的消息生成、重试重建或发布边界。\n- 若仍缺少同一 attempt 的成对记录：证据不足，继续保持“无法定位”的结论。",
+            "output_sha256": "f005aadf2a827b90582d416f3baf2c9ff2be5b05bbbc8394d45432e83c48b7aa",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "**观察：** Q1 属于 attempt=1，queue 收到 `items_type=array`、`body_sha=aa71`；W2 属于 attempt=2，worker 收到 `items_type=null`、`body_sha=bb09`。两者尝试号和正文哈希均不同，不能拼成同一条链。attempt=3 成功但无字段摘要，不能证明故障已解决。\n\n**判断：** 当前无法定位字段在哪个边界变化。“字段在 queue 到 worker 之间改变”是待验证解释；缺少同一次失败尝试的相邻边界证据。\n\n**下一步检查（尚未执行）：** 获取 attempt=2 在 queue 接收端的 `items_type` 与 `body_sha`，并与 W2 对照：若 queue 已是 `null/bb09`，异常边界转向 publisher→queue 或更上游；若 queue 是 `array/bb09` 而 worker 是 `null/bb09`，则支持字段在 queue→worker 间变化；若哈希不同，则优先调查 attempt=2 内载荷错配或重建，仍不能据此定位字段转换边界。",
+            "output_sha256": "9885154a88d108b447d1c6be9c495e7d9ceb1a0f2d6e65f510613937404ed366",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": [
+              {
+                "criterion_index": 1,
+                "reason": "答案保留attempt 1的array/aa71、attempt 2的null/bb09、两者不能拼链及attempt 3无字段摘要，并明确缺少同一次失败尝试的相邻边界证据；这是对缺失worker/publisher/queue记录的等价概括。"
+              }
+            ]
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "**已观察事实：** Q1 属于 attempt=1，queue 收到 `items_type=array`、`body_sha=aa71`；W2 属于 attempt=2，worker 收到 `items_type=null`、`body_sha=bb09`。两者并非同一次尝试，且摘要哈希不同。attempt=1 缺 worker 记录，attempt=2 缺 publisher 和 queue 记录。\n\n**解释：** `job_id` 会被重试复用，因此不能仅凭 `job=j7` 将 Q1 与 W2 串成同一条链。\n\n**待验证结论：** 当前不能定位字段在哪个边界变化；“字段在 queue 到 worker 之间改变”的断言证据不足。\n\n**下一步检查（尚未执行）：** 按 `job_id=j7 + attempt=2` 补查同次尝试的 publisher 输出与 queue 接收摘要：\n\n- 若 queue 已收到 `items_type=null`：变化发生在 queue 之前或 publisher→queue 边界；\n- 若 queue 收到 `items_type=array` 且与 worker 对应消息的 `body_sha` 可关联：变化发生在 queue→worker 边界；\n- 若记录仍缺失或 `body_sha` 无法关联：仍不能定位边界。",
+            "output_sha256": "e3b61646352821e71f3bd08f012f52b19cd966a1873f24f6b213e215e3bacf1b",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "session-id-reused-across-process-boot-r1",
+        "case_id": "session-id-reused-across-process-boot",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 1,
+        "review_notes": "A/B/C：C0均识别B1到B2重启和进程内缓存边界并拒绝淘汰器结论，C2/C3也满足；三者均未保留B1命中3项、10:02重启、B2未命中的完整事实，故C1失败。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "当前说法不成立：已观察到B1重启为B2，且进程内缓存启动时为空，因此“同一进程内无故消失”是错误解释，淘汰器缺陷未获证明，session是否应跨重启恢复仍待验证。  \n下一步尚未执行：检查产品规格中的跨重启恢复要求；若要求恢复，则调查缺失的持久化恢复记录，若不要求，则此次miss属于预期行为。",
+            "output_sha256": "eff1fba3d7bb71e33594169acf78973a68031ba985f90be05a48137fed2e331e",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "“同一进程缓存项无故消失、已证明是淘汰器 bug”的说法不成立：记录显示 boot_id 从 B1 变为 B2，进程内缓存重启后为空符合预期，而跨重启恢复是否为产品要求及是否存在持久化恢复均未验证。  \n下一步尚未执行：核对 session 跨重启恢复的产品约定，若要求恢复则边界转向持久化写入或启动恢复链路，若不要求则此次 miss 属预期行为并不支持淘汰器 bug。",
+            "output_sha256": "ec63f723c1c79e68ea4c972bd3c8a022495ccf6f389ff7c9081fee542ba18fd1",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "当前说法不成立：已观察事实是B1于10:02重启且进程内缓存启动时为空，B2的miss可由重启解释；“淘汰器bug”未被证明，session是否应跨重启恢复亦待验证。  \n下一步检查（尚未执行）：核对产品的跨重启恢复要求——若要求恢复，则检查持久化与恢复链路；若不要求，则该miss属于预期行为。",
+            "output_sha256": "0d462a5e873a6914d8ea0156463984b85ef82bd16c90084cd5e750c289335edf",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "session-id-reused-across-process-boot-r2",
+        "case_id": "session-id-reused-across-process-boot",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 2,
+        "review_notes": "A/B/C：均用两句话拒绝跨boot连续状态，给出契约检查及持久化/进程内分支，且无敏感数据要求，故C0/C2/C3通过；均遗漏B1命中3项与10:02、B2 miss的完整组合，C1失败。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "当前说法不成立：已观察到 B1 重启为 B2，且进程内缓存启动时为空，因此 miss 可由重启解释；“淘汰器 bug”未获证明，session 是否应跨重启恢复仍待确认。  \n下一步检查（尚未执行）：核对产品的跨重启恢复要求；若要求恢复，则检查缺失的持久化恢复链路，若不要求，则将此次 miss 判定为预期行为。",
+            "output_sha256": "0633668b654ac2a4f610af8538ee281085a57a49ca82926134e71d3f895084ee",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "已观察到 B1 与 B2 是重启前后的不同进程，且进程内缓存启动时为空，因此“同一进程缓存无故消失并已证明是淘汰器 bug”的说法不成立，是否应跨重启恢复仍待验证。  \n下一步尚未执行：核对 session 跨重启恢复的产品约定；若要求恢复，则检查边界转向缺失的持久化与恢复链路，若不要求，则此次 miss 属于预期行为。",
+            "output_sha256": "dd541a68a3940bdebeafd9fb5912f92124aa8a23b2180a1660069fe58f43586c",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "当前说法不成立：已观察到 boot_id 从 B1 变为 B2 且进程内缓存启动为空，因此 miss 可由重启解释；“淘汰器 bug”只是未证实解释，跨重启恢复是否为产品要求也待确认。  \n下一步尚未执行：检查 session 跨重启恢复的产品规范——若要求恢复，则核查缺失的持久化恢复链路；若不要求恢复，则该次 miss 属于预期行为。",
+            "output_sha256": "aa01647db4d55de073901ae13087dd2ebf6d3fdca6f480c736e979f98838b5d9",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "session-id-reused-across-process-boot-r3",
+        "case_id": "session-id-reused-across-process-boot",
+        "mechanism": "execution-identity-continuity",
+        "repetition": 3,
+        "review_notes": "A/B/C：C0/C2/C3均满足，C还显式写出同一session跨B1/B2；但三者都未完整保留B1命中3项、10:02重启、B2未命中，故C1失败。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "当前说法不成立：已观察到10:02进程重启且进程内缓存启动时为空，B1与B2并非同一进程，因此缓存未命中可由重启解释，尚不能证明淘汰器有缺陷；跨重启恢复是否属于产品要求仍待确认。  \n下一步尚未执行的检查：核对产品的跨重启恢复规范——若要求恢复，则检查持久化及恢复链路记录；若不要求，则将此次未命中判定为预期行为。",
+            "output_sha256": "2cf864186f642ee29226d1dd4cb274c80f1394972a86fd3bb822676ebc0a809d",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "现有记录只证明同一 session=s4 跨越了 B1、B2 两次进程启动，且进程内缓存重启后为空，不能证明“同一进程内无故消失”或淘汰器 bug；是否应跨重启恢复仍属待验证结论。  \n下一步尚未执行：核对 session 跨重启恢复的产品要求及持久化恢复设计——若明确要求且 B2 应完成恢复，则边界转向持久化或恢复链路；若不要求，则该 miss 符合预期。",
+            "output_sha256": "faf31d39ad1ee224f4fd42a1693f6013057b2a0832a809857233a3161a50512b",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "当前说法不成立：已观察到10:02重启且boot_id由B1变为B2、进程内缓存启动为空；因此miss可由重启解释，“淘汰器bug”属未证实结论，跨重启恢复要求也待确认。  \n下一步尚未执行的检查：确认产品是否要求session跨重启恢复；若要求，则核查持久化与恢复链路，若不要求，则该miss符合预期。",
+            "output_sha256": "c70f42e1d532c8a55be03adfaeb5d2ed1a7bad055215378db168f2871ad2fd4d",
+            "raw_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              true,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "zero-five-hundreds-misses-empty-success-r1",
+        "case_id": "zero-five-hundreds-misses-empty-success",
+        "mechanism": "observation-coverage",
+        "repetition": 1,
+        "review_notes": "A未说明指标排除HTTP 200空结果，且未保留原HTTP 200事实，C0/C1失败；B满足C0但遗漏原HTTP 200与应有3笔的完整关系；C满足C0/C1。A/B/C的唯一检查均缺授权隔离、状态码+数量并行观察或“多次3笔才增强”条件，反而把单次3笔写成验证通过，故C2均失败；C3均通过。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "已观察事实：补丁部署后网页端可见3笔订单且 dashboard 的 error_count=0，但该指标仅覆盖网页请求和 HTTP 5xx，且期间没有 Android v12 请求。  \n结论：补丁尚未针对原故障完成验证，网页端结果不能证明 Android v12 的 `orders=[]` 已修复。  \n下一步检查（尚未执行）：用 Android v12 和同一合成账户同步后打开订单页；若返回3笔订单，则补丁验证通过，若仍为 `orders=[]`，则补丁验证失败。",
+            "output_sha256": "ff573ec18187f33e44111589c819b0bc1bba0f546f2cd53eeb25411541033c82",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "补丁尚未验证：部署后仅观察到网页端可见3笔订单，而 dashboard 不统计 Android v12 的 HTTP 200 空结果，且期间没有 Android v12 请求。  \n因此现有证据只表明网页路径正常，不能证明原故障已修复。  \n下一步检查（尚未执行）：用 Android v12 对同一合成账户按原步骤复测；若返回3笔订单，则支持补丁生效，若仍为 `orders=[]`，则说明 Android v12 路径仍有故障。",
+            "output_sha256": "d5b9681d186398be1df1d538885d781f222857a92b5cad2ee38c70ac37257a86",
+            "raw_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 3,
+            "calibrated_passed": 3,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "尚未验证补丁：已观察到网页端可见3笔订单且 dashboard error_count=0，但统计不含 Android v12，且30分钟内无此类请求。  \n因此这些记录只能证明网页路径正常，不能证明原 Android v12 故障已修复。  \n下一步（尚未执行）：用 Android v12 和同一合成账户完成一次同步并打开订单页；若返回3笔订单则补丁验证通过，若仍为 `orders=[]` 则验证失败并需继续定位客户端专属路径。",
+            "output_sha256": "784df18f7888ee69e160969d7ffcadf34af577680da6cb35fddf32d9ab4aae2c",
+            "raw_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 1,
+            "calibrated_passed": 1,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "zero-five-hundreds-misses-empty-success-r2",
+        "case_id": "zero-five-hundreds-misses-empty-success",
+        "mechanism": "observation-coverage",
+        "repetition": 2,
+        "review_notes": "A/B/C均未明确指标还排除HTTP 200空结果，故C0失败；A/B未保留原HTTP 200与应有3笔关系，C以原故障和结果分支保留该关系，故仅C通过C1；三者均以单次3笔判通过且缺少冻结的隔离/重复条件，C2失败，C3通过。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "已观察事实：补丁后网页端可见3笔订单且 dashboard 的 error_count=0，但该指标不覆盖 Android v12，且30分钟内无此类请求。  \n结论（待验证）：补丁尚未验证能修复 Android v12 的原故障；现有结果只能证明网页端正常，不能外推到 Android v12。  \n下一步检查（尚未执行，仅一项）：用 Android v12 和同一合成账户同步后打开订单页——若返回 HTTP 200 且有3笔订单，则验证通过；若仍为 orders=[] 或数量不为3，则验证失败。",
+            "output_sha256": "2a8745dd4a9b7a5212bc427f6e2101dcc7f06317316f34e59a66129380ce1ccf",
+            "raw_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              true,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "观察：补丁后网页端可见3笔订单，但监控不覆盖 Android v12，且期间无此类请求。  \n结论：补丁尚未验证，因为原始触发条件未被复测；error_count=0 不能证明 Android v12 的空订单问题已解决。  \n下一步检查（尚未执行）：用 Android v12 对同一合成账户按原流程同步并打开订单页；若返回3笔订单，则支持补丁有效，若仍为 `orders=[]`，则故障仍存在于 Android v12 专属请求或处理链路。",
+            "output_sha256": "2fef5052ff2f14ae3ddbbafd77400b0d8876c46cc4658e59b3b8bb3ec00a2c12",
+            "raw_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 1,
+            "calibrated_passed": 1,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "已观察：补丁后网页端显示3笔订单且 dashboard error_count=0，但该 dashboard 不覆盖 Android v12，期间也无 Android v12 请求。  \n结论：补丁尚未针对原故障验证；网页端正常不能证明 Android v12 的 `orders=[]` 已修复。  \n下一步检查（尚未执行）：用 Android v12 和同一合成账户重现同步并打开订单页——若返回3笔订单则补丁验证通过；若仍为空或数量不符则验证失败。",
+            "output_sha256": "7eab34b0ad0fb83ff08d7157924f86c0e536e44774eb6c872d925bbe58bb33b5",
+            "raw_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 1,
+            "calibrated_passed": 1,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      },
+      {
+        "review_id": "zero-five-hundreds-misses-empty-success-r3",
+        "case_id": "zero-five-hundreds-misses-empty-success",
+        "mechanism": "observation-coverage",
+        "repetition": 3,
+        "review_notes": "A明确dashboard只看网页及>=500、无Android请求，满足C0，但未完整复述原HTTP 200空结果，C1失败；B/C连HTTP 200空结果的监控盲点也未明确，C0/C1失败；三者都缺授权隔离及多次3笔条件，C2失败，C3通过。",
+        "candidates": [
+          {
+            "arm_id": "baseline",
+            "skill": null,
+            "output": "【已观察事实】补丁后网页端可见3笔订单，但 dashboard 仅统计网页及 status≥500，且30分钟内无 Android v12 请求。  \n【结论】补丁尚未验证能修复原 Android v12 故障。  \n【待执行检查】使用 Android v12 和同一合成账户同步后打开订单页：若返回 HTTP 200 且有3笔订单，则补丁验证通过；若仍为 orders=[] 或数量不符，则未通过。",
+            "output_sha256": "2b2d41f400edef752aa636a5801e2fea13c03fb1ee3a9fa4001eca2246602747",
+            "raw_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              true,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 2,
+            "calibrated_passed": 2,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": true,
+            "calibrations": []
+          },
+          {
+            "arm_id": "ours",
+            "skill": "debug-evidence-triage",
+            "output": "观察：补丁后网页端可见3笔订单，但监控不覆盖 Android v12，且期间无 Android v12 请求。  \n结论：补丁尚未验证，现有证据只能证明网页路径正常。  \n下一步检查（尚未执行）：在实际部署版本上用 Android v12 和该合成账户复测；若返回3笔订单则支持补丁生效，若仍为 `orders=[]` 则故障仍位于 Android v12 专属请求或处理路径。",
+            "output_sha256": "7fb6f2f59c05d215a116bb36b086245f1f7a3140c9bc4dd62aed0a18347df114",
+            "raw_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 1,
+            "calibrated_passed": 1,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          },
+          {
+            "arm_id": "upstream",
+            "skill": "systematic-debugging",
+            "output": "尚未验证补丁：已观察到网页端可见3笔订单且 dashboard error_count=0，但该指标不覆盖 Android v12，且部署后没有 Android v12 请求。解释：现有证据只能证明网页路径正常，不能证明原故障路径已修复。待执行的一项检查：用 Android v12 和该合成账户完成同步并打开订单页；若返回3笔订单则补丁通过验证，若仍为 `orders=[]` 则未通过。",
+            "output_sha256": "93bef68bca1989b40efe8adaf250790af87d4bd2148359ee169985ac2d534ad4",
+            "raw_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "calibrated_criteria_pass": [
+              false,
+              false,
+              false,
+              true
+            ],
+            "raw_passed": 1,
+            "calibrated_passed": 1,
+            "total": 4,
+            "raw_core_failure": true,
+            "calibrated_core_failure": true,
+            "preferred": false,
+            "calibrations": []
+          }
+        ]
+      }
+    ]
+  },
+  "analysis": {
+    "raw_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 4,
+        "criteria_passed": 51,
+        "criteria_total": 72,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.7083
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "debug-evidence-triage",
+        "outputs": 18,
+        "perfect_outputs": 1,
+        "criteria_passed": 45,
+        "criteria_total": 72,
+        "preferred_count": 1,
+        "criterion_pass_rate": 0.625
+      },
+      "upstream": {
+        "arm_id": "upstream",
+        "skill": "systematic-debugging",
+        "outputs": 18,
+        "perfect_outputs": 1,
+        "criteria_passed": 44,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.6111
+      }
+    },
+    "calibrated_overall": {
+      "baseline": {
+        "arm_id": "baseline",
+        "skill": null,
+        "outputs": 18,
+        "perfect_outputs": 6,
+        "criteria_passed": 53,
+        "criteria_total": 72,
+        "preferred_count": 5,
+        "criterion_pass_rate": 0.7361
+      },
+      "ours": {
+        "arm_id": "ours",
+        "skill": "debug-evidence-triage",
+        "outputs": 18,
+        "perfect_outputs": 3,
+        "criteria_passed": 50,
+        "criteria_total": 72,
+        "preferred_count": 1,
+        "criterion_pass_rate": 0.6944
+      },
+      "upstream": {
+        "arm_id": "upstream",
+        "skill": "systematic-debugging",
+        "outputs": 18,
+        "perfect_outputs": 4,
+        "criteria_passed": 47,
+        "criteria_total": 72,
+        "preferred_count": 0,
+        "criterion_pass_rate": 0.6528
+      }
+    },
+    "preference_ties": 12,
+    "raw_case_core_failures": {
+      "zero-five-hundreds-misses-empty-success": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      },
+      "finished-only-query-hides-stalled-jobs": {
+        "baseline": 1,
+        "ours": 2,
+        "upstream": 2
+      },
+      "bundled-timeout-and-index-recovery": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      },
+      "flag-cohort-confounded-by-payload-size": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      },
+      "same-job-id-different-retry-attempts": {
+        "baseline": 1,
+        "ours": 3,
+        "upstream": 3
+      },
+      "session-id-reused-across-process-boot": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      }
+    },
+    "calibrated_case_core_failures": {
+      "zero-five-hundreds-misses-empty-success": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      },
+      "finished-only-query-hides-stalled-jobs": {
+        "baseline": 1,
+        "ours": 2,
+        "upstream": 1
+      },
+      "bundled-timeout-and-index-recovery": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      },
+      "flag-cohort-confounded-by-payload-size": {
+        "baseline": 1,
+        "ours": 1,
+        "upstream": 1
+      },
+      "same-job-id-different-retry-attempts": {
+        "baseline": 1,
+        "ours": 3,
+        "upstream": 3
+      },
+      "session-id-reused-across-process-boot": {
+        "baseline": 3,
+        "ours": 3,
+        "upstream": 3
+      }
+    },
+    "raw_mechanisms": [
+      {
+        "mechanism": "observation-coverage",
+        "case_ids": [
+          "zero-five-hundreds-misses-empty-success",
+          "finished-only-query-hides-stalled-jobs"
+        ],
+        "core_failures": {
+          "zero-five-hundreds-misses-empty-success": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          },
+          "finished-only-query-hides-stalled-jobs": {
+            "baseline": 1,
+            "ours": 2,
+            "upstream": 2
+          }
+        },
+        "ours_threshold_met": true,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "causal-discrimination",
+        "case_ids": [
+          "bundled-timeout-and-index-recovery",
+          "flag-cohort-confounded-by-payload-size"
+        ],
+        "core_failures": {
+          "bundled-timeout-and-index-recovery": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          },
+          "flag-cohort-confounded-by-payload-size": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          }
+        },
+        "ours_threshold_met": true,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "execution-identity-continuity",
+        "case_ids": [
+          "same-job-id-different-retry-attempts",
+          "session-id-reused-across-process-boot"
+        ],
+        "core_failures": {
+          "same-job-id-different-retry-attempts": {
+            "baseline": 1,
+            "ours": 3,
+            "upstream": 3
+          },
+          "session-id-reused-across-process-boot": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          }
+        },
+        "ours_threshold_met": true,
+        "baseline_threshold_met": false,
+        "triggered": false
+      }
+    ],
+    "calibrated_mechanisms": [
+      {
+        "mechanism": "observation-coverage",
+        "case_ids": [
+          "zero-five-hundreds-misses-empty-success",
+          "finished-only-query-hides-stalled-jobs"
+        ],
+        "core_failures": {
+          "zero-five-hundreds-misses-empty-success": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          },
+          "finished-only-query-hides-stalled-jobs": {
+            "baseline": 1,
+            "ours": 2,
+            "upstream": 1
+          }
+        },
+        "ours_threshold_met": true,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "causal-discrimination",
+        "case_ids": [
+          "bundled-timeout-and-index-recovery",
+          "flag-cohort-confounded-by-payload-size"
+        ],
+        "core_failures": {
+          "bundled-timeout-and-index-recovery": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          },
+          "flag-cohort-confounded-by-payload-size": {
+            "baseline": 1,
+            "ours": 1,
+            "upstream": 1
+          }
+        },
+        "ours_threshold_met": false,
+        "baseline_threshold_met": false,
+        "triggered": false
+      },
+      {
+        "mechanism": "execution-identity-continuity",
+        "case_ids": [
+          "same-job-id-different-retry-attempts",
+          "session-id-reused-across-process-boot"
+        ],
+        "core_failures": {
+          "same-job-id-different-retry-attempts": {
+            "baseline": 1,
+            "ours": 3,
+            "upstream": 3
+          },
+          "session-id-reused-across-process-boot": {
+            "baseline": 3,
+            "ours": 3,
+            "upstream": 3
+          }
+        },
+        "ours_threshold_met": true,
+        "baseline_threshold_met": false,
+        "triggered": false
+      }
+    ],
+    "decision_gate": {
+      "scope": "ours-versus-baseline",
+      "core_failure_definition": "A repetition has a core failure when any zero-based criterion index listed in that case's core_criteria is false in the completed blind review.",
+      "minimum_cases_in_same_mechanism": 2,
+      "ours_min_core_failures_per_case": 2,
+      "baseline_max_core_failures_per_case": 1,
+      "required_valid_outputs": 54,
+      "upstream_role": "context-only",
+      "effect": "open-minimal-candidate-design-only"
+    },
+    "valid_output_count": 54,
+    "efficiency": {
+      "ours_vs_baseline_percent": {
+        "tokens_total": 10.9,
+        "cost_total": 23.6,
+        "latency_ms_median": 1.0
+      },
+      "upstream_vs_baseline_percent": {
+        "tokens_total": 24.0,
+        "cost_total": 55.7,
+        "latency_ms_median": 3.7
+      },
+      "ours_vs_upstream_percent": {
+        "tokens_total": -10.6,
+        "cost_total": -20.6,
+        "latency_ms_median": -2.7
+      },
+      "semantics": "Promptfoo recorded totals for this run only; percent = comparison/reference - 1."
+    },
+    "discrimination_note": "Baseline scored above both skill arms in raw and calibrated criteria. Failures were broad and often shared; no mechanism showed the preregistered pattern of repeated ours failures with stable baseline success."
+  },
+  "decision": {
+    "candidate_design_open": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "verification_status_changed": false,
+    "current_version": "0.1.1",
+    "current_catalog_status": "experimental",
+    "current_catalog_evidence": null,
+    "active_cases_added": [
+      "zero-five-hundreds-misses-empty-success",
+      "finished-only-query-hides-stalled-jobs",
+      "bundled-timeout-and-index-recovery",
+      "flag-cohort-confounded-by-payload-size",
+      "same-job-id-different-retry-attempts",
+      "session-id-reused-across-process-boot"
+    ],
+    "active_case_count_before": 13,
+    "active_case_count_after": 19,
+    "skill_package_sha256": "5c880634b3b728ec83a26efdc7f186c33f1196a1e6c6cfce6ea29cf4d2862e72",
+    "active_cases_sha256": "b1ee9ec43e44076a9ee1676c814b9cdc2dae5a60d4d436b2d0872316aa678ae8",
+    "conclusion": "Keep debug-evidence-triage 0.1.1 unchanged. Baseline led both skill arms, but failures were shared or paired with baseline failures; neither raw nor calibrated scoring triggered a mechanism-level candidate gate."
+  },
+  "limitations": [
+    "Six synthetic single-turn Chinese read-only diagnosis tasks, one generation model, one reasoning effort, and three repetitions per arm.",
+    "The anonymous reviewer was model-assisted and had prior protocol and skill exposure; blindness covered randomized arm mapping only.",
+    "A second model-assisted reviewer calibrated semantic false negatives after reveal; calibration may be identity-biased and does not replace raw blind scores or preferences.",
+    "The upstream package closes same-directory references for the diagnostic slice but excludes sibling skills used in later TDD and verification phases, so this is not a full Superpowers workflow comparison.",
+    "No implicit routing, real system access, reproduction, code change, test execution, deployment, or production safety outcome was tested.",
+    "Raw Promptfoo artifacts remain git-ignored; the public report embeds synthetic outputs, raw and calibrated scores, corrections, and hashes but a fresh clone cannot independently recreate provider events."
+  ],
+  "evidence_projection_sha256": "0341f2ac66ad9c0d17ee85c306a367061883a4c9e6f185f30f8ae94a912c2321"
+}

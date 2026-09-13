@@ -34,7 +34,7 @@ EXPECTED_OURS_PACKAGE_SHA256 = (
 EXPECTED_UPSTREAM_PACKAGE_SHA256 = (
     "17c82641ac6528efd6c1728206442de6ca345314a176a8448c351191b35ca731"
 )
-FREEZE_COMMIT = "8de3dbde770439ac682b38168847bfd641938d69"
+FREEZE_COMMIT = "674321cbe70acf6bbafd1cdafb23fda3e34d53da"
 PRE_FREEZE_ACTIVE_IDS = {
     "correlation-is-not-root-cause",
     "trace-request-boundary",
@@ -204,11 +204,29 @@ class DebugCurrentSystematicComparisonTests(unittest.TestCase):
             for fragment in fragments:
                 self.assertIn(fragment, cases[case_id]["prompt"])
 
-        active_prompts = json.loads(
-            (ROOT / "evaluations/cases/debug-evidence-triage.json").read_text(
-                encoding="utf-8"
-            )
-        )["cases"]
+        if (ROOT / ".git").exists():
+            active_prompts = json.loads(
+                subprocess.run(
+                    [
+                        "git",
+                        "show",
+                        f"{FREEZE_COMMIT}:evaluations/cases/debug-evidence-triage.json",
+                    ],
+                    cwd=ROOT,
+                    check=True,
+                    capture_output=True,
+                ).stdout.decode("utf-8")
+            )["cases"]
+        else:
+            active_prompts = [
+                case
+                for case in json.loads(
+                    (
+                        ROOT / "evaluations/cases/debug-evidence-triage.json"
+                    ).read_text(encoding="utf-8")
+                )["cases"]
+                if case["id"] in PRE_FREEZE_ACTIVE_IDS
+            ]
         active_text = "\n".join(case["prompt"] for case in active_prompts)
         for new_marker in ("orders=[]", "finished_at IS NOT NULL", "boot_id=B2"):
             self.assertNotIn(new_marker, active_text)

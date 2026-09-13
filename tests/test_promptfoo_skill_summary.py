@@ -407,6 +407,42 @@ class PromptfooSkillSummaryTests(unittest.TestCase):
         ours = next(arm for arm in summary["arms"] if arm["id"] == "ours")
         self.assertEqual(ours["forbidden_tool_rows"], 1)
 
+    def test_command_and_file_events_mark_quality_run_invalid(self):
+        arms = [
+            {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},
+            {"id": "ours", "skill": "ours", "install_mode": "project", "invocation": "explicit"},
+        ]
+        self.write_run(
+            "quality",
+            arms,
+            [
+                self.row(
+                    "baseline",
+                    "ran a command",
+                    item_types=["command_execution", "agent_message"],
+                ),
+                self.row(
+                    "ours",
+                    "changed a file",
+                    item_types=["file_change", "agent_message"],
+                ),
+            ],
+        )
+
+        summary = self.module["summarize_comparison"](self.run_dir)
+
+        self.assertFalse(summary["infrastructure_valid"])
+        self.assertEqual(summary["status"], "infrastructure-invalid")
+        counts = {
+            arm["id"]: arm["forbidden_tool_rows"] for arm in summary["arms"]
+        }
+        self.assertEqual(counts, {"baseline": 1, "ours": 1})
+        with self.assertRaisesRegex(ValueError, "not ready for blind review"):
+            self.score_module["score_review"](
+                self.run_dir,
+                self.run_dir / "blind-review-form.json",
+            )
+
     def test_tampered_results_are_rejected(self):
         arms = [
             {"id": "baseline", "skill": None, "install_mode": "none", "invocation": "none"},

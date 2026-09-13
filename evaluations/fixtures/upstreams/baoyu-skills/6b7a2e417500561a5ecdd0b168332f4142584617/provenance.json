@@ -1,0 +1,168 @@
+{
+  "repository": "https://github.com/JimLiu/baoyu-skills",
+  "commit": "6b7a2e417500561a5ecdd0b168332f4142584617",
+  "license": "MIT",
+  "retrieved_at": "2026-09-13T00:32:32.431490+00:00",
+  "modifications": "No upstream source bytes changed. The repository-root LICENSE is copied byte-for-byte into skills/baoyu-article-illustrator/LICENSE so every prepared evaluation package carries its license. The fixture contains Markdown instructions and references only; no upstream code is installed or executed.",
+  "known_source_issues": [
+    "references/usage.md links to references/style-presets.md as though it were relative to the package root; from that file it resolves to a missing references/references/style-presets.md. The actual references/style-presets.md is present and both source bytes are preserved. Output-path templates in SKILL.md and references/workflow.md are examples, not package dependencies."
+  ],
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/LICENSE",
+      "sha256": "601839401f6ce68b7a8aec0f7ba247ab8ef0848113378220bec4b2615cc84ee7"
+    },
+    "skills/baoyu-article-illustrator/LICENSE": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/LICENSE",
+      "sha256": "601839401f6ce68b7a8aec0f7ba247ab8ef0848113378220bec4b2615cc84ee7"
+    },
+    "skills/baoyu-article-illustrator/prompts/system.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/prompts/system.md",
+      "sha256": "2683c79386d20f2c26e720a4702773be4b1fabd97519b1e48e74bca6b53e3d3e"
+    },
+    "skills/baoyu-article-illustrator/references/codex-imagegen.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/codex-imagegen.md",
+      "sha256": "e610aa3ed71961f6fb604947b0c6d58fdbdd66147162209ff15c8a91730c760d"
+    },
+    "skills/baoyu-article-illustrator/references/config/first-time-setup.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/config/first-time-setup.md",
+      "sha256": "5f518775639d5c9a814d51dcac60fd6dc49776b90460ef608a0df7cc53545159"
+    },
+    "skills/baoyu-article-illustrator/references/config/preferences-schema.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/config/preferences-schema.md",
+      "sha256": "69bcf6061743f96e7cdc971450836a126e469dda2771b901319345330d0851c9"
+    },
+    "skills/baoyu-article-illustrator/references/palettes/macaron.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/palettes/macaron.md",
+      "sha256": "29735369d5a56d0c24652806ff6326d1716a3c8fc8578e03f4cd8d31b80f1060"
+    },
+    "skills/baoyu-article-illustrator/references/palettes/mono-ink.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/palettes/mono-ink.md",
+      "sha256": "a45b5ba9656c56d44e3b4774cd8454bd68ea8a0ee93defa823906c7b1bb0b055"
+    },
+    "skills/baoyu-article-illustrator/references/palettes/neon.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/palettes/neon.md",
+      "sha256": "9b2689b9dc7d0d3382f9f0a7a80c25ce7305e1cdb58e5699f2dbb969af4a8349"
+    },
+    "skills/baoyu-article-illustrator/references/palettes/warm.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/palettes/warm.md",
+      "sha256": "6db979618df3b217ad0f46a4fe897e32bf08c0e3189a3873400b2ffc7175041c"
+    },
+    "skills/baoyu-article-illustrator/references/prompt-construction.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/prompt-construction.md",
+      "sha256": "4507d26d49ea875cf0d909f17f7575ae0edef7a759a393f149b0ac497f6233f3"
+    },
+    "skills/baoyu-article-illustrator/references/style-presets.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/style-presets.md",
+      "sha256": "4dd2b3b6fc176b9fbb862245cc9f73bbcf4c317c9faed7be061954a752214cc9"
+    },
+    "skills/baoyu-article-illustrator/references/styles/blueprint.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/blueprint.md",
+      "sha256": "4836bdd8c4fcb17694b3010fd21c091e0b2234dca2aafe0ac5fd046d5fb24f67"
+    },
+    "skills/baoyu-article-illustrator/references/styles/chalkboard.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/chalkboard.md",
+      "sha256": "242f11f226016b388c4d69f1c950fff78a0462ebe47109150b8cfde53b793366"
+    },
+    "skills/baoyu-article-illustrator/references/styles/editorial.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/editorial.md",
+      "sha256": "ca096334d70ff7b96ab32ec7796e0c49d60eba1fdb934249559976c33daef008"
+    },
+    "skills/baoyu-article-illustrator/references/styles/elegant.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/elegant.md",
+      "sha256": "8bc8ad9a290646f806e2447af513f9c4df76befae6aa3ad777b02bb514b92cfc"
+    },
+    "skills/baoyu-article-illustrator/references/styles/fantasy-animation.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/fantasy-animation.md",
+      "sha256": "5bc59a1780be6682a21d211b9b4289056c7f44aeba8016560bd2ef7ddb454e3d"
+    },
+    "skills/baoyu-article-illustrator/references/styles/flat-doodle.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/flat-doodle.md",
+      "sha256": "094beb61d541c2b2afc73a1162a1f4962e8ef6c4caa03f67c09c2f8637b52e24"
+    },
+    "skills/baoyu-article-illustrator/references/styles/flat.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/flat.md",
+      "sha256": "999afbadd7a32138e6036ee13f23da9f199e82deca351dfec2f29ed9abced28c"
+    },
+    "skills/baoyu-article-illustrator/references/styles/ink-notes.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/ink-notes.md",
+      "sha256": "5fcb449e9343271498c23642618ebc6b4df1029c3356f42c78abb1c9fd7128a1"
+    },
+    "skills/baoyu-article-illustrator/references/styles/intuition-machine.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/intuition-machine.md",
+      "sha256": "7009797b135ef1d9752b81d9bf71d4035039207602edb18b74f8c6bd82413201"
+    },
+    "skills/baoyu-article-illustrator/references/styles/minimal.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/minimal.md",
+      "sha256": "9f45c7852e8b053e1083737a3ca79b175556121951792f814b47f9c596be6e1a"
+    },
+    "skills/baoyu-article-illustrator/references/styles/nature.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/nature.md",
+      "sha256": "44302deb399cdd5856439b493ffb74925866f238c8bc6379094cab93b05ed631"
+    },
+    "skills/baoyu-article-illustrator/references/styles/notion.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/notion.md",
+      "sha256": "52efbd2587c46104e2b47bf2e259a3a1bb8546ad5ed15b274a374d9af1a5b314"
+    },
+    "skills/baoyu-article-illustrator/references/styles/pixel-art.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/pixel-art.md",
+      "sha256": "3c6a7ce22957179e3a344c4ec8085793951ba2dbab59d8315fe1b5af24a19246"
+    },
+    "skills/baoyu-article-illustrator/references/styles/playful.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/playful.md",
+      "sha256": "ea58b9791b4babd3eaeb2d7285fec44ad7e58d3416ec415e564d7207d00d0940"
+    },
+    "skills/baoyu-article-illustrator/references/styles/retro.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/retro.md",
+      "sha256": "6f69883852c693f314f0f1dd3ab1f025aaf4bd4c6f0708dbeeaa74fe0c9066d7"
+    },
+    "skills/baoyu-article-illustrator/references/styles/scientific.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/scientific.md",
+      "sha256": "0d360a3ab10df6d6dd47c9cee76fa18e3a57fd805d52df84e0b7e24ce315befa"
+    },
+    "skills/baoyu-article-illustrator/references/styles/screen-print.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/screen-print.md",
+      "sha256": "52faa0188b7beb71d118d6ef4e936891e615d02eadada8ccf8b79665f605a9f2"
+    },
+    "skills/baoyu-article-illustrator/references/styles/sketch-notes.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/sketch-notes.md",
+      "sha256": "a947e797341ad6aba1871ea1b80ab49957b3409648da9797fb1ecd7e71176c7a"
+    },
+    "skills/baoyu-article-illustrator/references/styles/sketch.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/sketch.md",
+      "sha256": "e74cc5696fbeb7e52be9cf126784c4a8e58787a5810e3b84f2972cdc69689aae"
+    },
+    "skills/baoyu-article-illustrator/references/styles/vector-illustration.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/vector-illustration.md",
+      "sha256": "9b28324319a29f82480401e092d513f9b212571d283bc43c6a8d029f829ed027"
+    },
+    "skills/baoyu-article-illustrator/references/styles/vintage.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/vintage.md",
+      "sha256": "b10f965bcdd7951927614a958159d1081aba3f841c97096c704f8ab2431642a6"
+    },
+    "skills/baoyu-article-illustrator/references/styles/warm.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/warm.md",
+      "sha256": "bebcacbf585b7dd47939a58923a09708aec708afdd88b0c372efe3c1fe461394"
+    },
+    "skills/baoyu-article-illustrator/references/styles/watercolor.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles/watercolor.md",
+      "sha256": "d66b08079ea4d99d80691fe2a0aef6075ad58ec7adcc1f8976d7ac0249804cb4"
+    },
+    "skills/baoyu-article-illustrator/references/styles.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/styles.md",
+      "sha256": "f11809de146dd728d7878e5992f11b46d925c7bd659538022a302d2282931f9a"
+    },
+    "skills/baoyu-article-illustrator/references/usage.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/usage.md",
+      "sha256": "68656f67b4977d5bfda2a087da3ace383e8edb20c171ee031ddaf6ef11561e8d"
+    },
+    "skills/baoyu-article-illustrator/references/workflow.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/references/workflow.md",
+      "sha256": "5e63d47a1dea9e8393b97cb0f5f19e55f57d82ccd785dfacafbb2c5bb5c69f2d"
+    },
+    "skills/baoyu-article-illustrator/SKILL.md": {
+      "url": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/6b7a2e417500561a5ecdd0b168332f4142584617/skills/baoyu-article-illustrator/SKILL.md",
+      "sha256": "ce1c7bfe9b93e5afac1dbeac95a03f8abf8c102aeecc34a33d8f13dc10e64acd"
+    }
+  }
+}

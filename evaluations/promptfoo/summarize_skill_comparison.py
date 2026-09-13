@@ -11,7 +11,12 @@ import statistics
 
 
 SCHEMA_VERSION = 1
-FORBIDDEN_ITEM_TYPES = {"mcp_tool_call", "web_search_call"}
+FORBIDDEN_ITEM_TYPES = {
+    "command_execution",
+    "file_change",
+    "mcp_tool_call",
+    "web_search_call",
+}
 
 
 def json_bytes(value: object) -> bytes:

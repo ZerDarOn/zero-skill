@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十七轮隐式发现宿主边界**。已有十六个可试用的 `experimental` 技能，活动用例共148项。12条合成单轮轨迹中，baseline 6/6 传输完整；probe 6/6 选中目标 Skill 路径，但正文加载0/6、策略阻断6/6。隐式门禁未过，业务质量对照已停止；结果不改变任何 Skill、版本、catalog、evidence 或活动用例。
+当前阶段：**第二十八轮 Windows 原生沙箱运行前门禁**。已有十六个可试用的 `experimental` 技能，活动用例共148项。直接受限 canary 与 `codex doctor` 都定位到当前宿主沙箱 provisioning 失败；新门禁会在任何模型调用前停止依赖命令执行的评测。本轮模型调用为0，不改变任何 Skill、版本、catalog、evidence 或活动用例。
 
 ## 从这里开始
+
+- [第二十八轮质量打磨：Windows 原生沙箱运行前门禁](docs/quality-polish-round-28.md)
+- [原生沙箱第二十八轮机器报告](evaluations/reports/native-host-sandbox-preflight-round-28.json)
 
 - [第二十七轮质量打磨：隐式发现宿主边界](docs/quality-polish-round-27.md)
 - [隐式发现第二十七轮机器报告](evaluations/reports/implicit-discovery-host-boundary-round-27.json)

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "comparison_id": "native-host-sandbox-preflight-21",
+  "purpose": "separate Windows sandbox startup health from model routing and Skill body loading",
+  "quality_scored": false,
+  "model_calls": 0,
+  "platform": "windows",
+  "canary": {
+    "permission_profile": ":read-only",
+    "command_kind": "powershell-get-location-and-fixed-token",
+    "network_required": false,
+    "write_required": false,
+    "pass_requires_exit_code": 0,
+    "pass_requires_exact_stdout": "CODEX_WINDOWS_SANDBOX_CANARY_OK"
+  },
+  "classification": {
+    "windows sandbox failed": "sandbox-provisioning-failed",
+    "blocked by policy": "command-policy-blocked",
+    "zero exit with wrong output": "canary-output-mismatch",
+    "timeout or spawn error": "canary-execution-error"
+  },
+  "decision_rule": {
+    "failed_canary_blocks_model_execution": true,
+    "failed_canary_changes_skill_quality_claim": false,
+    "failed_canary_authorizes_skill_change": false,
+    "doctor_output_is_diagnostic_support_only": true
+  }
+}

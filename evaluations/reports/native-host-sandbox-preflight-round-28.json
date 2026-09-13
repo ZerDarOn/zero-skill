@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "report_id": "native-host-sandbox-preflight-round-28",
+  "generated_at": "2026-09-13T00:25:55.823444+00:00",
+  "scope": {
+    "comparison_kind": "infrastructure-diagnostic",
+    "quality_scored": false,
+    "probe_is_synthetic": true,
+    "model_calls": 0,
+    "business_trajectories": 0
+  },
+  "protocol": {
+    "path": "evaluations/comparisons/native-host-sandbox-preflight-21/protocol.json",
+    "sha256": "7e6f885f92d839164a9f326d41d64c822f1a32d2fbf306828e41a416da239de8",
+    "preregistered_before_diagnostic": false
+  },
+  "implementation": {
+    "preflight": {
+      "path": "evaluations/native_resume/preflight_host_sandbox.py",
+      "sha256": "7586c97690b4e9b82a9b0ec8e556e51315430333980c6110723481513fd310f7"
+    },
+    "wrapper": {
+      "path": "evaluations/native_resume/run_native_resume_with_host_preflight.py",
+      "sha256": "784f39b804daafd56982b2ba8fca90e67cc3aea1649c9e99ff01b82882f6c997"
+    },
+    "delegated_runner": {
+      "path": "evaluations/native_resume/run_native_resume.py",
+      "sha256": "cac3e238d717f7a268d9b6800bec11002eaa5d3e54ddf2458f65a2983e9912b5"
+    },
+    "activation": "run the preflight wrapper with native_resume.require_host_sandbox_preflight=true",
+    "default_for_existing_specs": false,
+    "failure_behavior": "write redacted preflight and stop metadata, then exit before model execution",
+    "historical_runner_bytes_changed": false
+  },
+  "ignored_run": {
+    "run_id": "native-host-sandbox-preflight-20260913-v3",
+    "supersedes_diagnostic_run": "native-host-sandbox-preflight-20260913-v2",
+    "run_meta_sha256": "dbf79cb1b4256dd419fcb350219bf48bfb22bcfa72ffb81c278d3da11e18df19",
+    "host_sandbox_preflight_sha256": "d67f31b3633319444a5f27ce35e71ea415e42d25ec65ed34536d83229b9b8290",
+    "doctor_sandbox_projection_sha256": "366f60f52747c538f828a2adb6961e17739384842f2b00d71f52da9015696fc4"
+  },
+  "host": {
+    "codex_version": "codex-cli 0.154.0-alpha.6.2",
+    "platform": "windows",
+    "canary": {
+      "schema_version": 1,
+      "platform": "windows",
+      "purpose": "prove restricted native command startup before model evaluation",
+      "permission_profile": ":read-only",
+      "command": [
+        "<codex>",
+        "sandbox",
+        "--permission-profile",
+        ":read-only",
+        "--cd",
+        "<WORKSPACE>",
+        "powershell.exe",
+        "-NoProfile",
+        "-NonInteractive",
+        "-Command",
+        "if ((Get-Location).Path) { Write-Output 'CODEX_WINDOWS_SANDBOX_CANARY_OK' }"
+      ],
+      "codex_version": "codex-cli 0.154.0-alpha.6.2",
+      "codex_version_probe_error": null,
+      "exit_code": 1,
+      "error": null,
+      "duration_ms": 78,
+      "stdout": "",
+      "stderr": "windows sandbox failed: helper_unknown_error: apply deny-read ACLs\n",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stderr_sha256": "ee302f534bdc321b000c1ddd8158bd18efdd142e0f5e62c389deee87fc25bfcc",
+      "passed": false,
+      "status": "sandbox-provisioning-failed",
+      "error_code": "helper_unknown_error",
+      "error_detail": "apply deny-read ACLs"
+    },
+    "doctor_sandbox": {
+      "schema_version": 1,
+      "source": "codex doctor --json",
+      "doctor_exit_code": 1,
+      "raw_stdout_sha256": "efbe062ca268a55faeeead4908696bb31920846e0754bc5a633dd5db2f936b8b",
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostic_available": true,
+      "status": "fail",
+      "summary": "elevated Windows sandbox provisioning recorded a structured failure",
+      "approval_policy": "OnRequest",
+      "denied_read_restrictions": "false",
+      "denied_read_rules": "0",
+      "error_code": "helper_unknown_error",
+      "execve_wrapper_helper": "none",
+      "filesystem_sandbox": "restricted",
+      "network_sandbox": "restricted",
+      "sandbox_backend": "elevated",
+      "sandbox_provisioning": "failed",
+      "remediation": "repair or reinstall the Codex CLI from an approved distribution"
+    }
+  },
+  "round_27_correlation": {
+    "report_path": "evaluations/reports/implicit-discovery-host-boundary-round-27.json",
+    "report_sha256": "8e1687e9bf0d94f8bd5a3df44cafc93562e3ae71063c67d48188957cd583c636",
+    "exploratory_v6_run_meta_sha256": "f4d4044b86b1c828adc6025719834bd95eb7a7654cdfd00f1bdd99181d7cbdaf",
+    "exploratory_v6_native_results_sha256": "cd98c58280558f491a0040152d61db5f98b03f6e272e674b9687e01f197412d3",
+    "observed_route_selected": 6,
+    "observed_body_loaded": 0,
+    "observed_policy_blocked": 6,
+    "temporary_helper_warning_present_in_v6": false
+  },
+  "hypotheses": [
+    {
+      "id": "temporary-codex-home",
+      "assessment": "rejected-as-sufficient-cause",
+      "evidence": "Round 27 exploratory v6 moved execution workspace and isolated HOME under the repository, emitted no temporary-helper warning, and still blocked Get-Location and exact Skill reads."
+    },
+    {
+      "id": "user-or-project-command-rules",
+      "assessment": "rejected-for-round-27-child",
+      "evidence": "Recorded child commands used both --ignore-user-config and --ignore-rules; the direct sandbox canary contains no model or project rule routing."
+    },
+    {
+      "id": "windows-sandbox-provisioning",
+      "assessment": "supported-on-current-host",
+      "evidence": "The direct restricted canary failed before command startup with helper_unknown_error, and codex doctor independently reported elevated sandbox provisioning failed with the same error code."
+    }
+  ],
+  "decision": {
+    "status": "host-sandbox-unhealthy",
+    "implicit_business_comparison_authorized": false,
+    "model_run_started": false,
+    "model_calls": 0,
+    "retries": 0,
+    "quality_claim_changed": false,
+    "skill_changed": false,
+    "version_changed": false,
+    "catalog_changed": false,
+    "evidence_changed": false,
+    "active_cases_added": 0,
+    "endpoint_protection_confirmed_as_root_cause": false,
+    "next_required_evidence": "A fresh restricted canary must pass after the host sandbox is repaired before rerunning implicit Skill loading."
+  },
+  "limitations": [
+    "This diagnosis applies to the current Windows host and Codex CLI build only.",
+    "The doctor warning about endpoint protection is a possible repair lead, not evidence that Microsoft Defender caused the failure.",
+    "No repaired-host rerun exists yet, so the report proves the current blocker but not the eventual repair path.",
+    "The diagnostic does not score any business answer or measure any Skill quality."
+  ],
+  "evidence_projection": {
+    "algorithm": "sha256-canonical-json-v1",
+    "sha256": "1887f98a449e194154f8ea7799f2370b1f9b204f373b6395012d828b7bad6b13"
+  },
+  "review_chain": {
+    "final_independent_review": {
+      "path": "evaluations/comparisons/native-host-sandbox-preflight-21/final-review-independent.md",
+      "sha256": "a222d46a253f1ab5a46c1b77b6e17d66ba23490d0498bc85cdd3648d87e551e9",
+      "status": "completed",
+      "independent": true,
+      "open_p0_p3_findings": 0,
+      "workspace_modified_by_reviewer": false
+    }
+  }
+}

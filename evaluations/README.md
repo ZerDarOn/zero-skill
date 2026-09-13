@@ -198,3 +198,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第二十七轮隐式发现宿主边界
 
 第二十七轮先用合成 probe 校准自然任务下的路由选择与正文加载，再决定是否允许业务 Skill 隐式质量对照。12条冻结单轮轨迹全部完成：baseline 6/6 严格返回备用值且传输完整；probe 6/6 留下精确目标 Skill 路径读取尝试，但正文令牌加载0/6、策略阻断6/6、传输有效0/6。专用 analyzer 判为 `route-selected-load-blocked`，零容忍门禁失败，因此业务对照停止，Skill、版本、catalog、evidence 与活动用例均不变。详见[第二十七轮报告](../docs/quality-polish-round-27.md)与[机器证据](reports/implicit-discovery-host-boundary-round-27.json)。
+
+## 第二十八轮 Windows 原生沙箱运行前门禁
+
+第二十八轮用零模型调用的受限 canary 继续定位第二十七轮阻断。`:read-only` 原生 sandbox 在命令启动前返回 `helper_unknown_error: apply deny-read ACLs`，`codex doctor` 同时报告 elevated Windows sandbox provisioning 失败。新增可选运行前门禁，启用后在失败时保存脱敏证据并于任何模型调用前停止；原有纯文本评测默认不受影响。本轮没有业务评分或 Skill 变更，Microsoft Defender 只记录为未经确认的修复线索。详见[第二十八轮报告](../docs/quality-polish-round-28.md)与[机器证据](reports/native-host-sandbox-preflight-round-28.json)。

@@ -194,3 +194,7 @@ python scripts/validate_collection.py --cases-fingerprint evaluations/cases/comi
 ## 第二十六轮显式调用可靠性
 
 第二十六轮把第二十五轮 v1 的单次显式 Skill 调用失效从回答质量中拆出。canary 与 business 两个队列各执行40条单轮轨迹，共80条；80/80 technical valid、80/80 operational success，baseline技术失败、canary Skill失败、canary令牌泄漏和business Skill失败均为0。canary probe的两个隐藏令牌各精确返回10次，business `conversation-rehearsal` 20/20保持单一最终消息且无策略阻断或过程播报。结果仅说明本次冻结条件下未复现，不重新评分质量，不证明每条business轨迹加载了正文，也不改变Skill、版本、catalog、evidence或活动用例。详见[第二十六轮报告](../docs/quality-polish-round-26.md)与[机器证据](reports/explicit-invocation-reliability-round-26.json)。
+
+## 第二十七轮隐式发现宿主边界
+
+第二十七轮先用合成 probe 校准自然任务下的路由选择与正文加载，再决定是否允许业务 Skill 隐式质量对照。12条冻结单轮轨迹全部完成：baseline 6/6 严格返回备用值且传输完整；probe 6/6 留下精确目标 Skill 路径读取尝试，但正文令牌加载0/6、策略阻断6/6、传输有效0/6。专用 analyzer 判为 `route-selected-load-blocked`，零容忍门禁失败，因此业务对照停止，Skill、版本、catalog、evidence 与活动用例均不变。详见[第二十七轮报告](../docs/quality-polish-round-27.md)与[机器证据](reports/implicit-discovery-host-boundary-round-27.json)。

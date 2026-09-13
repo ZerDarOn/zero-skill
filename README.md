@@ -2,9 +2,12 @@
 
 把可复用的方法做成清晰、可组合、可验证的技能。覆盖开发、研究、创作、办公、人物、关系和生活。
 
-当前阶段：**第二十六轮显式 Skill 调用可靠性**。已有十六个可试用的 `experimental` 技能，活动用例共148项。canary 与 business 两个正式队列共80条单轮轨迹，全部通过技术与运行完整性检查；四项零容忍门禁均为0。结果说明第二十五轮 v1 的单次失效未在本轮冻结条件下复现，但不重新评分回答质量，也不证明长期零故障；`conversation-rehearsal` 仍为0.1.1。
+当前阶段：**第二十七轮隐式发现宿主边界**。已有十六个可试用的 `experimental` 技能，活动用例共148项。12条合成单轮轨迹中，baseline 6/6 传输完整；probe 6/6 选中目标 Skill 路径，但正文加载0/6、策略阻断6/6。隐式门禁未过，业务质量对照已停止；结果不改变任何 Skill、版本、catalog、evidence 或活动用例。
 
 ## 从这里开始
+
+- [第二十七轮质量打磨：隐式发现宿主边界](docs/quality-polish-round-27.md)
+- [隐式发现第二十七轮机器报告](evaluations/reports/implicit-discovery-host-boundary-round-27.json)
 
 - [第二十六轮质量打磨：显式 Skill 调用可靠性](docs/quality-polish-round-26.md)
 - [显式调用第二十六轮机器报告](evaluations/reports/explicit-invocation-reliability-round-26.json)
